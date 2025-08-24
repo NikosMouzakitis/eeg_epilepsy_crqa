@@ -1,0 +1,337 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  25 AUG 2025 00:53
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen135
+\lightrulewidth=\dimen136
+\cmidrulewidth=\dimen137
+\belowrulesep=\dimen138
+\belowbottomsep=\dimen139
+\aboverulesep=\dimen140
+\abovetopsep=\dimen141
+\cmidrulesep=\dimen142
+\cmidrulekern=\dimen143
+\defaultaddspace=\dimen144
+\@cmidla=\count175
+\@cmidlb=\count176
+\@aboverulesep=\dimen145
+\@belowrulesep=\dimen146
+\@thisruleclass=\count177
+\@lastruleclass=\count178
+\@thisrulewidth=\dimen147
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen148
+\Gin@req@width=\dimen149
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen150
+\ar@mcellbox=\box45
+\extrarowheight=\dimen151
+\NC@list=\toks17
+\extratabsurround=\skip49
+\backup@length=\skip50
+\ar@cellbox=\box46
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count179
+\l__pdf_internal_box=\box47
+)
+(./main.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count180
+\scratchdimen=\dimen152
+\scratchbox=\box48
+\nofMPsegments=\count181
+\nofMParguments=\count182
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count183
+\MPscratchDim=\dimen153
+\MPnumerator=\count184
+\makeMPintoPDFobject=\count185
+\everyMPtoPDFconversion=\toks19
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 100.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 100.
+ [2]
+Overfull \hbox (5.83167pt too wide) in paragraph at lines 209--224
+[]\OT1/cmr/m/n/10 Researchers in [[]], have ap-plied RQA on resting-state fMRI 
+data from TgF344-
+ []
+
+[3] [4]
+Overfull \hbox (111.54247pt too wide) in paragraph at lines 314--344
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5] [6]
+Overfull \hbox (6.81506pt too wide) in paragraph at lines 414--415
+[]\OT1/cmr/m/n/10 Metrics where \OT1/cmr/m/it/10 lower \OT1/cmr/m/n/10 val-ues 
+in-di-cate bet-ter per-for-mance (\OT1/cmr/bx/n/10 RMSE\OT1/cmr/m/n/10 , \OT1/c
+mr/bx/n/10 NRMSE\OT1/cmr/m/n/10 ,
+ []
+
+[7]
+<eeg_metrics_result.png, id=32, 1280.6244pt x 710.4141pt>
+File: eeg_metrics_result.png Graphic file (type png)
+<use eeg_metrics_result.png>
+Package pdftex.def Info: eeg_metrics_result.png  used on input line 438.
+(pdftex.def)             Requested size: 379.5021pt x 210.52426pt.
+
+Overfull \hbox (34.5021pt too wide) in paragraph at lines 438--439
+ [][] 
+ []
+
+<wav1.png, id=34, 1125.9666pt x 730.6497pt>
+File: wav1.png Graphic file (type png)
+<use wav1.png>
+Package pdftex.def Info: wav1.png  used on input line 449.
+(pdftex.def)             Requested size: 413.99895pt x 268.65268pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 449--450
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<wav2.png, id=35, 867.9627pt x 730.6497pt>
+File: wav2.png Graphic file (type png)
+<use wav2.png>
+Package pdftex.def Info: wav2.png  used on input line 457.
+(pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 457--458
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<wav3.png, id=36, 867.9627pt x 730.6497pt>
+File: wav3.png Graphic file (type png)
+<use wav3.png>
+Package pdftex.def Info: wav3.png  used on input line 465.
+(pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 465--466
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<wav4.png, id=37, 867.9627pt x 730.6497pt>
+File: wav4.png Graphic file (type png)
+<use wav4.png>
+Package pdftex.def Info: wav4.png  used on input line 473.
+(pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 473--474
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<wav5.png, id=38, 867.9627pt x 730.6497pt>
+File: wav5.png Graphic file (type png)
+<use wav5.png>
+Package pdftex.def Info: wav5.png  used on input line 480.
+(pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 480--481
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8 <./eeg_metrics_result.png>] (./main.bbl [9 <./wav1.png>] [10 <./wav2.png>]
+[11 <./wav3.png>]
+Underfull \hbox (badness 2376) in paragraph at lines 41--45
+\OT1/cmr/m/n/10 A dif-fer-en-tial biomarker based on re-cur-rence quan-tifi-ca-
+tion anal-y-sis
+ []
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 41--45
+\OT1/cmr/m/n/10 of EEG sig-nal and ge-netic al-go-rithm for epilepsy di-ag-no-s
+is.  \OT1/cmr/m/it/10 Jour-
+ []
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 41--45
+\OT1/cmr/m/it/10 nal of Ar-ti-fi-cial In-tel-li-gence and Sys-tem Mod-elling\OT
+1/cmr/m/n/10 , 2(2):74--85, 2024.
+ []
+
+[12 <./wav4.png>]
+Underfull \hbox (badness 5817) in paragraph at lines 50--51
+[]\OT1/cmr/m/n/10 Fan, M. and Chou, C.-A. (2019). De-tect-ing ab-nor-mal pat-te
+rn
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+\OT1/cmr/m/n/10 of epilep-tic seizures via tem-po-ral syn-chro-niza-tion of EEG
+ sig-
+ []
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 50--51
+\OT1/cmr/m/n/10 nals. \OT1/cmr/m/it/10 IEEE Trans-ac-tions on Biomed-i-cal En-g
+i-neer-ing\OT1/cmr/m/n/10 , 66(3), 601-608.
+ []
+
+[13 <./wav5.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+[]\OT1/cmr/m/n/10 Rangaprakash, D. (2014). Con-nec-tiv-ity anal-y-sis of mul-ti
+-chan-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+\OT1/cmr/m/n/10 nel EEG sig-nals us-ing re-cur-rence based phase syn-chro-niza-
+
+ []
+
+
+Underfull \hbox (badness 6825) in paragraph at lines 65--66
+\OT1/cmr/m/n/10 tion tech-nique. \OT1/cmr/m/it/10 Com-put-ers in Bi-ol-ogy and 
+Medicine, 46\OT1/cmr/m/n/10 , 11-21.
+ []
+
+
+Underfull \hbox (badness 2608) in paragraph at lines 70--74
+\OT1/cmr/m/n/10 sients,'' \OT1/cmr/m/it/10 Physics Let-ters A\OT1/cmr/m/n/10 , 
+vol. 223, no. 4-5, pp. 255--260, 1996.
+ []
+
+[14]) [15] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1359 strings out of 481239
+ 19609 string characters out of 5920378
+ 258567 words of memory out of 5000000
+ 16649 multiletter control sequences out of 15000+600000
+ 534705 words of font info for 32 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 30i,8n,25p,483b,216s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (15 pages, 1723572 bytes).
+PDF statistics:
+ 99 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+
