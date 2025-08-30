@@ -11,6 +11,204 @@ import re
 import subprocess
 from scipy.stats import median_abs_deviation
 
+ edf_urls = [
+
+                  # patient 1
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_03.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_04.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_06.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_07.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_08.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_09.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_10.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_11.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_12.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_15.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_16.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_18.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_21.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_26.edf",
+                # patient 2
+        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_01.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_02.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_03.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_16.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_16+.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_19.edf",
+                  #patient 3
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_11.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_12.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_13.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_14.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_15.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_16.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_17.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_01.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_02.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_03.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_04.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_34.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_35.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_36.edf",
+                #patient 4
+        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_02.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_03.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_04.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_05.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_08.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_28.edf",
+                  #patient 5
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_27.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_28.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_29.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_30.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_31.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_06.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_13.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_16.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_17.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_22.edf",
+                  #patient 6
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_05.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_06.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_07.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_08.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_15.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_16.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_17.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_01.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_04.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_09.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_10.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_13.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_18.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_24.edf",
+                  #patient 7
+        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_02.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_03.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_04.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_12.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_13.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_19.edf",
+                  # patient 8
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_15.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_16.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_17.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_18.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_19.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_02.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_05.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_11.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_13.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_21.edf",
+
+        #
+                  #patient 9
+        "https://physionet.org/files/chbmit/1.0.0/chb09/chb09_06.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb09/chb09_08.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb09/chb09_19.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb09/chb09_03.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb09/chb09_04.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb09/chb09_15.edf",
+
+                 #patient 10
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_12.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_20.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_27.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_30.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_31.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_38.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_89.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_01.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_02.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_03.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_04.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_05.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_06.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb10/chb10_07.edf",
+
+                  #patient 11
+        "https://physionet.org/files/chbmit/1.0.0/chb11/chb11_82.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb11/chb11_92.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb11/chb11_99.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb11/chb11_04.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb11/chb11_05.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb11/chb11_06.edf",
+
+
+                  #patient 12
+
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_06.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_08.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_09.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_10.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_11.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_23.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_27.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_28.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_29.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_33.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_36.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_38.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_42.edf",
+
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_19.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_20.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_21.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_24.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_32.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_34.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_35.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_37.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_40.edf",
+        "https://physionet.org/files/chbmit/1.0.0/chb12/chb12_41.edf",
+        #----missing 3 to be perfectly balanced.
+
+
+                  #patient 13
+
+
+                  #patient 14
+
+
+                  #patient 15
+
+
+                  #patient 16
+
+
+                  #patient 17
+
+
+                  #patient 18
+
+
+                  #patient 19
+
+
+                  #patient 20
+
+
+                  #patient 21
+
+
+                  #patient 22
+
+
+
+    ]
+
 # Mount Google Drive
 drive.mount('/content/drive')
 
@@ -150,8 +348,8 @@ def manual_upload_fallback(output_dir):
         return local_path
     return None
 
-def process_and_save_csv(edf_path, output_dir, file_id):
-    """Process EDF file, filter desired channels, rename T8-P8-0 or T8-P8 to T8-P8, drop T8-P8-1 and non-EEG channels, and save to CSV."""
+def process_and_save_npy(edf_path, output_dir, file_id):
+    """Process EDF file, filter desired channels, rename T8-P8-0 or T8-P8 to T8-P8, drop T8-P8-1 and non-EEG channels, and save to .npy."""
     raw, sfreq = load_eeg_data(edf_path)
     if raw is None:
         return None, None, None
@@ -200,6 +398,7 @@ def process_and_save_csv(edf_path, output_dir, file_id):
     for i in range(n_channels):
         filtered[i] = apply_wavelet_filter_minmax(data[i], sfreq=sfreq)
 
+    # Ensure output array matches desired_channels order
     final_data = np.zeros((len(desired_channels), n_samples), dtype=float)
     final_channels = desired_channels.copy()
     for i, ch in enumerate(channels_to_keep):
@@ -207,15 +406,24 @@ def process_and_save_csv(edf_path, output_dir, file_id):
             idx = desired_channels.index(ch)
             final_data[idx] = filtered[i]
 
-    filtered_T = final_data.T
-    times = np.arange(n_samples) / sfreq
-    df = pd.DataFrame(filtered_T, columns=final_channels)
-    df.insert(0, "Time(s)", times)
+    # Save data as .npy
+    output_npy = os.path.join(output_dir, f"{file_id}_filtered.npy")
+    np.save(output_npy, final_data)
+    print(f"Saved filtered matrix to {output_npy}, shape={final_data.shape}, channels={final_channels}")
 
-    output_csv = os.path.join(output_dir, f"{file_id}_filtered.csv")
-    df.to_csv(output_csv, index=False)
-    print(f"Saved filtered matrix to {output_csv}, shape={filtered_T.shape}, channels={final_channels}")
-    return output_csv, final_channels, sfreq
+    # Save metadata (channels, sfreq, times) as a separate .npy file
+    times = np.arange(n_samples) / sfreq
+    metadata = {
+        'channels': final_channels,
+        'sfreq': sfreq,
+        'times': times
+    }
+    output_metadata = os.path.join(output_dir, f"{file_id}_metadata.npy")
+    np.save(output_metadata, metadata)
+    print(f"Saved metadata to {output_metadata}")
+
+    return output_npy, final_channels, sfreq
+
 
 def plot_first5_from_csv(csv_path, save_fig):
     """Plot first 5 channels from CSV and save plot."""
@@ -267,9 +475,10 @@ def process_multiple_edf_files(edf_urls, drive_output_dir, username=None, passwo
             continue
 
         try:
-            csv_path, channels, sfreq = process_and_save_csv(
+            csv_path, channels, sfreq = process_and_save_npy(
                 edf_path, drive_output_dir, file_id
             )
+
             if csv_path is None:
                 print(f"Failed to process {edf_filename}, skipping")
                 continue
@@ -292,139 +501,8 @@ def process_multiple_edf_files(edf_urls, drive_output_dir, username=None, passwo
                 print(f"Error deleting EDF file {edf_path}: {e}")
 
 if __name__ == "__main__":
-    edf_urls = [
-        '''
-                  # patient 1
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_03.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_04.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_06.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_07.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_08.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_09.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_10.edf",
-
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_11.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_12.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_15.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_16.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_18.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_21.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_26.edf",
-                # patient 2
-        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_01.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_02.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_03.edf",
-
-        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_16.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_16+.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb02/chb02_19.edf",
-                  #patient 3
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_11.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_12.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_13.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_14.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_15.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_16.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_17.edf",
-
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_01.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_02.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_03.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_04.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_34.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_35.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb03/chb03_36.edf",
-                #patient 4
-        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_02.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_03.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_04.edf",
-
-        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_05.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_08.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb04/chb04_28.edf",
-                  #patient 5
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_27.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_28.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_29.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_30.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_31.edf",
-
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_06.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_13.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_16.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_17.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb05/chb05_22.edf",
-                  #patient 6
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_05.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_06.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_07.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_08.edf",
-        '''
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_15.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_16.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_17.edf",
-
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_01.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_04.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_09.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_10.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_13.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_18.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb06/chb06_24.edf",
-                  #patient 7
-        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_02.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_03.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_04.edf",
-
-        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_12.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_13.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb07/chb07_19.edf",
-                  # patient 8
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_15.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_16.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_17.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_18.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_19.edf",
-
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_02.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_05.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_11.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_13.edf",
-        "https://physionet.org/files/chbmit/1.0.0/chb08/chb08_21.edf",
-
-                  #patient 9
-
-                  #patient 10
-
-                  #patient 11
-
-                  #patient 12
-
-                  #patient 13
-
-                  #patient 14
-
-                  #patient 15
-
-                  #patient 16
-
-                  #patient 17
-
-                  #patient 18
-
-                  #patient 19
-
-                  #patient 20
-
-                  #patient 21
-
-                  #patient 22
-
-
-
-    ]
     output_dir = "/content/drive/My Drive/EEG_Processed"
-    physionet_username = "PHYSIONET_NAME"
-    physionet_password = "PHYSIONET_PASS"
-    process_multiple_edf_files(edf_urls, output_dir, physionet_username, physionet_password)
+    physionet_username = ""
+    physionet_password = ""
 
+    process_multiple_edf_files(edf_urls, output_dir, physionet_username, physionet_password)
