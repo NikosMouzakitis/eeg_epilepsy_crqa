@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  25 AUG 2025 00:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  3 SEP 2025 00:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -149,14 +149,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 100.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 100.
- [2]
-Overfull \hbox (5.83167pt too wide) in paragraph at lines 209--224
+ [2] [3]
+Overfull \hbox (5.83167pt too wide) in paragraph at lines 219--234
 []\OT1/cmr/m/n/10 Researchers in [[]], have ap-plied RQA on resting-state fMRI 
 data from TgF344-
  []
 
-[3] [4]
-Overfull \hbox (111.54247pt too wide) in paragraph at lines 314--344
+[4]
+Overfull \hbox (111.54247pt too wide) in paragraph at lines 324--355
  [][] 
  []
 
@@ -164,7 +164,7 @@ Overfull \hbox (111.54247pt too wide) in paragraph at lines 314--344
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5] [6]
-Overfull \hbox (6.81506pt too wide) in paragraph at lines 414--415
+Overfull \hbox (6.81506pt too wide) in paragraph at lines 425--426
 []\OT1/cmr/m/n/10 Metrics where \OT1/cmr/m/it/10 lower \OT1/cmr/m/n/10 val-ues 
 in-di-cate bet-ter per-for-mance (\OT1/cmr/bx/n/10 RMSE\OT1/cmr/m/n/10 , \OT1/c
 mr/bx/n/10 NRMSE\OT1/cmr/m/n/10 ,
@@ -174,20 +174,20 @@ mr/bx/n/10 NRMSE\OT1/cmr/m/n/10 ,
 <eeg_metrics_result.png, id=32, 1280.6244pt x 710.4141pt>
 File: eeg_metrics_result.png Graphic file (type png)
 <use eeg_metrics_result.png>
-Package pdftex.def Info: eeg_metrics_result.png  used on input line 438.
+Package pdftex.def Info: eeg_metrics_result.png  used on input line 449.
 (pdftex.def)             Requested size: 379.5021pt x 210.52426pt.
 
-Overfull \hbox (34.5021pt too wide) in paragraph at lines 438--439
+Overfull \hbox (34.5021pt too wide) in paragraph at lines 449--450
  [][] 
  []
 
 <wav1.png, id=34, 1125.9666pt x 730.6497pt>
 File: wav1.png Graphic file (type png)
 <use wav1.png>
-Package pdftex.def Info: wav1.png  used on input line 449.
+Package pdftex.def Info: wav1.png  used on input line 460.
 (pdftex.def)             Requested size: 413.99895pt x 268.65268pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 449--450
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 460--461
  [][] 
  []
 
@@ -197,10 +197,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <wav2.png, id=35, 867.9627pt x 730.6497pt>
 File: wav2.png Graphic file (type png)
 <use wav2.png>
-Package pdftex.def Info: wav2.png  used on input line 457.
+Package pdftex.def Info: wav2.png  used on input line 468.
 (pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 457--458
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 468--469
  [][] 
  []
 
@@ -210,10 +210,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <wav3.png, id=36, 867.9627pt x 730.6497pt>
 File: wav3.png Graphic file (type png)
 <use wav3.png>
-Package pdftex.def Info: wav3.png  used on input line 465.
+Package pdftex.def Info: wav3.png  used on input line 476.
 (pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 465--466
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 476--477
  [][] 
  []
 
@@ -223,10 +223,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <wav4.png, id=37, 867.9627pt x 730.6497pt>
 File: wav4.png Graphic file (type png)
 <use wav4.png>
-Package pdftex.def Info: wav4.png  used on input line 473.
+Package pdftex.def Info: wav4.png  used on input line 484.
 (pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 473--474
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 484--485
  [][] 
  []
 
@@ -236,10 +236,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <wav5.png, id=38, 867.9627pt x 730.6497pt>
 File: wav5.png Graphic file (type png)
 <use wav5.png>
-Package pdftex.def Info: wav5.png  used on input line 480.
+Package pdftex.def Info: wav5.png  used on input line 491.
 (pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 480--481
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 491--492
  [][] 
  []
 
@@ -307,16 +307,21 @@ Underfull \hbox (badness 2608) in paragraph at lines 70--74
 vol. 223, no. 4-5, pp. 255--260, 1996.
  []
 
-[14]) [15] (./main.aux)
+[14]
+Underfull \hbox (badness 3000) in paragraph at lines 128--130
+\OT1/cmr/m/n/10 Lon-don, United King-dom. ACM, New York, NY, USA, 6 pages.
+ []
+
+) [15] (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1359 strings out of 481239
- 19609 string characters out of 5920378
- 258567 words of memory out of 5000000
- 16649 multiletter control sequences out of 15000+600000
+ 1361 strings out of 481239
+ 19631 string characters out of 5920378
+ 260571 words of memory out of 5000000
+ 16651 multiletter control sequences out of 15000+600000
  534705 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,8n,25p,483b,216s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -328,7 +333,7 @@ s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (15 pages, 1723572 bytes).
+Output written on main.pdf (15 pages, 1724676 bytes).
 PDF statistics:
  99 PDF objects out of 1000 (max. 8388607)
  61 compressed objects within 1 object stream

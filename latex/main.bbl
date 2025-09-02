@@ -124,6 +124,9 @@ Jiang, X., Bian, G.-B., and Tian, Z. (2019). Removal of artifacts from EEG signa
 
 \bibitem{sen2023}
 Sen, D., Mishra, B. B., and Pattnaik, P. K. (2023). A review of the filtering techniques used in EEG signal processing. In \emph{Proceedings of the 7th International Conference on Trends in Electronics and Informatics (ICOEI 2023)} (pp. 270–278). Bhubaneshwar, India.
+\bibitem{mihajlovic19}
+Mihajlović, D. (2019). EEG Spectra vs Recurrence Features in Understanding Cognitive Effort. \emph{In Proceedings of the 2019 International 
+Symposium on Wearable Computers (ISWC ’19)}, September 9–13, 2019, London, United Kingdom. ACM, New York, NY, USA, 6 pages. https://doi.org/10.1145/3341163.3347746
 
 
 \end{thebibliography}
