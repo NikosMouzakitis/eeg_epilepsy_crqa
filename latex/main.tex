@@ -3,9 +3,13 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{booktabs} 
-
+\usepackage{comment} 
+\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{array}
+\usepackage{multirow}       % For table multirows
+\usepackage[font=small,labelfont=bf]{caption} % For caption formatting
+
 
 \begin{document}
 
@@ -470,7 +474,7 @@
 			    \label{}
 			\end{figure}
 
-
+\begin{comment}
 			\begin{figure}[h]
 			    \centering
 			    \includegraphics[width=1.2\textwidth]{wav3.png}
@@ -492,12 +496,71 @@
 			    \caption{}
 			    \label{}
 			\end{figure}
+\end{comment}
 
+	\newpage
 
+		\section*{The Challenge of Phase Space Reconstruction}
 
+			The analysis of nonlinear dynamical systems from experimental time series, such as electroencephalographic (EEG) recordings, requires reconstruction of the underlying phase space from scalar measurements. According to Takens' embedding theorem \cite{takens1981}, a time series $x(t)$ can be embedded in an $m$-dimensional space using time-delay coordinates:
 
+			\begin{equation}
+			\vec{y}(t) = \left[x(t), x(t+\tau), x(t+2\tau), \ldots, x(t+(m-1)\tau)\right]
+			\end{equation}
 
+			where $m$ is the embedding dimension and $\tau$ is the time delay. The critical challenge lies in determining the appropriate values for these parameters to faithfully reconstruct the system's dynamics without distortion.
 
+			\subsection*{The Problem of False Neighbors}
+
+			When the embedding dimension $m$ is too small, the phase space becomes \emph{projected} rather than properly \emph{embedded}. This projection creates artificial neighborhoods where points appear close due to geometrical constraints rather than dynamical similarity. These are termed \emph{false nearest neighbors} \cite{kennel1992}.
+
+			\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.8\textwidth]{fnn_schematic.png}
+			\caption{Schematic illustration of false neighbors. In insufficient embedding dimension (down), points A and B appear neighbors due to projection. When proper embedding is employed(up), their true separation is revealed.}
+			\label{fig:fnn_schematic}
+			\end{figure}
+
+			Mathematically, two points $\vec{y}_i$ and $\vec{y}_j$ are false neighbors if their distance increases significantly when embedded in higher dimension:
+
+			\begin{equation}
+			\frac{\|\vec{y}_i^{(m+1)} - \vec{y}_j^{(m+1)}\|}{\|\vec{y}_i^{(m)} - \vec{y}_j^{(m)}\|} > R_{\text{tol}}
+			\end{equation}
+
+			where $R_{\text{tol}}$ is a tolerance threshold (typically 10--15).
+
+			\subsection*{The False Nearest Neighbors Algorithm}
+
+			The FNN method \cite{kennel1992} provides a systematic approach to determine the minimal sufficient embedding dimension:
+
+			\begin{enumerate}
+			\item For each point in dimension $m$, identify its nearest neighbor
+			\item Embed the data in dimension $m+1$
+			\item Calculate the relative distance increase between each point and its former neighbor
+			\item If the increase exceeds predetermined thresholds, classify as false neighbors
+			\item The optimal $m$ is the smallest dimension where the fraction of false neighbors drops below an acceptable level (typically 1--5\%)
+			\end{enumerate}
+
+			The algorithm employs both relative and absolute criteria:
+
+			\begin{align}
+			\text{Relative:} &\quad \frac{\|\vec{y}_i^{(m+1)} - \vec{y}_j^{(m+1)}\|}{\|\vec{y}_i^{(m)} - \vec{y}_j^{(m)}\|} > R_{\text{tol}} \\
+			\text{Absolute:} &\quad \|\vec{y}_i^{(m+1)} - \vec{y}_j^{(m+1)}\| > A_{\text{tol}} \cdot \sigma_x
+			\end{align}
+
+			where $\sigma_x$ is the standard deviation of the time series.
+
+			\subsection*{Application to EEG Analysis}
+
+			The application of FNN to EEG data is particularly important for several reasons:
+
+			\begin{itemize}
+			\item \textbf{Nonstationarity}: EEG signals exhibit nonstationary characteristics, making fixed embedding parameters suboptimal
+			\item \textbf{Noise contamination}: Experimental EEG contains measurement noise and artifacts that can distort phase space reconstruction
+			\item \textbf{Subject variability}: Optimal embedding may vary across subjects, brain states, and recording conditions
+			\item \textbf{Computational efficiency}: FNN provides a data-driven approach that adapts to individual recordings
+			\end{itemize}
+					
 	\newpage
 
 \bibliographystyle{plain}
