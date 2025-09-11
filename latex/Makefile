@@ -1,3 +1,4 @@
 all:
 	pdflatex main.tex
-	okular main.pdf
+	cp main.pdf mouzakitis_msc_thesis_draft.pdf
+	okular mouzakitis_msc_thesis_draft.pdf

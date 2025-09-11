@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  9 SEP 2025 01:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  12 SEP 2025 00:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -181,15 +181,6 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
 )
 \openout1 = `main.aux'.
 
@@ -296,14 +287,14 @@ Excluding 'comment' comment. [8 <./eeg_metrics_result.png>]
 <fnn_schematic.png, id=42, 500.87125pt x 405.515pt>
 File: fnn_schematic.png Graphic file (type png)
 <use fnn_schematic.png>
-Package pdftex.def Info: fnn_schematic.png  used on input line 519.
+Package pdftex.def Info: fnn_schematic.png  used on input line 526.
 (pdftex.def)             Requested size: 276.00105pt x 223.46706pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9 <./wav1.png>] [10 <./wav2.png>]
-Overfull \hbox (5.37534pt too wide) in paragraph at lines 558--559
+Overfull \hbox (5.37534pt too wide) in paragraph at lines 565--566
 []\OT1/cmr/bx/n/10 Nonstationarity\OT1/cmr/m/n/10 : EEG sig-nals ex-hibit non-s
 ta-tion-ary char-ac-ter-is-tics, mak-
  []
@@ -398,7 +389,7 @@ r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share
 /texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (16 pages, 939842 bytes).
+Output written on main.pdf (16 pages, 939819 bytes).
 PDF statistics:
  114 PDF objects out of 1000 (max. 8388607)
  75 compressed objects within 1 object stream

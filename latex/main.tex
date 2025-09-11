@@ -500,9 +500,12 @@
 
 	\newpage
 
-		\section*{The Challenge of Phase Space Reconstruction}
+		\section{The Challenge of Phase Space Reconstruction}
 
-			The analysis of nonlinear dynamical systems from experimental time series, such as electroencephalographic (EEG) recordings, requires reconstruction of the underlying phase space from scalar measurements. According to Takens' embedding theorem \cite{takens1981}, a time series $x(t)$ can be embedded in an $m$-dimensional space using time-delay coordinates:
+			The analysis of nonlinear dynamical systems from experimental time series, such as EEG recordings, requires 
+			the reconstruction of the underlying phase space from the scalar measurements of each channel. 
+			According to Takens' embedding theorem \cite{takens1981}, a time series $x(t)$ can be embedded 
+			in an $m$-dimensional space using time-delay coordinates:
 
 			\begin{equation}
 			\vec{y}(t) = \left[x(t), x(t+\tau), x(t+2\tau), \ldots, x(t+(m-1)\tau)\right]
@@ -510,9 +513,13 @@
 
 			where $m$ is the embedding dimension and $\tau$ is the time delay. The critical challenge lies in determining the appropriate values for these parameters to faithfully reconstruct the system's dynamics without distortion.
 
-			\subsection*{The Problem of False Neighbors}
 
-			When the embedding dimension $m$ is too small, the phase space becomes \emph{projected} rather than properly \emph{embedded}. This projection creates artificial neighborhoods where points appear close due to geometrical constraints rather than dynamical similarity. These are termed \emph{false nearest neighbors} \cite{kennel1992}.
+			When the embedding dimension $m$ is too small, 
+			the phase space becomes \emph{projected} rather than 
+			properly \emph{embedded}. 
+			This projection can create artificial neighborhoods where points appear to be close due to 
+			geometrical constraints of the space rather than their actual dynamical similarity. 
+			These are named as \emph{false nearest neighbors} \cite{kennel1992}.
 
 			\begin{figure}[h]
 			\centering
