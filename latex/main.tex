@@ -568,9 +568,9 @@
 
 			where $R_{\text{tol}}$ is a tolerance threshold (typically 10--15).
 
-			\subsection*{The False Nearest Neighbors Algorithm}
-
-			The FNN method \cite{kennel1992} provides a systematic approach to determine the minimal sufficient embedding dimension:
+			The False Nearest Neighbors(FNN) method \cite{kennel1992} 
+			provides a systematic approach to determine the 
+			minimal sufficient embedding dimension:
 
 			\begin{enumerate}
 			\item For each point in dimension $m$, identify its nearest neighbor
@@ -589,16 +589,14 @@
 
 			where $\sigma_x$ is the standard deviation of the time series.
 
-			\subsection*{Application to EEG Analysis}
 
-			The application of FNN to EEG data is particularly important for several reasons:
-
-			\begin{itemize}
-			\item \textbf{Nonstationarity}: EEG signals exhibit nonstationary characteristics, making fixed embedding parameters suboptimal
-			\item \textbf{Noise contamination}: Experimental EEG contains measurement noise and artifacts that can distort phase space reconstruction
-			\item \textbf{Subject variability}: Optimal embedding may vary across subjects, brain states, and recording conditions
-			\item \textbf{Computational efficiency}: FNN provides a data-driven approach that adapts to individual recordings
-			\end{itemize}
+			Applying FNN to EEG data is particularly 
+			important for several reasons. EEG signals exhibit 
+			nonstationary characteristics, making fixed embedding parameters 
+			suboptimal and contain measurement noise and artifacts 
+			that can distort phase space reconstruction. 
+			In addition the optimal embedding may vary across subjects, 
+			brain states, and recording conditions and FNN provides a data-driven approach that adapts to individual recordings.
 					
 	\newpage
 
