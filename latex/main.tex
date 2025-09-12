@@ -500,7 +500,37 @@
 
 	\newpage
 
-		\section{The Challenge of Phase Space Reconstruction}
+		\section{Phase space reconstruction of EEG signals}
+
+
+
+		\subsection{Determination of Embedding Parameters}
+		The reconstruction of the phase space from a single time series 
+		\( x(t) \) requires the specification of two parameters: 
+		the time delay \( \tau \) and the embedding dimension \( m \). 
+		These two parameters determine how the reconstruction will represent
+		and how close reveals the underlying dynamics without distortion.
+
+		\subsubsection{Time Delay \( \tau \) via Mutual Information}
+			The time delay \( \tau \) can be estimated by applying the 
+			\textit{Average Mutual Information} (AMI) method, a concept which was first introduced 
+			by Fraser and Swinney~\cite{fraser1986independent}. 
+			In contrast to linear autocorrelation, 
+			mutual information has the ability to capture both linear and nonlinear dependencies among
+			the original time series \( x(t) \) and its delayed version \( x(t + \tau) \).
+
+			The mutual information \( I(\tau) \) between \( x(t) \) and \( x(t + \tau) \) is defined as:
+			\[
+			I(\tau) = \sum_{x(t),\, x(t+\tau)} P(x(t), x(t+\tau)) \, \log_2 \left( \frac{P(x(t), x(t+\tau))}{P(x(t)) \, P(x(t+\tau))} \right)
+			\]
+			where \( P(\cdot) \) denotes probability.
+
+			The optimal time delay \( \tau \) is chosen as the value at which 
+			\( I(\tau) \) reaches its \textit{first minimum}. This value indicates a good compromise 
+			between independence (too small \( \tau \)) and irrelevance (too large \( \tau \)) 
+			of the coordinates in the embedding vector.
+
+			\subsubsection{Embedding Dimension \( m \) via False Nearest Neighbors}
 
 			The analysis of nonlinear dynamical systems from experimental time series, such as EEG recordings, requires 
 			the reconstruction of the underlying phase space from the scalar measurements of each channel. 
