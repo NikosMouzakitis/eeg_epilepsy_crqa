@@ -1,13 +1,13 @@
 \begin{thebibliography}{1} 
 
 \bibitem{frolov}
-\textit{Frolov, N., Maksimenko, V. and Hramov, A. (2020), Revealing a multiplex brain network through the analysis of recurrences} Chaos: An Interdisciplinary Journal of Nonlinear Science 30(12), 121108.
+	Frolov, N., Maksimenko, V. and Hramov, A. (2020), Revealing a multiplex brain network through the analysis of recurrences \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science} 30(12), 121108.
 
 \bibitem{kang}
- \textit{Recurrence quantification analysis of periodic dynamics in the default mode network in first-episode drug-naïve schizophrenia.} Psychiatry Research: Neuroimaging, 329, 111583.
+	Recurrence quantification analysis of periodic dynamics in the default mode network in first-episode drug-naïve schizophrenia. \textit{Psychiatry Research: Neuroimaging}, 329, 111583.
 
 \bibitem{rezaei}
-\textit{Recurrence quantification analysis of rs-fMRI data: A method to detect subtle changes in the TgF344-AD rat model.} Computer Methods and Programs in Biomedicine, 257, 108378.
+	Recurrence quantification analysis of rs-fMRI data: A method to detect subtle changes in the TgF344-AD rat model. \textit{Computer Methods and Programs in Biomedicine}, 257, 108378.
 
 \bibitem{lameu2018}
 Lameu, E. L., Yanchuk, S., Macau, E. E. N., Borges, F. S., Iarosz, K. C., Caldas, I. L., Protachevicz, P. R., Borges, R. R., Viana, R. L., Szezech, J. D., Batista, A. M. and Kurths, J. (2018). Recurrence quantification analysis for the identification of burst phase synchronisation. \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science}, \textit{28}(8), 085701. https://doi.org/10.1063/1.5024324
@@ -63,7 +63,6 @@ https://doi.org/10.1016/j.physa.2019.02.017
 
 \bibitem{rangaprakash2014}
 Rangaprakash, D. (2014). Connectivity analysis of multichannel EEG signals using recurrence based phase synchronization technique. \textit{Computers in Biology and Medicine, 46}, 11-21. https://doi.org/10.1016/j.compbiomed.2013.10.025
-
 
 
 \bibitem{trulla1996}
@@ -134,5 +133,10 @@ Takens, F. (1981). Detecting strange attractors in turbulence. In \emph{Lecture 
 
 \bibitem{kennel1992}
 Kennel, M. B., Brown, R., \& Abarbanel, H. D. I. (1992). Determining embedding dimension for phase-space reconstruction using a geometrical construction. \emph{Physical Review A}, 45(6), 3403–3411.
+
+\bibitem{fraser1986}
+Fraser, A. M., \& Swinney, H. L. (1986). Independent coordinates for strange
+attractors from mutual information. \textit{Physical Review A, 33}(2), 1134–1140.
+https://doi.org/10.1103/PhysRevA.33.1134
 
 \end{thebibliography}
