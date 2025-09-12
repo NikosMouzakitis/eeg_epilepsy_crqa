@@ -128,15 +128,25 @@ Sen, D., Mishra, B. B., and Pattnaik, P. K. (2023). A review of the filtering te
 Mihajlović, D. (2019). EEG Spectra vs Recurrence Features in Understanding Cognitive Effort. \emph{In Proceedings of the 2019 International 
 Symposium on Wearable Computers (ISWC ’19)}, September 9–13, 2019, London, United Kingdom. ACM, New York, NY, USA, 6 pages. https://doi.org/10.1145/3341163.3347746
 
+%taken's embedding theoreum.
 \bibitem{takens1981}
 Takens, F. (1981). Detecting strange attractors in turbulence. In \emph{Lecture Notes in Mathematics} (Vol. 898, pp. 366-381). Springer.
 
+%foundational for FNN
 \bibitem{kennel1992}
-Kennel, M. B., Brown, R., \& Abarbanel, H. D. I. (1992). Determining embedding dimension for phase-space reconstruction using a geometrical construction. \emph{Physical Review A}, 45(6), 3403–3411.
+Kennel, M. B., Brown, R., \& Abarbanel, H. D. I. (1993). Determining embedding dimension for phase-space reconstruction using a geometrical construction. \emph{Physical Review A}, 45(6), 3403–3411.
 
+%foundational for AMI
 \bibitem{fraser1986}
 Fraser, A. M., \& Swinney, H. L. (1986). Independent coordinates for strange
 attractors from mutual information. \textit{Physical Review A, 33}(2), 1134–1140.
 https://doi.org/10.1103/PhysRevA.33.1134
+
+%paper for PSS
+\bibitem{rosenstein1993}
+Rosenstein, M. T., Collins, J. J., \& De Luca, C. J. (1993).
+A practical method for calculating largest Lyapunov exponents from small data sets.
+\textit{Physica D: Nonlinear Phenomena}, \textit{65}(1-2), 117–134.
+https://doi.org/10.1016/0167-2789(93)90009-P
 
 \end{thebibliography}
