@@ -8,16 +8,17 @@ from sklearn.neighbors import KDTree
 import matplotlib.pyplot as plt
 from sklearn.metrics import mutual_info_score
 
-# testing on one channel 
+# selected a testing for one channel 
 selected_channel = 'FP1-F7'
 
 def find_optimal_tau_ami(time_series, max_tau=50, bins=16, smooth_window=None):
     """
-    Compute AMI (via average_mutual_information) and return the first local minimum
-    (τ >= 1). If no local minimum is found, fall back to the 1/e rule.
-
+    Compute average mutual information and return the 
+    first local minimum (τ >= 1). 
+    If no local minimum is found, fall back to the 1/e rule.
     Returns: optimal_tau (int), ami_curve (np.array indexed by τ=0..max_tau)
     """
+    #
     ami_curve = average_mutual_information(time_series, max_tau=max_tau, bins=bins)
 
     # optional smoothing (helps with noisy AMI curves)
@@ -26,6 +27,7 @@ def find_optimal_tau_ami(time_series, max_tau=50, bins=16, smooth_window=None):
         ami_curve = uniform_filter1d(ami_curve, size=smooth_window, mode='nearest')
 
     # robust local-minimum detection (search τ = 1 .. max_tau-1)
+
     if len(ami_curve) >= 3:
         # check interior points: ami[1]..ami[-2] compared with neighbors
         interior = ami_curve[1:-1]
@@ -48,13 +50,12 @@ def find_optimal_tau_ami(time_series, max_tau=50, bins=16, smooth_window=None):
 
 def average_mutual_information(x, max_tau=50, bins=16):
     """
-    Compute Average Mutual Information (AMI) for delays 0...max_tau.
+    Compute Average Mutual Information for delays 0...max_tau.
     
     Parameters:
     x : 1D numpy array (time series)
     max_tau : maximum time delay
     bins : number of bins for histogram
-    
     Returns:
     ami : numpy array of AMI values
     """
@@ -280,7 +281,7 @@ def visualize_phase_space(phase_space_vectors):
     ax.set_xlabel('x(t)')
     ax.set_ylabel('x(t + τ)')
     ax.set_zlabel('x(t + 2τ)')
-    ax.set_title('3D Phase Space Trajectory (m = 3)')
+    ax.set_title('3D Phase Space Trajectory')
     
     # Set equal axis scaling
     max_range = np.array([x.max()-x.min(), y.max()-y.min(), z.max()-z.min()]).max() / 2.0
@@ -300,8 +301,8 @@ if __name__ == "__main__":
 
     npy_path = "p1_03_filtered.npy" 
     metadata_path = "p1_03_metadata.npy"
-    SEG_SIZE = 2048
-    init_idx = 150000
+    SEG_SIZE = 1024
+    init_idx = 0
     # Load single channel data on an array.
     channel_data, times = load_single_channel(npy_path, metadata_path, selected_channel)
     
@@ -318,13 +319,7 @@ if __name__ == "__main__":
     optimal_tau, ami_curve = find_optimal_tau_ami(segment_data, max_tau=max_tau_to_test)
     plot_ami_results(ami_curve, optimal_tau, max_tau_to_test) # Visualize the AMI curve
 
-    #embedding parameters
-    m = 3
-    tau = optimal_tau
-    
-    psv = create_phase_space_vectors(segment_data, m = m, tau = tau)
-
-    visualize_phase_space(psv)
+ 
 
 
     #application of the FNN false nearest neighbors method
@@ -334,4 +329,17 @@ if __name__ == "__main__":
     print("FNN ratios:", fnn_ratio)
     
     plot_fnn_results(fnn_ratio, optimal_dim)
+       
+    #embedding parameters
+    m = optimal_dim
+    tau = optimal_tau
+    print("-----  DETERMINED -----")
+    print(f"Optimal DIMESION: {optimal_dim}")
+    print(f"Optimal TAU: {optimal_tau}")
+    psv = create_phase_space_vectors(segment_data, m = optimal_dim, tau = optimal_tau)
+    # visualize 3D , make sure only 3 dimensions are there.
+    visualize_phase_space(psv[:, :3])
+   
 
+
+   

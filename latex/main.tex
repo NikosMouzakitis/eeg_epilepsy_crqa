@@ -6,6 +6,7 @@
 \usepackage{comment} 
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{array}
 \usepackage{multirow}       % For table multirows
 \usepackage[font=small,labelfont=bf]{caption} % For caption formatting
@@ -459,7 +460,7 @@
 			In the following figures we present a visualization using the recording named \textit{chb01\_03.edf}
 			comparing the original 10 first EEG channels against the filtered ones with the respective wavelets filters.
 
-			\begin{figure}[h]
+			\begin{figure}[H]
 			    \centering
 			    \includegraphics[width=1.2\textwidth]{wav1.png}
 			    \caption{}
@@ -467,7 +468,7 @@
 			\end{figure}
 
 
-			\begin{figure}[h]
+			\begin{figure}[H]
 			    \centering
 			    \includegraphics[width=1.2\textwidth]{wav2.png}
 			    \caption{}
@@ -511,7 +512,7 @@
 		These two parameters determine how the reconstruction will represent
 		and how close reveals the underlying dynamics without distortion.
 
-		\subsubsection{Time Delay \( \tau \) via Mutual Information}
+		\subsubsection{Calculation of time delay \( \tau \) utilizing mutual information}
 			The time delay \( \tau \) can be estimated by applying the 
 			\textit{Average Mutual Information} (AMI) method, a concept which was first introduced 
 			by Fraser and Swinney~\cite{fraser1986independent}. 
@@ -526,11 +527,12 @@
 			where \( P(\cdot) \) denotes probability.
 
 			The optimal time delay \( \tau \) is chosen as the value at which 
-			\( I(\tau) \) reaches its \textit{first minimum}. This value indicates a good compromise 
+			\( I(\tau) \) reaches its \textit{first minimum}. 
+			This value indicates a good compromise 
 			between independence (too small \( \tau \)) and irrelevance (too large \( \tau \)) 
 			of the coordinates in the embedding vector.
 
-			\subsubsection{Embedding Dimension \( m \) via False Nearest Neighbors}
+			\subsubsection{Estimating embedding dimension \( m \) using false nearest neighbors approach}
 
 			The analysis of nonlinear dynamical systems from experimental time series, such as EEG recordings, requires 
 			the reconstruction of the underlying phase space from the scalar measurements of each channel. 
