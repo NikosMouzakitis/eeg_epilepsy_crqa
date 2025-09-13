@@ -17,9 +17,7 @@
 	\section*{Bibliographical references}
 			%small intro and foundational works to have as introduction.test papers.
 			Recurrence Quantification Analysis (RQA) and Cross-Recurrence Quantification Analysis (CRQA) are
-			nonlinear methods for the analysis of nonstationary time series. 
-			%such as EEG signals. 
-
+			nonlinear methods for the analysis of nonstationary time series.  %such as EEG signals. 
 			The offer the quantification of the recurring patterns in phase space trajectories \cite{trulla1996, webber2005}. 
 			Introduced by Trulla et al.\cite{trulla1996} (directly built on quantifying recurrence plots\cite{eckmann1987}) 
 			and expanded by Webber and Zbilut\cite{webber2005}, RQA measures metrics 
@@ -503,7 +501,19 @@
 
 		\section{Phase space reconstruction of EEG signals}
 
+			The analysis of nonlinear dynamical systems from experimental time series, such as EEG recordings, requires 
+			the reconstruction of the underlying phase space from the scalar measurements of each channel. 
+			According to Takens' embedding theorem \cite{takens1981}, a time series $x(t)$ can be embedded 
+			in an $m$-dimensional space using time-delay coordinates:
 
+			\begin{equation}
+			\vec{y}(t) = \left[x(t), x(t+\tau), x(t+2\tau), \ldots, x(t+(m-1)\tau)\right]
+			\end{equation}
+
+			where $m$ is the embedding dimension and $\tau$ is the time delay. The critical challenge lies in determining the appropriate values for these parameters to faithfully reconstruct the system's dynamics without distortion.
+
+
+	
 
 		\subsection{Determination of Embedding Parameters}
 		The reconstruction of the phase space from a single time series 
@@ -534,18 +544,6 @@
 
 			\subsubsection{Estimating embedding dimension \( m \) using false nearest neighbors approach}
 
-			The analysis of nonlinear dynamical systems from experimental time series, such as EEG recordings, requires 
-			the reconstruction of the underlying phase space from the scalar measurements of each channel. 
-			According to Takens' embedding theorem \cite{takens1981}, a time series $x(t)$ can be embedded 
-			in an $m$-dimensional space using time-delay coordinates:
-
-			\begin{equation}
-			\vec{y}(t) = \left[x(t), x(t+\tau), x(t+2\tau), \ldots, x(t+(m-1)\tau)\right]
-			\end{equation}
-
-			where $m$ is the embedding dimension and $\tau$ is the time delay. The critical challenge lies in determining the appropriate values for these parameters to faithfully reconstruct the system's dynamics without distortion.
-
-
 			When the embedding dimension $m$ is too small, 
 			the phase space becomes \emph{projected} rather than 
 			properly \emph{embedded}. 
@@ -569,18 +567,19 @@
 			where $R_{\text{tol}}$ is a tolerance threshold (typically 10--15).
 
 			The False Nearest Neighbors(FNN) method \cite{kennel1992} 
-			provides a systematic approach to determine the 
-			minimal sufficient embedding dimension:
+			provides a systematic approach in order to determine the 
+			minimal sufficient embedding dimension. The method's steps are:
 
 			\begin{enumerate}
-			\item For each point in dimension $m$, identify its nearest neighbor
-			\item Embed the data in dimension $m+1$
-			\item Calculate the relative distance increase between each point and its former neighbor
-			\item If the increase exceeds predetermined thresholds, classify as false neighbors
-			\item The optimal $m$ is the smallest dimension where the fraction of false neighbors drops below an acceptable level (typically 1--5\%)
+			\item For each point in dimension $m$, identify its nearest neighbor.
+			\item Embed the data in dimension $m+1$.
+			\item Calculation the relative distance increase between each point and its former neighbor.
+			\item If the increase exceeds predetermined thresholds, the neighbor point is classified as a false neighbor
+			\item The optimal $m$ is the smallest dimension where the fraction of 
+				false neighbors drops below an acceptable level (typically 1--5\%)
 			\end{enumerate}
 
-			The algorithm employs both relative and absolute criteria:
+			Both relative and absolute criteria are included in the algorithm:
 
 			\begin{align}
 			\text{Relative:} &\quad \frac{\|\vec{y}_i^{(m+1)} - \vec{y}_j^{(m+1)}\|}{\|\vec{y}_i^{(m)} - \vec{y}_j^{(m)}\|} > R_{\text{tol}} \\
