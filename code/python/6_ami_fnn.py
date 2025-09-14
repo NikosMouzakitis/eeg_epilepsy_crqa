@@ -319,7 +319,7 @@ def create_recurrence_matrix(phase_space_vectors, radius=0.2):
     recurrence_matrix = (distances <= radius).astype(int)
 
     # Remove self-recurrences (main diagonal)
-    np.fill_diagonal(recurrence_matrix, 0)
+    #np.fill_diagonal(recurrence_matrix, 0)
 
     return recurrence_matrix
 
@@ -471,7 +471,7 @@ if __name__ == "__main__":
     npy_path = "../../data/p11_06_filtered.npy"
     metadata_path = "../../data/p11_06_metadata.npy"
     SEG_SIZE = 1024
-    init_idx = 45732 
+    init_idx = 0
     # Load single channel data on an array.
     channel_data, times = load_single_channel(npy_path, metadata_path, selected_channel)
 
@@ -510,9 +510,17 @@ if __name__ == "__main__":
     # visualize 3D , make sure only 3 dimensions are there.
     visualize_phase_space(psv[:, :3])
 
+
+    #    Phase Space Scale
+    # Setting variable epsilon to 
+    # a percentage of the standard deviation of 
+    # the original time series
+    data_std = np.std(segment_data)
+    epsilon = 0.8 * data_std
+    print(f"Calculated radius (ε) based on PSS: {epsilon:.4f}")
+
     # Calculate RQA metrics with custom implementation
-    metrics, recurrence_matrix = calculate_rqa_metrics( segment_data, m=optimal_dim, tau=tau, radius=0.045)
-    #metrics, recurrence_matrix = calculate_rqa_metrics( segment_data, m=optimal_dim, tau=tau, radius=0.1)
+    metrics, recurrence_matrix = calculate_rqa_metrics( segment_data, m=optimal_dim, tau=tau, radius=epsilon)
 
     print("RQA Metrics:")
     for key, value in metrics.items():
