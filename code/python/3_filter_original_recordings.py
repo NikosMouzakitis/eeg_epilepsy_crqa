@@ -265,6 +265,31 @@ def load_eeg_data(edf_path):
         print(f"Failed to load {edf_path}: {e}")
         return None, None
 
+
+def extract_patient_number(edf_filename):
+    """Extract patient number and recording number from EDF filename
+    for further storage."""
+    # Updated regex to handle letter suffixes like 'a', 'b', 'c'
+    match = re.match(r'chb(\d+)([a-zA-Z]*)([_+][\w+]+)?\.edf', edf_filename)
+    if match:
+        patient_num = int(match.group(1))
+        letter_suffix = match.group(2) if match.group(2) else ""
+        recording_num = match.group(3)[1:] if match.group(3) else ""
+        
+        # Build the identifier
+        if letter_suffix and recording_num:
+            return f'p{patient_num}{letter_suffix}_{recording_num}'
+        elif letter_suffix:
+            return f'p{patient_num}{letter_suffix}'
+        elif recording_num:
+            return f'p{patient_num}_{recording_num}'
+        else:
+            return f'p{patient_num}'
+    
+    print(f"Failed to parse filename: {edf_filename}")
+    return None
+
+"""
 def extract_patient_number(edf_filename):
     """Extract patient number and recording number from EDF filename."""
     match = re.match(r'chb(\d+)([_+][\w+]+)?\.edf', edf_filename)
@@ -274,6 +299,7 @@ def extract_patient_number(edf_filename):
         return f'p{patient_num}_{recording_num}' if recording_num else f'p{patient_num}'
     print(f"Failed to parse filename: {edf_filename}")
     return None
+"""
 
 def download_edf_file(url, output_dir, username=None, password=None):
     """Download EDF file from URL to output_dir using wget with cookies and authentication."""
