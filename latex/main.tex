@@ -11,8 +11,12 @@
 \usepackage{multirow}       % For table multirows
 \usepackage[font=small,labelfont=bf]{caption} % For caption formatting
 
-
+% Preamble: Define title, author, date
+\title{Epilepsy Detection from Multi-Channel EEG Using Cross-Recurrence Quantification Analysis and Machine Learning}
+\author{Nikolaos Mouzakitis} % Use \\ for a line break
+\date{\today} % You can use a specific date or \today for the current date
 \begin{document}
+	\maketitle
 
 	\section*{Bibliographical references}
 			%small intro and foundational works to have as introduction.test papers.
@@ -588,14 +592,18 @@
 
 			where $\sigma_x$ is the standard deviation of the time series.
 
+			%%% NOTE: commented maybe not to write? 
+			%Applying FNN to EEG data is particularly 
+			%important for several reasons. EEG signals exhibit 
+			%nonstationary characteristics, making fixed embedding parameters 
+			%suboptimal and contain measurement noise and artifacts 
+			%that can distort phase space reconstruction. 
+			%In addition the optimal embedding may vary across subjects, 
+			%brain states, and recording conditions and FNN provides a data-driven approach that adapts to individual recordings.
 
-			Applying FNN to EEG data is particularly 
-			important for several reasons. EEG signals exhibit 
-			nonstationary characteristics, making fixed embedding parameters 
-			suboptimal and contain measurement noise and artifacts 
-			that can distort phase space reconstruction. 
-			In addition the optimal embedding may vary across subjects, 
-			brain states, and recording conditions and FNN provides a data-driven approach that adapts to individual recordings.
+
+
+
 					
 	\newpage
 
