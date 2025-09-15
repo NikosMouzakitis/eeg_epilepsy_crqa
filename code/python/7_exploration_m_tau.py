@@ -467,68 +467,129 @@ def plot_ami_results(ami_curve, optimal_tau, max_tau):
 
 
 if __name__ == "__main__":
-
     npy_path = "../../data/p11_06_filtered.npy"
     metadata_path = "../../data/p11_06_metadata.npy"
-    SEG_SIZE = 1024
-    init_idx = 1000
-    # Load single channel data on an array.
+    SEG_SIZE = 1024  # 4 seconds at 256 Hz sampling rate
+    
+    # Load single channel data
     channel_data, times = load_single_channel(npy_path, metadata_path, selected_channel)
+    
+    # Calculate total number of segments
+    total_samples = len(channel_data)
+    num_segments = total_samples // SEG_SIZE
+    print(f"Total samples: {total_samples}, Number of 4-second segments: {num_segments}")
+    
+    # Lists to store results for each segment
+    optimal_taus = []
+    optimal_dims = []
+    ami_curves = []
+    fnn_ratios = []
+    segment_indices = []
+    
+    # Process each segment
+    for seg_idx in range(num_segments):
+        start_idx = seg_idx * SEG_SIZE
+        end_idx = start_idx + SEG_SIZE
+        
+        # Extract segment
+        segment_data = channel_data[start_idx:end_idx]
+        segment_time = times[start_idx:end_idx]
+        
+        print(f"\n--- Processing Segment {seg_idx + 1}/{num_segments} (samples {start_idx}-{end_idx-1}) ---")
+        
+        # Determine optimal tau using AMI
+        max_tau_to_test = 50
+        optimal_tau, ami_curve = find_optimal_tau_ami(segment_data, max_tau=max_tau_to_test)
+        
+        # Apply FNN to find optimal dimension
+        fnn_ratio, optimal_dim = false_nearest_neighbors(segment_data, tau=optimal_tau, max_dim=15, rtol=15.0, atol=2.0)
+        
+        # Store results
+        optimal_taus.append(optimal_tau)
+        optimal_dims.append(optimal_dim)
+        ami_curves.append(ami_curve)
+        fnn_ratios.append(fnn_ratio)
+        segment_indices.append(seg_idx)
+        
+        print(f"Segment {seg_idx}: τ = {optimal_tau}, m = {optimal_dim}")
+    
+    # Plot results across all segments
+    plt.figure(figsize=(12, 8))
+    
+    # Plot optimal tau values
+    plt.subplot(2, 1, 1)
+    plt.plot(segment_indices, optimal_taus, 'bo-', linewidth=2, markersize=6)
+    plt.xlabel('Segment Index')
+    plt.ylabel('Optimal τ')
+    plt.title('Optimal Time Delay (τ) Across Segments')
+    plt.grid(True, alpha=0.3)
+    
+    # Plot optimal dimension values
+    plt.subplot(2, 1, 2)
+    plt.plot(segment_indices, optimal_dims, 'ro-', linewidth=2, markersize=6)
+    plt.xlabel('Segment Index')
+    plt.ylabel('Optimal Dimension (m)')
+    plt.title('Optimal Embedding Dimension (m) Across Segments')
+    plt.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    plt.show()
+    
+    # Calculate statistics
+    print("\n=== STATISTICS ACROSS ALL SEGMENTS ===")
+    print(f"Average optimal τ: {np.mean(optimal_taus):.2f} ± {np.std(optimal_taus):.2f}")
+    print(f"Average optimal m: {np.mean(optimal_dims):.2f} ± {np.std(optimal_dims):.2f}")
+    print(f"Most frequent τ: {np.bincount(optimal_taus).argmax()}")
+    print(f"Most frequent m: {np.bincount(optimal_dims).argmax()}")
+    
+    # Plot histograms
+    plt.figure(figsize=(12, 5))
+    
+    plt.subplot(1, 2, 1)
+    plt.hist(optimal_taus, bins=range(min(optimal_taus), max(optimal_taus)+2), alpha=0.7, edgecolor='black')
+    plt.xlabel('Optimal τ')
+    plt.ylabel('Frequency')
+    plt.title('Distribution of Optimal τ Values')
+    
+    plt.subplot(1, 2, 2)
+    plt.hist(optimal_dims, bins=range(min(optimal_dims), max(optimal_dims)+2), alpha=0.7, edgecolor='black')
+    plt.xlabel('Optimal Dimension (m)')
+    plt.ylabel('Frequency')
+    plt.title('Distribution of Optimal m Values')
+    
+    plt.tight_layout()
+    plt.show()
+    
+    # Select the most representative values
+    final_tau = int(np.median(optimal_taus))
+    final_dim = int(np.median(optimal_dims))
+    
+    print(f"\n=== RECOMMENDED VALUES ===")
+    print(f"Recommended τ: {final_tau}")
+    print(f"Recommended m: {final_dim}")
+    
+    # Optional: Show detailed results for a few representative segments
+    print(f"\n=== DETAILED RESULTS FOR REPRESENTATIVE SEGMENTS ===")
+    for i in [0, len(optimal_taus)//2, -1]:  # First, middle, and last segment
+        if i < len(optimal_taus):
+            print(f"Segment {i}: τ = {optimal_taus[i]}, m = {optimal_dims[i]}")
+            # You could add plots for these specific segments if desired
 
-    # Plot the single channel
-    #plot_single_channel(channel_data, times, selected_channel)
-
-    #create a 4-seconds segment.
-    segment_data = channel_data[init_idx:init_idx+SEG_SIZE]
-    segment_time = times[init_idx:init_idx+SEG_SIZE]
-    plot_single_channel(segment_data, segment_time, selected_channel)
-
-    #  determining the optimal tau by using AMI
-    max_tau_to_test = 50
-    optimal_tau, ami_curve = find_optimal_tau_ami(segment_data, max_tau=max_tau_to_test)
-    plot_ami_results(ami_curve, optimal_tau, max_tau_to_test) # Visualize the AMI curve
-
-
-
-
-    #application of the FNN false nearest neighbors method
-    fnn_ratio, optimal_dim = false_nearest_neighbors( segment_data, tau=optimal_tau, max_dim=15, rtol=15.0, atol=2.0)
-
-    print(f"Optimal embedding dimension: {optimal_dim}")
-    print("FNN ratios:", fnn_ratio)
-
-    plot_fnn_results(fnn_ratio, optimal_dim)
-
-    #embedding parameters
-    m = optimal_dim
-    tau = optimal_tau
-    #tau = 1
-    print("-----  DETERMINED -----")
-    print(f"Optimal DIMESION: {optimal_dim}")
-    print(f"Optimal TAU: {optimal_tau}")
-    psv = create_phase_space_vectors(segment_data, m = optimal_dim, tau = optimal_tau)
-    # visualize 3D , make sure only 3 dimensions are there.
-    visualize_phase_space(psv[:, :3])
-
-
-    #    Phase Space Scale
-    # Setting variable epsilon to 
-    # a percentage of the standard deviation of 
-    # the original time series
+    # Now you can use final_tau and final_dim for your RQA analysis
+    print(f"\nUsing recommended values: τ = {final_tau}, m = {final_dim}")
+    
+    # Example: Process one segment with the recommended values
+    segment_idx = 0  # or choose any segment
+    segment_data = channel_data[segment_idx*SEG_SIZE:(segment_idx+1)*SEG_SIZE]
+    
+    # Create phase space vectors with recommended parameters
+    psv = create_phase_space_vectors(segment_data, m=final_dim, tau=final_tau)
+    
+    # Calculate RQA metrics
     data_std = np.std(segment_data)
     epsilon = 0.8 * data_std
-    print(f"Calculated radius (ε) based on PSS: {epsilon:.4f}")
-
-    # Calculate RQA metrics with custom implementation
-    metrics, recurrence_matrix = calculate_rqa_metrics( segment_data, m=6, tau=5, radius=epsilon)
-    #metrics, recurrence_matrix = calculate_rqa_metrics( segment_data, m=optimal_dim, tau=tau, radius=epsilon)
-
-    print("RQA Metrics:")
+    metrics, recurrence_matrix = calculate_rqa_metrics(segment_data, m=final_dim, tau=final_tau, radius=epsilon)
+    
+    print("\nRQA Metrics with recommended parameters:")
     for key, value in metrics.items():
         print(f"{key}: {value:.4f}")
-
-    # Plot the recurrence matrix
-    plot_rp(recurrence_matrix, f"Recurrence Plot - {selected_channel}")
-
-
-
