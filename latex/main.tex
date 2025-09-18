@@ -611,6 +611,24 @@
 			\end{align}
 
 			where $\sigma_x$ is the standard deviation of the time series.
+			
+
+
+
+			When optimal parameters $\tau$ and $m$ have been determined for a given signal, 
+			the phase space can be reconstructed according to Takens' theorem. This reconstruction provides the
+			geometric picture of the underlying dynamics.
+
+			Figure \ref{fig:phase_space_3d} presents the reconstructed phase portrait for a normal EEG segment from channel 'Fp1-F7' from CHB-MIT 's chb24\_01.edf data.
+
+				\begin{figure}[h!]
+				    \centering
+				    \includegraphics[width=0.7\linewidth]{phase_space_3d.png} % Assuming you make a 2-panel figure
+				    \caption{3D phase space reconstruction for a 3-second EEG segment's channel.}
+				    \label{fig:phase_space_3d}
+				\end{figure}
+
+
 
 			%%% NOTE: commented maybe not to write? 
 			%Applying FNN to EEG data is particularly 

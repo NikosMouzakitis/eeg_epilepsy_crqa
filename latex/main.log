@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.12)  18 SEP 2025 13:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.12)  18 SEP 2025 14:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -327,8 +327,13 @@ Package pdftex.def Info: fnn_schematic.png  used on input line 580.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11] [12 <./ami.png> <./fnn_estim.png>] [13 <./fnn_schematic.png>] (main.bbl
-[14]
+[11] [12 <./ami.png> <./fnn_estim.png>] [13 <./fnn_schematic.png>]
+<phase_space_3d.png, id=71, 469.0323pt x 475.5366pt>
+File: phase_space_3d.png Graphic file (type png)
+<use phase_space_3d.png>
+Package pdftex.def Info: phase_space_3d.png  used on input line 626.
+(pdftex.def)             Requested size: 241.49895pt x 244.84966pt.
+ [14 <./phase_space_3d.png>] (main.bbl [15]
 Underfull \hbox (badness 2376) in paragraph at lines 41--45
 \OT1/cmr/m/n/10 A dif-fer-en-tial biomarker based on re-cur-rence quan-tifi-ca-
 tion anal-y-sis
@@ -388,12 +393,12 @@ Underfull \hbox (badness 2608) in paragraph at lines 69--73
 vol. 223, no. 4-5, pp. 255--260, 1996.
  []
 
-[15] [16]
+[16] [17]
 Underfull \hbox (badness 3000) in paragraph at lines 128--130
 \OT1/cmr/m/n/10 Lon-don, United King-dom. ACM, New York, NY, USA, 6 pages.
  []
 
-) [17] (main.aux)
+) [18] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -404,10 +409,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3833 strings out of 474486
- 65239 string characters out of 5744227
+ 3841 strings out of 474486
+ 65433 string characters out of 5744227
  1938542 words of memory out of 5000000
- 26099 multiletter control sequences out of 15000+600000
+ 26107 multiletter control sequences out of 15000+600000
  565746 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,488b,387s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -429,9 +434,9 @@ s/cm/cmr9.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmti10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (17 pages, 1072852 bytes).
+Output written on main.pdf (18 pages, 1160561 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
+ 155 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
