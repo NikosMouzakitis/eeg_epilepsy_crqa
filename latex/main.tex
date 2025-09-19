@@ -524,7 +524,16 @@
 		\( x(t) \) requires the specification of two parameters: 
 		the time delay \( \tau \) and the embedding dimension \( m \). 
 		These two parameters determine how the reconstruction will represent
-		and how close reveals the underlying dynamics without distortion.
+		and how close it will reveal the underlying dynamics without distortion.
+
+			\begin{figure}[H]
+				    \centering
+				    \includegraphics[width=0.8\linewidth]{ami.png}
+				    \caption{Calculation of $\tau$ using AMI for a sample EEG channel. The first minimum of the AMI function (green dashed line) is chosen to become the optimal $\tau$ to ensure independence between delay coordinates.}
+				    \label{fig:ami_plot}
+			\end{figure}
+
+
 
 		\subsubsection{Calculation of time delay \( \tau \) utilizing mutual information}
 			The time delay \( \tau \) can be estimated by applying the 
@@ -547,14 +556,7 @@
 			of the coordinates in the embedding vector.
 				
 
-				\begin{figure}[h!]
-				    \centering
-				    \includegraphics[width=0.8\linewidth]{ami.png}
-				    \caption{Calculation of $\tau$ using AMI for a sample EEG channel. The first minimum of the AMI function (green dashed line) is chosen to become the optimal $\tau$ to ensure independence between delay coordinates.}
-				    \label{fig:ami_plot}
-				\end{figure}
-
-
+		
 
 
 			\subsubsection{Estimating embedding dimension \( m \) using false nearest neighbors approach}
@@ -619,7 +621,7 @@
 			the phase space can be reconstructed according to Takens' theorem. This reconstruction provides the
 			geometric picture of the underlying dynamics.
 
-			Figure \ref{fig:phase_space_3d} presents the reconstructed phase portrait for a normal EEG segment from channel 'Fp1-F7' from CHB-MIT 's chb24\_01.edf data.
+			Figure \ref{fig:phase_space_3d} presents the reconstructed phase space for a normal EEG segment from channel 'Fp1-F7' from CHB-MIT 's chb24\_01.edf data.
 
 				\begin{figure}[h!]
 				    \centering
@@ -643,6 +645,45 @@
 
 
 					
+	\newpage
+						% ===== Page X =====
+				\section{Recurrence Quantification Analysis (RQA)}
+
+				Having reconstructed the phase space trajectory of the EEG signals, 
+				the next step is to analyze its dynamical properties. 
+				Recurrence Quantification Analysis is a powerful nonlinear method that 
+				provides precisely this functionality by quantifying the number and duration 
+				of recurrences of a dynamical system to its previous states \cite{theoryReviewRQA}. 
+				The core of this quantification process is the \emph{Recurrence Plot (RP)}, 
+				a visualization which denotes the times at which the phase space 
+				trajectory revisits approximately the same area.
+				In most non trivial cases, a phase space  does not have a dimension (two or three)
+				which allows a direct visualization, so for higher dimensional phase spaces 
+				the only solution is a projection into a two or three dimensional space. 
+				However, RP enables the examination of a higher-dimensional phase space trajectory 
+				via its two-dimensional representation of its recurrences.
+
+				\subsection{The Recurrence Plot (RP)}
+
+				RP is a symmetric, two-dimensional matrix that visualizes the recurrences of states.
+				For a reconstructed trajectory \(\vec{y}(t)\) of length \(N\), 
+				the recurrence matrix \(\mathbf{R}\) is defined as:
+
+				\begin{equation}
+				R_{i,j} = \Theta(\varepsilon - \|\vec{y}(i) - \vec{y}(j)\|), \quad i,j = 1, \ldots, N
+				\end{equation}
+
+				where:
+				\begin{itemize}
+				    \item \(\Theta(\cdot)\) is the Heaviside step function (\(\Theta(x)=0\) if \(x<0\), and \(\Theta(x)=1\) otherwise),
+				    \item \(\varepsilon\) is a predefined distance threshold (radius),
+				    \item \(\|\cdot\|\) is a norm.
+				\end{itemize}
+
+				By interpreting the RP several metrics can be extracted for further analysis.
+
+
+
 	\newpage
 
 \bibliographystyle{plain}
