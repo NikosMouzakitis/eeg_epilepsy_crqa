@@ -154,5 +154,19 @@ https://doi.org/10.1103/PhysRevA.33.1134
 \bibitem{marwanPHD}
 	Marwan, N. (2003). Encounters with neighbours: Current developments of concepts based on recurrence plots and their applications (\textit{Doctoral dissertation, University of Potsdam, Germany}). Institut für Physik, Universität Potsdam.
 
+	%patent rqa -eeg
+\bibitem{pat2025}
+Berényi, A., Kurics, T., Bence, M., Németh, M., Laszlov'szky, T., Nádasdi, M., Ráfi, P., Vincze, V. and Högye, S.
+\newblock \emph{Systems and Methods for Seizure Detection and Closed-Loop Neurostimulation}.
+\newblock U.S. Patent Application No. US 2025/0195894 A1, filed December 13, 2024, published June 19, 2025.
+
+	% patent china
+\bibitem{pat2018}
+author = {Zhang, Zhongnan and Luo, Weizhen},
+year = {2018},
+title = {An {EEG} signal classification model based on genetic algorithm and random forest},
+howpublished = {Chinese Patent CN108615024A},
+note = {Applicant: Xiamen University.}
+
 
 \end{thebibliography}
