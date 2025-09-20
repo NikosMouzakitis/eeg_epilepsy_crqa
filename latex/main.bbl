@@ -162,11 +162,11 @@ Berényi, A., Kurics, T., Bence, M., Németh, M., Laszlov'szky, T., Nádasdi, M.
 
 	% patent china
 \bibitem{pat2018}
-author = {Zhang, Zhongnan and Luo, Weizhen},
-year = {2018},
-title = {An {EEG} signal classification model based on genetic algorithm and random forest},
-howpublished = {Chinese Patent CN108615024A},
-note = {Applicant: Xiamen University.}
+Zhongnan, Z. and Weizhen, L. (2018)\textit{An EEG signal classification model based on genetic algorithm and random forest}, Chinese Patent CN108615024A, Applicant: Xiamen University.
+
+
+\bibitem{pat2019}
+	Chen, Y., Hao, H., \& Li, L. (2019). \textit{Implantable closed-loop deep brain stimulation system} (Patent No. CN106512206B). State Intellectual Property Office of the People's Republic of China.
 
 
 \end{thebibliography}

@@ -363,7 +363,7 @@
 	
 				
 			%% PATENTS
-			\subsection{RQA relevant patents for EEG seizure detection}
+			\subsection{RQA relevant patents utilizing EEG modality}
 			\label{sec:rqa-patents}
 
 			The application of RQA for seizure detection has gathered significant interest, 
@@ -399,23 +399,43 @@
 					    \item \textbf{Memory Efficiency:} It eliminates the need for the large $N \times N$ comparison matrix, reducing memory usage by approximately 88\%.
 					    \item \textbf{Computational Efficiency:} It avoids the expensive read/write cycles associated with managing the large matrix, reducing processing time by approximately 30\% per channel.
 					\end{enumerate}
-		
-			Notably, the patent by \cite{pat2018}, titled 
+	
+				
+			In addition, the patent by \cite{pat2018}, titled 
 			''An EEG signal classification model based on genetic algorithm and random forest'',
 			presents a comprehensive framework for EEG signal classification. 
 			The inventors propose a hybrid model consisting of three key stages:
 
 				\begin{enumerate}
-				    \item \textbf{Feature Extraction:} The method employs a multi-modal feature extraction strategy. Crucially, it explicitly includes \textit{Recurrence Quantification Analysis (RQA)} for extracting dynamic non-linear features from the EEG signal, alongside more traditional time-domain features (e.g., root mean square, zero-crossing rate) and frequency-domain features discovered via a genetic algorithm.
-				    \item \textbf{Feature Optimization:} A Genetic Algorithm (GA) is used for feature selection. The algorithm uses binary encoding (a string of 1s and 0s) to represent chromosomes, where each bit corresponds to the selection (1) or rejection (0) of a specific feature from the large extracted pool. This optimizes the feature subset for maximum discriminative power.
-				    \item \textbf{Classification:} The optimized feature set is fed into a Random Forest classifier for final prediction. The combination of GA for selection and Random Forest for classification is chosen for its ability to handle high-dimensional data and reduce overfitting.
+				    \item \textbf{Feature Extraction:} The method employs a multi-modal feature extraction strategy. 
+					    Among other features, it explicitly includes \textit{RQA} metrics from the EEG signal, 
+					    alongside other traditional time-domain/frequency features.
+				    \item \textbf{Feature Optimization:} A genetic algorithm (GA) is then utilized for feature selection. 
+					    Inventors use binary encoding for representing chromosomes, where each bit corresponds to the selection (1) or rejection (0) of a specific 
+					    feature from the large extracted pool. The aim of this procedure is to optimize the feature subset in order
+					    to have maximum discriminative power.
+				    \item \textbf{Classification:} The optimized feature subset is fed into a Random Forest 
+					    classifier for a final prediction. 
 				\end{enumerate}
 
-		The patent claims that this integrated approach, 
-		validated on a public dataset, yields a superior classification 
-		accuracy compared to existing methods at the time of filing, 
-		while also demonstrating robustness through cross-validation.
+			The patent claims that this integrated approach, 
+			validated on a public dataset, yields a superior classification 
+			accuracy compared to existing methods at the time of filing, 
+			while also demonstrating robustness through cross-validation.
+		
 
+
+				%%%% on sleep
+		Another patent\cite{pat2019} (CN106512206B) describes an 
+		implantable closed-loop deep brain stimulation (DBS) system that uses 
+		electrophysiological signals (specific deep brain local field potentials (LFPs) and ECG  signals) for monitoring 
+		the states of a human sleeping and adjusting various stimulation parameters in real time.
+		A device acquires ECG and deep brain signals for feature extraction in the domains of time and frequency, while 
+		calculating complexity measures. RQA metrics such recurrence rate, determinism, entropy and laminarity are utilizaed alongside other complexity 
+		and spectral features to classify sleep states and trigger appropriate stimulation responses.
+		Features are then utilized for detection of sleep stages and for emergency detection (f.e, cardiac arrest or abnormal excitation).
+		Also the described device adjusts or turns off the stimulation based on the patient's sleep state in order to save battery life 
+		and reduce side effects.
 
 
 		\newpage
