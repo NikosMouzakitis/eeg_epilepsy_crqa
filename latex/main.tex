@@ -366,34 +366,36 @@
 			\subsection{RQA relevant patents utilizing EEG modality}
 			\label{sec:rqa-patents}
 
-			The application of RQA for seizure detection has gathered significant interest, 
+			The application of RQA on biomedical field related to EEG data, 
+			has gathered significant interest, 
 			not only in academic research but also in commercial and clinical applications, 
 			as evidenced by recent patent filings. 
-			These documents often reveal the cutting-edge, industrially viable methods being developed for real-time, 
-			embedded systems. 
+			These documents can reveal the cutting-edge, industrially viable solutions 
+			being developed for real-time, embedded systems. 
 
-			A detailed analysis of the patent US20250195894A1 \cite{pat2025}, 
-			titled ``Systems and Methods for Seizure Detection and Closed-Loop Neurostimulation,'' 
-			provides a view of the current challenges and a novel proposed solutions for 
+			Patent US20250195894A1 \cite{pat2025}, entitled ``Systems and Methods for Seizure 
+			Detection and Closed-Loop Neurostimulation,'' 
+			provides a view of the current challenges and proposes a solution for 
 			implementing RQA in a resource-constrained environment.
-			Inventors propose a solution for resource efficient alternative calculation
-			for RQA measures which entirely bypasse the explicit construction 
+			Inventors proceed in an alternative calculation
+			of RQA measures which entirely bypass the construction 
 			of the recurrence plot matrix(RP). 
-			They achieve this, by not creating the traditional RP to derive metrics from, but by
-			calculating the RQA metrics \textit{on-the-fly}; by dynamically accumulating 
+			They achieve this, by not creating the traditional RP in order 
+			to derive metrics from, but by
+			calculating the RQA metrics \textit{on-the-fly}; dynamically accumulating 
 			the lengths of diagonal lines (chains of recurrent points) as each new 
 			data point is processed.
-			The core innovation involves a conceptual shift: the rows of the hypothetical 
-			matrix are aligned such that the main diagonal becomes vertical. 
-			As each new row of this ``imagined'' matrix is considered 
-			(i.e., as each new data point is acquired), the algorithm checks for recurrence. 
-			If a recurrence is found, a counter for the corresponding vertical column 
-			(representing a diagonal line in the original RP) is incremented. 
-			If a recurrence ends (i.e., a zero follows a one), the final length of the chain 
-			is recorded in a histogram of line lengths, and the counter is reset. 
-			This process directly builds the histogram of diagonal line lengths, 
-			from which standard RQA metrics like DET, ENTR, and L can be immediately derived, 
-			without ever storing the full RP matrix.
+		%	The core innovation involves a concept shift: the rows of the hypothetical 
+		%	matrix are aligned such that the main diagonal becomes vertical. 
+		%	As each new row of this ``imagined'' matrix is considered 
+		%	(f.e, as each new data point is acquired), the algorithm checks for recurrence. 
+		%	If a recurrence is found, a counter for the corresponding vertical column 
+		%	(representing a diagonal line in the original RP) is incremented. 
+		%	If a recurrence ends (f.e, a zero follows a one), the final length of the chain 
+		%	is recorded in a histogram of line lengths, and the counter is reset. 
+		%	This process directly builds the histogram of diagonal line lengths, 
+		%	from which standard RQA metrics like DET, ENTR, and L can be immediately derived, 
+		%	without ever storing the full RP matrix.
 			This method offers two significant advantages:
 					\begin{enumerate}
 					    \item \textbf{Memory Efficiency:} It eliminates the need for the large $N \times N$ comparison matrix, reducing memory usage by approximately 88\%.
@@ -403,7 +405,7 @@
 				
 			In addition, the patent by \cite{pat2018}, titled 
 			''An EEG signal classification model based on genetic algorithm and random forest'',
-			presents a comprehensive framework for EEG signal classification. 
+			presents a framework for EEG signal classification. 
 			The inventors propose a hybrid model consisting of three key stages:
 
 				\begin{enumerate}
@@ -423,19 +425,20 @@
 			accuracy compared to existing methods at the time of filing, 
 			while also demonstrating robustness through cross-validation.
 		
-
-
 				%%%% on sleep
 		Another patent\cite{pat2019} (CN106512206B) describes an 
 		implantable closed-loop deep brain stimulation (DBS) system that uses 
 		electrophysiological signals (specific deep brain local field potentials (LFPs) and ECG  signals) for monitoring 
 		the states of a human sleeping and adjusting various stimulation parameters in real time.
-		A device acquires ECG and deep brain signals for feature extraction in the domains of time and frequency, while 
-		calculating complexity measures. RQA metrics such recurrence rate, determinism, entropy and laminarity are utilizaed alongside other complexity 
+		A device acquires ECG and deep brain signals for feature extraction 
+		in the domains of time and frequency, while 
+		calculating complexity measures. 
+		RQA metrics such recurrence rate, determinism, entropy and laminarity 
+		are utilized alongside other complexity 
 		and spectral features to classify sleep states and trigger appropriate stimulation responses.
-		Features are then utilized for detection of sleep stages and for emergency detection (f.e, cardiac arrest or abnormal excitation).
-		Also the described device adjusts or turns off the stimulation based on the patient's sleep state in order to save battery life 
-		and reduce side effects.
+		Features are then utilized for detection of sleep stages 
+		and for emergency detection/alerts (f.e, cardiac arrest or abnormal excitation).
+%		Also the described device adjusts or turns off the stimulation based on the patient's sleep state in order to save battery life and reduce side effects.
 
 
 		\newpage
