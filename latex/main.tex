@@ -801,6 +801,39 @@
 			the mean values among all channel's combinations is calculated.
 			The methodology is implemented in Python, utilizing libraries such 
 			as \texttt{numpy}, \texttt{matplotlib}, and \texttt{pyrqa}.
+			
+
+			The PyRQA library supports the computation of the following quantitative measures, as shown in Table~\ref{tab:pyrqa_metrics}:
+
+				\begin{table}[h]
+				\centering
+				\caption{Quantitative measures computed by PyRQA}
+				\label{tab:pyrqa_metrics}
+				\begin{tabular}{ll}
+				\toprule
+				\textbf{Metric} & \textbf{Abbreviation} \\
+				\midrule
+				Recurrence rate & RR \\
+				Determinism & DET \\
+				Average diagonal line length & L$_{\text{avg}}$ \\
+				Longest diagonal line length & L$_{\text{max}}$ \\
+				Divergence & DIV \\
+				Entropy diagonal lines & H$_{\text{diag}}$ \\
+				Laminarity & LAM \\
+				Trapping time & TT \\
+				Longest vertical line length & V$_{\text{max}}$ \\
+				Average white vertical line length & W$_{\text{avg}}$ \\
+				Longest white vertical line length & W$_{\text{max}}$ \\
+				Longest white vertical line length divergence & W$_{\text{max}}^{-1}$ \\
+				Entropy vertical lines & H$_{\text{vert}}$ \\
+				Entropy white vertical lines & H$_{\text{wvert}}$ \\
+				Ratio of determinism to recurrence rate & DET/RR \\
+				Ratio of laminarity to determinism & LAM/DET \\
+				\bottomrule
+				\end{tabular}
+				\end{table}
+
+				Additionally, PyRQA allows the creation of a recurrence plot, which can be exported as an image file.
 
 
 			EEG data are stored in a NumPy array format (\texttt{.npy}) and 
@@ -817,16 +850,9 @@
 			that distinguish between normal and 
 			epileptic activity. 
 
-			CRQA is performed to quantify the dynamical 
-			interactions among the pairs of EEG channels 
-			for each segment. The \texttt{pyrqa} library is 
-			used to compute CRQA metrics, 
-			which analyze the recurrence properties of two time series 
-			in a shared phase space. 
-			The process involves embedding the 
-			time series, 
-			computing the cross recurrence matrix, 
-			and extracting the quantitative features.
+			After embedding the time series as required for the
+			phase space reconstruction, computation takes place for the cross recurrence matrix.
+			From this matrix, CRQA metrics are extracted.	
 
 			The algorithm is summarized in Algorithm \ref{alg:crqa_computation}.
 
@@ -834,7 +860,7 @@
 					\caption{Cross Recurrence Quantification Analysis (CRQA) for EEG Segments}
 					\label{alg:crqa_computation}
 					\begin{algorithmic}[1]
-					\State \textbf{Input}: EEG segments \( \{X_{c,i}\} \) for channels \( c \in C \), segments \( i = 1, \dots, N_s \), where \( N_s = 5 \), number of electrodes \( N_e = 3 \)
+					\State \textbf{Input}: EEG segments \( \{X_{c,i}\} \) for channels \( c \in C \), segments \( i = 1, \dots, N_s \), where \( N_s = number of distinct normal/epileptic segments \), number of electrodes \( N_e = 22 \)
 					\State \textbf{Output}: RQA feature matrix \( M \) of shape \( (N_s, N_e, N_e, 17) \)
 
 					\For{each segment index \( i = 1 \) to \( N_s \)}
@@ -879,13 +905,14 @@
 			    \item \textbf{CRQA Computation}: Using the \texttt{PyRQA} library, a cross-recurrence plot is constructed 
 				    with a fixed radius neighborhood (\(r = 0.1\)) and Euclidean distance metric. 
 					The Theiler corrector is set to 1 to exclude temporally correlated points. 
-					The CRQA computation yields 16 quantitative features: 
-					recurrence rate (RR), determinism (DET), average diagonal line length (\(L_{avg}\)), longest diagonal line (\(L_{max}\)), divergence (DIV), entropy of diagonal lines (\(H_{diag}\)), laminarity (LAM), trapping time (TT), longest vertical line (\(V_{max}\)), average white vertical line length (\(W_{avg}\)), longest white vertical line (\(W_{max}\)), inverse of the longest white vertical line (\(W_{max}^{-1}\)), entropy of vertical lines (\(H_{vert}\)), entropy of white vertical lines (\(H_{wvert}\)), ratio of determinism to recurrence rate (DET/RR), and ratio of laminarity to determinism (LAM/DET).
-			    \item \textbf{Feature Storage}: For each segment and channel pair, the 16 CRQA features are then stored in a 
+					The CRQA computation provides the 16 features as described in \ref{tab:rqa_metrics} 
+			    
+				\item \textbf{Feature Storage}: For each segment and channel pair, the 16 CRQA features are then stored in a 
 				four-dimensional matrix of shape (\(N_s\), \(N_e\), \(N_e\), 17), where \(N_s \) 
 					is the number of segments in a specific recording(normal-epileptic), 
 					\(N_e = 22\) is the number of electrodes, and the final dimension included the 
 					16 features plus the segment label(normal:0 - epileptic: 1).
+
 			\end{enumerate}
 
 			
