@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.12)  24 SEP 2025 13:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.12)  26 SEP 2025 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,7 +297,7 @@ Overfull \hbox (111.54247pt too wide) in paragraph at lines 335--366
  []
 
 [6] [7] [8] [9]
-Overfull \hbox (6.81506pt too wide) in paragraph at lines 514--515
+Overfull \hbox (6.81506pt too wide) in paragraph at lines 530--531
 []\OT1/cmr/m/n/10 Metrics where \OT1/cmr/m/it/10 lower \OT1/cmr/m/n/10 val-ues 
 in-di-cate bet-ter per-for-mance (\OT1/cmr/bx/n/10 RMSE\OT1/cmr/m/n/10 , \OT1/c
 mr/bx/n/10 NRMSE\OT1/cmr/m/n/10 ,
@@ -306,10 +306,10 @@ mr/bx/n/10 NRMSE\OT1/cmr/m/n/10 ,
 <eeg_metrics_result.png, id=42, 1280.6244pt x 710.4141pt>
 File: eeg_metrics_result.png Graphic file (type png)
 <use eeg_metrics_result.png>
-Package pdftex.def Info: eeg_metrics_result.png  used on input line 538.
+Package pdftex.def Info: eeg_metrics_result.png  used on input line 554.
 (pdftex.def)             Requested size: 379.5021pt x 210.52426pt.
 
-Overfull \hbox (34.5021pt too wide) in paragraph at lines 538--539
+Overfull \hbox (34.5021pt too wide) in paragraph at lines 554--555
  [][] 
  []
 
@@ -319,10 +319,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <wav1.png, id=44, 1125.9666pt x 730.6497pt>
 File: wav1.png Graphic file (type png)
 <use wav1.png>
-Package pdftex.def Info: wav1.png  used on input line 549.
+Package pdftex.def Info: wav1.png  used on input line 565.
 (pdftex.def)             Requested size: 413.99895pt x 268.65268pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 549--550
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 565--566
  [][] 
  []
 
@@ -330,10 +330,10 @@ Overfull \hbox (68.99895pt too wide) in paragraph at lines 549--550
 <wav2.png, id=48, 867.9627pt x 730.6497pt>
 File: wav2.png Graphic file (type png)
 <use wav2.png>
-Package pdftex.def Info: wav2.png  used on input line 557.
+Package pdftex.def Info: wav2.png  used on input line 573.
 (pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 557--558
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 573--574
  [][] 
  []
 
@@ -342,18 +342,18 @@ Overfull \hbox (68.99895pt too wide) in paragraph at lines 557--558
 <ami.png, id=58, 714.7503pt x 426.393pt>
 File: ami.png Graphic file (type png)
 <use ami.png>
-Package pdftex.def Info: ami.png  used on input line 613.
+Package pdftex.def Info: ami.png  used on input line 629.
 (pdftex.def)             Requested size: 276.00105pt x 164.65303pt.
  [13 <./ami.png>]
 <fnn_estim.png, id=65, 714.7503pt x 426.393pt>
 File: fnn_estim.png Graphic file (type png)
 <use fnn_estim.png>
-Package pdftex.def Info: fnn_estim.png  used on input line 656.
+Package pdftex.def Info: fnn_estim.png  used on input line 672.
 (pdftex.def)             Requested size: 276.00105pt x 164.65303pt.
 <fnn_schematic.png, id=66, 500.87125pt x 405.515pt>
 File: fnn_schematic.png Graphic file (type png)
 <use fnn_schematic.png>
-Package pdftex.def Info: fnn_schematic.png  used on input line 664.
+Package pdftex.def Info: fnn_schematic.png  used on input line 680.
 (pdftex.def)             Requested size: 276.00105pt x 223.46706pt.
 
 
@@ -363,19 +363,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <phase_space_3d.png, id=77, 469.0323pt x 475.5366pt>
 File: phase_space_3d.png Graphic file (type png)
 <use phase_space_3d.png>
-Package pdftex.def Info: phase_space_3d.png  used on input line 710.
+Package pdftex.def Info: phase_space_3d.png  used on input line 726.
 (pdftex.def)             Requested size: 241.49895pt x 244.84966pt.
  [16 <./phase_space_3d.png>]
 [17]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 8
-38.
+54.
  (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 838.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 854.
 
-Underfull \hbox (badness 2005) in paragraph at lines 838--839
+Underfull \hbox (badness 2005) in paragraph at lines 854--855
 [] \OT1/cmr/m/n/10 Ex-tract 16 CRQA fea-tures: \OMS/cmsy/m/n/10 f\OT1/cmr/m/n/1
 0 RR, DET, $\OML/cmm/m/it/10 L[]$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 L[]$\OT1/c
 mr/m/n/10 , DIV,
@@ -452,7 +452,7 @@ Underfull \hbox (badness 1648) in paragraph at lines 165--166
 g-nal clas-si-fi-ca-tion
  []
 
-) [24] (main.aux)
+[24]) [25] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -463,10 +463,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4599 strings out of 474486
- 77923 string characters out of 5744227
+ 4600 strings out of 474486
+ 77932 string characters out of 5744227
  1940542 words of memory out of 5000000
- 26844 multiletter control sequences out of 15000+600000
+ 26845 multiletter control sequences out of 15000+600000
  566365 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,621b,430s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -492,9 +492,9 @@ onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/User/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/User/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (24 pages, 1227162 bytes).
+Output written on main.pdf (25 pages, 1228882 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
+ 198 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

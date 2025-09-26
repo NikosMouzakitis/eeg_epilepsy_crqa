@@ -166,7 +166,12 @@ Zhongnan, Z. and Weizhen, L. (2018)\textit{An EEG signal classification model ba
 
 
 \bibitem{pat2019}
-	Chen, Y., Hao, H., \& Li, L. (2019). \textit{Implantable closed-loop deep brain stimulation system} (Patent No. CN106512206B). State Intellectual Property Office of the People's Republic of China.
+	Chen, Y., Hao, H. and Li, L. (2019). \textit{Implantable closed-loop deep brain stimulation system} (Patent No. CN106512206B). State Intellectual Property Office of the People's Republic of China.
+
+
+% patent coma condition
+\bibitem{patcoma}
+Becker, K., Ranft, A., Zieglgänsberger, W., Eder, M. and  Dodd, H.-U. (2008). \textit{Monitoring neuronal signals} (U.S. Patent Application No. US20080234597A1). U.S. Patent and Trademark Office.
 
 
 \end{thebibliography}
