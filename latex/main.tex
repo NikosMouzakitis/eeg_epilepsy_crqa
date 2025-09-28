@@ -777,8 +777,146 @@
 				    \item \(\varepsilon\) is a predefined distance threshold (radius),
 				    \item \(\|\cdot\|\) is a norm.
 				\end{itemize}
+	
+				By interpreting the RP, several metrics can be extracted for further analysis.
+				
+				\subsection{Key RQA Metrics and Their Interpretation}
+					\label{subsec:rqa_metrics}
 
-				By interpreting the RP several metrics can be extracted for further analysis.
+					RQA provides a set of metrics that can quantify the 
+					number and the duration of the recurrences of a dynamical system.
+					These metrics are categorized by those which are based on diagonal structures, 
+					which relate to the predictability and deterministic nature of the system, 
+					and those that are based on vertical structures, which can capture laminar 
+					states or chaos-chaos transitions.
+
+					The definitions of the core RQA metrics, as implemented in tools like the utilized \texttt{PyRQA}, 
+					are as follows \cite{marwan_website}:
+
+					\begin{description}
+
+					\item[Recurrence Rate (\textbf{RR})]
+					The recurrence rate is the simplest measure, defined as the density of recurrence points in the RP. It corresponds to the probability that a state recurs and is analogous to the correlation sum.
+					\[
+					RR = \frac{1}{N^2} \sum_{i,j=1}^{N} R_{i,j}
+					\]
+
+					\item[Determinism (\textbf{DET})]
+					Determinism quantifies the percentage of recurrence points that form diagonal lines. Diagonal lines are a signature of deterministic dynamics, where segments of the trajectory run in parallel for some time. A higher DET indicates a more predictable, deterministic system.
+					\[
+					DET = \frac{\sum_{l=l_{\text{min}}}^{N} l \, P(l)}{\sum_{l=1}^{N} l \, P(l)}
+					\]
+					where \( P(l) \) is the histogram of diagonal line lengths \( l \), and \( l_{\text{min}} \) is the minimum line length (typically 2).
+
+					\item[Laminarity (\textbf{LAM})]
+					Laminarity measures the percentage of recurrence points that form vertical lines. Vertical lines indicate states that do not change or change very slowly for a period (laminar states). It can detect chaos-chaos transitions or intermittency.
+					\[
+					LAM = \frac{\sum_{v=v_{\text{min}}}^{N} v \, P(v)}{\sum_{v=1}^{N} v \, P(v)}
+					\]
+					where \( P(v) \) is the histogram of vertical line lengths \( v \), and \( v_{\text{min}} \) is the minimum line length.
+
+					\item[Ratio (\textbf{RATIO})]
+					The ratio is a measure of complexity, calculated as the ratio between DET and RR. It can be sensitive to transitions between order and chaos.
+					\[
+					RATIO = \frac{N^2 \sum_{l=l_{\text{min}}}^{N} l \, P(l)}{\left( \sum_{l=1}^{N} l \, P(l) \right)^2}
+					\]
+
+					\item[Average Diagonal Line Length (\textbf{L})]
+					This metric represents the average time that two segments of the trajectory remain close, providing an estimate of the mean prediction time.
+					\[
+					L = \frac{\sum_{l=l_{\text{min}}}^{N} l \, P(l)}{\sum_{l=l_{\text{min}}}^{N} P(l)}
+					\]
+
+					\item[Trapping Time (\textbf{TT})]
+					Trapping time is the average length of vertical lines, quantifying the mean time the system remains trapped in a specific state (laminarity in time).
+					\[
+					TT = \frac{\sum_{v=v_{\text{min}}}^{N} v \, P(v)}{\sum_{v=v_{\text{min}}}^{N} P(v)}
+					\]
+
+					\item[Longest Diagonal Line (\textbf{L$_{\text{max}}$})]
+					The length of the longest diagonal line in the RP is related to the Lyapunov exponent of the system. A shorter \( L_{\text{max}} \) suggests a faster divergence of trajectories, which is a hallmark of chaos.
+					\[
+					L_{\text{max}} = \max(\{l_i \; | \; i=1,\ldots,N_l\})
+					\]
+
+					\item[Divergence (\textbf{DIV})]
+					Divergence is the inverse of \( L_{\text{max}} \). It is related to the Kolmogorov-Sinai entropy and the sum of the positive Lyapunov exponents, providing a measure of how quickly nearby trajectories diverge.
+					\[
+					DIV = \frac{1}{L_{\text{max}}}
+					\]
+
+					\item[Longest Vertical Line (\textbf{V$_{\text{max}}$})]
+					The length of the longest vertical line is another indicator of the system's laminar behavior.
+					\[
+					V_{\text{max}} = \max(\{v_i \; | \; i=1,\ldots,N_v\})
+					\]
+
+					\item[Entropy (\textbf{ENTR})]
+					The Shannon entropy of the probability distribution \( p(l) \) of the diagonal line lengths. It reflects the complexity of the deterministic structure in the system. A higher ENTR indicates a more complex and less periodic dynamics.
+					\[
+					ENTR = - \sum_{l=l_{\text{min}}}^{N} p(l) \ln p(l), \quad \text{where } p(l) = \frac{P(l)}{\sum_{l=l_{\text{min}}}^{N} P(l)}
+					\]
+
+					\item[Trend (\textbf{TREND})]
+					Trend quantifies the paling of the RP towards its edges, which can be caused by non-stationarity in the data (e.g., a slow drift in the mean of the signal). It is calculated as the slope of the linear regression of the local recurrence rate \( RR_i \) over the distance from the main diagonal.
+					\[
+					TREND = \frac{\sum_{i=1}^{\tilde{N}} (i - \tilde{N}/2)(RR_i - \langle RR_i \rangle)}{\sum_{i=1}^{\tilde{N}} (i - \tilde{N}/2)^2}
+					\]
+					where \( \tilde{N} \) is the number of diagonals parallel to the Line of Identity (LOI) that are considered, and \( RR_i \) is the recurrence rate in the \( i \)-th diagonal.
+
+					\end{description}
+
+					These metrics, when applied to EEG signals, allow for the characterization of the brain's dynamic states. For instance, in epilepsy detection, seizures (ictal states) often exhibit higher determinism (DET) and laminarity (LAM) compared to the more stochastic and complex inter-ictal states, making RQA a powerful tool for identifying pathological patterns.	
+
+
+				
+
+
+				\subsection{From RQA to Cross-Recurrence Quantification Analysis (CRQA)}
+					\label{subsec:crqa_theory}
+
+					While Recurrence Quantification Analysis (RQA) is powerful for analyzing the dynamics of a single system, many real-world phenomena, including brain activity, involve the interaction between multiple subsystems. Cross-Recurrence Quantification Analysis (CRQA) extends the concepts of RQA to analyze the coupling, synchronization, and similarity in the dynamics between two different systems \cite{marwan2007}.
+
+					\subsubsection{The Cross-Recurrence Plot (CRP)}
+
+					The foundation of CRQA is the Cross-Recurrence Plot (CRP). For two reconstructed phase space trajectories \( \vec{x}(i) \) from system \( X \) and \( \vec{y}(j) \) from system \( Y \), both of length \( N \), the cross-recurrence matrix is defined as:
+
+					\begin{equation}
+					CR_{i,j} = \Theta(\varepsilon - \|\vec{x}(i) - \vec{y}(j)\|), \quad i,j = 1, \ldots, N
+					\end{equation}
+
+					Unlike the standard RP, which is symmetric about the main diagonal (Line of Identity, LOI), the CRP is generally \emph{not symmetric}. This asymmetry can reveal directional relationships or leader-follower dynamics between the two systems.
+
+					\subsubsection{Interpretation of CRQA Metrics}
+
+					The same quantitative measures defined for RQA (Section~\ref{subsec:rqa_metrics}) can be applied to the CRP, but their interpretation shifts from describing \emph{self-similarity} to describing \emph{coupling} and \emph{interaction}:
+
+					\begin{itemize}
+					    \item \textbf{Cross-Recurrence Rate (CRR)}: The probability that the state of system \( X \) at time \( i \) is close to the state of system \( Y \) at time \( j \). A high CRR indicates overall similar states between the two systems.
+					    
+					    \item \textbf{Cross-Determinism (CDET)}: The percentage of recurrent points in the CRP that form diagonal lines. Diagonal lines occur when the two systems follow a similar path in phase space for some time. \textbf{This is a crucial metric for epilepsy detection}, as it quantifies the transient synchronization between different brain regions. A seizure often manifests as increased CDET between channels in the epileptogenic zone.
+					    
+					    \item \textbf{Cross-Laminarity (CLAM)}: Measures the laminarity between the two systems, indicating when one system gets trapped in a state while the other changes.
+					    
+					    \item \textbf{Average Diagonal Line Length (L)} in the CRP estimates the mean time that the two systems remain synchronized or follow a similar trajectory.
+					\end{itemize}
+
+					\subsubsection{Why CRQA for Multi-Channel EEG?}
+
+					Applying CRQA to pairs of EEG channels is particularly well-suited for epilepsy detection for several reasons:
+
+					\begin{itemize}
+					    \item \textbf{Synchronization Detection}: Epileptic seizures are characterized by abnormal, excessive synchronization of neuronal populations. CRQA directly quantifies this synchronization in the phase space.
+					    \item \textbf{Nonlinear and Non-stationary}: CRQA does not assume linearity or stationarity, making it robust for analyzing the complex, transient dynamics of EEG signals.
+					    \item \textbf{Directional Insights}: While not explored in all analyses, the potential asymmetry of the CRP can, in principle, help identify the propagation path of a seizure.
+					    \item \textbf{Focus on Interaction}: It moves beyond analyzing individual channels in isolation to directly measure the dynamic interplay between different brain regions, which is often where the pathology lies.
+					\end{itemize}
+
+					In this thesis, CRQA is employed to compute a set of features (Table~\ref{tab:pyrqa_metrics}) for all unique pairs of EEG channels. These features capture the complex synchronization patterns that distinguish pre-ictal, ictal, and inter-ictal states, forming the basis for the subsequent machine learning classification.
+
+
+
+
 
 
 
