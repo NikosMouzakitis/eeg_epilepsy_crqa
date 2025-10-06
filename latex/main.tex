@@ -923,25 +923,41 @@
 	\newpage
 				
 
+					
+				\section{Methodology}
+				\label{sec:methodology}
 
+				This section outlines the methodology for processing EEG data to perform Cross Recurrence Quantification Analysis (CRQA) to analyze the dynamics of epileptic and non-epileptic brain activity. The approach involves loading and segmenting EEG recordings, extracting non-overlapping time windows, estimating optimal embedding parameters, computing CRQA features for channel pairs, and leveraging GPU-accelerated parallel processing to handle computational demands. The methodology is implemented in Python using libraries such as \texttt{numpy}, \texttt{torch}, \texttt{pyopencl}, and \texttt{pyrqa} \cite{pyrqacitation}.
 
-			\section{Methodology}
-			This section describes the two methodologies employed for processing 
-			electroencephalogram (EEG) data and performing Cross 
-			Recurrence Quantification Analysis (Cross RQA) to analyze the 
-			dynamics of epileptic and non-epileptic EEG segments. 
-			
-			\subsection{ Method A - continuous segments}
-			The first approach(\emph{MethodA}) involves loading each EEG recording, 
-			segmenting it based on predefined boundaries 
-			and computing CRQA features for pairs of EEG channels. 
-			In the last step
-			the mean values among all channel's combinations is calculated.
-			The methodology is implemented in Python, utilizing libraries such 
-			as \texttt{numpy}, \texttt{matplotlib}, and \texttt{pyrqa}.
-			
+				\subsection{Data Preprocessing and Windowing}
+				\label{subsec:data_preprocessing}
 
-			The PyRQA library\cite{pyrqacitation} supports the computation of the following quantitative measures, as shown in Table~\ref{tab:pyrqa_metrics}:
+				EEG recordings are stored in NumPy array format (\texttt{.npy}), accompanied by metadata specifying the sampling frequency (\(f_s\)) and channel information (e.g., 22 channels labeled as \texttt{FP1-F7}, \texttt{F7-T7}, ..., \texttt{FT10-T8}). The time axis is computed as \(t = \frac{n}{f_s}\), where \(n\) is the sample index and \(f_s\) is the sampling frequency in Hertz (Hz).
+
+				Each EEG channel is segmented into continuous regions based on predefined boundaries from annotations (e.g., from the CHB-MIT dataset \cite{shoeb2010application}), distinguishing between epileptic and non-epileptic segments. Each segment is further divided into non-overlapping time windows of fixed size (e.g., 512 samples, equivalent to 2 seconds at 256 Hz). For each segment, the number of windows is calculated as the integer division of the segment length by the window size, discarding incomplete windows. Each window is associated with a segment index, window index within the segment, start and end sample indices, and a label (1 for epileptic, 0 for non-epileptic).
+
+				\subsection{Optimal Embedding Parameters}
+				\label{subsec:embedding_parameters}
+
+				CRQA requires embedding the time series in a phase space to capture nonlinear dynamics. For each window pair from two channels, the optimal time delay (\(\tau\)) and embedding dimension (\(m\)) are determined as follows:
+
+				\begin{itemize}
+				    \item \textbf{Time Delay (\(\tau\))}: The Average Mutual Information (AMI) method is used to estimate \(\tau\), implemented via the \texttt{find\_optimal\_tau\_ami} function. AMI is computed for delays up to a maximum of 25 samples, and the first local minimum is selected as the optimal \(\tau\). The minimum \(\tau\) of the two channels is used to ensure compatibility.
+				    \item \textbf{Embedding Dimension (\(m\))}: The False Nearest Neighbors (FNN) method, implemented in the \texttt{false\_nearest\_neighbors} function, determines the optimal \(m\). Dimensions are tested up to a maximum of 10, with relative tolerance (\texttt{rtol}=15.0) and absolute tolerance (\texttt{atol}=2.0). The smallest dimension where the FNN ratio stabilizes is chosen, and the minimum \(m\) between the two channels is used.
+				\end{itemize}
+
+				\subsection{Cross Recurrence Quantification Analysis (CRQA)}
+				\label{subsec:crqa}
+
+				CRQA quantifies the recurrent patterns between pairs of EEG channels within each time window. The \texttt{pyrqa} library is used with OpenCL acceleration for efficient computation. The process is as follows:
+
+				\begin{enumerate}
+				    \item \textbf{Time Series Length Validation}: For each window pair, the lenght's of the two time series are compared on having same length to ensure compatibility.
+				    \item \textbf{Phase Space Reconstruction}: The time series are embedded into a phase space using the optimal \(\tau\) and \(m\), via the \texttt{TimeSeries} class in \texttt{pyrqa}.
+				    \item \textbf{Radius Selection}: The radius for defining recurrence is computed using the Phase Space Separation (PSS) method (\texttt{pss} function). The maximum distances in the phase spaces of both channels are averaged to obtain a mean diameter, and the radius is set to 10\% of this value (\texttt{radius\_fraction=0.1}).
+				    \item \textbf{CRQA Computation}: The \texttt{RQAComputation} class constructs a cross-recurrence matrix using a \texttt{FixedRadius} neighborhood, Euclidean metric, and Theiler corrector of 1. The computation yields 16 CRQA features, listed in Table~\ref{tab:pyrqa_metrics}, plus the segment label as the 17th feature.
+				    \item \textbf{Recurrence Plot (Optional)}: If enabled, a recurrence plot is generated using \texttt{RPComputation} and saved for visualization, with fallback to CPU if GPU computation fails.
+				\end{enumerate}
 
 				\begin{table}[h]
 				\centering
@@ -951,120 +967,94 @@
 				\toprule
 				\textbf{Metric} & \textbf{Abbreviation} \\
 				\midrule
-				Recurrence rate & RR \\
+				Recurrence Rate & RR \\
 				Determinism & DET \\
-				Average diagonal line length & L$_{\text{avg}}$ \\
-				Longest diagonal line length & L$_{\text{max}}$ \\
+				Average Diagonal Line Length & \(L_{\text{avg}}\) \\
+				Longest Diagonal Line Length & \(L_{\text{max}}\) \\
 				Divergence & DIV \\
-				Entropy diagonal lines & H$_{\text{diag}}$ \\
+				Entropy Diagonal Lines & \(H_{\text{diag}}\) \\
 				Laminarity & LAM \\
-				Trapping time & TT \\
-				Longest vertical line length & V$_{\text{max}}$ \\
-				Average white vertical line length & W$_{\text{avg}}$ \\
-				Longest white vertical line length & W$_{\text{max}}$ \\
-				Longest white vertical line length divergence & W$_{\text{max}}^{-1}$ \\
-				Entropy vertical lines & H$_{\text{vert}}$ \\
-				Entropy white vertical lines & H$_{\text{wvert}}$ \\
-				Ratio of determinism to recurrence rate & DET/RR \\
-				Ratio of laminarity to determinism & LAM/DET \\
+				Trapping Time & TT \\
+				Longest Vertical Line Length & \(V_{\text{max}}\) \\
+				Average White Vertical Line Length & \(W_{\text{avg}}\) \\
+				Longest White Vertical Line Length & \(W_{\text{max}}\) \\
+				Longest White Vertical Line Divergence & \(W_{\text{max}}^{-1}\) \\
+				Entropy Vertical Lines & \(H_{\text{vert}}\) \\
+				Entropy White Vertical Lines & \(H_{\text{wvert}}\) \\
+				Ratio of Determinism to Recurrence Rate & DET/RR \\
+				Ratio of Laminarity to Determinism & LAM/DET \\
 				\bottomrule
 				\end{tabular}
 				\end{table}
 
-				Additionally, PyRQA allows the creation of a recurrence plot, which can be exported as an image file.
+				\subsection{Parallel Processing with GPU Acceleration}
+				\label{subsec:parallel_processing}
+
+				To manage the computational complexity of CRQA across multiple channel pairs and windows, 
+				analysis is parallelized across two NVIDIA GPUs using \texttt{torch.multiprocessing} and \texttt{pyopencl}. 
+				Each channel is assigned to a GPU, and an OpenCL context is created for CRQA computations. 
+				The \texttt{compute\_rqa\_for\_electrode1} function processes all windows for a 
+				given channel against all other channels and saves the produced results in a partial RQA matrix. 
+				A \texttt{multiprocessing.Pool} distributes tasks across CPU cores, where each process pinned to a specific GPU. GPU utilization is monitored using \texttt{nvidia-smi}.
+
+				The resulting RQA feature matrix has dimensions \([N_w, N_e, N_e, 17]\), where \(N_w\) is the number of windows, \(N_e\) is the number of channels, and 17 represents the 16 CRQA features plus the segment label. The matrix is saved as a NumPy array for further analysis.
+
+				\subsection{Algorithm Summary}
+				\label{subsec:algorithm}
+
+				The methodology is summarized in Algorithm~\ref{alg:crqa_computation}, which outlines the CRQA computation for each window and channel pair.
+
+				\begin{algorithm}
+				\caption{Cross Recurrence Quantification Analysis (CRQA) for EEG Windows}
+				\label{alg:crqa_computation}
+				\begin{algorithmic}[1]
+				\State \textbf{Input}: EEG windows \( \{X_{c,w}\} \) for channels \( c \in C \), windows \( w = 1, \dots, N_w \), where \( N_w = \text{number of windows} \), number of electrodes \( N_e \)
+				\State \textbf{Output}: RQA feature matrix \( M \) of shape \( (N_w, N_e, N_e, 17) \)
+
+				\For{each window index \( w = 1 \) to \( N_w \)}
+				    \For{each channel pair \( (c_1, c_2) \in C \times C \)}
+					\State \textbf{Time Series Preparation}
+					\State Truncate time series \( X_{c_1,w} \) and \( X_{c_2,w} \) to minimum length
+					\State \textbf{Parameter Estimation}
+					\State Compute time delay \( \tau_1 \) for \( X_{c_1,w} \) using AMI (max lag = 25, select first local minimum)
+					\State Compute time delay \( \tau_2 \) for \( X_{c_2,w} \) using AMI (max lag = 25, select first local minimum)
+					\State Set \( \tau = \min(\tau_1, \tau_2) \)
+					\State Compute embedding dimension \( m_1 \) for \( X_{c_1,w} \) using FNN (max dimension = 10, rtol = 15.0, atol = 2.0)
+					\State Compute embedding dimension \( m_2 \) for \( X_{c_2,w} \) using FNN (max dimension = 10, rtol = 15.0, atol = 2.0)
+					\State Set \( m = \min(m_1, m_2) \)
+					\State \textbf{CRQA Computation}
+					\State Construct cross-recurrence plot for \( (X_{c_1,w}, X_{c_2,w}) \) using \texttt{PyRQA} with:
+					\State \quad Fixed radius neighborhood \( r = 0.1 \times \text{mean diameter} \), Euclidean metric, Theiler corrector = 1
+					\State Extract 16 CRQA features: \{RR, DET, \( L_{\text{avg}} \), \( L_{\text{max}} \), DIV, \( H_{\text{diag}} \), LAM, TT, \( V_{\text{max}} \), \( W_{\text{avg}} \), \( W_{\text{max}} \), \( W_{\text{max}}^{-1} \), \( H_{\text{vert}} \), \( H_{\text{wvert}} \), DET/RR, LAM/DET\}
+					\State \textbf{Feature Storage}
+					\State Append window label \( l_w \) to features
+					\State Store features in \( M[w, c_1, c_2, :] \)
+				    \EndFor
+				\EndFor
+
+				\State \textbf{Return} RQA feature matrix \( M \)
+				\end{algorithmic}
+				\end{algorithm}
+
+				\subsection{Implementation Details}
+				\label{subsec:implementation_details}
+
+				The methodology is implemented in Python, with error handling to fall back to CPU computation in the case of a GPU resources failure. 
+				The window size and radius fraction are chosen after visual inspection of the produced Recurrence Plots in order to improve feature robustness. 
+				The resulting RQA matrix is utilized for analyzing epileptic versus non-epileptic activity.
 
 
-			EEG data are stored in a NumPy array format (\texttt{.npy}) and 
-			accompanied by metadata containing the sampling frequency (\( f_s \)) 
-			and other relevant information. 
-			The data is loaded per specific patient's recording
-			(f.e, patient 24 - recording number 1) from a filtered EEG file.
-			The time axis is computed as \( t = \frac{n}{f_s} \), 
-			where \( n \) is the sample index and \( f_s \) is the sampling frequency in Hertz (Hz).
-
-			The EEG data is segmented into continuous regions 
-			based on predefined boundaries
-			according to annotations from CHB-MIT dataset,
-			that distinguish between normal and 
-			epileptic activity. 
-
-			After embedding the time series as required for the
-			phase space reconstruction, computation takes place for the cross recurrence matrix.
-			From this matrix, CRQA metrics are extracted.	
-
-			The algorithm is summarized in Algorithm \ref{alg:crqa_computation}.
-
-					\begin{algorithm}
-					\caption{Cross Recurrence Quantification Analysis (CRQA) for EEG Segments}
-					\label{alg:crqa_computation}
-					\begin{algorithmic}[1]
-					\State \textbf{Input}: EEG segments \( \{X_{c,i}\} \) for channels \( c \in C \), segments \( i = 1, \dots, N_s \), where \( N_s = number of distinct normal/epileptic segments \), number of electrodes \( N_e = 22 \)
-					\State \textbf{Output}: RQA feature matrix \( M \) of shape \( (N_s, N_e, N_e, 17) \)
-
-					\For{each segment index \( i = 1 \) to \( N_s \)}
-					    \For{each channel pair \( (c_1, c_2) \in C \times C \)}
-						\State \textbf{Time Series Preparation}
-						\State Truncate time series \( X_{c_1,i} \) and \( X_{c_2,i} \) to minimum length for compatibility
-						\State \textbf{Parameter Estimation}
-						\State Compute time delay \( \tau_1 \) for \( X_{c_1,i} \) using AMI (max lag = 25, select first local minimum)
-						\State Compute time delay \( \tau_2 \) for \( X_{c_2,i} \) using AMI (max lag = 25, select first local minimum)
-						\State Set \( \tau = \min(\tau_1, \tau_2) \)
-						\State Compute embedding dimension \( m_1 \) for \( X_{c_1,i} \) using FNN (max dimension = 15, rtol = 15.0, atol = 2.0)
-						\State Compute embedding dimension \( m_2 \) for \( X_{c_2,i} \) using FNN (max dimension = 15, rtol = 15.0, atol = 2.0)
-						\State Set \( m = \min(m_1, m_2) \)
-						\State \textbf{CRQA Computation}
-						\State Construct cross-recurrence plot for \( (X_{c_1,i}, X_{c_2,i}) \) using \texttt{PyRQA} with:
-						\State \quad Fixed radius neighborhood \( r = 0.1 \), Euclidean metric, Theiler corrector = 1
-						\State Extract 16 CRQA features: \{RR, DET, \( L_{avg} \), \( L_{max} \), DIV, \( H_{diag} \), LAM, TT, \( V_{max} \), \( W_{avg} \), \( W_{max} \), \( W_{max}^{-1} \), \( H_{vert} \), \( H_{wvert} \), DET/RR, LAM/DET\}
-						\State \textbf{Feature Storage}
-						\State Append segment label \( l_i \) to features
-						\State Store features in \( M[i, c_1, c_2, :] \)
-					    \EndFor
-					\EndFor
-
-					\State \textbf{Return} RQA feature matrix \( M \)
-					\end{algorithmic}
-					\end{algorithm}
+				 \subsection{Feature Aggregation}
+				 \label{subsec:feature_aggregation}
+				 To summarize CRQA features across channel pairs for each window, a mean feature matrix is optionally computed by averaging the 16 CRQA features across all channel pairs, resulting in a matrix of shape \([N_w, 17]\), where the last column retains the window label. This matrix summarizes the average dynamical interactions within each window.
 
 
-			
-		For each segment and each pair of selected channels, the following steps were executed:
 
-			\begin{enumerate}
-			    \item \textbf{Time Series Preparation}: For each segment, the two time series (from different channels) 
-				    were truncated to the same length to ensure compatibility for CRQA computation.
-			    \item \textbf{Parameter Estimation}: The optimal embedding dimension (\(m\)) and time delay (\(\tau\)) are 
-				    determined for each of the time series. 
-					The time delay is estimated using the Average Mutual Information (AMI) method, 
-					selecting the first local minimum up to a maximum lag of 25 samples. 
-					The embedding dimension is determined using the False Nearest Neighbors (FNN) method, 
-					testing dimensions up to 15, with relative and absolute tolerance parameters set to 15.0 and 2.0, respectively. 
-					The minimum of the optimal dimensions and delays from the two time series is used to ensure consistency.
-			    \item \textbf{CRQA Computation}: Using the \texttt{PyRQA} library, a cross-recurrence plot is constructed 
-				    with a fixed radius neighborhood (\(r = 0.1\)) and Euclidean distance metric. 
-					The Theiler corrector is set to 1 to exclude temporally correlated points. 
-					The CRQA computation provides the 16 features as described in \ref{tab:pyrqa_metrics} 
-			    
-				\item \textbf{Feature Storage}: For each segment and channel pair, the 16 CRQA features are then stored in a 
-				four-dimensional matrix of shape (\(N_s\), \(N_e\), \(N_e\), 17), where \(N_s \) 
-					is the number of segments in a specific recording(normal-epileptic), 
-					\(N_e = 22\) is the number of electrodes, and the final dimension included the 
-					16 features plus the segment label(normal:0 - epileptic: 1).
 
-			\end{enumerate}
-
-			
-			In order to summarize the CRQA features 
-			across electrode pairs for each EEG recording, 
-			a mean feature matrix \emph{mean\_crqa\_matrix} is computed. 
-			For each segment, the 16 CRQA features were averaged across all 
-			electrode pairs, resulting in a matrix of shape (\(N_s\), 17), 
-			where the last column retained the segment label. 
-			This mean matrix is saved for subsequent analysis, 
-			capturing the average dynamical interactions within each segment.
 
 
 
+			
 
 		\newpage
 
