@@ -15,7 +15,7 @@ from pyrqa.opencl import OpenCL
 from pyrqa.computation import RQAComputation, RPComputation
 import pyopencl as cl
 
-# Assuming these functions are defined elsewhere in your codebase
+# Previous functions implementation in utils file. keeping only RQA/CRQA here.
 from utils import find_optimal_tau_ami, false_nearest_neighbors, pss, save_rp_plot, load_single_channel
 
 opencl = OpenCL(platform_id=0, device_ids=(0,1))
