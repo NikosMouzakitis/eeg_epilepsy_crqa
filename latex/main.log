@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.12)  6 OCT 2025 14:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.12)  7 OCT 2025 15:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -286,18 +286,21 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 [2] [3]
-Overfull \hbox (5.83167pt too wide) in paragraph at lines 230--245
+Overfull \hbox (5.83167pt too wide) in paragraph at lines 245--260
 []\OT1/cmr/m/n/10 Researchers in [[]], have ap-plied RQA on resting-state fMRI 
 data from TgF344-
  []
 
 [4] [5]
-Overfull \hbox (111.54247pt too wide) in paragraph at lines 335--366
+Overfull \hbox (111.54247pt too wide) in paragraph at lines 350--381
  [][] 
  []
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [6] [7] [8] [9]
-Overfull \hbox (6.81506pt too wide) in paragraph at lines 530--531
+Overfull \hbox (6.81506pt too wide) in paragraph at lines 545--546
 []\OT1/cmr/m/n/10 Metrics where \OT1/cmr/m/it/10 lower \OT1/cmr/m/n/10 val-ues 
 in-di-cate bet-ter per-for-mance (\OT1/cmr/bx/n/10 RMSE\OT1/cmr/m/n/10 , \OT1/c
 mr/bx/n/10 NRMSE\OT1/cmr/m/n/10 ,
@@ -306,10 +309,10 @@ mr/bx/n/10 NRMSE\OT1/cmr/m/n/10 ,
 <eeg_metrics_result.png, id=42, 1280.6244pt x 710.4141pt>
 File: eeg_metrics_result.png Graphic file (type png)
 <use eeg_metrics_result.png>
-Package pdftex.def Info: eeg_metrics_result.png  used on input line 554.
+Package pdftex.def Info: eeg_metrics_result.png  used on input line 569.
 (pdftex.def)             Requested size: 379.5021pt x 210.52426pt.
 
-Overfull \hbox (34.5021pt too wide) in paragraph at lines 554--555
+Overfull \hbox (34.5021pt too wide) in paragraph at lines 569--570
  [][] 
  []
 
@@ -319,10 +322,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <wav1.png, id=44, 1125.9666pt x 730.6497pt>
 File: wav1.png Graphic file (type png)
 <use wav1.png>
-Package pdftex.def Info: wav1.png  used on input line 565.
+Package pdftex.def Info: wav1.png  used on input line 580.
 (pdftex.def)             Requested size: 413.99895pt x 268.65268pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 565--566
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 580--581
  [][] 
  []
 
@@ -330,10 +333,10 @@ Overfull \hbox (68.99895pt too wide) in paragraph at lines 565--566
 <wav2.png, id=48, 867.9627pt x 730.6497pt>
 File: wav2.png Graphic file (type png)
 <use wav2.png>
-Package pdftex.def Info: wav2.png  used on input line 573.
+Package pdftex.def Info: wav2.png  used on input line 588.
 (pdftex.def)             Requested size: 413.99895pt x 348.51155pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 573--574
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 588--589
  [][] 
  []
 
@@ -342,18 +345,18 @@ Overfull \hbox (68.99895pt too wide) in paragraph at lines 573--574
 <ami.png, id=58, 714.7503pt x 426.393pt>
 File: ami.png Graphic file (type png)
 <use ami.png>
-Package pdftex.def Info: ami.png  used on input line 629.
+Package pdftex.def Info: ami.png  used on input line 644.
 (pdftex.def)             Requested size: 276.00105pt x 164.65303pt.
  [13 <./ami.png>]
 <fnn_estim.png, id=65, 714.7503pt x 426.393pt>
 File: fnn_estim.png Graphic file (type png)
 <use fnn_estim.png>
-Package pdftex.def Info: fnn_estim.png  used on input line 672.
+Package pdftex.def Info: fnn_estim.png  used on input line 687.
 (pdftex.def)             Requested size: 276.00105pt x 164.65303pt.
 <fnn_schematic.png, id=66, 500.87125pt x 405.515pt>
 File: fnn_schematic.png Graphic file (type png)
 <use fnn_schematic.png>
-Package pdftex.def Info: fnn_schematic.png  used on input line 680.
+Package pdftex.def Info: fnn_schematic.png  used on input line 695.
 (pdftex.def)             Requested size: 276.00105pt x 223.46706pt.
 
 
@@ -363,49 +366,49 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <phase_space_3d.png, id=77, 469.0323pt x 475.5366pt>
 File: phase_space_3d.png Graphic file (type png)
 <use phase_space_3d.png>
-Package pdftex.def Info: phase_space_3d.png  used on input line 726.
+Package pdftex.def Info: phase_space_3d.png  used on input line 741.
 (pdftex.def)             Requested size: 241.49895pt x 244.84966pt.
  [16 <./phase_space_3d.png>]
 [17]
-Overfull \hbox (1.54785pt too wide) in paragraph at lines 825--826
+Overfull \hbox (1.54785pt too wide) in paragraph at lines 840--841
 []\OT1/cmr/m/n/10 This met-ric rep-re-sents the av-er-age time
  []
 
 [18]
 
-LaTeX Warning: Citation `marwan2007' on page 19 undefined on input line 878.
+LaTeX Warning: Citation `marwan2007' on page 19 undefined on input line 893.
 
 [19] [20] [21]
 
 LaTeX Warning: Citation `shoeb2010application' on page 22 undefined on input li
-ne 937.
+ne 952.
 
 
-Overfull \hbox (11.70374pt too wide) in paragraph at lines 946--947
+Overfull \hbox (11.70374pt too wide) in paragraph at lines 961--962
 []\OT1/cmr/bx/n/10 Embedding Di-men-sion ($\OML/cmm/m/it/10 m$\OT1/cmr/bx/n/10 
 )\OT1/cmr/m/n/10 : The False Near-est Neigh-bors (FNN) method,
  []
 
 [22]
-Overfull \hbox (29.89072pt too wide) in paragraph at lines 957--958
+Overfull \hbox (29.89072pt too wide) in paragraph at lines 972--973
 \OT1/cmr/m/n/10 mean di-am-e-ter, and the ra-dius is set to 10% of this value (
 \OT1/cmtt/m/n/10 radius[]fraction=0.1\OT1/cmr/m/n/10 ). 
  []
 
 
-Overfull \hbox (66.05005pt too wide) in paragraph at lines 993--999
+Overfull \hbox (66.05005pt too wide) in paragraph at lines 1008--1014
 \OT1/cmr/m/n/10 and an OpenCL con-text is cre-ated for CRQA com-pu-ta-tions. Th
 e \OT1/cmtt/m/n/10 compute[]rqa[]for[]electrode1
  []
 
 [23]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-028.
+043.
  (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1028.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1043.
 
 
 [24] [25] (main.bbl [26]
@@ -493,10 +496,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4616 strings out of 474486
- 78291 string characters out of 5744227
- 1940542 words of memory out of 5000000
- 26861 multiletter control sequences out of 15000+600000
+ 4618 strings out of 474486
+ 78322 string characters out of 5744227
+ 1941542 words of memory out of 5000000
+ 26863 multiletter control sequences out of 15000+600000
  566365 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,13n,65p,719b,434s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -523,7 +526,7 @@ iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/User/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/User/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (30 pages, 1262519 bytes).
+Output written on main.pdf (30 pages, 1263676 bytes).
 PDF statistics:
  218 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -100,6 +100,8 @@
 			RQA features were extracted and tested on various linear and nonlinear classifiers achieving 92.9\% classification
 			accuracy with nonlinear SVM classifier.
 
+
+
 			% EEG, aging aisthitiriako-kinitiko systima. ok.  OK
 			Author in \cite{pitsik}, investigated changes related to aging in 
 			brain sensorimotor systems using 
@@ -220,6 +222,19 @@
 			Results highlighted the correlation among RQA measures (determinism, laminarity, and mean recurrence time) in 
 			detecting seizure precursors, while RN measures (average shortest path length and network transitivity) provided 
 			complementary but not so consistent insights than using the application of RQA measures alone.
+
+			Gao et al.\cite{gao2020automatic} examined the application of RQA 
+			in the domain of automated epilepsy detection. 
+			Authors utilized a hybrid scheme combining nonlinear features(related to Approximate Entropy(ApEn) and RQA metrics) 
+			from the publicly available Bonn EEG dataset\cite{bonndataset} with a deep learning classifier.
+			Their key finding was that while ApEn and RQA features alone could 
+			achieve good classification accuracy, 
+			their performance was increased when used as input 
+			features for a Convolutional Neural Network (CNN). By constructing this hybrid approach,
+			classification accuracy rised on 99.26\% for distinguishing ictal from inter-ictal 
+			and healthy EEG signals, demonstrating the potential of the synergy among traditional metrics
+			and modern deep learning architectures.
+
 
 
 

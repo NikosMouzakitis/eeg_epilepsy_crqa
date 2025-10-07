@@ -1,185 +1,193 @@
 \begin{thebibliography}{1} 
 
-\bibitem{frolov}
-	Frolov, N., Maksimenko, V. and Hramov, A. (2020), Revealing a multiplex brain network through the analysis of recurrences \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science} 30(12), 121108.
+		\bibitem{frolov}
+			Frolov, N., Maksimenko, V. and Hramov, A. (2020), Revealing a multiplex brain network through the analysis of recurrences \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science} 30(12), 121108.
 
-\bibitem{kang}
-	Recurrence quantification analysis of periodic dynamics in the default mode network in first-episode drug-naïve schizophrenia. \textit{Psychiatry Research: Neuroimaging}, 329, 111583.
+		\bibitem{kang}
+			Recurrence quantification analysis of periodic dynamics in the default mode network in first-episode drug-naïve schizophrenia. \textit{Psychiatry Research: Neuroimaging}, 329, 111583.
 
-\bibitem{rezaei}
-	Recurrence quantification analysis of rs-fMRI data: A method to detect subtle changes in the TgF344-AD rat model. \textit{Computer Methods and Programs in Biomedicine}, 257, 108378.
+		\bibitem{rezaei}
+			Recurrence quantification analysis of rs-fMRI data: A method to detect subtle changes in the TgF344-AD rat model. \textit{Computer Methods and Programs in Biomedicine}, 257, 108378.
 
-\bibitem{lameu2018}
-Lameu, E. L., Yanchuk, S., Macau, E. E. N., Borges, F. S., Iarosz, K. C., Caldas, I. L., Protachevicz, P. R., Borges, R. R., Viana, R. L., Szezech, J. D., Batista, A. M. and Kurths, J. (2018). Recurrence quantification analysis for the identification of burst phase synchronisation. \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science}, \textit{28}(8), 085701. https://doi.org/10.1063/1.5024324
+		\bibitem{lameu2018}
+		Lameu, E. L., Yanchuk, S., Macau, E. E. N., Borges, F. S., Iarosz, K. C., Caldas, I. L., Protachevicz, P. R., Borges, R. R., Viana, R. L., Szezech, J. D., Batista, A. M. and Kurths, J. (2018). Recurrence quantification analysis for the identification of burst phase synchronisation. \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science}, \textit{28}(8), 085701. https://doi.org/10.1063/1.5024324
 
-\bibitem{Lombardi2014} 
-Lombardi, A., Guccione, P. and Mascolo, L. (2014). Analysis of fMRI data using the complex systems approach. In \textit{20th IMEKO TC4 International Symposium and 18th International Workshop on ADC Modelling and Testing} (pp. 293-298). Benevento, Italy.
+		\bibitem{Lombardi2014} 
+		Lombardi, A., Guccione, P. and Mascolo, L. (2014). Analysis of fMRI data using the complex systems approach. In \textit{20th IMEKO TC4 International Symposium and 18th International Workshop on ADC Modelling and Testing} (pp. 293-298). Benevento, Italy.
 
-\bibitem{pitsik}
-Pitsik, E. (2025). Recurrence quantification analysis and theta-band functional networks detect age-related changes in brain sensorimotor system: VR-based approach. \textit{The European Physical Journal Special Topics}. https://doi.org/10.1140/epjs/s11734-025-01509-y
-
-
-\bibitem{guglielmo}
-Guglielmo, G., Wiltshire, T. J. and Louwerse, M. (2022). Training machine learning models to detect group differences in neurophysiological data using recurrence quantification analysis based features. \textit{ICAART 2022 - 14th International Conference on Agents and Artificial Intelligence}, 430-434.
-
-\bibitem{lopes}
-Lopes, M. A., Zhang, J., Krzeminski, D., Hamandi, K., Chen, Q., Livi, L. and Masuda, N. (2020). Recurrence quantification analysis of dynamic brain networks. \textit{European Journal of Neuroscience}, 00, 1-20. https://doi.org/10.1111/ejn.14960
-\bibitem{pentari22}
-Pentari, A., Tzagkarakis, G., Tsakalides, P., Simos, P., Bertstas, G., Kavroulakis, E., Marias, K., Simos, N. J. and Papadaki, E. (2022). Changes in resting-state functional connectivity in neuropsychiatric lupus: A dynamic approach based on recurrence quantification analysis. \textit{Biomedical Signal Processing and Control, 72}, 103285. https://doi.org/10.1016/j.bspc.2021.103285
-
-\bibitem{pentari23}
-Pentari, A., Simos, N., Tzagarakis, G., Kagialis, A., Bertsias, G., Kavroulakis, E., Gratsia, E., Sidiropoulos, P., Boumpas, D. T. and Papadaki, E. (2023). Altered hippocampal connectivity dynamics predicts memory performance in neuropsychiatric lupus: A resting-state fMRI study using cross-recurrence quantification analysis. \textit{Lupus Science \& Medicine}, \textit{10}(1), e000920. https://doi.org/10.1136/lupus-2023-000920
-
-\bibitem{gruszczynska2019}
-Gruszczyńska, I., Mosdorf, R., Sobaniec, P., Żochowska-Sobaniec, M. and  Borowska, M. (2019). Epilepsy identification based on EEG signal using RQA method. \emph{Advances in Medical Sciences}, 64(1), 58-64. https://doi.org/10.1016/j.advms.2018.08.003
+		\bibitem{pitsik}
+		Pitsik, E. (2025). Recurrence quantification analysis and theta-band functional networks detect age-related changes in brain sensorimotor system: VR-based approach. \textit{The European Physical Journal Special Topics}. https://doi.org/10.1140/epjs/s11734-025-01509-y
 
 
-\bibitem{mo}
-Mo, J., Zhang, J., Hu, W., Wang, X., Zhao, B., Zhang, K. and Zhang, C. (2022). Neural underpinnings of default mode network on empathy revealed by intracranial stereoelectroencephalography. \textit{Psychiatry and Clinical Neurosciences, 76}(12), 659-666. https://doi.org/10.1111/pcn.13470
+		\bibitem{guglielmo}
+		Guglielmo, G., Wiltshire, T. J. and Louwerse, M. (2022). Training machine learning models to detect group differences in neurophysiological data using recurrence quantification analysis based features. \textit{ICAART 2022 - 14th International Conference on Agents and Artificial Intelligence}, 430-434.
 
-\bibitem{palanisamy2024}
-Vanithamani Palanisamy, A.~Ranichitra, and Radhamani Ellapparaj,
-A differential biomarker based on recurrence quantification analysis of {EEG} signal and genetic algorithm for epilepsy diagnosis.
-\textit{ Journal of Artificial Intelligence and System Modelling}, 2(2):74--85, 2024.
-10.22034/jaism.2024.450400.1046
+		\bibitem{lopes}
+		Lopes, M. A., Zhang, J., Krzeminski, D., Hamandi, K., Chen, Q., Livi, L. and Masuda, N. (2020). Recurrence quantification analysis of dynamic brain networks. \textit{European Journal of Neuroscience}, 00, 1-20. https://doi.org/10.1111/ejn.14960
+		\bibitem{pentari22}
+		Pentari, A., Tzagkarakis, G., Tsakalides, P., Simos, P., Bertstas, G., Kavroulakis, E., Marias, K., Simos, N. J. and Papadaki, E. (2022). Changes in resting-state functional connectivity in neuropsychiatric lupus: A dynamic approach based on recurrence quantification analysis. \textit{Biomedical Signal Processing and Control, 72}, 103285. https://doi.org/10.1016/j.bspc.2021.103285
 
-\bibitem{ngamga2016}
-Ngamga, E. J., Bialonski, S., Marwan, N., Kurths, J., Geier, C. and Lehnertz, K. (2016). Evaluation of selected recurrence measures in discriminating pre-ictal and inter-ictal periods from epileptic EEG data. \textit{Physics Letters A}, \textit{380}(16), 1419–1425. https://doi.org/10.1016/j.physleta.2016.02.024
+		\bibitem{pentari23}
+		Pentari, A., Simos, N., Tzagarakis, G., Kagialis, A., Bertsias, G., Kavroulakis, E., Gratsia, E., Sidiropoulos, P., Boumpas, D. T. and Papadaki, E. (2023). Altered hippocampal connectivity dynamics predicts memory performance in neuropsychiatric lupus: A resting-state fMRI study using cross-recurrence quantification analysis. \textit{Lupus Science \& Medicine}, \textit{10}(1), e000920. https://doi.org/10.1136/lupus-2023-000920
 
-\bibitem{fan2019detecting}
-Fan, M. and  Chou, C.-A. (2019). Detecting abnormal pattern of epileptic seizures via temporal synchronization of EEG signals. \textit{IEEE Transactions on Biomedical Engineering}, 66(3), 601-608. https://doi.org/10.1109/TBME.2018.2850959
-
-\bibitem{nunez2020characterization}
-P.~Núñez, J.~Poza, C.~Gómez, V.~Barroso-García, A.~Maturana-Candelas, M.~A. Tola-Arribas, M.~Cano, and R.~Hornero,
-Characterization of the dynamic behavior of neural activity in Alzheimer's disease: exploring the non-stationarity and recurrence structure of EEG resting-state activity,
-\emph{Journal of Neural Engineering}, vol.~17, no.~1, p. 016071, 2020, doi: https://doi.org/10.1088/1741-2552/ab71e9.
-
-\bibitem{yang2019dynamical}
-Yang, C., Luan, G., Liu, Z. and Wang, Q. (2019). 
-Dynamical analysis of epileptic characteristics based on recurrence quantification of {SEEG} recordings. 
-\textit{Physica A: Statistical Mechanics and its Applications}, \textit{523}, 507--515. 
-https://doi.org/10.1016/j.physa.2019.02.017
+		\bibitem{gruszczynska2019}
+		Gruszczyńska, I., Mosdorf, R., Sobaniec, P., Żochowska-Sobaniec, M. and  Borowska, M. (2019). Epilepsy identification based on EEG signal using RQA method. \emph{Advances in Medical Sciences}, 64(1), 58-64. https://doi.org/10.1016/j.advms.2018.08.003
 
 
-\bibitem{rangaprakash2014}
-Rangaprakash, D. (2014). Connectivity analysis of multichannel EEG signals using recurrence based phase synchronization technique. \textit{Computers in Biology and Medicine, 46}, 11-21. https://doi.org/10.1016/j.compbiomed.2013.10.025
+		\bibitem{mo}
+		Mo, J., Zhang, J., Hu, W., Wang, X., Zhao, B., Zhang, K. and Zhang, C. (2022). Neural underpinnings of default mode network on empathy revealed by intracranial stereoelectroencephalography. \textit{Psychiatry and Clinical Neurosciences, 76}(12), 659-666. https://doi.org/10.1111/pcn.13470
+
+		\bibitem{palanisamy2024}
+		Vanithamani Palanisamy, A.~Ranichitra, and Radhamani Ellapparaj,
+		A differential biomarker based on recurrence quantification analysis of {EEG} signal and genetic algorithm for epilepsy diagnosis.
+		\textit{ Journal of Artificial Intelligence and System Modelling}, 2(2):74--85, 2024.
+		10.22034/jaism.2024.450400.1046
+
+		\bibitem{ngamga2016}
+		Ngamga, E. J., Bialonski, S., Marwan, N., Kurths, J., Geier, C. and Lehnertz, K. (2016). Evaluation of selected recurrence measures in discriminating pre-ictal and inter-ictal periods from epileptic EEG data. \textit{Physics Letters A}, \textit{380}(16), 1419–1425. https://doi.org/10.1016/j.physleta.2016.02.024
+
+		\bibitem{fan2019detecting}
+		Fan, M. and  Chou, C.-A. (2019). Detecting abnormal pattern of epileptic seizures via temporal synchronization of EEG signals. \textit{IEEE Transactions on Biomedical Engineering}, 66(3), 601-608. https://doi.org/10.1109/TBME.2018.2850959
+
+		\bibitem{nunez2020characterization}
+		P.~Núñez, J.~Poza, C.~Gómez, V.~Barroso-García, A.~Maturana-Candelas, M.~A. Tola-Arribas, M.~Cano, and R.~Hornero,
+		Characterization of the dynamic behavior of neural activity in Alzheimer's disease: exploring the non-stationarity and recurrence structure of EEG resting-state activity,
+		\emph{Journal of Neural Engineering}, vol.~17, no.~1, p. 016071, 2020, doi: https://doi.org/10.1088/1741-2552/ab71e9.
+
+		\bibitem{yang2019dynamical}
+		Yang, C., Luan, G., Liu, Z. and Wang, Q. (2019). 
+		Dynamical analysis of epileptic characteristics based on recurrence quantification of {SEEG} recordings. 
+		\textit{Physica A: Statistical Mechanics and its Applications}, \textit{523}, 507--515. 
+		https://doi.org/10.1016/j.physa.2019.02.017
 
 
-\bibitem{trulla1996}
-Trulla, L. L., Giuliani, A., Zbilut, J. P., and Webber, C. L.,
-``Recurrence Quantification Analysis of the Logistic Equation with Transients,''
-\emph{Physics Letters A}, vol. 223, no. 4-5, pp. 255--260, 1996.
-\verb|doi: 10.1016/S0375-9601(96)00741-4|
-
-\bibitem{webber2005}
-Webber, C. L. and Zbilut, J. P.,
-``Recurrence Quantification Analysis of Nonlinear Dynamical Systems,''
-in \emph{Tutorials in Contemporary Nonlinear Methods for the Behavioral Sciences},
-pp. 26--94, 2005.
-
-\bibitem{thomasson2002}
-Thomasson, N., Hoeppner, T. J., Webber, C. L., and Zbilut, J. P.,
-``Application of Recurrence Quantification Analysis to EEG Signals,''
-\emph{International Journal of Computer Research}, 2002.
-
-\bibitem{marwan2013}
-Marwan, N., Schinkel, S., and Kurths, J.,
-``Recurrence Plots 25 Years Later -- Gaining Confidence in Dynamical Transitions,''
-\emph{EPL (Europhysics Letters)}, vol. 101, no. 2, p. 20007, 2013.
-\verb|doi: 10.1209/0295-5075/101/20007|
-
-\bibitem{heunis2018}
-Heunis, T., Aldrich, C., Peters, J. M., Jeste, S. S., Sahin, M., Scheffer, C., and de Vries, P. J.,
-``Recurrence quantification analysis of resting state EEG signals in autism spectrum disorder -- a systematic methodological exploration of technical and demographic confounders in the search for biomarkers,''
-\emph{BMC Medicine}, vol. 16, no. 1, p. 101, 2018.
+		\bibitem{rangaprakash2014}
+		Rangaprakash, D. (2014). Connectivity analysis of multichannel EEG signals using recurrence based phase synchronization technique. \textit{Computers in Biology and Medicine, 46}, 11-21. https://doi.org/10.1016/j.compbiomed.2013.10.025
 
 
-\bibitem{eckmann1987}
-Eckmann, J.-P., Kamphorst, S. O. and Ruelle, D. (1987). Recurrence plots of dynamical systems. \textit{Europhysics Letters}, \textit{4}(9), 973--977.
+		\bibitem{trulla1996}
+		Trulla, L. L., Giuliani, A., Zbilut, J. P., and Webber, C. L.,
+		``Recurrence Quantification Analysis of the Logistic Equation with Transients,''
+		\emph{Physics Letters A}, vol. 223, no. 4-5, pp. 255--260, 1996.
+		\verb|doi: 10.1016/S0375-9601(96)00741-4|
+
+		\bibitem{webber2005}
+		Webber, C. L. and Zbilut, J. P.,
+		``Recurrence Quantification Analysis of Nonlinear Dynamical Systems,''
+		in \emph{Tutorials in Contemporary Nonlinear Methods for the Behavioral Sciences},
+		pp. 26--94, 2005.
+
+		\bibitem{thomasson2002}
+		Thomasson, N., Hoeppner, T. J., Webber, C. L., and Zbilut, J. P.,
+		``Application of Recurrence Quantification Analysis to EEG Signals,''
+		\emph{International Journal of Computer Research}, 2002.
+
+		\bibitem{marwan2013}
+		Marwan, N., Schinkel, S., and Kurths, J.,
+		``Recurrence Plots 25 Years Later -- Gaining Confidence in Dynamical Transitions,''
+		\emph{EPL (Europhysics Letters)}, vol. 101, no. 2, p. 20007, 2013.
+		\verb|doi: 10.1209/0295-5075/101/20007|
+
+		\bibitem{heunis2018}
+		Heunis, T., Aldrich, C., Peters, J. M., Jeste, S. S., Sahin, M., Scheffer, C., and de Vries, P. J.,
+		``Recurrence quantification analysis of resting state EEG signals in autism spectrum disorder -- a systematic methodological exploration of technical and demographic confounders in the search for biomarkers,''
+		\emph{BMC Medicine}, vol. 16, no. 1, p. 101, 2018.
 
 
-\bibitem{timothy2017classification}
-Timothy, L. T., Krishna, B. M. and Nair, U. (2017). Classification of mild cognitive impairment EEG using combined recurrence and cross recurrence quantification analysis. \textit{International Journal of Psychophysiology}, \textit{120}, 86–95. https://doi.org/10.1016/j.ijpsycho.2017.07.006
+		\bibitem{eckmann1987}
+		Eckmann, J.-P., Kamphorst, S. O. and Ruelle, D. (1987). Recurrence plots of dynamical systems. \textit{Europhysics Letters}, \textit{4}(9), 973--977.
 
 
-\bibitem{Kashyap2019}
-	Kashyap, A. and Keilholz, S. (2019). Dynamic properties of simulated brain network models and empirical resting-state data. \textit{Network Neuroscience, 3}(2), 405-426. https://doi.org/10.1162/netn\_a\_00070
+		\bibitem{timothy2017classification}
+		Timothy, L. T., Krishna, B. M. and Nair, U. (2017). Classification of mild cognitive impairment EEG using combined recurrence and cross recurrence quantification analysis. \textit{International Journal of Psychophysiology}, \textit{120}, 86–95. https://doi.org/10.1016/j.ijpsycho.2017.07.006
 
 
-\bibitem{Carrubba2019}
-Carrubba, S., Frilot, C. and Marino, A. A. (2019). Optimization of recurrence quantification analysis for detecting the presence of multiple sclerosis. \textit{Journal of Medical and Biological Engineering}, \textit{39}(6), 806–815. https://doi.org/10.1007/s40846-019-00462-1
-
-\bibitem{shalbaf2014frontal}
-Shalbaf, R., Behnam, H., Sleigh, J. W., Steyn-Ross, D. A., \& Steyn-Ross, M. L. (2014). Frontal–temporal synchronization of EEG signals quantified by order patterns cross recurrence analysis during propofol anesthesia. \textit{IEEE Transactions on Neural Systems and Rehabilitation Engineering}, 22(6), 1164–1174. https://doi.org/10.1109/TNSRE.2014.2350537
-
-\bibitem{removeArtifactsReview}
-Jiang, X., Bian, G.-B., and Tian, Z. (2019). Removal of Artifacts from EEG Signals: A Review. Sensors, 19(5), 987. https://doi.org/10.3390/s19050987
-
-\bibitem{dhanaseivam2023}
-Dhanaseivam, P. S., and Chellam, C. N. (2023). A review on preprocessing of EEG signal. In \emph{2023 9th International Conference on Biosignals, Images and Instrumentation (ICBSII 23)}. Madurai, India.
-
-\bibitem{jiang2019}
-Jiang, X., Bian, G.-B., and Tian, Z. (2019). Removal of artifacts from EEG signals: A review. \emph{Sensors, 19}(5), 987. https://doi.org/10.3390/s19050987
-
-\bibitem{sen2023}
-Sen, D., Mishra, B. B., and Pattnaik, P. K. (2023). A review of the filtering techniques used in EEG signal processing. In \emph{Proceedings of the 7th International Conference on Trends in Electronics and Informatics (ICOEI 2023)} (pp. 270–278). Bhubaneshwar, India.
-
-\bibitem{mihajlovic19}
-Mihajlović, D. (2019). EEG Spectra vs Recurrence Features in Understanding Cognitive Effort. \emph{In Proceedings of the 2019 International 
-Symposium on Wearable Computers (ISWC ’19)}, September 9–13, 2019, London, United Kingdom. ACM, New York, NY, USA, 6 pages. https://doi.org/10.1145/3341163.3347746
-
-%taken's embedding theoreum.
-\bibitem{takens1981}
-Takens, F. (1981). Detecting strange attractors in turbulence. In \emph{Lecture Notes in Mathematics} (Vol. 898, pp. 366-381). Springer.
-
-%foundational for FNN
-\bibitem{kennel1992}
-Kennel, M. B., Brown, R., \& Abarbanel, H. D. I. (1993). Determining embedding dimension for phase-space reconstruction using a geometrical construction. \emph{Physical Review A}, 45(6), 3403–3411.
-
-%foundational for AMI
-\bibitem{fraser1986}
-Fraser, A. M., \& Swinney, H. L. (1986). Independent coordinates for strange
-attractors from mutual information. \textit{Physical Review A, 33}(2), 1134–1140.
-https://doi.org/10.1103/PhysRevA.33.1134
-
-%paper for Lyopanov exponents
-%\bibitem{rosenstein1993}
-%Rosenstein, M. T., Collins, J. J., \& De Luca, C. J. (1993).
-%A practical method for calculating largest Lyapunov exponents from small data sets.
-%\textit{Physica D: Nonlinear Phenomena}, \textit{65}(1-2), 117–134.
-%https://doi.org/10.1016/0167-2789(93)90009-P
-
-\bibitem{theoryReviewRQA}
-	Marwan, N., Carmen Romano, M., Thiel, M., \& Kurths, J. (2007). Recurrence plots for the analysis of complex systems. \textit{Physics Reports, 438(5–6)}, 237–329. https://doi.org/10.1016/j.physrep.2006.11.001
-
-\bibitem{marwanPHD}
-	Marwan, N. (2003). Encounters with neighbours: Current developments of concepts based on recurrence plots and their applications (\textit{Doctoral dissertation, University of Potsdam, Germany}). Institut für Physik, Universität Potsdam.
-
-	%patent rqa -eeg
-\bibitem{pat2025}
-Berényi, A., Kurics, T., Bence, M., Németh, M., Laszlov'szky, T., Nádasdi, M., Ráfi, P., Vincze, V. and Högye, S.
-\newblock \emph{Systems and Methods for Seizure Detection and Closed-Loop Neurostimulation}.
-\newblock U.S. Patent Application No. US 2025/0195894 A1, filed December 13, 2024, published June 19, 2025.
-
-	% patent china
-\bibitem{pat2018}
-Zhongnan, Z. and Weizhen, L. (2018)\textit{An EEG signal classification model based on genetic algorithm and random forest}, Chinese Patent CN108615024A, Applicant: Xiamen University.
+		\bibitem{Kashyap2019}
+			Kashyap, A. and Keilholz, S. (2019). Dynamic properties of simulated brain network models and empirical resting-state data. \textit{Network Neuroscience, 3}(2), 405-426. https://doi.org/10.1162/netn\_a\_00070
 
 
-\bibitem{pat2019}
-	Chen, Y., Hao, H. and Li, L. (2019). \textit{Implantable closed-loop deep brain stimulation system} (Patent No. CN106512206B). State Intellectual Property Office of the People's Republic of China.
+		\bibitem{Carrubba2019}
+		Carrubba, S., Frilot, C. and Marino, A. A. (2019). Optimization of recurrence quantification analysis for detecting the presence of multiple sclerosis. \textit{Journal of Medical and Biological Engineering}, \textit{39}(6), 806–815. https://doi.org/10.1007/s40846-019-00462-1
+
+		\bibitem{shalbaf2014frontal}
+		Shalbaf, R., Behnam, H., Sleigh, J. W., Steyn-Ross, D. A., \& Steyn-Ross, M. L. (2014). Frontal–temporal synchronization of EEG signals quantified by order patterns cross recurrence analysis during propofol anesthesia. \textit{IEEE Transactions on Neural Systems and Rehabilitation Engineering}, 22(6), 1164–1174. https://doi.org/10.1109/TNSRE.2014.2350537
+
+		\bibitem{removeArtifactsReview}
+		Jiang, X., Bian, G.-B., and Tian, Z. (2019). Removal of Artifacts from EEG Signals: A Review. Sensors, 19(5), 987. https://doi.org/10.3390/s19050987
+
+		\bibitem{dhanaseivam2023}
+		Dhanaseivam, P. S., and Chellam, C. N. (2023). A review on preprocessing of EEG signal. In \emph{2023 9th International Conference on Biosignals, Images and Instrumentation (ICBSII 23)}. Madurai, India.
+
+		\bibitem{jiang2019}
+		Jiang, X., Bian, G.-B., and Tian, Z. (2019). Removal of artifacts from EEG signals: A review. \emph{Sensors, 19}(5), 987. https://doi.org/10.3390/s19050987
+
+		\bibitem{sen2023}
+		Sen, D., Mishra, B. B., and Pattnaik, P. K. (2023). A review of the filtering techniques used in EEG signal processing. In \emph{Proceedings of the 7th International Conference on Trends in Electronics and Informatics (ICOEI 2023)} (pp. 270–278). Bhubaneshwar, India.
+
+		\bibitem{mihajlovic19}
+		Mihajlović, D. (2019). EEG Spectra vs Recurrence Features in Understanding Cognitive Effort. \emph{In Proceedings of the 2019 International 
+		Symposium on Wearable Computers (ISWC ’19)}, September 9–13, 2019, London, United Kingdom. ACM, New York, NY, USA, 6 pages. https://doi.org/10.1145/3341163.3347746
+
+		%taken's embedding theoreum.
+		\bibitem{takens1981}
+		Takens, F. (1981). Detecting strange attractors in turbulence. In \emph{Lecture Notes in Mathematics} (Vol. 898, pp. 366-381). Springer.
+
+		%foundational for FNN
+		\bibitem{kennel1992}
+		Kennel, M. B., Brown, R., \& Abarbanel, H. D. I. (1993). Determining embedding dimension for phase-space reconstruction using a geometrical construction. \emph{Physical Review A}, 45(6), 3403–3411.
+
+		%foundational for AMI
+		\bibitem{fraser1986}
+		Fraser, A. M., \& Swinney, H. L. (1986). Independent coordinates for strange
+		attractors from mutual information. \textit{Physical Review A, 33}(2), 1134–1140.
+		https://doi.org/10.1103/PhysRevA.33.1134
+
+		%paper for Lyopanov exponents
+		%\bibitem{rosenstein1993}
+		%Rosenstein, M. T., Collins, J. J., \& De Luca, C. J. (1993).
+		%A practical method for calculating largest Lyapunov exponents from small data sets.
+		%\textit{Physica D: Nonlinear Phenomena}, \textit{65}(1-2), 117–134.
+		%https://doi.org/10.1016/0167-2789(93)90009-P
+
+		\bibitem{theoryReviewRQA}
+			Marwan, N., Carmen Romano, M., Thiel, M., \& Kurths, J. (2007). Recurrence plots for the analysis of complex systems. \textit{Physics Reports, 438(5–6)}, 237–329. https://doi.org/10.1016/j.physrep.2006.11.001
+
+		\bibitem{marwanPHD}
+			Marwan, N. (2003). Encounters with neighbours: Current developments of concepts based on recurrence plots and their applications (\textit{Doctoral dissertation, University of Potsdam, Germany}). Institut für Physik, Universität Potsdam.
+
+			%patent rqa -eeg
+		\bibitem{pat2025}
+		Berényi, A., Kurics, T., Bence, M., Németh, M., Laszlov'szky, T., Nádasdi, M., Ráfi, P., Vincze, V. and Högye, S.
+		\newblock \emph{Systems and Methods for Seizure Detection and Closed-Loop Neurostimulation}.
+		\newblock U.S. Patent Application No. US 2025/0195894 A1, filed December 13, 2024, published June 19, 2025.
+
+			% patent china
+		\bibitem{pat2018}
+		Zhongnan, Z. and Weizhen, L. (2018)\textit{An EEG signal classification model based on genetic algorithm and random forest}, Chinese Patent CN108615024A, Applicant: Xiamen University.
 
 
-% patent coma condition
-\bibitem{patcoma}
-Becker, K., Ranft, A., Zieglgänsberger, W., Eder, M. and  Dodd, H.-U. (2008). \textit{Monitoring neuronal signals} (U.S. Patent Application No. US20080234597A1). U.S. Patent and Trademark Office.
+		\bibitem{pat2019}
+			Chen, Y., Hao, H. and Li, L. (2019). \textit{Implantable closed-loop deep brain stimulation system} (Patent No. CN106512206B). State Intellectual Property Office of the People's Republic of China.
 
 
-\bibitem{pyrqacitation}
-	Rawald, T., Sips, M., Marwan, N. (2017): PyRQA - Conducting Recurrence Quantification Analysis on Very Long Time Series Efficiently. - \textit{Computers and Geosciences}, 104, pp. 101-108.
+		% patent coma condition
+		\bibitem{patcoma}
+		Becker, K., Ranft, A., Zieglgänsberger, W., Eder, M. and  Dodd, H.-U. (2008). \textit{Monitoring neuronal signals} (U.S. Patent Application No. US20080234597A1). U.S. Patent and Trademark Office.
 
-\bibitem{marwan_website}
-Norbert Marwan.
-\textit{Recurrence Plot and Cross Recurrence Plot Quantification} URL: http://www.recurrence-plot.tk/rqa.php, 2025 \emph{Accessed}: 2025.
+
+		\bibitem{pyrqacitation}
+			Rawald, T., Sips, M., Marwan, N. (2017): PyRQA - Conducting Recurrence Quantification Analysis on Very Long Time Series Efficiently. - \textit{Computers and Geosciences}, 104, pp. 101-108.
+
+		\bibitem{marwan_website}
+		Norbert Marwan.
+		\textit{Recurrence Plot and Cross Recurrence Plot Quantification} URL: http://www.recurrence-plot.tk/rqa.php, 2025 \emph{Accessed}: 2025.
+
+
+		\bibitem{gao2020automatic}
+		Gao, X., Yan, X., Gao, P., Gao, X., \& Zhang, S. (2020). Automatic detection of epileptic seizure based on approximate entropy, recurrence quantification analysis and convolutional neural networks. \emph{Artificial Intelligence in Medicine}, \emph{102}, 101711. https://doi.org/10.1016/j.artmed.2019.101711
+
+
+		\bibitem{bonndataset}
+			Andrzejak, R. G., Lehnertz, K., Mormann, F., Rieke, C., David, P., \& Elger, C. E. (2001). Indications of nonlinear deterministic and finite-dimensional structures in time series of brain electrical activity: Dependence on recording region and brain state. Physical Review E, 64(6), 061907.
 
 \end{thebibliography}
