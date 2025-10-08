@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage[utf8]{inputenc}
-
+\usepackage{geometry}
 \usepackage{booktabs} 
 \usepackage{comment} 
 \usepackage{amsmath}
@@ -1066,12 +1066,44 @@
 
 
 
+	\begin{figure}[htbp]
+	    \centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{rr_compare/r01_epil.png}
+		\caption{radius fraction = 0.1}
+		\label{subfig:rp1}
+	    \end{subfigure}
+	    \hfill % Adds horizontal space between subfigures
+	    \begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{rr_compare/r015_epil.png}
+		\caption{radius fraction = 0.15}
+		\label{subfig:rp2}
+	    \end{subfigure}
+
+	    \vspace{0.5cm} % Adds vertical space between rows
+
+	    \begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{rr_compare/r02_epil.png}
+		\caption{radius fraction = 0.2}
+		\label{subfig:rp3}
+	    \end{subfigure}
+	    \hfill
+	    \begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{rr_compare/r03_epil.png}
+		\caption{radius fraction = 0.2}
+		\label{subfig:rp4}
+	    \end{subfigure}
+
+	    \caption{Cross recurrence plots for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}
+	    \label{fig:rp_grid}
+	\end{figure}
 
 
-
-			
-
-		\newpage
+			\newpage
 
 
 \bibliographystyle{plain}
