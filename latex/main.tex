@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{siunitx}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphicx}
@@ -1101,6 +1102,51 @@
 	    \caption{Cross recurrence plots for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}
 	    \label{fig:rp_grid}
 	\end{figure}
+		
+
+
+		In order to estimate and standardize a value for radius fraction R, an exploration
+		of its effect on CRPs is performed. By keeping constant $\tau = 1$ and \textbf{\textit{m}} = 3
+		cross recurrence plots are calculated and recurrence rate and determinism features are recorded.
+		The following table presents the comparisson of the recurrence rate and determinism
+		for different epileptic and normal windows exploring different values for the
+		percentage threshold(\textit{radius\_fraction} R. Radius fractions is set on values
+		{ 0.1, 0.15, 0.20 and 0.30} on this experiment.
+		After calculating for the randomly choosen window of the 
+		recording the 22x22 CRPs among its
+		channels, the channel-wise mean RR and mean DET is calculated.
+				
+		\begin{table}[h!]
+		\centering
+		\caption{Comparison of RR and DET values for different radius (R) values}
+		\begin{tabular}{l S[table-format=1.2] S[table-format=2.2] S[table-format=2.2] l}
+		\toprule
+		\textbf{Recording} & \textbf{R} & \textbf{RR (\%)} & \textbf{DET (\%)} & \textbf{Window} \\
+		\midrule
+		patient\_24 & 0.10 & 9 & 77.36 & Normal \\
+		patient\_24 & 0.15 & 16.7 & 85.3 & Normal \\
+		patient\_24 & 0.20 & 23.8 & 89 & Normal \\
+		patient\_24 & 0.30 & 36.4 & 93.25 & Normal \\
+		patient\_24 & 0.10 & 16.35 & 97.6 & Epileptic \\
+		patient\_24 & 0.15 & 26 & 99 & Epileptic \\
+		patient\_24 & 0.20 & 35.16 & 99.44 & Epileptic \\
+		patient\_24 & 0.30 & 51.9 & 99.74 & Epileptic \\
+
+		\midrule
+		patient\_10 & 0.10 & 10.6 & 83.5 & Normal \\
+		patient\_10 & 0.15 & 16.54 & 86.8 & Normal \\
+		patient\_10 & 0.20 & 22.13 & 88.97 & Normal \\
+		patient\_10 & 0.30 & 32.5 & 92.87 & Normal \\
+		patient\_10 & 0.10 & 14.94 & 93.6 & Epileptic \\
+		patient\_10 & 0.15 & 22.9 & 95.7 & Epileptic \\
+		patient\_10 & 0.20 & 30.3 & 96.41 & Epileptic \\
+		patient\_10 & 0.30 & 43.59 & 97.16 & Epileptic \\
+
+
+
+		\bottomrule
+		\end{tabular}
+		\end{table}
 
 
 			\newpage
