@@ -1105,17 +1105,17 @@
 		
 
 
-		In order to estimate and standardize a value for radius fraction R, an exploration
-		of its effect on CRPs is performed. By keeping constant $\tau = 1$ and \textbf{\textit{m}} = 3
-		cross recurrence plots are calculated and recurrence rate and determinism features are recorded.
-		The following table presents the comparisson of the recurrence rate and determinism
-		for different epileptic and normal windows exploring different values for the
-		percentage threshold(\textit{radius\_fraction} R. Radius fractions is set on values
+		In order to estimate and standardize the threshold value of radius fraction R, 
+		an exploration of its effect on CRPs and RR/DET metrics is performed. 
+		By keeping constant $\tau = 1$ and \textbf{\textit{m}} = 3
+		cross recurrence plots were generated for random patients and random recording windows of the dataset, while
+		computing the mean recurrence rate and mean determinism from the channel. Mean values are obtained by
+		calculating  all the 22x22 CRPs features and averaging channel-wise per feature.
+
+		Results are presented in the following table.
+		The different explored values for radius fractions were set on
 		{ 0.1, 0.15, 0.20 and 0.30} on this experiment.
-		After calculating for the randomly choosen window of the 
-		recording the 22x22 CRPs among its
-		channels, the channel-wise mean RR and mean DET is calculated.
-				
+						
 		\begin{table}[h!]
 		\centering
 		\caption{Comparison of RR and DET values for different radius (R) values}
@@ -1141,6 +1141,18 @@
 		patient\_10 & 0.15 & 22.9 & 95.7 & Epileptic \\
 		patient\_10 & 0.20 & 30.3 & 96.41 & Epileptic \\
 		patient\_10 & 0.30 & 43.59 & 97.16 & Epileptic \\
+
+		\midrule
+		patient\_8 & 0.10 & 7.08 & 59.26 & Normal \\
+		patient\_8 & 0.15 & 11.82 & 65,12 & Normal \\
+		patient\_8 & 0.20 & 16.33 & 67.59 & Normal \\
+		patient\_8 & 0.30 & 24.76 & 71.73 & Normal \\
+		patient\_8 & 0.10 & 16.4 & 98.3 & Epileptic \\
+		patient\_8 & 0.15 & 25 & 99.46 & Epileptic \\
+		patient\_8 & 0.20 & 33.1 & 99.60 & Epileptic \\
+		patient\_8 & 0.30 & 47.71 & 99.76 & Epileptic \\
+
+
 
 
 
