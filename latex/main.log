@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  10 OCT 2025 16:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  10 OCT 2025 22:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -390,30 +390,32 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Overfull \hbox (9.3561pt too wide) in paragraph at lines 52--65
+[]\OT1/cmr/m/n/10 Recurrence Quan-tifi-ca-tion Anal-y-sis (RQA) and Cross-Recur
+rence Quan-tifi-ca-tion Anal-y-sis (CRQA)
+ []
+
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-Overfull \hbox (26.53784pt too wide) in paragraph at lines 351--382
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+Overfull \hbox (26.53784pt too wide) in paragraph at lines 375--406
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5]
-Overfull \hbox (2.47237pt too wide) in paragraph at lines 448--451
+[6]
+Overfull \hbox (2.47237pt too wide) in paragraph at lines 472--475
 []\OT1/cmr/bx/n/10 Feature Ex-trac-tion: \OT1/cmr/m/n/10 The method em-ploys a 
 multi-modal fea-ture ex-trac-tion strat-egy. Among
  []
 
-[6] [7] [8]
+[7] [8]
 <eeg_metrics_result.png, id=40, 1280.6244pt x 710.4141pt>
 File: eeg_metrics_result.png Graphic file (type png)
 <use eeg_metrics_result.png>
-Package pdftex.def Info: eeg_metrics_result.png  used on input line 570.
+Package pdftex.def Info: eeg_metrics_result.png  used on input line 594.
 (pdftex.def)             Requested size: 473.0077pt x 262.39381pt.
 
-Overfull \hbox (43.00308pt too wide) in paragraph at lines 570--571
+Overfull \hbox (43.00308pt too wide) in paragraph at lines 594--595
  [][] 
  []
 
@@ -423,10 +425,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <wav1.png, id=42, 1125.9666pt x 730.6497pt>
 File: wav1.png Graphic file (type png)
 <use wav1.png>
-Package pdftex.def Info: wav1.png  used on input line 581.
+Package pdftex.def Info: wav1.png  used on input line 605.
 (pdftex.def)             Requested size: 516.00423pt x 334.84312pt.
 
-Overfull \hbox (85.9996pt too wide) in paragraph at lines 581--582
+Overfull \hbox (85.9996pt too wide) in paragraph at lines 605--606
  [][] 
  []
 
@@ -438,10 +440,10 @@ Overfull \vbox (98.76038pt too high) has occurred while \output is active []
 <wav2.png, id=51, 867.9627pt x 730.6497pt>
 File: wav2.png Graphic file (type png)
 <use wav2.png>
-Package pdftex.def Info: wav2.png  used on input line 589.
+Package pdftex.def Info: wav2.png  used on input line 613.
 (pdftex.def)             Requested size: 516.00423pt x 434.37964pt.
 
-Overfull \hbox (85.9996pt too wide) in paragraph at lines 589--590
+Overfull \hbox (85.9996pt too wide) in paragraph at lines 613--614
  [][] 
  []
 
@@ -449,18 +451,18 @@ Excluding 'comment' comment. [11 <./wav2.png>]
 <ami.png, id=56, 714.7503pt x 426.393pt>
 File: ami.png Graphic file (type png)
 <use ami.png>
-Package pdftex.def Info: ami.png  used on input line 645.
+Package pdftex.def Info: ami.png  used on input line 669.
 (pdftex.def)             Requested size: 344.005pt x 205.22585pt.
  [12 <./ami.png>]
 <fnn_estim.png, id=62, 714.7503pt x 426.393pt>
 File: fnn_estim.png Graphic file (type png)
 <use fnn_estim.png>
-Package pdftex.def Info: fnn_estim.png  used on input line 688.
+Package pdftex.def Info: fnn_estim.png  used on input line 712.
 (pdftex.def)             Requested size: 344.005pt x 205.22585pt.
 <fnn_schematic.png, id=63, 500.87125pt x 405.515pt>
 File: fnn_schematic.png Graphic file (type png)
 <use fnn_schematic.png>
-Package pdftex.def Info: fnn_schematic.png  used on input line 696.
+Package pdftex.def Info: fnn_schematic.png  used on input line 720.
 (pdftex.def)             Requested size: 344.005pt x 278.5248pt.
 
 
@@ -470,53 +472,53 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <phase_space_3d.png, id=75, 469.0323pt x 475.5366pt>
 File: phase_space_3d.png Graphic file (type png)
 <use phase_space_3d.png>
-Package pdftex.def Info: phase_space_3d.png  used on input line 742.
+Package pdftex.def Info: phase_space_3d.png  used on input line 766.
 (pdftex.def)             Requested size: 301.00192pt x 305.19135pt.
  [15 <./phase_space_3d.png>]
 [16] [17]
 
-LaTeX Warning: Citation `marwan2007' on page 18 undefined on input line 894.
+LaTeX Warning: Citation `marwan2007' on page 18 undefined on input line 918.
 
 [18] [19]
 
 LaTeX Warning: Citation `shoeb2010application' on page 20 undefined on input li
-ne 953.
+ne 977.
 
 [20]
-Overfull \hbox (5.79994pt too wide) in paragraph at lines 975--976
+Overfull \hbox (5.79994pt too wide) in paragraph at lines 999--1000
 []\OT1/cmr/bx/n/10 Recurrence Plot (Op-tional)\OT1/cmr/m/n/10 : If en-abled, a 
 re-cur-rence plot is gen-er-ated us-ing \OT1/cmtt/m/n/10 RPComputation
  []
 
 [21]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-044.
+068.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1044.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1068.
 
  [22]
 <rr_compare/r01_epil.png, id=108, 421.575pt x 424.4658pt>
 File: rr_compare/r01_epil.png Graphic file (type png)
 <use rr_compare/r01_epil.png>
-Package pdftex.def Info: rr_compare/r01_epil.png  used on input line 1074.
+Package pdftex.def Info: rr_compare/r01_epil.png  used on input line 1098.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
 <rr_compare/r015_epil.png, id=109, 421.575pt x 424.4658pt>
 File: rr_compare/r015_epil.png Graphic file (type png)
 <use rr_compare/r015_epil.png>
-Package pdftex.def Info: rr_compare/r015_epil.png  used on input line 1081.
+Package pdftex.def Info: rr_compare/r015_epil.png  used on input line 1105.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
 <rr_compare/r02_epil.png, id=110, 421.575pt x 424.4658pt>
 File: rr_compare/r02_epil.png Graphic file (type png)
 <use rr_compare/r02_epil.png>
-Package pdftex.def Info: rr_compare/r02_epil.png  used on input line 1090.
+Package pdftex.def Info: rr_compare/r02_epil.png  used on input line 1114.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
 <rr_compare/r03_epil.png, id=111, 421.575pt x 424.4658pt>
 File: rr_compare/r03_epil.png Graphic file (type png)
 <use rr_compare/r03_epil.png>
-Package pdftex.def Info: rr_compare/r03_epil.png  used on input line 1097.
+Package pdftex.def Info: rr_compare/r03_epil.png  used on input line 1121.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
 
 
@@ -647,7 +649,7 @@ fonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (29 pages, 1714001 bytes).
+Output written on main.pdf (29 pages, 1716012 bytes).
 PDF statistics:
  214 PDF objects out of 1000 (max. 8388607)
  136 compressed objects within 2 object streams
