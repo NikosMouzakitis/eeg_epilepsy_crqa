@@ -1,3 +1,3 @@
 all:
 	pdflatex main.tex
-#	okular main.pdf
+	okular main.pdf
