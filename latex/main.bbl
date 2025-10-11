@@ -189,5 +189,8 @@
 
 		\bibitem{bonndataset}
 			Andrzejak, R. G., Lehnertz, K., Mormann, F., Rieke, C., David, P., \& Elger, C. E. (2001). Indications of nonlinear deterministic and finite-dimensional structures in time series of brain electrical activity: Dependence on recording region and brain state. Physical Review E, 64(6), 061907.
+	
 
+		\bibitem{chbmitDataset}
+			Guttag, J. (2010). CHB-MIT Scalp EEG Database (version 1.0.0). PhysioNet. RRID:SCR\_007345. https://doi.org/10.13026/C2K01R
 \end{thebibliography}

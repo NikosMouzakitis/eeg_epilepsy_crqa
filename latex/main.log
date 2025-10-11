@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  11 OCT 2025 20:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  11 OCT 2025 22:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -479,12 +479,7 @@ Package pdftex.def Info: phase_space_3d.png  used on input line 766.
 
 LaTeX Warning: Citation `marwan2007' on page 18 undefined on input line 918.
 
-[18] [19]
-
-LaTeX Warning: Citation `shoeb2010application' on page 20 undefined on input li
-ne 977.
-
-[20]
+[18] [19] [20]
 Overfull \hbox (5.79994pt too wide) in paragraph at lines 999--1000
 []\OT1/cmr/bx/n/10 Recurrence Plot (Op-tional)\OT1/cmr/m/n/10 : If en-abled, a 
 re-cur-rence plot is gen-er-ated us-ing \OT1/cmtt/m/n/10 RPComputation
@@ -611,6 +606,12 @@ Underfull \hbox (badness 1009) in paragraph at lines 187--188
 T1/cmr/m/n/10 , 101711.
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+[]\OT1/cmr/m/n/10 Guttag, J. (2010). CHB-MIT Scalp EEG Database (ver-sion 1.0.0
+). Phy-s-ioNet.
+ []
+
 ) [29] (./main.aux)
 
 LaTeX Warning: There were undefined references.
@@ -620,13 +621,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7258 strings out of 481239
- 146580 string characters out of 5920378
- 393373 words of memory out of 5000000
- 22427 multiletter control sequences out of 15000+600000
+ 7259 strings out of 481239
+ 146595 string characters out of 5920378
+ 393377 words of memory out of 5000000
+ 22428 multiletter control sequences out of 15000+600000
  544428 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,42p,712b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,42p,698b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -649,7 +650,7 @@ fonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (29 pages, 1717176 bytes).
+Output written on main.pdf (29 pages, 1717329 bytes).
 PDF statistics:
  214 PDF objects out of 1000 (max. 8388607)
  136 compressed objects within 2 object streams
