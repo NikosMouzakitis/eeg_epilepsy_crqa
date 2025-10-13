@@ -1136,9 +1136,11 @@
 		following common practice in EEG analysis. This choice was also motivated by known limitations that the FNN algorithm experiences 
 		when applied to noisy and autocorrelated signals, such as EEG. 
 		For instance, \cite{FredkinRiceFNN} have shown that FNN can falsely indicate low-dimensional determinism in 
-		autocorrelated stochastic processes, while \cite{RhodesMorariFNN} showed that noise can lead to overestimation 
-		of the embedding dimension. To mitigate these effects and maintain consistency across a 
-		large dataset, the presented methodology adopts fixed values rather than optimizing the embedding parameters per recording.
+		autocorrelated stochastic processes, while \cite{RhodesMorariFNN} showed that the effects of noise can actually
+		lead in overestimation of the embedding dimension. 
+		In order to mitigate these effects and keep a consist methodology across a 
+		large dataset, the presented methodology adopts fixed values for the embedding parameters rather than optimizing them
+		per recording or window.
 		The decision to use constant values is influenced by applied precedents in the EEG literature. 
 		McSharry et al.\cite{mcsharry} have applied with success fixed embedding parameters in their multi-channel scalp EEG seizure research, 
 		arguing that nonlinear methods must justify their complexity over simpler linear benchmarks. 
