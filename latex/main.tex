@@ -1130,6 +1130,19 @@
 
 	
 		\subsection{Estimation of radius fraction R}
+		
+		
+		The embedding dimension \texttt{m} and time delay $\tau$ were set to 3 and 1, respectively, 
+		following common practice in EEG analysis. This choice was also motivated by known limitations that the FNN algorithm experiences 
+		when applied to noisy and autocorrelated signals, such as EEG. 
+		For instance, \cite{FredkinRiceFNN} have shown that FNN can falsely indicate low-dimensional determinism in 
+		autocorrelated stochastic processes, while \cite{RhodesMorariFNN} showed that noise can lead to overestimation 
+		of the embedding dimension. To mitigate these effects and maintain consistency across a 
+		large dataset, the presented methodology adopts fixed values rather than optimizing the embedding parameters per recording.
+		The decision to use constant values is influenced by applied precedents in the EEG literature. 
+		McSharry et al.\cite{mcsharry} have applied with success fixed embedding parameters in their multi-channel scalp EEG seizure research, 
+		arguing that nonlinear methods must justify their complexity over simpler linear benchmarks. 
+		In our case, fixed parameters ensure consistency across the large CHB-MIT dataset and help avoid overfitting to local dynamics that may not generalize.
 
 		Radius fraction R is utilized for determination of the percentage of mean diameter of the 
 		reconstructed phase space where a recurrence can occur.

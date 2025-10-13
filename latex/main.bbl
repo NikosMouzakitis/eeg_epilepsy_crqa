@@ -193,4 +193,12 @@
 
 		\bibitem{chbmitDataset}
 			Guttag, J. (2010). CHB-MIT Scalp EEG Database (version 1.0.0). PhysioNet. RRID:SCR\_007345. https://doi.org/10.13026/C2K01R
+
+		\bibitem{FredkinRiceFNN}
+			Fredkin, D.R and Rice, J.A \textit{Method of false nearest neighbors: A cautionary note,} Phys. Rev. E., vol. 51(4), pp. 2950–2954, 1995.
+
+		\bibitem{RhodesMorariFNN} 
+			C. Rhodes and M. Morari, \textit{False-nearest-neighbors algorithm and noise-corrupted time series,} Phys. Rev. E., vol. 55(5), pp. 6162–6170, 1997.
+		\bibitem{mcsharry}	
+			McSharry, P.E., He, T., Smith, L.A. and Tarassenko, L. \textit{Linear and non-linear methods for automatic seizure detection in scalp electro-encephalogram recordings}. Med. Biol. Eng. Comput. 40, 447–461 (2002). https://doi.org/10.1007/BF02345078
 \end{thebibliography}
