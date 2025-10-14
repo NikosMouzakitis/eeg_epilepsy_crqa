@@ -355,3 +355,57 @@ edf_urls = [
 	"https://physionet.org/files/chbmit/1.0.0/chb24/chb24_22.edf",
 ]
 
+
+
+	## p1 3
+    segment_boundaries = [
+        {'start_sample': 0, 'end_sample': 2996*256, 'label': 0},      # Normal: 0–1088 seconds
+        {'start_sample': 2996*256, 'end_sample': 3036*256, 'label': 1},      # Normal: 0–1088 seconds
+        {'start_sample': 3036*256, 'end_sample': None, 'label': 0}    # Normal: 1764 seconds–end
+    ] 
+
+	##p1 4
+    segment_boundaries =  [
+        {'start_sample': 0, 'end_sample': 1467*256, 'label': 0},      # Normal: 0–1088 seconds
+        {'start_sample': 1467*256, 'end_sample': 1494*256, 'label': 1},      # Normal: 0–1088 seconds
+        {'start_sample': 1494*256, 'end_sample': None, 'label': 0}    # Normal: 1764 seconds–end
+    ] 
+
+
+	##p1 15
+    segment_boundaries =  [
+        {'start_sample': 0, 'end_sample': 1732*256, 'label': 0},      # Normal: 0–1088 seconds
+        {'start_sample': 1732*256, 'end_sample': 1772*256, 'label': 1},      # Normal: 0–1088 seconds
+        {'start_sample': 1772*256, 'end_sample': None, 'label': 0}    # Normal: 1764 seconds–end
+    ] 
+	
+	##p1 16
+    segment_boundaries =  [
+        {'start_sample': 0, 'end_sample': 1015*256, 'label': 0},      # Normal: 0–1088 seconds
+        {'start_sample': 1015*256, 'end_sample': 1066*256, 'label': 1},      # Normal: 0–1088 seconds
+        {'start_sample': 1066*256, 'end_sample': None, 'label': 0}    # Normal: 1764 seconds–end
+    ]
+
+
+	##p1 18
+    segment_boundaries =  [
+        {'start_sample': 0, 'end_sample': 1720*256, 'label': 0},      # Normal: 0–1088 seconds
+        {'start_sample': 1720*256, 'end_sample': 1810*256, 'label': 1},      # Normal: 0–1088 seconds
+        {'start_sample': 1810*256, 'end_sample': None, 'label': 0}    # Normal: 1764 seconds–end
+    ]
+
+
+	##p1 21
+    segment_boundaries =  [
+        {'start_sample': 0, 'end_sample': 327*256, 'label': 0},      # Normal: 0–1088 seconds
+        {'start_sample': 327*256, 'end_sample': 420*256, 'label': 1},      # Normal: 0–1088 seconds
+        {'start_sample': 420*256, 'end_sample': None, 'label': 0}    # Normal: 1764 seconds–end
+    ]
+
+
+	##p1 26
+    segment_boundaries =  [
+        {'start_sample': 0, 'end_sample': 1862*256, 'label': 0},      # Normal: 0–1088 seconds
+        {'start_sample': 1862*256, 'end_sample': 1963*256, 'label': 1},      # Normal: 0–1088 seconds
+        {'start_sample': 1963*256, 'end_sample': None, 'label': 0}    # Normal: 1764 seconds–end
+    ]
