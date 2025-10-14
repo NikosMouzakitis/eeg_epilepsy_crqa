@@ -25,7 +25,8 @@
 
 	\section*{Introduction}
 
-	Epilepsy is a categorized as neurological disorder, which generates recurrent, unprovoked seizures. 
+	Epilepsy is a categorized as a neurological disorder, 
+	which generates recurrent, unprovoked seizures. 
 	These seizures are result of abnormal, excessive, or synchronous neuronal brain activity which lead into 
 	disturbances in behavior, sensation, movement, or consciousness. 
 	According to informations of World Health Organization (WHO), epilepsy affects 
@@ -38,9 +39,17 @@
 	Clinically, seizure manifestations vary widely—from brief lapses in awareness to 
 	convulsive episodes—and their unpredictable occurrence can severely impact a patient’s quality of life.
 
-	The diagnosis and monitoring of epilepsy rely heavily on electroencephalography (EEG), a non-invasive technique that records the brain’s electrical activity through surface electrodes. EEG signals contain rich temporal information that reflects the dynamic interactions of neuronal populations. During seizures, characteristic patterns such as spikes, sharp waves, or rhythmic discharges often appear, distinguishing epileptic activity from normal background rhythms. Because of this, EEG analysis plays a central role in both clinical diagnosis and research on automatic seizure detection.
+	For the diagnosis and monitoring of epilepsy electroencephalography (EEG) is utilized, as is offers a non invasive 
+	technique for recording brain’s electrical activity with surface electrodes. 
+	EEG signals contain temporal information that reflects the dynamic interactions 
+	of neuronal populations. 
+	During seizure events, the presence of characteristic patterns such as spikes, sharp waves, or rhythmic discharges often appear, 
+	distinguishing the epileptic activity from normal background rhythms. 
+	As a result, EEG analysis occupies a central role in both clinical diagnosis and research related to epileptic seizure domain.
 
-	Recent advances in signal processing and machine learning have greatly enhanced our ability to analyze EEG data. Techniques such as time–frequency decomposition, nonlinear dynamics, recurrence analysis, and deep neural networks (e.g., convolutional and recurrent architectures) allow for automated extraction of complex spatiotemporal features from EEG recordings. These approaches aim to support clinicians by providing objective, data-driven tools for seizure detection, prediction, and classification, ultimately contributing to better patient care and treatment personalization.
+	Recent advances in signal processing and machine learning have greatly 
+	improved the ability EEG data analysis. 
+	Techniques such as time–frequency decomposition, nonlinear dynamics, recurrence analysis, and deep neural networks (e.g., convolutional and recurrent architectures) allow for automated extraction of complex spatiotemporal features from EEG recordings. These approaches aim to support clinicians by providing objective, data-driven tools for seizure detection, prediction, and classification, ultimately contributing to better patient care and treatment personalization.
 
 	In summary, epilepsy represents a major public health challenge due to its prevalence, variability, and social consequences. Understanding the electrophysiological mechanisms underlying seizure generation and developing reliable methods for automatic EEG analysis remain crucial research directions in modern neuroscience and biomedical engineering.
 
@@ -958,33 +967,160 @@
 
 
 
-
-
 	\newpage
-				
 
 					
 				\section{Methodology}
 				\label{sec:methodology}
 
-				This section outlines the methodology for processing EEG data to perform Cross Recurrence Quantification Analysis (CRQA) to analyze the dynamics of epileptic and non-epileptic brain activity. The approach involves loading and segmenting EEG recordings, extracting non-overlapping time windows, estimating optimal embedding parameters, computing CRQA features for channel pairs, and leveraging GPU-accelerated parallel processing to handle computational demands. The methodology is implemented in Python using libraries such as \texttt{numpy}, \texttt{torch}, \texttt{pyopencl}, and \texttt{pyrqa} \cite{pyrqacitation}.
+				In this section the methodology for processing EEG data is described in order to perform CRQA to analyze epileptic and non-epileptic brain activity. 
+				The approach consists of different parts such as loading and segmenting EEG recordings, 
+				extracting non-overlapping time windows, selecting the embedding parameters and computing CRQA features for channel pairs. 
+				The methodology is implemented in Python using libraries such as \texttt{numpy}, \texttt{torch}, \texttt{pyopencl}, and \texttt{pyrqa} \cite{pyrqacitation}.
 
-				\subsection{Data Preprocessing and Windowing}
+				\subsection{Data preprocessing and windowing}
 				\label{subsec:data_preprocessing}
 
-				EEG recordings are stored in NumPy array format (\texttt{.npy}), accompanied by metadata specifying the sampling frequency (\(f_s\)) and channel information (e.g., 22 channels labeled as \texttt{FP1-F7}, \texttt{F7-T7}, ..., \texttt{FT10-T8}). The time axis is computed as \(t = \frac{n}{f_s}\), where \(n\) is the sample index and \(f_s\) is the sampling frequency in Hertz (Hz).
+				Prior filtererd EEG recordings are stored in NumPy array format (\texttt{.npy}), 
+				accompanied by metadata specifying the sampling frequency (\(f_s\)) and channel information (22 channels with their respective labels as \texttt{FP1-F7}, \texttt{F7-T7}, ..., \texttt{FT10-T8}). 
+				The time axis is computed as \(t = \frac{n}{f_s}\), where \(n\) is the sample index and \(f_s\) is the sampling frequency in Hertz (Hz).
 
-				Each EEG channel is segmented into continuous regions based on predefined boundaries from annotations (e.g., from the CHB-MIT dataset \cite{chbmitDataset}), distinguishing between epileptic and non-epileptic segments. Each segment is further divided into non-overlapping time windows of fixed size (e.g., 512 samples, equivalent to 2 seconds at 256 Hz). For each segment, the number of windows is calculated as the integer division of the segment length by the window size, discarding incomplete windows. Each window is associated with a segment index, window index within the segment, start and end sample indices, and a label (1 for epileptic, 0 for non-epileptic).
+				Each EEG channel is segmented into continuous regions based on predefined boundaries from CHB-MIT dataset \cite{chbmitDataset} annotations, distinguishing epileptic from non-epileptic segments. 
+				Then, each segment is further divided into non-overlapping time windows of fixed size (512 samples, equivalent to 2 seconds at 256 Hz). 
+				For each segment, the number of windows is calculated by performing integer division of the segment length by the window size and discarding any incomplete windows. 
+				Each window is associated with a segment index, window index within the segment, start and end sample indices, and a label (1 for epileptic, 0 for non-epileptic).
 
-				\subsection{Optimal Embedding Parameters}
+				\subsection{Embedding parameters selection}
 				\label{subsec:embedding_parameters}
+				
+				The embedding dimension \texttt{m} and time delay $\tau$ were set to 3 and 1, respectively, 
+				following common practice in EEG analysis. This choice was also motivated by known limitations that the FNN algorithm experiences 
+				when applied to noisy and autocorrelated signals, such as EEG. 
+				For instance, \cite{FredkinRiceFNN} have shown that FNN can falsely indicate low-dimensional determinism in 
+				autocorrelated stochastic processes, while \cite{RhodesMorariFNN} showed that the effects of noise can actually
+				lead in overestimation of the embedding dimension. 
+				In order to mitigate these effects and keep a consist methodology across a 
+				large dataset, the presented methodology adopts fixed values for the embedding parameters rather than optimizing them
+				per recording or window.
+				The decision to use constant values is influenced by applied precedents in the EEG literature. 
+				McSharry et al.\cite{mcsharry} have applied with success fixed embedding parameters in their multi-channel scalp EEG seizure research, 
+				arguing that nonlinear methods must justify their complexity over simpler linear benchmarks. 
+				In our case, fixed parameters ensure consistency across the large CHB-MIT dataset and help avoid overfitting to local dynamics that may not generalize.
+				
+				\subsection{Threshold selection}
+				Radius fraction R is utilized for determination of the percentage of mean diameter of the 
+				reconstructed phase space where a recurrence can occur.
+				In order to estimate and standardize R,
+				an exploration of its effect on CRPs and RR/DET metrics is performed. 
+				By keeping constant $\tau = 1$ and \textbf{\textit{m}} = 3
+				CRPs are generated by selecting random patients and random recording windows of the dataset,
+				while computing the mean channel-wise recurrence rate and mean channel-wise determinism 
+				from the 22x22 CRPs features.
 
-				CRQA requires embedding the time series in a phase space to capture nonlinear dynamics. For each window pair from two channels, the optimal time delay (\(\tau\)) and embedding dimension (\(m\)) are determined as follows:
+				Results of RR and DET are presented in the following table.
+				The different explored values for radius fraction are set to be 
+				{ 0.1, 0.15, 0.20 and 0.30} for this experiment.
+								
+				\begin{table}[h!]
+				\centering
+				\caption{Comparison of RR and DET values for different radius (R) values}
+				\begin{tabular}{l S[table-format=1.2] S[table-format=2.2] S[table-format=2.2] l}
+				\toprule
+				\textbf{Recording} & \textbf{R} & \textbf{RR (\%)} & \textbf{DET (\%)} & \textbf{Window} \\
+				\midrule
+				patient\_24 & 0.10 & 9 & 77.36 & Normal \\
+				patient\_24 & 0.15 & 16.7 & 85.3 & Normal \\
+				patient\_24 & 0.20 & 23.8 & 89 & Normal \\
+				patient\_24 & 0.30 & 36.4 & 93.25 & Normal \\
+				patient\_24 & 0.10 & 16.35 & 97.6 & Epileptic \\
+				patient\_24 & 0.15 & 26 & 99 & Epileptic \\
+				patient\_24 & 0.20 & 35.16 & 99.44 & Epileptic \\
+				patient\_24 & 0.30 & 51.9 & 99.74 & Epileptic \\
+				\midrule
+				patient\_10 & 0.10 & 10.6 & 83.5 & Normal \\
+				patient\_10 & 0.15 & 16.54 & 86.8 & Normal \\
+				patient\_10 & 0.20 & 22.13 & 88.97 & Normal \\
+				patient\_10 & 0.30 & 32.5 & 92.87 & Normal \\
+				patient\_10 & 0.10 & 14.94 & 93.6 & Epileptic \\
+				patient\_10 & 0.15 & 22.9 & 95.7 & Epileptic \\
+				patient\_10 & 0.20 & 30.3 & 96.41 & Epileptic \\
+				patient\_10 & 0.30 & 43.59 & 97.16 & Epileptic \\
+				\midrule
+				patient\_8 & 0.10 & 7.08 & 59.26 & Normal \\
+				patient\_8 & 0.15 & 11.82 & 65,12 & Normal \\
+				patient\_8 & 0.20 & 16.33 & 67.59 & Normal \\
+				patient\_8 & 0.30 & 24.76 & 71.73 & Normal \\
+				patient\_8 & 0.10 & 16.4 & 98.3 & Epileptic \\
+				patient\_8 & 0.15 & 25 & 99.46 & Epileptic \\
+				patient\_8 & 0.20 & 33.1 & 99.60 & Epileptic \\
+				patient\_8 & 0.30 & 47.71 & 99.76 & Epileptic \\
+				\midrule
+				patient\_1 & 0.10 & 18.31 & 96.02 & Normal \\
+				patient\_1 & 0.15 & 27.83 & 97.70 & Normal \\
+				patient\_1 & 0.20 & 36.61 & 97.89 & Normal \\
+				patient\_1 & 0.30 & 52.08 & 98.89 & Normal \\
+				patient\_1 & 0.10 & 20.89 & 96.11 & Epileptic \\
+				patient\_1 & 0.15 & 33.93 & 98.46 & Epileptic \\
+				patient\_1 & 0.20 & 45.61 & 99.22 & Epileptic \\
+				patient\_1 & 0.30 & 64.64 & 99.68 & Epileptic \\
 
-				\begin{itemize}
-				    \item \textbf{Time Delay (\(\tau\))}: The Average Mutual Information (AMI) method is used to estimate \(\tau\), implemented via the \texttt{find\_optimal\_tau\_ami} function. AMI is computed for delays up to a maximum of 25 samples, and the first local minimum is selected as the optimal \(\tau\). The minimum \(\tau\) of the two channels is used to ensure compatibility.
-				    \item \textbf{Embedding Dimension (\(m\))}: The False Nearest Neighbors (FNN) method, implemented in the \texttt{false\_nearest\_neighbors} function, determines the optimal \(m\). Dimensions are tested up to a maximum of 10, with relative tolerance (\texttt{rtol}=15.0) and absolute tolerance (\texttt{atol}=2.0). The smallest dimension where the FNN ratio stabilizes is chosen, and the minimum \(m\) between the two channels is used.
-				\end{itemize}
+				\bottomrule
+				\end{tabular}
+				\end{table}
+				
+				As it can be observed, both RR and DET increase while the radius fraction $R$ increases
+				for all patients/windows combinations, since by having a larger radius there are more points to be considered as recurrent in the phase space.
+				Epileptic windows present consistently higher RR and DET values when compared with normal windows at the same $R$ and same patients.
+				It should be noted that there is inter-patient variability also, 
+				suggesting that optimal radius selection may benefit from patient-specific tuning.
+				Additionally, DET values in epileptic windows approach saturation near 100\% as $R$ increases, a fact that suggests 
+				having a moderate radius fraction (e.g., $R = 0.15$--$0.20$) could provide a 
+				better balance between sensitivity and specificity in CRP analysis for the determinism metric.
+
+
+				\begin{figure}[htbp]
+				    \centering
+				    \begin{subfigure}[t]{0.45\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{rr_compare/r01_epil.png}
+					\caption{radius fraction = 0.1}
+					\label{subfig:rp1}
+				    \end{subfigure}
+				    \hfill % Adds horizontal space between subfigures
+				    \begin{subfigure}[t]{0.45\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{rr_compare/r015_epil.png}
+					\caption{radius fraction = 0.15}
+					\label{subfig:rp2}
+				    \end{subfigure}
+
+				    \vspace{0.5cm} % Adds vertical space between rows
+
+				    \begin{subfigure}[t]{0.45\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{rr_compare/r02_epil.png}
+					\caption{radius fraction = 0.2}
+					\label{subfig:rp3}
+				    \end{subfigure}
+				    \hfill
+				    \begin{subfigure}[t]{0.45\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{rr_compare/r03_epil.png}
+					\caption{radius fraction = 0.2}
+					\label{subfig:rp4}
+				    \end{subfigure}
+
+				    \caption{Cross recurrence plots for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}
+				    \label{fig:rp_grid}
+				\end{figure}
+
+
+%				CRQA requires embedding the time series in a phase space to capture nonlinear dynamics. For each window pair from two channels, the optimal time delay (\(\tau\)) and embedding dimension (\(m\)) are determined as follows:
+
+%				\begin{itemize}
+%				    \item \textbf{Time Delay (\(\tau\))}: The Average Mutual Information (AMI) method is used to estimate \(\tau\), implemented via the \texttt{find\_optimal\_tau\_ami} function. AMI is computed for delays up to a maximum of 25 samples, and the first local minimum is selected as the optimal \(\tau\). The minimum \(\tau\) of the two channels is used to ensure compatibility.
+%				    \item \textbf{Embedding Dimension (\(m\))}: The False Nearest Neighbors (FNN) method, implemented in the \texttt{false\_nearest\_neighbors} function, determines the optimal \(m\). Dimensions are tested up to a maximum of 10, with relative tolerance (\texttt{rtol}=15.0) and absolute tolerance (\texttt{atol}=2.0). The smallest dimension where the FNN ratio stabilizes is chosen, and the minimum \(m\) between the two channels is used.
+%				\end{itemize}
 
 				\subsection{Cross Recurrence Quantification Analysis (CRQA)}
 				\label{subsec:crqa}
@@ -996,7 +1132,6 @@
 				    \item \textbf{Phase Space Reconstruction}: The time series are embedded into a phase space using the optimal \(\tau\) and \(m\), via the \texttt{TimeSeries} class in \texttt{pyrqa}.
 				    \item \textbf{Radius Selection}: The radius for defining recurrence is computed using the Phase Space Separation (PSS) method (\texttt{pss} function). The maximum distances in the phase spaces of both channels are averaged to obtain a mean diameter, and the radius is set to 10\% of this value (\texttt{radius\_fraction=0.1}).
 				    \item \textbf{CRQA Computation}: The \texttt{RQAComputation} class constructs a cross-recurrence matrix using a \texttt{FixedRadius} neighborhood, Euclidean metric, and Theiler corrector of 1. The computation yields 16 CRQA features, listed in Table~\ref{tab:pyrqa_metrics}, plus the segment label as the 17th feature.
-				    \item \textbf{Recurrence Plot (Optional)}: If enabled, a recurrence plot is generated using \texttt{RPComputation} and saved for visualization, with fallback to CPU if GPU computation fails.
 				\end{enumerate}
 
 				\begin{table}[h]
@@ -1027,17 +1162,6 @@
 				\end{tabular}
 				\end{table}
 
-				\subsection{Parallel Processing with GPU Acceleration}
-				\label{subsec:parallel_processing}
-
-				To manage the computational complexity of CRQA across multiple channel pairs and windows, 
-				analysis is parallelized across two NVIDIA GPUs using \texttt{torch.multiprocessing} and \texttt{pyopencl}. 
-				Each channel is assigned to a GPU, and an OpenCL context is created for CRQA computations. 
-				The \texttt{compute\_rqa\_for\_electrode1} function processes all windows for a 
-				given channel against all other channels and saves the produced results in a partial RQA matrix. 
-				A \texttt{multiprocessing.Pool} distributes tasks across CPU cores, where each process pinned to a specific GPU. GPU utilization is monitored using \texttt{nvidia-smi}.
-
-				The resulting RQA feature matrix has dimensions \([N_w, N_e, N_e, 17]\), where \(N_w\) is the number of windows, \(N_e\) is the number of channels, and 17 represents the 16 CRQA features plus the segment label. The matrix is saved as a NumPy array for further analysis.
 
 				\subsection{Algorithm Summary}
 				\label{subsec:algorithm}
@@ -1055,13 +1179,9 @@
 				    \For{each channel pair \( (c_1, c_2) \in C \times C \)}
 					\State \textbf{Time Series Preparation}
 					\State Truncate time series \( X_{c_1,w} \) and \( X_{c_2,w} \) to minimum length
-					\State \textbf{Parameter Estimation}
-					\State Compute time delay \( \tau_1 \) for \( X_{c_1,w} \) using AMI (max lag = 25, select first local minimum)
-					\State Compute time delay \( \tau_2 \) for \( X_{c_2,w} \) using AMI (max lag = 25, select first local minimum)
-					\State Set \( \tau = \min(\tau_1, \tau_2) \)
-					\State Compute embedding dimension \( m_1 \) for \( X_{c_1,w} \) using FNN (max dimension = 10, rtol = 15.0, atol = 2.0)
-					\State Compute embedding dimension \( m_2 \) for \( X_{c_2,w} \) using FNN (max dimension = 10, rtol = 15.0, atol = 2.0)
-					\State Set \( m = \min(m_1, m_2) \)
+					\State \textbf{Set embedding parameters}
+					\State Set \( \tau = 1 \)
+					\State Set \( m = 3 \)
 					\State \textbf{CRQA Computation}
 					\State Construct cross-recurrence plot for \( (X_{c_1,w}, X_{c_2,w}) \) using \texttt{PyRQA} with:
 					\State \quad Fixed radius neighborhood \( r = 0.1 \times \text{mean diameter} \), Euclidean metric, Theiler corrector = 1
@@ -1076,146 +1196,17 @@
 				\end{algorithmic}
 				\end{algorithm}
 
-				\subsection{Implementation Details}
-				\label{subsec:implementation_details}
-
-				The methodology is implemented in Python, with error handling to fall back to CPU computation in the case of a GPU resources failure. 
-				The window size and radius fraction are chosen after visual inspection of the produced Recurrence Plots in order to improve feature robustness. 
-				The resulting RQA matrix is utilized for analyzing epileptic versus non-epileptic activity.
-
-
-				 \subsection{Feature Aggregation}
+				 \subsection{Feature aggregation}
 				 \label{subsec:feature_aggregation}
-				 To summarize CRQA features across channel pairs for each window, a mean feature matrix is optionally computed by averaging the 16 CRQA features across all channel pairs, resulting in a matrix of shape \([N_w, 17]\), where the last column retains the window label. This matrix summarizes the average dynamical interactions within each window.
+				 The resulting RQA feature matrix has dimensions \([N_w, N_e, N_e, 17]\), where \(N_w\) is the number of windows, 
+				\(N_e\) is the number of channels, and 17 represents the 16 CRQA features plus the segment label(epileptic or normal). 
+				 To summarize CRQA features across all channel pairs for each window, 
+				 a mean feature matrix is computed by averaging the 16 CRQA features across all channel pairs, 
+				 resulting in a final matrix of shape \([N_w, 17]\), where the last column retains the window label. 
+				 This matrix summarizes the average dynamical interactions within each window.
 
-
-
-
-	\begin{figure}[htbp]
-	    \centering
-	    \begin{subfigure}[t]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{rr_compare/r01_epil.png}
-		\caption{radius fraction = 0.1}
-		\label{subfig:rp1}
-	    \end{subfigure}
-	    \hfill % Adds horizontal space between subfigures
-	    \begin{subfigure}[t]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{rr_compare/r015_epil.png}
-		\caption{radius fraction = 0.15}
-		\label{subfig:rp2}
-	    \end{subfigure}
-
-	    \vspace{0.5cm} % Adds vertical space between rows
-
-	    \begin{subfigure}[t]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{rr_compare/r02_epil.png}
-		\caption{radius fraction = 0.2}
-		\label{subfig:rp3}
-	    \end{subfigure}
-	    \hfill
-	    \begin{subfigure}[t]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{rr_compare/r03_epil.png}
-		\caption{radius fraction = 0.2}
-		\label{subfig:rp4}
-	    \end{subfigure}
-
-	    \caption{Cross recurrence plots for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}
-	    \label{fig:rp_grid}
-	\end{figure}
-		
 
 	
-		\subsection{Estimation of radius fraction R}
-		
-		
-		The embedding dimension \texttt{m} and time delay $\tau$ were set to 3 and 1, respectively, 
-		following common practice in EEG analysis. This choice was also motivated by known limitations that the FNN algorithm experiences 
-		when applied to noisy and autocorrelated signals, such as EEG. 
-		For instance, \cite{FredkinRiceFNN} have shown that FNN can falsely indicate low-dimensional determinism in 
-		autocorrelated stochastic processes, while \cite{RhodesMorariFNN} showed that the effects of noise can actually
-		lead in overestimation of the embedding dimension. 
-		In order to mitigate these effects and keep a consist methodology across a 
-		large dataset, the presented methodology adopts fixed values for the embedding parameters rather than optimizing them
-		per recording or window.
-		The decision to use constant values is influenced by applied precedents in the EEG literature. 
-		McSharry et al.\cite{mcsharry} have applied with success fixed embedding parameters in their multi-channel scalp EEG seizure research, 
-		arguing that nonlinear methods must justify their complexity over simpler linear benchmarks. 
-		In our case, fixed parameters ensure consistency across the large CHB-MIT dataset and help avoid overfitting to local dynamics that may not generalize.
-
-		Radius fraction R is utilized for determination of the percentage of mean diameter of the 
-		reconstructed phase space where a recurrence can occur.
-		In order to estimate and standardize R,
-		an exploration of its effect on CRPs and RR/DET metrics is performed. 
-		By keeping constant $\tau = 1$ and \textbf{\textit{m}} = 3
-		CRPs are generated by selecting random patients and random recording windows of the dataset,
-		while computing the mean channel-wise recurrence rate and mean channel-wise determinism 
-		from the 22x22 CRPs features.
-
-		Results of RR and DET are presented in the following table.
-		The different explored values for radius fraction are set to be 
-		{ 0.1, 0.15, 0.20 and 0.30} for this experiment.
-						
-		\begin{table}[h!]
-		\centering
-		\caption{Comparison of RR and DET values for different radius (R) values}
-		\begin{tabular}{l S[table-format=1.2] S[table-format=2.2] S[table-format=2.2] l}
-		\toprule
-		\textbf{Recording} & \textbf{R} & \textbf{RR (\%)} & \textbf{DET (\%)} & \textbf{Window} \\
-		\midrule
-		patient\_24 & 0.10 & 9 & 77.36 & Normal \\
-		patient\_24 & 0.15 & 16.7 & 85.3 & Normal \\
-		patient\_24 & 0.20 & 23.8 & 89 & Normal \\
-		patient\_24 & 0.30 & 36.4 & 93.25 & Normal \\
-		patient\_24 & 0.10 & 16.35 & 97.6 & Epileptic \\
-		patient\_24 & 0.15 & 26 & 99 & Epileptic \\
-		patient\_24 & 0.20 & 35.16 & 99.44 & Epileptic \\
-		patient\_24 & 0.30 & 51.9 & 99.74 & Epileptic \\
-		\midrule
-		patient\_10 & 0.10 & 10.6 & 83.5 & Normal \\
-		patient\_10 & 0.15 & 16.54 & 86.8 & Normal \\
-		patient\_10 & 0.20 & 22.13 & 88.97 & Normal \\
-		patient\_10 & 0.30 & 32.5 & 92.87 & Normal \\
-		patient\_10 & 0.10 & 14.94 & 93.6 & Epileptic \\
-		patient\_10 & 0.15 & 22.9 & 95.7 & Epileptic \\
-		patient\_10 & 0.20 & 30.3 & 96.41 & Epileptic \\
-		patient\_10 & 0.30 & 43.59 & 97.16 & Epileptic \\
-		\midrule
-		patient\_8 & 0.10 & 7.08 & 59.26 & Normal \\
-		patient\_8 & 0.15 & 11.82 & 65,12 & Normal \\
-		patient\_8 & 0.20 & 16.33 & 67.59 & Normal \\
-		patient\_8 & 0.30 & 24.76 & 71.73 & Normal \\
-		patient\_8 & 0.10 & 16.4 & 98.3 & Epileptic \\
-		patient\_8 & 0.15 & 25 & 99.46 & Epileptic \\
-		patient\_8 & 0.20 & 33.1 & 99.60 & Epileptic \\
-		patient\_8 & 0.30 & 47.71 & 99.76 & Epileptic \\
-		\midrule
-		patient\_1 & 0.10 & 18.31 & 96.02 & Normal \\
-		patient\_1 & 0.15 & 27.83 & 97.70 & Normal \\
-		patient\_1 & 0.20 & 36.61 & 97.89 & Normal \\
-		patient\_1 & 0.30 & 52.08 & 98.89 & Normal \\
-		patient\_1 & 0.10 & 20.89 & 96.11 & Epileptic \\
-		patient\_1 & 0.15 & 33.93 & 98.46 & Epileptic \\
-		patient\_1 & 0.20 & 45.61 & 99.22 & Epileptic \\
-		patient\_1 & 0.30 & 64.64 & 99.68 & Epileptic \\
-
-		\bottomrule
-		\end{tabular}
-		\end{table}
-		
-		As it can be observed, both RR and DET increase while the radius fraction $R$ increases
-		for all patients/windows combinations, since by having a larger radius there are more points to be considered as recurrent in the phase space.
-		Epileptic windows present consistently higher RR and DET values when compared with normal windows at the same $R$ and same patients.
-		It should be noted that there is inter-patient variability also, 
-		suggesting that optimal radius selection may benefit from patient-specific tuning.
-		Additionally, DET values in epileptic windows approach saturation near 100\% as $R$ increases, a fact that suggests 
-		having a moderate radius fraction (e.g., $R = 0.15$--$0.20$) could provide a 
-		better balance between sensitivity and specificity in CRP analysis for the determinism metric.
-
-
 			\newpage
 
 
