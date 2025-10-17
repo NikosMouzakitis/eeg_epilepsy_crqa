@@ -1211,7 +1211,52 @@
 				 This matrix summarizes the average dynamical interactions within each window.
 
 
-	
+				
+				\subsection{Challenges: Class Imbalance in RQA-EEG Data}
+
+				Real world EEG datasets for epileptic seizure detection are by their nature imbalanced, 
+				reflecting the transient nature of seizure's occurence in contrast to normal brain activity. 
+				In our aggregated dataset, derived from CRQA features across the multi-channel EEG recordings,
+				the distribution is stark: 98.29\% normal segments (19,926 examples) against 1.71\% epileptic (346 examples), 
+				yielding a $\sim$58:1 ratio. This skew mirrors clinical datasets like
+				CHB-MIT but exacerbates classification challenges.
+
+				Standard classifiers, such as Random Forest, achieve misleadingly high accuracy ($\sim$99\%) 
+				by over-predicting the majority class, resulting in poor recall for epileptic events.
+				In RQA-based models, this bias can obscure discriminative patterns, 
+				such as the elevated determinism (DET) or laminarity (LAM) in epileptic signals \cite{acharya2012rqa}. 
+				False negatives pose ethical risks, delaying interventions, while naive oversampling 
+				(e.g., duplication) risks overfitting to artifacts in minority RQA features like entropy lines (L\_entr).
+
+				In order to mitigate this, a data-level resampling strategy can be employed, focusing on 
+				synthetic generation to enrich the minority class without discarding information gained from
+				the majority class. 
+
+				\begin{table}[h]
+				\centering
+				\caption{Class distribution in the preprocessed RQA-EEG dataset, highlighting severe imbalance.}
+				\label{tab:imbalance}
+				\begin{tabular}{lcc}
+				\toprule
+				Class & Percentage (\%) & Count \\
+				\midrule
+				Normal (0) & 98.29 & 19,926 \\
+				Epileptic (1) & 1.71 & 346 \\
+				\bottomrule
+				\end{tabular}
+				\end{table}
+				
+				\subsection{Imbalance Mitigation: SMOTE Oversampling}
+
+				Synthetic Minority Over-sampling Technique (SMOTE), 
+				is a data level method that can generate synthetic epileptic samples
+				by interpolating between minority instances and their k-nearest neighbors in 
+				feature space \cite{SMOTEref}. Unlike random duplication, 
+				SMOTE promotes diversity, reducing overfitting risks in low-sample regimes (e.g., our 346 epileptic examples). For RQA features---which capture non-linear dynamical patterns like recurrence rate (RR) and divergence (DIV)---this preserves subtle variations in epileptic trajectories without introducing artifacts.
+
+				In implementation, SMOTE ($k=5$) is applied during training (post-stratified split) to balance the dataset to $\sim$50:50, yielding $\sim$19,000 synthetic samples. It integrates seamlessly with our Random Forest classifier via scikit-learn's imbalanced-learn library. Preliminary results show marked improvements: epileptic recall rises from 0.41 to 0.71, with macro F1 increasing to 0.81 (Table~\ref{tab:smote-impact}). This aligns with benchmarks in EEG seizure detection, where SMOTE enhances minority sensitivity by 20-30\% \cite{sharma2014smote}.
+
+				Evaluation employs 5-fold stratified cross-validation and imbalance-aware metrics (F1-macro, precision-recall AUC), ensuring generalizability across RQA-derived datasets.
 			\newpage
 
 
