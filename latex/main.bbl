@@ -208,6 +208,10 @@
 
 		%%ADASYN ref
 		\bibitem{ADASYNref}
-			He, H.,  Bai, Y., Garcia, E. A.  and Li, S. ADASYN: Adaptive synthetic sampling approach for imbalanced learning, \textit{2008 IEEE International Joint Conference on Neural Networks (IEEE World Congress on Computational Intelligence)}, Hong Kong, 2008, pp. 1322-1328, doi: 10.1109/IJCNN.2008.4633969		
+			He, H., Bai, Y., Garcia, E. A.  and Li, S. ADASYN: Adaptive synthetic sampling approach for imbalanced learning, \textit{2008 IEEE International Joint Conference on Neural Networks (IEEE World Congress on Computational Intelligence)}, Hong Kong, 2008, pp. 1322-1328, doi: 10.1109/IJCNN.2008.4633969		
+		
+		%% Nature article, causes of epilepsy
+		\bibitem{causes}
+			Devinsky, O., Vezzani, A., O'Brien, T., Jette, N., Scheffer, I.E., Curtis, M. and Perucca, P. Epilepsy.\textit{Nature Reviews Disease Primers} 4, 18024 (2018). https://doi.org/10.1038/nrdp.2018.24
 
 \end{thebibliography}
