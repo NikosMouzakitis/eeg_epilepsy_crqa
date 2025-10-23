@@ -214,8 +214,15 @@
 		\bibitem{causes}
 			Devinsky, O., Vezzani, A., O'Brien, T., Jette, N., Scheffer, I.E., Curtis, M. and Perucca, P. Epilepsy.\textit{Nature Reviews Disease Primers} 4, 18024 (2018). https://doi.org/10.1038/nrdp.2018.24
 		
-
+		% imbalanced data paper.
 		\bibitem{he2009}
 			He, H. and Garcia, E. A. . Learning from imbalanced data. \textit{IEEE Transactions on Knowledge and Data Engineering}, \textit{21}(9), 1263-1284. https://doi.org/10.1109/TKDE.2008.239
+		
+		%% paper for Wavelet transforms
+		\bibitem{grobbelaar2022survey}
+		Grobbelaar, M., Phadikar, S., Ghaderpour, E., Struck, A.F., Sinha, N., Ghosh, R. and Ahmed, M.Z.~I. (2022). A survey on denoising techniques of electroencephalogram signals using wavelet transform. \emph{Signals}, \textbf{3}(3), 577--586. https://doi.org/10.3390/signals3030035
+
+
+
 
 \end{thebibliography}
