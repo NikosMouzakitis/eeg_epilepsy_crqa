@@ -525,6 +525,37 @@
 %		Also the described device adjusts or turns off the stimulation based on the patient's sleep state in order to save battery life and reduce side effects.
 
 
+
+		\section{The CHB-MIT EEG Database}
+
+		The CHB-MIT Scalp EEG Database\cite{chbmitDataset} is a 
+		widely used benchmark dataset for epileptic seizure 
+		detection and epileptic research, including long term electroencephalogram (EEG) 
+		recordings acquired from pediatric patients with intractable seizures. 
+		Recordings were collected at the Children's Hospital Boston, 
+		the dataset includes contributions from 23 cases derived from 22 pediatric subjects 
+		(5 males aged 3--22 years and 17 females aged 1.5--19 years), 
+		cwith case \textit{chb21} representing a follow-up recording from the same subject approximately 1.5 years later. 
+
+		The total recording duration spans approximately 982 hours, 
+		segmented into 664 different EDF files, where each recording contains 1 hour of data (though durations vary from 1 to over 4 hours). 
+
+		EEG signals were recorded using 23 scalp electrodes (according to the international 10--20 system), 
+		but some files incorporate extra channels such as ECG and EMG references. 
+		All recordings were digitized at the sampling rate of 256 Hz with 16-bit resolution. 
+		Seizure events are meticulously annotated by domain experts, 
+		marking the onset and offset of 198 ictal episodes (182 in the core 23 cases), 
+		providing a total of approximately 1 hour of seizure activity included into the dataset. 
+
+			\begin{figure}[h]
+			    \centering
+			    \includegraphics[width=1.1\textwidth]{edf_rec.png}
+			    \caption{EEG recording visualized utilizing Python-MNE, for a patient of the dataset.}
+			    \label{}
+			\end{figure}
+
+
+
 		\newpage
 		\section{Filtering}
 
@@ -1145,7 +1176,7 @@
 				\begin{enumerate}
 				    \item \textbf{Time Series Length Validation}: For each window pair, the lenght's of the two time series are compared on having same length to ensure compatibility.
 				    \item \textbf{Phase Space Reconstruction}: The time series are embedded into a phase space using the optimal \(\tau\) and \(m\), via the \texttt{TimeSeries} class in \texttt{pyrqa}.
-				    \item \textbf{Radius Selection}: The radius for defining recurrence is computed using the Phase Space Separation (PSS) method (\texttt{pss} function). The maximum distances in the phase spaces of both channels are averaged to obtain a mean diameter, and the radius is set to 10\% of this value (\texttt{radius\_fraction=0.1}).
+				    \item \textbf{Radius Selection}: The radius for defining recurrence is computed using the Phase Space Separation (PSS) method (\texttt{pss} function). The maximum distances in the phase spaces of both channels are averaged to obtain a mean diameter, and the radius is set to 15\% of this value (\texttt{radius\_fraction=0.15}).
 				    \item \textbf{CRQA Computation}: The \texttt{RQAComputation} class constructs a cross-recurrence matrix using a \texttt{FixedRadius} neighborhood, Euclidean metric, and Theiler corrector of 1. The computation yields 16 CRQA features, listed in Table~\ref{tab:pyrqa_metrics}, plus the segment label as the 17th feature.
 				\end{enumerate}
 
@@ -1188,7 +1219,7 @@
 				\label{alg:crqa_computation}
 				\begin{algorithmic}[1]
 				\State \textbf{Input}: EEG windows \( \{X_{c,w}\} \) for channels \( c \in C \), windows \( w = 1, \dots, N_w \), where \( N_w = \text{number of windows} \), number of electrodes \( N_e \)
-				\State \textbf{Output}: RQA feature matrix \( M \) of shape \( (N_w, N_e, N_e, 17) \)
+				\State \textbf{Output}: CRQA feature matrix \( M \) of shape \( (N_w, N_e, N_e, 17) \)
 
 				\For{each window index \( w = 1 \) to \( N_w \)}
 				    \For{each channel pair \( (c_1, c_2) \in C \times C \)}
@@ -1199,7 +1230,7 @@
 					\State Set \( m = 3 \)
 					\State \textbf{CRQA Computation}
 					\State Construct cross-recurrence plot for \( (X_{c_1,w}, X_{c_2,w}) \) using \texttt{PyRQA} with:
-					\State \quad Fixed radius neighborhood \( r = 0.1 \times \text{mean diameter} \), Euclidean metric, Theiler corrector = 1
+					\State \quad Fixed radius neighborhood \( r = 0.15 \times \text{mean diameter} \), Euclidean metric, Theiler corrector = 1
 					\State Extract 16 CRQA features: \{RR, DET, \( L_{\text{avg}} \), \( L_{\text{max}} \), DIV, \( H_{\text{diag}} \), LAM, TT, \( V_{\text{max}} \), \( W_{\text{avg}} \), \( W_{\text{max}} \), \( W_{\text{max}}^{-1} \), \( H_{\text{vert}} \), \( H_{\text{wvert}} \), DET/RR, LAM/DET\}
 					\State \textbf{Feature Storage}
 					\State Append window label \( l_w \) to features
@@ -1221,24 +1252,24 @@
 				 This matrix summarizes the average dynamical interactions within each window.
 
 
-				
-				\subsection{Challenges: Class Imbalance in RQA-EEG Data}
+				\subsection{Class Imbalance in RQA-EEG Data}
 
 				Real world EEG datasets for epileptic seizure detection are by their nature imbalanced, 
 				reflecting the transient nature of seizure's occurence in contrast to normal brain activity. 
 				In our aggregated dataset, derived from CRQA features across the multi-channel EEG recordings,
 				the distribution is stark: 98.29\% normal segments (19,926 examples) against 1.71\% epileptic (346 examples), 
-				yielding a $\sim$58:1 ratio. This skew mirrors clinical datasets like
-				CHB-MIT but exacerbates classification challenges.
+				yielding a $\sim$58:1 ratio. This skew is a well known challenge in machine 
+				learning which is often reffered as the "imbalanced learning problem".
 
-				Standard classifiers, such as Random Forest, achieve misleadingly high accuracy ($\sim$99\%) 
+				As discussed by He and Garcia\cite{he2009}, standard classifiers, (f.e, Random Forest), 
+				can achieve misleadingly high accuracy ($\sim$99\%) 
 				by over-predicting the majority class, resulting in poor recall for epileptic events.
-				In RQA-based models, this bias can obscure discriminative patterns, 
-				such as the elevated determinism (DET) or laminarity (LAM) in epileptic signals \cite{acharya2012rqa}. 
-				False negatives pose ethical risks, delaying interventions, while naive oversampling 
-				(e.g., duplication) risks overfitting to artifacts in minority RQA features like entropy lines (L\_entr).
+				In RQA based models, this bias can minimize the effects of discriminative patterns, 
+				such as the elevated determinism (DET) or laminarity (LAM) in epileptic signals with 
+				false negatives posing ethical risks, delaying interventions, while naive oversampling 
+				(f.e, duplication) incorporates the risk of overfitting in minority RQA features.
 
-				In order to mitigate this, a data-level resampling strategy can be employed, focusing on 
+				In order to mitigate this, data-level resampling strategies can be employed, focusing on 
 				synthetic generation to enrich the minority class without discarding information gained from
 				the majority class. 
 

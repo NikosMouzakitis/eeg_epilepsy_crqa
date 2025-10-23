@@ -213,5 +213,9 @@
 		%% Nature article, causes of epilepsy
 		\bibitem{causes}
 			Devinsky, O., Vezzani, A., O'Brien, T., Jette, N., Scheffer, I.E., Curtis, M. and Perucca, P. Epilepsy.\textit{Nature Reviews Disease Primers} 4, 18024 (2018). https://doi.org/10.1038/nrdp.2018.24
+		
+
+		\bibitem{he2009}
+			He, H. and Garcia, E. A. . Learning from imbalanced data. \textit{IEEE Transactions on Knowledge and Data Engineering}, \textit{21}(9), 1263-1284. https://doi.org/10.1109/TKDE.2008.239
 
 \end{thebibliography}
