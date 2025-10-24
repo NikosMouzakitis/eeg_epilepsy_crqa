@@ -585,7 +585,21 @@
 			and real-time processing needs. 
 			Effective preprocessing is a key that ensures reliable feature extraction for later analysis.  
 
-						
+			Among these, wavelet-based methods have have been proposed and used 
+			for effecting EEG denoising due to the non stationary nature of brain signals.
+			Transient artifacts appearing in EEGs in varying frequency patterns are the reason that 
+			traditional linear filtering methods are facing difficulties to handle them 
+			without introducing distortions.
+			Wavelet transforms on the other hand, decompose the signal 
+			into time-frequency representations using scalable, 
+			localized basis functions called wavelets, 
+			enabling the analysis: the signal is broken down into approximation (low-frequency) 
+			and detail (high-frequency) coefficients across decomposition levels. 
+			Artifacts, such as ocular blinks or EMG bursts, 
+			manifest as sparse, high-amplitude coefficients that can be selectively 
+			silenced using thresholds (f.e, hard or soft), 
+			followed by reconstruction---thus removing noise while preserving neural transients like epileptic 
+			spikes \cite{grobbelaar2022survey}. 
 
 			\subsection{Evaluation metrics for EEG denoising in the CHB-MIT dataset}
 
