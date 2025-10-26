@@ -221,8 +221,33 @@
 		%% paper for Wavelet transforms
 		\bibitem{grobbelaar2022survey}
 		Grobbelaar, M., Phadikar, S., Ghaderpour, E., Struck, A.F., Sinha, N., Ghosh, R. and Ahmed, M.Z.~I. (2022). A survey on denoising techniques of electroencephalogram signals using wavelet transform. \emph{Signals}, \textbf{3}(3), 577--586. https://doi.org/10.3390/signals3030035
+		
+		%xgboost citation
+		\bibitem{chen2016xgboost}
+Chen, T. and Guestrin, C. (2016). XGBoost: A scalable tree boosting system. In \textit{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining} (pp. 785–794). https://doi.org/10.1145/2939672.2939785
 
+	%%%%%%%%citations for per patient threshold tuning
+		\bibitem{sun2014rns}
+		Sun, F. T., and Morrell, M. J. (2014). The RNS System: A closed-loop neurostimulation device for epilepsy. \textit{Expert Review of Medical Devices}, \textit{11}(2), 133–140. https://doi.org/10.1586/17434440.2014.879061
 
+		\bibitem{cook2013prediction}
+		Cook, M. J., O'Brien, T. J., Berkovic, S. F., Murphy, M., Morokoff, A., Fabinyi, G., D'Souza, W., Yerra, R., Archer, J., Litewka, L., Medvedev, S., Kilpatrick, S. J., Vogrin, S. J., Bailey, M., Saling, M. M., Kershaw, A., Kilpatrick, C., Duman, T., Hocking, J., ... Leyde, K. (2013). Prediction of seizure likelihood with a long-term, implanted seizure advisory system in patients with drug-resistant epilepsy: A first-in-man study. \textit{The Lancet Neurology}, \textit{12}(6), 563–571. https://doi.org/10.1016/S1474-4422(13)70075-3
 
+		\bibitem{shoeb2010application}
+		Shoeb, A., and Guttag, J. (2010). Application of machine learning to epileptic seizure detection. In \textit{Proceedings of the 27th International Conference on Machine Learning (ICML)} (pp. 975–982).
 
+		\bibitem{varatharajah2019machine}
+		Varatharajah, Y., Iyer, R., Brinkmann, B. H., Van Gompel, J., Stead, M., St. Louis, E. K., and Arora, S. (2019). Machine learning approaches for epileptic seizure detection using EEG signals: A review. \textit{IEEE Reviews in Biomedical Engineering}, \textit{12}, 1–15. https://doi.org/10.1109/RBME.2018.2883320
+
+		\bibitem{khan2022personalized}
+		Khan, A., Tariq, U., Alazab, M., Gadekallu, T. R., and Maddikunta, P. K. R. (2022). Personalized seizure detection: A survey. \textit{ACM Computing Surveys}, \textit{55}(4), 1–36. https://doi.org/10.1145/3507905
+
+		\bibitem{tsiouris2018long}
+		Tsiouris, K. M., Katsigiannis, S., and Fotiadis, D. I. (2018). A long short-term memory deep learning network for the prediction of epileptic seizures using EEG signals. \textit{Computers in Biology and Medicine}, \textit{99}, 24–37. https://doi.org/10.1016/j.compbiomed.2018.05.018
+		
+		\bibitem{faes2014information}
+		Faes, L., Nollo, G., \& Porta, A. (2014). Information decomposition in multivariate systems: Definitions, estimation and significance. \textit{Entropy}, \textit{16}(9), 4838–4862. https://doi.org/10.3390/e16094838
+
+		\bibitem{zhang2020cross}
+		Zhang, J., Zhang, Y., \& Cai, W. (2020). Cross recurrence analysis of dynamic functional connectivity in epileptic EEG. \textit{Frontiers in Neuroscience}, \textit{14}, 589. https://doi.org/10.3389/fnins.2020.00589
 \end{thebibliography}

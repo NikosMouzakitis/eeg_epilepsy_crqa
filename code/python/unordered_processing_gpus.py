@@ -317,31 +317,22 @@ def process_recording_optimized(metadata_path, npy_path, segment_boundaries, SEL
 def main():
 
     recordings = [
-        {
-            "metadata_path": "p5_17_metadata.npy",
-            "npy_path": "p5_17_filtered.npy",
+      {
+            "metadata_path": "p6_13_metadata.npy",
+            "npy_path": "p6_13_filtered.npy",
             "segment_boundaries": [
-                {'start_sample': 0, 'end_sample': 2451*256, 'label': 0},
-                {'start_sample': 2451*256, 'end_sample': 2571*256, 'label': 1},
-                {'start_sample': 2571*256, 'end_sample': None, 'label': 0}
+                {'start_sample': 0, 'end_sample': 506*256, 'label': 0},
+                {'start_sample': 506*256, 'end_sample': 519*256, 'label': 1},
+                {'start_sample': 519*256, 'end_sample': None, 'label': 0}
             ]
         },
         {
-            "metadata_path": "p5_22_metadata.npy",
-            "npy_path": "p5_22_filtered.npy",
+            "metadata_path": "p6_18_metadata.npy",
+            "npy_path": "p6_18_filtered.npy",
             "segment_boundaries": [
-                {'start_sample': 0, 'end_sample': 2348*256, 'label': 0},
-                {'start_sample': 2348*256, 'end_sample': 2465*256, 'label': 1},
-                {'start_sample': 2465*256, 'end_sample': None, 'label': 0}
-            ]
-        },
-        {
-            "metadata_path": "p5_22_metadata.npy",
-            "npy_path": "p5_22_filtered.npy",
-            "segment_boundaries": [
-                {'start_sample': 0, 'end_sample': 2348*256, 'label': 0},
-                {'start_sample': 2348*256, 'end_sample': 2465*256, 'label': 1},
-                {'start_sample': 2465*256, 'end_sample': None, 'label': 0}
+                {'start_sample': 0, 'end_sample': 7799*256, 'label': 0},
+                {'start_sample': 7799*256, 'end_sample': 7811*256, 'label': 1},
+                {'start_sample': 7811*256, 'end_sample': None, 'label': 0}
             ]
         },
     ]
