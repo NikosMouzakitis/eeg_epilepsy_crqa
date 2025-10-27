@@ -1344,25 +1344,8 @@
 				SMOTE promotes diversity, reducing overfitting risks in low-sample regimes. 
 				
 
-				In order to address the high inter-patient variability 
-				which is present in EEG signals \cite{varatharajah2019machine,khan2022personalized}, 
-				a personalized modeling approach was adopted. 
-				
-				For this reason, a calibrated XGBoost classifier \cite{chen2016xgboost} 
-				was trained independently for each patient using their own CRQA-derived 
-				features. 
-				Given the clinical priority of minimizing missed seizures, 
-				the decision threshold for each patient-specific model was dynamically 
-				tuned to achieve a target sensitivity (recall) of at least 85\%, 
-				following established practices in implantable seizure detection 
-				systems \cite{sun2014rns,cook2013prediction}. 
-				This was accomplished by selecting the threshold that maximizes 
-				precision while satisfying $\text{recall} \geq 0.85$ on the patient's 
-				held-out test set, a methodology consistent with state-of-the-art 
-				personalized seizure detection frameworks \cite{shoeb2010application,tsiouris2018long}. 
-				This approach ensures robust seizure detection across diverse 
-				patient populations while accommodating individual 
-				neurophysiological signatures.
+
+
 
 
 
