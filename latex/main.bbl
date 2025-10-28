@@ -222,12 +222,21 @@
 		\bibitem{grobbelaar2022survey}
 		Grobbelaar, M., Phadikar, S., Ghaderpour, E., Struck, A.F., Sinha, N., Ghosh, R. and Ahmed, M.Z.~I. (2022). A survey on denoising techniques of electroencephalogram signals using wavelet transform. \emph{Signals}, \textbf{3}(3), 577--586. https://doi.org/10.3390/signals3030035
 		
-		%xgboost citation
-		\bibitem{chen2016xgboost}
-Chen, T. and Guestrin, C. (2016). XGBoost: A scalable tree boosting system. In \textit{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining} (pp. 785–794). https://doi.org/10.1145/2939672.2939785
-
 	%%%%%%%%citations for per patient threshold tuning
+	\bibitem{hussein}
+	Hussein, R., Ahmed, M. O., Ward, R., Wang, Z. J., Kuhlmann, L. and Guo, Y. (2019).
+	\textit{Human intracranial EEG quantitative analysis and automatic feature learning for epileptic seizure prediction}.
+	arXiv preprint arXiv:1904.03603.
 
+	\bibitem{lightseizurenet}
+	Qiu, S., Wang, W. and Jiao, H. (2023).
+	LightSeizureNet: A lightweight deep learning model for real-time epileptic seizure detection.
+	\textit{IEEE Journal of Biomedical and Health Informatics}, 27(4), 1845--1856.
+	
+	\bibitem{vijay2025supervised}
+	Vijay, C. P., Mahendra, G., Bharath, K. N., Suhaas, K. P., Kumara, B., Divyashree, R. H. and Sudheesh, K. V. (2025).
+	Supervised machine learning evaluation for patient-specific and non-patient-specific epileptic seizure detection with multichannel scalp EEG.
+	\textit{SN Computer Science}, 6(680).
 
-
+	
 \end{thebibliography}

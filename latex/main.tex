@@ -1300,13 +1300,13 @@
 
 
 
-				\subsection{Class Imbalance in RQA-EEG Data}
+				\section{Class Imbalance in RQA-EEG Data}
 
 				Real world EEG datasets for epileptic seizure detection are by their nature imbalanced, 
 				reflecting the transient nature of seizure's occurence in contrast to normal brain activity. 
 				In our aggregated dataset, derived from CRQA features across the multi-channel EEG recordings,
-				the distribution is stark: 98.29\% normal segments (19,926 examples) against 1.71\% epileptic (346 examples), 
-				yielding a $\sim$58:1 ratio. This skew is a well known challenge in machine 
+				the distribution is stark: 98.99\% normal segments (89633 examples) against 1.01\% epileptic (901 examples), 
+				yielding a $\sim$99:1 ratio. This skew is a well known challenge in machine 
 				learning which is often reffered as the "imbalanced learning problem".
 
 				As discussed by He and Garcia\cite{he2009}, standard classifiers, (f.e, Random Forest), 
@@ -1329,8 +1329,8 @@
 				\toprule
 				Class & Percentage (\%) & Count \\
 				\midrule
-				Normal (0) & 98.29 & 19,926 \\
-				Epileptic (1) & 1.71 & 346 \\
+				Normal (0) & 98.99 & 89,633\\
+				Epileptic (1) & 1.01 & 901 \\
 				\bottomrule
 				\end{tabular}
 				\end{table}
@@ -1344,9 +1344,53 @@
 				SMOTE promotes diversity, reducing overfitting risks in low-sample regimes. 
 				
 
+				\section{Need for Patient-Specific EEG Classification in Epilepsy}
+\label{sec:need-patient-specific}
 
+				The development of robust and accurate EEG-based seizure detection 
+				and prediction systems is a challenging task due to the high 
+				variability in EEG signals across different patients. 
+				While a universal classifier trained on data from multiple subjects 
+				would be the desirable goal for generalization, 
+				evidence from studies strongly suggests that patient-specific 
+				models offer superior performance and can better suit 
+				for real-world clinical and wearable applications.
 
+				Hussein et al.\cite{hussein} conducted an extensive quantitative analysis of intracranial EEG (iEEG) 
+				data and concluded that statistical characteristics 
+				of both interictal and preictal EEG vary significantly between patients. 
+				For instance, researchers observed that the overall range and interquartile 
+				range of iEEG sensor readings differed not only between interictal and preictal 
+				states but also across patients. 
+				They state that \textit{“there is no typical trend in either interictal or preictal 
+				data across different epileptic patients”} and that 
+				\textit{“the iEEG data of each patient has its own characteristics 
+				and its statistical features can solely be meaningful for building a 
+				seizure prediction system for this particular patient”}. 
+				This kind of inter-patient variability limits the
+				effectiveness of a global model and underlines the necessity of 
+				patient-specific approaches.
 
+				Similarly, Qiu et al.\cite{lightseizurenet} highlighted that \textit{“the features of the EEG signals 
+				vary among different patients”} and that 
+				\textit{“even for the same patient, the EEG signals could change substantially when the patient is 
+				at different modes, status (awake or asleep), or ages”}.
+				Authors introduced a lightweight deep learning model, called LightSeizureNet, 
+				which was evaluated in both patient-independent and patient-specific settings. 
+				The patient-specific model achieved higher accuracy than the patient-independent version, achieving 99.77\%. 
+				In addition, patient-specific models seem to be more computationally efficient 
+				for real-time application, such as wearable systems. 
+				Furthermore, authors reported that their patient-specific model required only 3.7 million 
+				multiply-accumulate operations (MACs), 
+				compared to 6.2 million MACs for the patient-independent model, making it a more suitable solution for 
+				resource constrained application domains
+				such as a wearable/implantable device.
+				
+				Further supporting evidence can be found in a recent study by Vijay et al.\cite{vijay2025supervised}, 
+				in which authors perform a systematic comparisson of five supervised machine learning models
+				for both patient-specific and non-patient-specific seizure detection using the CHB-MIT scalp EEG database. 
+				Their results demonstrate a clear performance advantage when patient-specific models are used, 
+				because of their ability of understanding and learning from personalized seizure patterns. 
 
 
 			\newpage
