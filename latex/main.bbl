@@ -237,6 +237,14 @@
 	Vijay, C. P., Mahendra, G., Bharath, K. N., Suhaas, K. P., Kumara, B., Divyashree, R. H. and Sudheesh, K. V. (2025).
 	Supervised machine learning evaluation for patient-specific and non-patient-specific epileptic seizure detection with multichannel scalp EEG.
 	\textit{SN Computer Science}, 6(680).
+	
 
+
+	% paper on data leakage in ML pipelines
+	\bibitem{sasseLeakage}
+	Sasse, L., Nicolaisen-Sobesky, E, Dukart, J., Eickhoff, S. B., G{\"o}tz, M., Hamdan, S., Komeyer, V., Kulkarni, A., Lahnakoski, J., Love, B. C., Raimondo, F. and Patil, K. R.
+	\newblock On leakage in machine learning pipelines.
+	\newblock \emph{CoRR}, abs/2311.04179, 2023.
+	\newblock URL: https://doi.org/10.48550/arXiv.2311.04179.
 	
 \end{thebibliography}

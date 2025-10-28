@@ -1041,7 +1041,8 @@
 				\label{subsec:data_preprocessing}
 
 				Prior filtererd EEG recordings are stored in NumPy array format (\texttt{.npy}), 
-				accompanied by metadata specifying the sampling frequency (\(f_s\)) and channel information (22 channels with their respective labels as \texttt{FP1-F7}, \texttt{F7-T7}, ..., \texttt{FT10-T8}). 
+				accompanied by metadata specifying the sampling frequency (\(f_s\)) and channel information 
+				(22 channels with their respective labels as \texttt{FP1-F7}, \texttt{F7-T7}, ..., \texttt{FT10-T8}). 
 				The time axis is computed as \(t = \frac{n}{f_s}\), where \(n\) is the sample index and \(f_s\) is the sampling frequency in Hertz (Hz).
 
 				Each EEG channel is segmented into continuous regions based on predefined boundaries from CHB-MIT dataset \cite{chbmitDataset} annotations, distinguishing epileptic from non-epileptic segments. 
@@ -1169,28 +1170,30 @@
 					\label{subfig:rp4}
 				    \end{subfigure}
 
-				    \caption{Cross recurrence plots for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}
+				    \caption{CRPs for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}
 				    \label{fig:rp_grid}
 				\end{figure}
 
 
-%				CRQA requires embedding the time series in a phase space to capture nonlinear dynamics. For each window pair from two channels, the optimal time delay (\(\tau\)) and embedding dimension (\(m\)) are determined as follows:
-
-%				\begin{itemize}
-%				    \item \textbf{Time Delay (\(\tau\))}: The Average Mutual Information (AMI) method is used to estimate \(\tau\), implemented via the \texttt{find\_optimal\_tau\_ami} function. AMI is computed for delays up to a maximum of 25 samples, and the first local minimum is selected as the optimal \(\tau\). The minimum \(\tau\) of the two channels is used to ensure compatibility.
-%				    \item \textbf{Embedding Dimension (\(m\))}: The False Nearest Neighbors (FNN) method, implemented in the \texttt{false\_nearest\_neighbors} function, determines the optimal \(m\). Dimensions are tested up to a maximum of 10, with relative tolerance (\texttt{rtol}=15.0) and absolute tolerance (\texttt{atol}=2.0). The smallest dimension where the FNN ratio stabilizes is chosen, and the minimum \(m\) between the two channels is used.
-%				\end{itemize}
-
 				\subsection{Cross Recurrence Quantification Analysis (CRQA)}
 				\label{subsec:crqa}
 
-				CRQA quantifies the recurrent patterns between pairs of EEG channels within each time window. The \texttt{pyrqa} library is used with OpenCL acceleration for efficient computation. The process is as follows:
+				CRQA quantifies the recurrent patterns between pairs of EEG channels within each time window. 
+				The \texttt{pyrqa} library is used with OpenCL acceleration for efficient computation. 
+				The process is as follows:
 
 				\begin{enumerate}
-				    \item \textbf{Time Series Length Validation}: For each window pair, the lenght's of the two time series are compared on having same length to ensure compatibility.
-				    \item \textbf{Phase Space Reconstruction}: The time series are embedded into a phase space using the optimal \(\tau\) and \(m\), via the \texttt{TimeSeries} class in \texttt{pyrqa}.
-				    \item \textbf{Radius Selection}: The radius for defining recurrence is computed using the Phase Space Separation (PSS) method (\texttt{pss} function). The maximum distances in the phase spaces of both channels are averaged to obtain a mean diameter, and the radius is set to 15\% of this value (\texttt{radius\_fraction=0.15}).
-				    \item \textbf{CRQA Computation}: The \texttt{RQAComputation} class constructs a cross-recurrence matrix using a \texttt{FixedRadius} neighborhood, Euclidean metric, and Theiler corrector of 1. The computation yields 16 CRQA features, listed in Table~\ref{tab:pyrqa_metrics}, plus the segment label as the 17th feature.
+				    \item \textbf{Time Series Length Validation}: For each window pair, the lenght's of the two time series 
+					    are compared on having same length to ensure compatibility.
+				    \item \textbf{Phase Space Reconstruction}: The time series are embedded into a phase space using the 
+					    optimal \(\tau\) and \(m\), via the \texttt{TimeSeries} class in \texttt{pyrqa}.
+				    \item \textbf{Radius Selection}: The radius for defining recurrence is computed using the 
+					    Phase Space Separation (PSS) method (\texttt{pss} function). The maximum distances in the phase spaces 
+						of both channels are averaged to obtain a mean diameter, and the radius is set 
+						to 15\% of this value (\texttt{radius\_fraction=0.15}).
+				    \item \textbf{CRQA Computation}: The \texttt{RQAComputation} class constructs a cross-recurrence matrix 
+					    using a \texttt{FixedRadius} neighborhood, Euclidean metric, and Theiler corrector of 1. 
+						The computation yields 16 CRQA features, listed in Table~\ref{tab:pyrqa_metrics}, plus the segment label as the 17th feature.
 				\end{enumerate}
 
 				\begin{table}[h]
@@ -1231,7 +1234,8 @@
 				\caption{Cross Recurrence Quantification Analysis (CRQA) for EEG Windows}
 				\label{alg:crqa_computation}
 				\begin{algorithmic}[1]
-				\State \textbf{Input}: EEG windows \( \{X_{c,w}\} \) for channels \( c \in C \), windows \( w = 1, \dots, N_w \), where \( N_w = \text{number of windows} \), number of electrodes \( N_e \)
+				\State \textbf{Input}: EEG windows \( \{X_{c,w}\} \) for channels \( c \in C \), windows \( w = 1, \dots, N_w \), 
+					where \( N_w = \text{number of windows} \), number of electrodes \( N_e \)
 				\State \textbf{Output}: CRQA feature matrix \( M \) of shape \( (N_w, N_e, N_e, 17) \)
 
 				\For{each window index \( w = 1 \) to \( N_w \)}
@@ -1244,7 +1248,9 @@
 					\State \textbf{CRQA Computation}
 					\State Construct cross-recurrence plot for \( (X_{c_1,w}, X_{c_2,w}) \) using \texttt{PyRQA} with:
 					\State \quad Fixed radius neighborhood \( r = 0.15 \times \text{mean diameter} \), Euclidean metric, Theiler corrector = 1
-					\State Extract 16 CRQA features: \{RR, DET, \( L_{\text{avg}} \), \( L_{\text{max}} \), DIV, \( H_{\text{diag}} \), LAM, TT, \( V_{\text{max}} \), \( W_{\text{avg}} \), \( W_{\text{max}} \), \( W_{\text{max}}^{-1} \), \( H_{\text{vert}} \), \( H_{\text{wvert}} \), DET/RR, LAM/DET\}
+					\State Extract 16 CRQA features: \{RR, DET, \( L_{\text{avg}} \), \( L_{\text{max}} \), DIV, \( H_{\text{diag}} \), LAM, 
+					TT, \( V_{\text{max}} \), \( W_{\text{avg}} \), \( W_{\text{max}} \), 
+					\( W_{\text{max}}^{-1} \), \( H_{\text{vert}} \), \( H_{\text{wvert}} \), DET/RR, LAM/DET\}
 					\State \textbf{Feature Storage}
 					\State Append window label \( l_w \) to features
 					\State Store features in \( M[w, c_1, c_2, :] \)
@@ -1265,7 +1271,7 @@
 				 This matrix summarizes the average dynamical interactions within each window.
 
 		
-		\begin{comment}
+\begin{comment}
 				\subsection{Synthetic Feature Engineering from Cross-Recurrence Quantification Analysis}
 				\label{subsec:synthetic_features}
 
@@ -1276,11 +1282,18 @@
 
 				The first group comprises four \textit{dynamically interpretable ratios}:
 				\begin{itemize}
-				\item \textbf{Determinism Efficiency (DET\_EFF)}: $\frac{\text{DET}}{\text{RR} + \varepsilon}$, quantifying the proportion of recurrent points that form deterministic (diagonal) structures. During seizures, RR increases due to hypersynchrony, but DET increases more selectively; this ratio captures the relative strength of deterministic coupling.
-				    \item \textbf{Diagonal Complexity Index (DIAG\_COMP)}: $\frac{\text{L\_entr}}{\log(\text{L\_max} + 1) + \varepsilon}$, a scale-invariant measure of complexity in diagonal line distributions. Seizures typically reduce dynamical complexity, lowering this index.
-				    \item \textbf{Vertical-to-Diagonal Ratio (V\_D\_RATIO)}: $\frac{\text{LAM}}{\text{DET} + \varepsilon}$, reflecting the balance between laminar (vertical) trapping and predictable (diagonal) trajectories. Elevated ratios indicate intermittent ictal states.
-				    \item \textbf{Recurrence Stability Index (REC\_STAB)}: $\frac{\text{L}}{\text{L\_max} + \varepsilon}$, measuring homogeneity of predictability duration. Values near 1 signify sustained rhythmicity, characteristic of generalized seizures.
-
+				\item \textbf{Determinism Efficiency (DET\_EFF)}: $\frac{\text{DET}}{\text{RR} + \varepsilon}$, quantifying the proportion of 
+					recurrent points that form deterministic (diagonal) structures. During seizures, RR 
+					increases due to hypersynchrony, but DET increases more selectively; this ratio captures the relative 
+					strength of deterministic coupling.
+				    \item \textbf{Diagonal Complexity Index (DIAG\_COMP)}: $\frac{\text{L\_entr}}{\log(\text{L\_max} + 1) + \varepsilon}$, a 
+					scale-invariant measure of complexity in diagonal line distributions. Seizures typically reduce dynamical 
+					complexity, lowering this index.
+				    \item \textbf{Vertical-to-Diagonal Ratio (V\_D\_RATIO)}: $\frac{\text{LAM}}{\text{DET} + \varepsilon}$, reflecting 
+					the balance between laminar (vertical) trapping and predictable (diagonal) trajectories. Elevated ratios 
+					indicate intermittent ictal states.
+				    \item \textbf{Recurrence Stability Index (REC\_STAB)}: $\frac{\text{L}}{\text{L\_max} + \varepsilon}$, measuring 
+					homogeneity of predictability duration. Values near 1 signify sustained rhythmicity, characteristic of generalized seizures.
 				\end{itemize}
 
 				The second group includes six \textit{targeted interactions and transforms}:
@@ -1299,7 +1312,7 @@
 				favor of \textit{physiologically grounded combinations}, 
 				aligning with best practices in nonlinear EEG biomarker design \cite{faes2014information, zhang2020cross}.
 				
-		\end{comment}
+\end{comment}
 
 
 				\section{Class Imbalance in RQA-EEG Data}
