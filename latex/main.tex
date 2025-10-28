@@ -1264,7 +1264,8 @@
 				 resulting in a final matrix (\texttt{mean\_\_feature\_matrix}) of shape \([N_w, 17]\), where the last column retains the window label. 
 				 This matrix summarizes the average dynamical interactions within each window.
 
-
+		
+		\begin{comment}
 				\subsection{Synthetic Feature Engineering from Cross-Recurrence Quantification Analysis}
 				\label{subsec:synthetic_features}
 
@@ -1297,7 +1298,8 @@
 				This approach avoids blind polynomial expansion in 
 				favor of \textit{physiologically grounded combinations}, 
 				aligning with best practices in nonlinear EEG biomarker design \cite{faes2014information, zhang2020cross}.
-
+				
+		\end{comment}
 
 
 				\section{Class Imbalance in RQA-EEG Data}
@@ -1335,17 +1337,48 @@
 				\end{tabular}
 				\end{table}
 				
-				\subsection{Imbalance Mitigation: SMOTE Oversampling}
-
-				Synthetic Minority Over-sampling Technique (SMOTE), 
-				is a data level method that can generate synthetic epileptic samples
-				by interpolating between minority instances and their k-nearest neighbors in 
-				feature space \cite{SMOTEref}. Unlike random duplication, 
-				SMOTE promotes diversity, reducing overfitting risks in low-sample regimes. 
+				\subsection{Dataset Imbalance}
 				
+				To address the higly imbalanced dataset, 
+				three main methods can be employed.
 
-				\section{Need for Patient-Specific EEG Classification in Epilepsy}
-\label{sec:need-patient-specific}
+				In data level, methods on creating more synthetic
+				samples belonging to the minority class exist, such as
+				Synthetic Minority Over-sampling Technique (SMOTE).
+				With this method it is possible to generate synthetic 
+				epileptic samples
+				by interpolating between minority instances 
+				and their 
+				k-nearest neighbors in 
+				feature space \cite{SMOTEref}. 
+				Unlike random duplication, 
+				SMOTE promotes diversity, reducing overfitting risks in 
+				low-sample regimes. 
+
+				On the classification algorithm level, specific weights and costs 
+				can be used in order to favor the minority class.
+				For instance, many classifiers, 
+				such as SVM or tree-based models, allow for the assignment 
+				of class weights. 
+				These weights are usually set to be inversely proportional
+				to the class frequencies, 
+				pushing the model towards paying more attention on
+				errors made on the minority class on the training phase. 
+				In the same manner, cost-sensitive learning 
+				methods define a higher penalty for misclassifying 
+				minority class samples, optimizing for a cost function 
+				that reflects the real-world imbalance.
+
+				As a third alternative, ensemble methods leverage two or more
+				base models to swift the skew of bias towards the majority class.
+				An ensemble can integrate different classifiers and employ different
+				aggregation strategies for its final classification decision, such as 
+				majority vote, weighted votes or stacking.
+
+
+
+				\section{Patient-Specific EEG Classification in Epilepsy}
+				\label{sec:need-patient-specific}
 
 				The development of robust and accurate EEG-based seizure detection 
 				and prediction systems is a challenging task due to the high 

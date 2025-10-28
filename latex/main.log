@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  28 OCT 2025 03:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  28 OCT 2025 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -524,27 +524,14 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 
 
 [23] [24 <./rr_compare/r01_epil.png> <./rr_compare/r015_epil.png> <./rr_compare
-/r02_epil.png> <./rr_compare/r03_epil.png>] [25]
-
-LaTeX Warning: Citation `faes2014information' on page 26 undefined on input lin
-e 1299.
-
-
-LaTeX Warning: Citation `zhang2020cross' on page 26 undefined on input line 129
-9.
-
-[26] [27]
-
-LaTeX Warning: Citation `vijay2025supervised' on page 28 undefined on input lin
-e 1389.
-
-[28] (./main.bbl
+/r02_epil.png> <./rr_compare/r03_epil.png>] Excluding 'comment' comment.
+[25] [26] [27] (./main.bbl
 Underfull \hbox (badness 3009) in paragraph at lines 38--39
 []\OT1/cmr/m/n/10 Mo, J., Zhang, J., Hu, W., Wang, X., Zhao, B., Zhang, K. and 
 Zhang, C.
  []
 
-[29]
+[28]
 Underfull \hbox (badness 1783) in paragraph at lines 41--45
 \OT1/cmr/m/n/10 based on re-cur-rence quan-tifi-ca-tion anal-y-sis of EEG sig-n
 al and ge-netic al-go-rithm for
@@ -569,7 +556,7 @@ Underfull \hbox (badness 2318) in paragraph at lines 47--48
  1419{1425.
  []
 
-[30]
+[29]
 Underfull \hbox (badness 2486) in paragraph at lines 106--107
 []\OT1/cmr/m/n/10 Kashyap, A. and Keil-holz, S. (2019). Dy-namic prop-er-ties o
 f sim-u-lated brain net-
@@ -605,7 +592,7 @@ Underfull \hbox (badness 1348) in paragraph at lines 153--154
 /it/10 Physics Re-ports, 438(5{6)\OT1/cmr/m/n/10 , 237{329.
  []
 
-[31]
+[30]
 Underfull \hbox (badness 3735) in paragraph at lines 182--184
 []\OT1/cmr/m/n/10 Norbert Mar-wan. \OT1/cmr/m/it/10 Re-cur-rence Plot and Cross
  Re-cur-rence Plot Quan-tifi-ca-tion \OT1/cmr/m/n/10 URL:
@@ -630,7 +617,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--196
 ). Phy-s-ioNet.
  []
 
-[32]
+[31]
 Underfull \hbox (badness 4765) in paragraph at lines 215--216
 []\OT1/cmr/m/n/10 Devinsky, O., Vez-zani, A., O'Brien, T., Jette, N., Schef-fer
 , I.E., Cur-tis, M.
@@ -642,7 +629,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 215--216
 ease Primers \OT1/cmr/m/n/10 4, 18024 (2018).
  []
 
-) [33] (./main.aux)
+) [32] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -653,7 +640,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  7277 strings out of 481239
  146839 string characters out of 5920378
- 393424 words of memory out of 5000000
+ 393428 words of memory out of 5000000
  22445 multiletter control sequences out of 15000+600000
  544428 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -680,10 +667,10 @@ fonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (33 pages, 2008579 bytes).
+Output written on main.pdf (32 pages, 2003839 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 226 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
