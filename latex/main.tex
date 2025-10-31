@@ -13,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{array}
+\usepackage[numbers,sort]{natbib} 
 \usepackage{multirow}       % For table multirows
 \usepackage[font=small,labelfont=bf]{caption} % For caption formatting
 
@@ -26,45 +27,61 @@
 	\section*{Introduction}
 	Epilepsy is a neurological disorder, 
 	which generates recurrent, unprovoked seizures. 
-	Seizures results from abnormal neuronal brain activity which subsequently lead into 
-	disturbances in the behavior, sensation, consciousness or the movement of the affected subject.
-	Information gathered by  World Health Organization (WHO), suggest that epilepsy affects 
-	around 50 million people worldwide, placing it as one of the most common 
+	Seizures are the result of abnormal neuronal brain 
+	activity which subsequently lead into 
+	disturbances in the behavior, sensation, the consciousness and the movement 
+	of the affected subject.
+	Information gathered by World Health Organization (WHO), 
+	report that epilepsy affects 
+	around 50 million people worldwide, 
+	placing it as one of the most common 
 	neurological conditions globally.
 
-	Causes of epilepsy are diverse and related to many factors. 
-	Seizures generation can be an impact of identifiable structural, 
+	Epilepsy has diverse and various causes, since they are related to many factors. 
+	The generation of epileptic activity can be an impact of identifiable structural, 
 	genetic, infectious, metabolic, or immune-related abnormalities, 
-	while for almost 50\% of the cases, their trigger remains unknown\cite{causes}. 
+	while for almost 50\% of the cases, their trigger still remains unknown\cite{causes}. 
 	Depending on the brain regions involved, a seizure can have several classifications. 
-	It can be classified as focal (if it originates in a specific area) 
+	It can be classified as focal (if its origin is a specific area) 
 	or a generalized one (involving both hemispheres). 
-	Clinically, seizure manifestations present high variability, 
+	Clinically, seizures have high variability, 
 	from brief lapses in awareness to 
 	convulsive episodes, and the fact of their unpredictable occurrence 
 	has severe impact in patient’s quality of life.
 
-	For the diagnosis and monitoring of epilepsy, electroencephalography (EEG) 
+	For the diagnosis and monitoring of epilepsy, 
+	electroencephalography (EEG) 
 	is widely utilized, as is offers a non invasive 
-	technique for recording brain’s electrical activity using surface electrodes. 
-	EEG signals contain temporal information that reflects 
+	technique for recording brain’s electrical 
+	activity using surface electrodes. 
+	EEG signals contain temporal 
+	information that reflects 
 	the dynamic interactions 
 	of neuronal populations. 
-	During seizure events, the presence of characteristic patterns 
-	such as spikes, sharp waves, or rhythmic discharges often appear, 
-	distinguishing the epileptic activity from normal background rhythms. 
-	As a result, EEG analysis occupies a central role in both clinical diagnosis 
-	and research related to epileptic seizure domain.
+	During the seizure events, 
+	the presence of characteristic patterns 
+	such as spikes, sharp waves, or rhythmic 
+	discharges often appear, 
+	distinguishing this kind of activity from the normal 
+	background rhythms. 
+	As a result, EEG analysis holds
+	a central role both in clinical diagnosis 
+	and for research related to this application domain.
 
-	Recent advances in signal processing and machine learning have greatly 
+	Recent advances in signal processing combined with
+	machine learning have greatly 
 	improved the ability EEG data analysis. 
 	Techniques like time-frequency decomposition, 
-	nonlinear dynamics, recurrence analysis, and deep neural networks 
-	offer new solutions for automated extraction of complex spatial and temporal 
-	features from EEG recordings. The ultimate goal of these approaches is
-	to support clinicians by providing objective, data-driven tools for 
-	seizure detection, prediction, and classification, ultimately contributing to 
-	better patient care and personal treatments.
+	nonlinear dynamics, recurrence analysis, 
+	and deep neural networks 
+	can offer new solutions for automated extraction 
+	of complex spatial and temporal 
+	features from EEG recordings. 
+	The ultimate goal of these approaches is
+	to support clinicians by providing objective, 
+	data-driven tools for 
+	seizure detection, prediction, and classification, 
+	in order to contribute to better patient care and personal treatments.
 
 	In summary, epilepsy represents a major public health challenge due to its prevalence, 
 	variability, and social consequences. Understanding the electrophysiological mechanisms 
@@ -433,40 +450,42 @@
 			\subsection{RQA relevant patents utilizing EEG modality}
 			\label{sec:rqa-patents}
 
-			The application of RQA on biomedical field related to EEG data, 
-			has gathered significant interest, 
-			not only in academic research but also in commercial and clinical applications, 
-			as evidenced by recent patent filings. 
-			These documents can reveal the cutting-edge, industrially viable solutions 
+			The application of RQA on the biomedical field 
+			related to EEG data, 
+			shows an increasing interest
+			not only in academic research, but also in commercial and clinical applications, 
+			as we can inspect on recent patent filings. 
+			These documents can reveal 
+			the cutting-edge, industrially viable solutions 
 			being developed for real-time, embedded systems. 
-
 				
-			Becker et al.\cite{patcoma} described with patent (US20080234597A1) 
-			a monitoring device and method for assessing the 
-			depth of anesthesia or coma in an individual by 
-			analyzing neuronal signals, particularly electroencephalogram (EEG) data. 
-			The invention uses RQA 
+			Becker et al.\cite{patcoma} describes on patent (US20080234597A1) 
+			a monitoring device and method for creating an assessment of the 
+			depth of anesthesia or coma characterizing an individual subject.
+			Authors analyzes neuronal EEG data and uses RQA 
 			to compute a complexity parameter that 
 			quantitatively reflects the level of consciousness. 
-			The device includes a buffer for storing time-series data 
-			and an analysis circuit that performs RQA by reconstructing 
+			In the device's core, a buffer is utilized for storing 
+			time-series data 
+			and an analysis circuit performs RQA by reconstructing 
 			phase-space trajectories, calculating recurrence plots, 
 			and extracting determinism-based complexity measures. 
-			This enables real-time monitoring of brain states, 
-			making it suitable for clinical applications such as 
-			anesthesia control during surgery or long-term coma assessment.
+			This makes possible monitoring the depth of anesthesia level in real-time
+			and can be utilized in clinical applications for 
+			anesthesia control during surgery or even in long term coma assessment.
 
-			Patent US20250195894A1 \cite{pat2025}, entitled ``Systems and Methods for Seizure 
+			Patent US20250195894A1 \cite{pat2025}, entitled 
+			``Systems and Methods for Seizure 
 			Detection and Closed-Loop Neurostimulation,'' 
-			provides a view of the current challenges and proposes a solution for 
-			implementing RQA in a resource-constrained environment.
+%			provides a view of the current challenges and proposes a solution for 
+%			implementing RQA in a resource-constrained environment.
 			Inventors proceed in an alternative calculation
 			of RQA measures which entirely bypass the construction 
-			of the recurrence plot matrix(RP). 
+			of the recurrence plot matrix(RP).
 			They achieve this, by not creating the traditional RP in order 
-			to derive metrics from, but by
-			calculating the RQA metrics \textit{on-the-fly}; dynamically accumulating 
-			the lengths of diagonal lines (chains of recurrent points) as each new 
+			to extract certain metrics from, but by
+			calculating them, \textit{on-the-fly}; dynamically accumulating 
+			the lengths of diagonal lines as each new 
 			data point is processed.
 		%	The core innovation involves a concept shift: the rows of the hypothetical 
 		%	matrix are aligned such that the main diagonal becomes vertical. 
@@ -479,10 +498,11 @@
 		%	This process directly builds the histogram of diagonal line lengths, 
 		%	from which standard RQA metrics like DET, ENTR, and L can be immediately derived, 
 		%	without ever storing the full RP matrix.
-			This method offers two significant advantages:
+			This method offers the following advantages:
 					\begin{enumerate}
-					    \item \textbf{Memory Efficiency:} It eliminates the need for the large $N \times N$ comparison matrix, reducing memory usage by approximately 88\%.
-					    \item \textbf{Computational Efficiency:} It avoids the expensive read/write cycles associated with managing the large matrix, reducing processing time by approximately 30\% per channel.
+					    \item \textbf{Memory Efficiency:} It does not require the large $N \times N$ comparison matrix, reducing memory usage by approximately 88\%.
+					    \item \textbf{Computational Efficiency:} It avoids the expensive read/write cycles 
+						    associated with managing the large matrix, reducing processing time by approximately 30\% per channel.
 					\end{enumerate}
 	
 				
@@ -509,39 +529,78 @@
 			while also demonstrating robustness through cross-validation.
 		
 				%%%% on sleep
-		Another patent\cite{pat2019} (CN106512206B) describes an 
-		implantable closed-loop deep brain stimulation (DBS) system that uses 
-		electrophysiological signals (specific deep brain local field potentials (LFPs) and ECG  signals) for monitoring 
-		the states of a human sleeping and adjusting various stimulation parameters in real time.
-		A device acquires ECG and deep brain signals for feature extraction 
-		in the domains of time and frequency, while 
-		calculating complexity measures. 
-		RQA metrics such recurrence rate, determinism, entropy and laminarity 
-		are utilized alongside other complexity 
-		and spectral features to classify sleep states and trigger appropriate stimulation responses.
-		Features are then utilized for detection of sleep stages 
-		and for emergency detection/alerts (f.e, cardiac arrest or abnormal excitation).
-%		Also the described device adjusts or turns off the stimulation based on the patient's sleep state in order to save battery life and reduce side effects.
+			Another patent\cite{pat2019} (CN106512206B) describes an 
+			implantable closed-loop deep brain stimulation (DBS) system that uses 
+			electrophysiological signals (specific deep brain local field potentials (LFPs) and ECG  signals) for monitoring 
+			the states of a human sleeping and adjusting various stimulation parameters in real time.
+			A device acquires ECG and deep brain signals for feature extraction 
+			in the domains of time and frequency, while 
+			calculating complexity measures. 
+			RQA metrics such recurrence rate, determinism, entropy and laminarity 
+			are utilized alongside other complexity 
+			and spectral features to classify sleep states and trigger appropriate stimulation responses.
+			Features are then utilized for detection of sleep stages 
+			and for emergency detection/alerts (f.e, cardiac arrest or abnormal excitation).
+	%		Also the described device adjusts or turns off the stimulation based on the patient's sleep state in order to save battery life and reduce side effects.
 
 
 
 		\section{The CHB-MIT EEG Database}
+		
+		The \textbf{CHB-MIT Scalp EEG Database}\cite{chbmitDataset} is a public collection of EEG recordings 
+		from pediatric subjects that includes intractable seizures.
+		All the recordings of the database were collected at the Children's Hospital Boston.
+		The dataset contains multiple cases (patients), each with long-term scalp EEG signals recorded using the international 10–20 system.
+		Table~\ref{tab:chbmit_demographics} summarizes the demographic information (case ID, gender, and age) for all subjects included in the database.
+		The database is used in many studies for testing algorithms on epileptic seizure 
+		detection and epileptic research in general.
+		
+		\section{Dataset Description}
 
-		The CHB-MIT Scalp EEG Database\cite{chbmitDataset} is a 
-		widely used benchmark dataset for epileptic seizure 
-		detection and epileptic research, including long term electroencephalogram (EEG) 
-		recordings acquired from pediatric patients with intractable seizures. 
-		Recordings were collected at the Children's Hospital Boston, 
-		the dataset includes contributions from 23 cases derived from 22 pediatric subjects 
-		(5 males aged 3--22 years and 17 females aged 1.5--19 years), 
-		cwith case \textit{chb21} representing a follow-up recording from the same subject approximately 1.5 years later. 
+		\begin{table}[h!]
+		\centering
+		\caption{Demographic information for patients in the CHB-MIT Scalp EEG Database.}
+		\label{tab:chbmit_demographics}
+		\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Case} & \textbf{Gender} & \textbf{Age (years)} \\ \hline
+		chb01 & F & 11 \\ \hline
+		chb02 & M & 11 \\ \hline
+		chb03 & F & 14 \\ \hline
+		chb04 & M & 22 \\ \hline
+		chb05 & F & 7 \\ \hline
+		chb06 & F & 1.5 \\ \hline
+		chb07 & F & 14.5 \\ \hline
+		chb08 & M & 3.5 \\ \hline
+		chb09 & F & 10 \\ \hline
+		chb10 & M & 3 \\ \hline
+		chb11 & F & 12 \\ \hline
+		chb12 & F & 2 \\ \hline
+		chb13 & F & 3 \\ \hline
+		chb14 & F & 9 \\ \hline
+		chb15 & M & 16 \\ \hline
+		chb16 & F & 7 \\ \hline
+		chb17 & F & 12 \\ \hline
+		chb18 & F & 18 \\ \hline
+		chb19 & F & 19 \\ \hline
+		chb20 & F & 6 \\ \hline
+		chb21 & F & 13 \\ \hline
+		chb22 & F & 9 \\ \hline
+		chb23 & F & 6 \\ \hline
+		\end{tabular}
+		\end{table}
+
+		\noindent
+		The database includes recordings from both male and female patients, where the ages are in the range of 1.5 to 22 years old.
+		Most subjects are children and adolescents, reflecting the pediatric nature of the dataset.
+		This demographic diversity provides a representative sample for studying epileptic activity across different developmental stages.
 
 		The total recording duration spans approximately 982 hours, 
 		segmented into 664 different EDF files, where each recording contains 1 hour of data (though durations vary from 1 to over 4 hours). 
-
-		EEG signals were recorded using 23 scalp electrodes (according to the international 10--20 system), 
-		but some files incorporate extra channels such as ECG and EMG references. 
-		All recordings were digitized at the sampling rate of 256 Hz with 16-bit resolution. 
+		EEG signals were recorded using 23 scalp electrodes 
+		(according to the international 10--20 system), 
+		but in some files there are extra channels records, such as ECG and EMG references. 
+		The sampling rate of the recordings is 256 Hz with 16-bit resolution. 
 		Seizure events are meticulously annotated by domain experts, 
 		marking the onset and offset of 198 ictal episodes (182 in the core 23 cases), 
 		providing a total of approximately 1 hour of seizure activity included into the dataset. 
@@ -558,31 +617,38 @@
 		\newpage
 		\section{Filtering}
 
-			Electroencephalogram signals in most cases are contaminated by noise 
+			Electroencephalogram signals in most cases 
+			carry not only the desired signal but also added noise 
 			and artifacts from physiological (eye blinks, muscle or cardiac activity) 
-			and non-physiological sources (powerline interference). 
-			In general, artifacts consist of all the non-neural signals 
-			that contaminate the recorded EEG data. 
+			and non-physiological sources (f.e, powerline interference). 
+			In general, artifacts in a recording consist of all the non-neural signals 
+			that are mixed with the pure EEG data. 
 			
 			Preprocessing is required in order to increase 
-			the quality of the signal(signal-to-noise)
-			for boosting further analysis in various application 
-			domains like brain-computer interfaces (BCIs) 
-			or clinical diagnostics [29-32].
+			the quality of the signal(signal-to-noise ratio),
+			to boost the performance of 
+			further examintations in  
+			later pipelines in domains 
+			like brain-computer interfaces (BCIs) 
+			or clinical diagnostics\cite{dhanaseivam2023,jiang2019,sen2023,removeArtifactsReview}.
+
 			%\cite{dhanaseivam2023}\cite{jiang2019}\cite{sen2023}\cite{removeArtifactsReview}.
 			
 			Common preprocessing techniques include:  
 			\begin{itemize}  
 			    \item \textbf{Filtering} (e.g., Butterworth, Chebyshev) to remove unwanted frequency bands.  
-			    \item \textbf{Regression methods} for correcting ocular artifacts using reference channels.  
-			    \item \textbf{Blind Source Separation (BSS)} (e.g., ICA, CCA) to decompose and isolate neural activity from artifacts.  
+			    \item \textbf{Regression methods} used for removing ocular artifacts with help of reference channels.  
+			    \item \textbf{Blind Source Separation (BSS)} (f.e, ICA, CCA), decompose and isolate neural activity from artifacts.  
 			    \item \textbf{Wavelet/EMD-based methods} for non-stationary artifact removal.  
 			\end{itemize}  
 			
-			Also hybrid approaches (e.g., wavelet-ICA) combine multiple techniques for improved artifact rejection. 
-			The choice of method depends on computational constraints, artifact type, 
-			and real-time processing needs. 
-			Effective preprocessing is a key that ensures reliable feature extraction for later analysis.  
+			Also hybrid approaches (f.e, wavelet-ICA) combine multiple techniques for 
+			improved artifact rejection. 
+			The choice of method is related on 
+			computational constraints, artifact type, 
+			and the satisfaction of real-time processing needs, if any.
+
+			Effective preprocessing is a key, that ensures reliable feature extraction for later analysis.  
 
 			Among these, wavelet-based methods have have been proposed and used 
 			for effecting EEG denoising due to the non stationary nature of brain signals.
@@ -983,17 +1049,24 @@
 				\subsection{From RQA to Cross-Recurrence Quantification Analysis (CRQA)}
 					\label{subsec:crqa_theory}
 
-					While Recurrence Quantification Analysis (RQA) is powerful for analyzing the dynamics of a single system, many real-world phenomena, including brain activity, involve the interaction between multiple subsystems. Cross-Recurrence Quantification Analysis (CRQA) extends the concepts of RQA to analyze the coupling, synchronization, and similarity in the dynamics between two different systems \cite{marwan2007}.
+					While Recurrence Quantification Analysis (RQA) is powerful for analyzing the dynamics of a single system, 
+					many real-world phenomena, including brain activity, involve the interaction between multiple subsystems.
+					Cross-Recurrence Quantification Analysis (CRQA) extends the concepts of RQA to analyze the coupling, synchronization
+					and degree of similarity that the dynamics between two different systems present\cite{marwan2007}.
 
 					\subsubsection{The Cross-Recurrence Plot (CRP)}
 
-					The foundation of CRQA is the Cross-Recurrence Plot (CRP). For two reconstructed phase space trajectories \( \vec{x}(i) \) from system \( X \) and \( \vec{y}(j) \) from system \( Y \), both of length \( N \), the cross-recurrence matrix is defined as:
+					The foundation of CRQA is the Cross-Recurrence Plot (CRP). 
+					For two reconstructed phase space trajectories \( \vec{x}(i) \) from system \( X \) and \( \vec{y}(j) \) 
+					from system \( Y \), both of length \( N \), the cross-recurrence matrix is defined as:
 
 					\begin{equation}
 					CR_{i,j} = \Theta(\varepsilon - \|\vec{x}(i) - \vec{y}(j)\|), \quad i,j = 1, \ldots, N
 					\end{equation}
 
-					Unlike the standard RP, which is symmetric about the main diagonal (Line of Identity, LOI), the CRP is generally \emph{not symmetric}. This asymmetry can reveal directional relationships or leader-follower dynamics between the two systems.
+					Unlike the standard RP, which is symmetric about the main diagonal (Line of Identity, LOI), 
+					the CRP is generally \emph{not symmetric}. This asymmetry can reveal directional relationships 
+					or leader-follower dynamics alonside the two systems.
 
 					\subsubsection{Interpretation of CRQA Metrics}
 
