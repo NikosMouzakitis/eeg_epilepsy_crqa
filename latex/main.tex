@@ -37,15 +37,15 @@
 	placing it as one of the most common 
 	neurological conditions globally.
 
-	Epilepsy has diverse and various causes, since they are related to many factors. 
+	Epilepsy has its origin in diverse and various causes depending on many factors. 
 	The generation of epileptic activity can be an impact of identifiable structural, 
 	genetic, infectious, metabolic, or immune-related abnormalities, 
 	while for almost 50\% of the cases, their trigger still remains unknown\cite{causes}. 
 	Depending on the brain regions involved, a seizure can have several classifications. 
 	It can be classified as focal (if its origin is a specific area) 
 	or a generalized one (involving both hemispheres). 
-	Clinically, seizures have high variability, 
-	from brief lapses in awareness to 
+	Clinically, seizures are characterized by high variability, 
+	from short term lapses in awareness, up to 
 	convulsive episodes, and the fact of their unpredictable occurrence 
 	has severe impact in patient’s quality of life.
 
@@ -450,13 +450,13 @@
 			\subsection{RQA relevant patents utilizing EEG modality}
 			\label{sec:rqa-patents}
 
-			The application of RQA on the biomedical field 
-			related to EEG data, 
+			The application of RQA utilizing EEG modality on the biomedical field,
 			shows an increasing interest
-			not only in academic research, but also in commercial and clinical applications, 
+			not only in academic research, but also in 
+			commercial and clinical applications, 
 			as we can inspect on recent patent filings. 
-			These documents can reveal 
-			the cutting-edge, industrially viable solutions 
+			Reviewing these documents can reveal 
+			industrial viable solutions 
 			being developed for real-time, embedded systems. 
 				
 			Becker et al.\cite{patcoma} describes on patent (US20080234597A1) 
@@ -549,10 +549,14 @@
 		
 		The \textbf{CHB-MIT Scalp EEG Database}\cite{chbmitDataset} is a public collection of EEG recordings 
 		from pediatric subjects that includes intractable seizures.
-		All the recordings of the database were collected at the Children's Hospital Boston.
-		The dataset contains multiple cases (patients), each with long-term scalp EEG signals recorded using the international 10–20 system.
-		Table~\ref{tab:chbmit_demographics} summarizes the demographic information (case ID, gender, and age) for all subjects included in the database.
-		The database is used in many studies for testing algorithms on epileptic seizure 
+		All the recordings of the database were collected at 
+		the Children's Hospital Boston.
+		The dataset contains multiple cases (patients), each with long-term scalp 
+		EEG signals recorded using the international 10–20 system.
+		Table~\ref{tab:chbmit_demographics} provides a summary of the demographic information 
+		of the database's subjects.
+		This particular database is used in many studies for testing 
+		algorithms on epileptic seizure 
 		detection and epileptic research in general.
 		
 		\section{Dataset Description}
@@ -591,19 +595,24 @@
 		\end{table}
 
 		\noindent
-		The database includes recordings from both male and female patients, where the ages are in the range of 1.5 to 22 years old.
-		Most subjects are children and adolescents, reflecting the pediatric nature of the dataset.
-		This demographic diversity provides a representative sample for studying epileptic activity across different developmental stages.
+		The database includes recordings from male and female patients, 
+		with their ages in the range of 1.5 to 22 years old.
+		Most subjects are children, a fact reflecting the pediatric nature 
+		of the dataset.
+		This demographic diversity provides a representative sample for 
+		studying epileptic activity across different developmental stages.
 
 		The total recording duration spans approximately 982 hours, 
-		segmented into 664 different EDF files, where each recording contains 1 hour of data (though durations vary from 1 to over 4 hours). 
+		segmented into 664 different EDF files, 
+		where each recording contains 1 hour of data (though durations vary from 1 to over 4 hours). 
 		EEG signals were recorded using 23 scalp electrodes 
 		(according to the international 10--20 system), 
-		but in some files there are extra channels records, such as ECG and EMG references. 
-		The sampling rate of the recordings is 256 Hz with 16-bit resolution. 
-		Seizure events are meticulously annotated by domain experts, 
-		marking the onset and offset of 198 ictal episodes (182 in the core 23 cases), 
-		providing a total of approximately 1 hour of seizure activity included into the dataset. 
+		but in some files there are extra channels records, 
+		such as ECG and EMG references. 
+		The sampling rate of the recordings is 
+		256 Hz with 16-bit resolution. 
+		Seizure events are annotated by domain experts, 
+		providing a time-stamp for seizure onsets and offsets. 
 
 			\begin{figure}[h]
 			    \centering
@@ -617,7 +626,7 @@
 		\newpage
 		\section{Filtering}
 
-			Electroencephalogram signals in most cases 
+			Signals of electroencephalogram, in most cases 
 			carry not only the desired signal but also added noise 
 			and artifacts from physiological (eye blinks, muscle or cardiac activity) 
 			and non-physiological sources (f.e, powerline interference). 
@@ -634,15 +643,15 @@
 
 			%\cite{dhanaseivam2023}\cite{jiang2019}\cite{sen2023}\cite{removeArtifactsReview}.
 			
-			Common preprocessing techniques include:  
+			Some of the common preprocessing techniques are:  
 			\begin{itemize}  
-			    \item \textbf{Filtering} (e.g., Butterworth, Chebyshev) to remove unwanted frequency bands.  
+			    \item \textbf{Filtering} (f.e, Butterworth, Chebyshev) to remove unwanted frequency bands.  
 			    \item \textbf{Regression methods} used for removing ocular artifacts with help of reference channels.  
 			    \item \textbf{Blind Source Separation (BSS)} (f.e, ICA, CCA), decompose and isolate neural activity from artifacts.  
 			    \item \textbf{Wavelet/EMD-based methods} for non-stationary artifact removal.  
 			\end{itemize}  
 			
-			Also hybrid approaches (f.e, wavelet-ICA) combine multiple techniques for 
+			Also hybrid approaches (f.e, wavelet-ICA) exist, combining multiple techniques for 
 			improved artifact rejection. 
 			The choice of method is related on 
 			computational constraints, artifact type, 
@@ -651,9 +660,10 @@
 			Effective preprocessing is a key, that ensures reliable feature extraction for later analysis.  
 
 			Among these, wavelet-based methods have have been proposed and used 
-			for effecting EEG denoising due to the non stationary nature of brain signals.
-			Transient artifacts appearing in EEGs in varying frequency patterns are the reason that 
-			traditional linear filtering methods are facing difficulties to handle them 
+			for effective EEG denoising based on the non stationary nature of brain signals.
+			Transient artifacts appearing in EEGs in varying frequency patterns 
+			are the reason that 
+			traditional linear filtering methods struggle to handle them 
 			without introducing distortions.
 			Wavelet transforms on the other hand, decompose the signal 
 			into time-frequency representations using scalable, 
@@ -675,25 +685,29 @@
 			Metrics used were:
 
 			\begin{itemize}
-			    \item \textbf{Signal-to-Noise Ratio (SNR, dB)}: Measures the ratio between the power of the clean 
-				    signal and the power of the noise. Higher values indicate better noise suppression 
+			    \item \textbf{Signal-to-Noise Ratio (SNR, dB)}: Measure of the ratio between the 
+				    power of the clean 
+				    signal and the power of the noise. 
+				    Higher values indicate better noise suppression 
 				    while preserving the structure of the signal.
 			    \item \textbf{Root Mean Square Error (RMSE, $\mu$V)}: This metric quantifies 
-				    the average deviation between the denoised and reference signals in microvolts. 
+				        the average deviation between the denoised and reference signal in microvolts. 
 					Lower values indicate closer similarity to the original signal.
-			    \item \textbf{Normalized RMSE (NRMSE, \%)}: RMSE normalized by the dynamic range of the 
-				    reference signal, expressed as a percentage. 
+			    \item \textbf{Normalized RMSE (NRMSE, \%)}: RMSE normalized by the dynamic range 
+				        of the reference signal expressed as a percentage. 
 					Lower values represent better performance.
-			    \item \textbf{Correlation Coefficient}: Pearson's correlation between the denoised and 
-				    reference signals, assessing how similar the two compared waveforms are.
-					Values close to $1$ indicate high waveform preservation.
-			    \item \textbf{Percent Root-mean-square Difference (PRD, \%)}: Measures the relative distortion 
-				    introduced by the denoising process. 
-					Lower values indicate less distortion.
+			    \item \textbf{Correlation Coefficient}: Pearson's correlation among the denoised and 
+				        reference signal, providing an assessment of similarity of the two waveforms.
+					Observed values close to $1$ indicate high waveform preservation.
+			    \item \textbf{Percent Root-mean-square Difference (PRD, \%)}: Quantification
+				    of the relative distortion introduced by the denoising process. 
+				    Lower values indicate less distortion.
 			\end{itemize}
 
-			For each one of the filters configuration, metrics were computed 
-			channel-wise and then averaged across all channels in order to
+			For each one of the filters configuration, 
+			metrics were computed 
+			channel-wise and then averaged across 
+			all channels in order to
 			calculate their global performance score. 
 
 			\subsection{Filter Selection Criteria}
@@ -777,18 +791,20 @@
 
 		\section{Phase space reconstruction of EEG signals}
 
-			The analysis of nonlinear dynamical systems from experimental time series, requires 
-			the reconstruction of the underlying phase space from the scalar measurements of each channel. 
-			According to Takens' embedding theorem \cite{takens1981}, a time series $x(t)$ can be embedded 
+			In order to analyze multi-channel EEG's nonlinear dynamical system, the 
+			reconstruction of the underlying phase space is required, 
+			based on the scalar measurements of each channel. 
+			According to Takens' embedding theorem \cite{takens1981}, 
+			a time series $x(t)$ can be embedded 
 			in an $m$-dimensional space using time-delay coordinates:
 
 			\begin{equation}
 			\vec{y}(t) = \left[x(t), x(t+\tau), x(t+2\tau), \ldots, x(t+(m-1)\tau)\right]
 			\end{equation}
 
-			where $m$ is the embedding dimension and $\tau$ is the time delay. The critical challenge lies in determining the appropriate values for these parameters to faithfully reconstruct the system's dynamics without distortion.
-
-
+			where $m$ is the embedding dimension 
+			and $\tau$ is the time delay. The critical challenge lies in determining 
+			the appropriate values for these parameters to faithfully reconstruct the system's dynamics without distortion.
 	
 
 		\subsection{Determination of Embedding Parameters}
@@ -838,7 +854,7 @@
 			properly \emph{embedded}. 
 			This projection can create artificial neighborhoods where points appear to be close due to 
 			geometrical constraints of the space rather than their actual dynamical similarity. 
-			These are named as \emph{false nearest neighbors} \cite{kennel1992}.
+			These are named as \emph{false nearest neighbors}.
 
 
 				\begin{figure}[h!]
