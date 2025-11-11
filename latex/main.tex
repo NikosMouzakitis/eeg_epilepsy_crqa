@@ -902,9 +902,6 @@
 
 			where $\sigma_x$ is the standard deviation of the time series.
 			
-
-
-
 			When optimal parameters $\tau$ and $m$ have been determined for a given signal, 
 			the phase space can be reconstructed according to Takens' theorem. This reconstruction provides the
 			geometric picture of the underlying dynamics.
@@ -919,7 +916,6 @@
 				\end{figure}
 
 
-
 			%%% NOTE: commented maybe not to write? 
 			%Applying FNN to EEG data is particularly 
 			%important for several reasons. EEG signals exhibit 
@@ -928,8 +924,6 @@
 			%that can distort phase space reconstruction. 
 			%In addition the optimal embedding may vary across subjects, 
 			%brain states, and recording conditions and FNN provides a data-driven approach that adapts to individual recordings.
-
-
 
 
 					
@@ -1056,13 +1050,14 @@
 
 					\end{description}
 
-					These metrics, when applied to EEG signals, allow for the characterization of the brain's dynamic states. For instance, in epilepsy detection, seizures (ictal states) often exhibit higher determinism (DET) and laminarity (LAM) compared to the more stochastic and complex inter-ictal states, making RQA a powerful tool for identifying pathological patterns.	
+					These metrics, when applied to EEG signals, allow for the characterization of
+					the brain's dynamic states. For example, in an epileptic seizures occurance, often 
+					higher determinism (DET), laminarity (LAM) or recurrence rate(RR) is observed
+					compared to the more stochastic and complex inter-ictal states.
+					This fact makes RQA metrics a viable solution for identifying pathological patterns.	
 
 
-				
-
-
-				\subsection{From RQA to Cross-Recurrence Quantification Analysis (CRQA)}
+				\subsection{Cross-Recurrence Quantification Analysis (CRQA)}
 					\label{subsec:crqa_theory}
 
 					While Recurrence Quantification Analysis (RQA) is powerful for analyzing the dynamics of a single system, 
@@ -1483,39 +1478,53 @@
 				\label{sec:need-patient-specific}
 
 				The development of robust and accurate EEG-based seizure detection 
-				and prediction systems is a challenging task due to the high 
+				solutions challenging task due to the high 
 				variability in EEG signals across different patients. 
 				While a universal classifier trained on data from multiple subjects 
 				would be the desirable goal for generalization, 
-				evidence from studies strongly suggests that patient-specific 
+				there are evidence from studies strongly 
+				suggesting that patient-specific 
 				models offer superior performance and can better suit 
 				for real-world clinical and wearable applications.
 
-				Hussein et al.\cite{hussein} conducted an extensive quantitative analysis of intracranial EEG (iEEG) 
-				data and concluded that statistical characteristics 
+				Hussein et al.\cite{hussein} conducted a quantitative 
+				analysis of intracranial EEG (iEEG) 
+				data and concluded that statistical 
+				characteristics 
 				of both interictal and preictal EEG vary significantly between patients. 
-				For instance, researchers observed that the overall range and interquartile 
-				range of iEEG sensor readings differed not only between interictal and preictal 
+				For instance, researchers observed that 
+				the overall range and interquartile 
+				range of iEEG sensor readings differed not only between 
+				interictal and preictal 
 				states but also across patients. 
 				They state that \textit{“there is no typical trend in either interictal or preictal 
 				data across different epileptic patients”} and that 
 				\textit{“the iEEG data of each patient has its own characteristics 
 				and its statistical features can solely be meaningful for building a 
 				seizure prediction system for this particular patient”}. 
-				This kind of inter-patient variability limits the
-				effectiveness of a global model and underlines the necessity of 
+				This kind of inter-patient variability can limit the
+				effectiveness of deploying a global model and underline 
+				the necessity of 
 				patient-specific approaches.
 
-				Similarly, Qiu et al.\cite{lightseizurenet} highlighted that \textit{“the features of the EEG signals 
+				Similarly, Qiu et al.\cite{lightseizurenet} highlighted 
+				that \textit{“the features of the EEG signals 
 				vary among different patients”} and that 
-				\textit{“even for the same patient, the EEG signals could change substantially when the patient is 
+				\textit{“even for the same patient, the EEG signals could 
+				change substantially when the patient is 
 				at different modes, status (awake or asleep), or ages”}.
-				Authors introduced a lightweight deep learning model, called LightSeizureNet, 
-				which was evaluated in both patient-independent and patient-specific settings. 
-				The patient-specific model achieved higher accuracy than the patient-independent version, achieving 99.77\%. 
-				In addition, patient-specific models seem to be more computationally efficient 
-				for real-time application, such as wearable systems. 
-				Furthermore, authors reported that their patient-specific model required only 3.7 million 
+				Authors introduced a lightweight 
+				deep learning model, called LightSeizureNet, 
+				which was evaluated in both patient-independent 
+				and patient-specific settings. 
+				The patient-specific model achieved higher accuracy 
+				than the patient-independent version, achieving 99.77\%. 
+				In addition, patient-specific models 
+				seem to be more computationally efficient 
+				for real-time application, such as wearable systems, because of their ability
+				to "personalize". %%maybe personalized medicine?
+				Furthermore, authors reported that their 
+				patient-specific model required only 3.7 million 
 				multiply-accumulate operations (MACs), 
 				compared to 6.2 million MACs for the patient-independent model, making it a more suitable solution for 
 				resource constrained application domains
@@ -1526,6 +1535,24 @@
 				for both patient-specific and non-patient-specific seizure detection using the CHB-MIT scalp EEG database. 
 				Their results demonstrate a clear performance advantage when patient-specific models are used, 
 				because of their ability of understanding and learning from personalized seizure patterns. 
+	
+				\subsection{Patient specific channel rejection}
+					%%full rewrite
+				In the pursuit of efficient and robust seizure detection systems, recent advancements emphasize 
+				patient-specific EEG channel selection to mitigate noise and redundancy inherent 
+				in multi-channel recordings, particularly for wearable applications. 
+				For instance, a 2025 study by Ferrara et al\cite{channelDropFerrara},
+				introduces a PCA-based Channel Weight Coefficient (CWC) method that dynamically ranks
+				and selects just two uncorrelated bipolar channels per patient from the standard
+				21-electrode 10-20 system, leveraging temporal shifts in neural activity between inter-ictal and ictal phases.
+
+
+
+
+				
+
+				
+
 
 
 			\newpage
