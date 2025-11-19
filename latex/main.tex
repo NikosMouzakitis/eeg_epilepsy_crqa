@@ -5,6 +5,8 @@
 \usepackage{booktabs} 
 \usepackage{comment} 
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{siunitx}
@@ -1250,7 +1252,7 @@
 				    \begin{subfigure}[t]{0.45\textwidth}
 					\centering
 					\includegraphics[width=\textwidth]{rr_compare/r03_epil.png}
-					\caption{radius fraction = 0.2}
+					\caption{radius fraction = 0.3}
 					\label{subfig:rp4}
 				    \end{subfigure}
 
@@ -1354,7 +1356,46 @@
 				 resulting in a final matrix (\texttt{mean\_\_feature\_matrix}) of shape \([N_w, 17]\), where the last column retains the window label. 
 				 This matrix summarizes the average dynamical interactions within each window.
 
-		
+				
+			\subsection{Post-processing and Merging of CRQA Feature Segments}
+
+			After extracting all of the CRQA features for each 2-second EEG 
+			segment and the averaging across all 22~$\times$~22 electrode pairs, 
+			every segment holds a represented by a 16-dimensional feature vector plus its dedicated label. 
+			At this stage, the dataset contains a disproportionately large number of 
+			normal (non-epileptic) segments in comparisson to the epileptic ones, 
+			a fact that leads into strong class imbalance and increased variance 
+			within the normal class.
+
+			To address this issue, an additional post-processing step was applied in which consecutive normal segments were merged into fixed-size groups of \(k\) (\(k = 10\)). Each group of \(k\) normal segments 
+				\[
+				\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_k \in \mathbb{R}^{16}
+				\]
+				was replaced by a single representative feature vector obtained as their arithmetic mean:
+				\begin{equation}
+				    \bar{\mathbf{x}} = \frac{1}{k} \sum_{i=1}^{k} \mathbf{x}_i.
+				\end{equation}
+
+				Epileptic segments were \emph{not} merged. This choice is justified by the highly dynamic and non-stationary nature of seizure activity, for which temporal averaging could obscure important patterns or abrupt state transitions that are meaningful for classification.
+
+				The output of this merging procedure is a new feature matrix in which:
+				\begin{itemize}
+				    \item normal EEG activity is represented by smoothed, low-variance averaged feature vectors,
+				    \item epileptic activity is retained at its original 2-second resolution, and
+				    \item all resulting samples remain homogeneous 16-dimensional CRQA feature vectors.
+				\end{itemize}
+
+				Each merged or non-merged sample is appended with the corresponding class label \( y \in \{0,1\} \), 
+				resulting in a final dataset of the form:
+				\[
+				\mathbf{z}_j = [f_1, f_2, \ldots, f_{16}, y], \qquad j = 1, \ldots, M,
+				\]
+				where \(M\) depends on the number of merged normal blocks and retained epileptic segments.  
+				This representation improves class balance, reduces the intra-class variability among normal segments, and preserves the discriminatory structure necessary for the subsequent machine-learning-based seizure detection.
+
+
+
+
 \begin{comment}
 				\subsection{Synthetic Feature Engineering from Cross-Recurrence Quantification Analysis}
 				\label{subsec:synthetic_features}
@@ -1434,12 +1475,11 @@
 				\end{tabular}
 				\end{table}
 				
-				\subsection{Dataset Imbalance}
 				
 				To address the higly imbalanced dataset, 
 				three main methods can be employed.
 
-				In data level, methods on creating more synthetic
+				Regarding the data level, methods on creating more synthetic
 				samples belonging to the minority class exist, such as
 				Synthetic Minority Over-sampling Technique (SMOTE).
 				With this method it is possible to generate synthetic 
@@ -1472,7 +1512,7 @@
 				aggregation strategies for its final classification decision, such as 
 				majority vote, weighted votes or stacking.
 
-
+\begin{comment}
 
 				\section{Patient-Specific EEG Classification in Epilepsy}
 				\label{sec:need-patient-specific}
@@ -1547,11 +1587,9 @@
 				21-electrode 10-20 system, leveraging temporal shifts in neural activity between inter-ictal and ictal phases.
 
 
+\end{comment}
 
 
-				
-
-				
 
 
 
