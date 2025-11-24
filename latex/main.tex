@@ -856,8 +856,8 @@
 			properly \emph{embedded}. 
 			This projection can create artificial neighborhoods where points appear to be close due to 
 			geometrical constraints of the space rather than their actual dynamical similarity. 
-			These are named as \emph{false nearest neighbors}.
-
+			These are named as \emph{false nearest neighbors}. 
+			An example of such an occurance can be observed in Figure \ref{fig:fnn_schematic}.
 
 				\begin{figure}[h!]
 				    \centering
@@ -930,7 +930,7 @@
 
 					
 	\newpage
-						% ===== Page X =====
+
 				\section{Recurrence Quantification Analysis (RQA)}
 
 				Having reconstructed the phase space trajectory of the EEG signals, 
@@ -1327,7 +1327,7 @@
 				\For{each window index \( w = 1 \) to \( N_w \)}
 				    \For{each channel pair \( (c_1, c_2) \in C \times C \)}
 					\State \textbf{Time Series Preparation}
-					\State Truncate time series \( X_{c_1,w} \) and \( X_{c_2,w} \) to minimum length
+					\State Ensure the input time series \( X_{c_1,w} \) and \( X_{c_2,w} \) have the same length
 					\State \textbf{Set embedding parameters}
 					\State Set \( \tau = 1 \)
 					\State Set \( m = 3 \)
@@ -1356,7 +1356,12 @@
 				 resulting in a final matrix (\texttt{mean\_\_feature\_matrix}) of shape \([N_w, 17]\), where the last column retains the window label. 
 				 This matrix summarizes the average dynamical interactions within each window.
 
-				
+				 It should be noted that prior to the averaging all feature metrics that presented invalid numerical values(such as \textit{nan} or \textit{inf})
+				 were set to 0. This can occur each time where
+				 the reccurence rate is 0 or a value very close to zero, having a consequence to propagate invalid values 
+				 in the set of \{Determinism, Average Diagonal Line Length, Divergence, Laminarity, Trapping Time, DET/RR and LAM/DET\} features computed by the PyRQA computation.
+
+\begin{comment}	
 			\subsection{Post-processing and Merging of CRQA Feature Segments}
 
 			After extracting all of the CRQA features for each 2-second EEG 
@@ -1392,7 +1397,7 @@
 				\]
 				where \(M\) depends on the number of merged normal blocks and retained epileptic segments.  
 				This representation improves class balance, reduces the intra-class variability among normal segments, and preserves the discriminatory structure necessary for the subsequent machine-learning-based seizure detection.
-
+\end{comment}
 
 
 
