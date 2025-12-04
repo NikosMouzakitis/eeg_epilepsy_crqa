@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{bm}
 \usepackage{algorithm}
+\usepackage{tabularx}
 \usepackage{algpseudocode}
 \usepackage{siunitx}
 \usepackage{caption}
@@ -1594,6 +1595,139 @@
 
 \end{comment}
 
+				\newpage				
+
+				\section{Classification - Experimental}
+					\label{sec:classification-experimental}
+
+					In this section, the classification methodology which is applied on the generated dataset is described.
+
+
+
+					\subsection{Classification Performance Metrics}
+					\label{subsec:performance-metrics}
+
+					To evaluate the performance of any classifier, several commonly applied metrics can be derived from the 
+					confusion matrix.
+
+					\subsubsection{Confusion Matrix}
+					A confusion matrix is a tabular summary of the number of correct and incorrect predictions 
+					achieved by the classifier. For a binary classification problem, 
+					it is typically represented as follows:
+
+					\begin{center}
+					\begin{tabular}{c|cc}
+					 & Predicted Positive & Predicted Negative \\ \hline
+					Actual Positive & True Positive (TP) & False Negative (FN) \\
+					Actual Negative & False Positive (FP) & True Negative (TN) \\
+					\end{tabular}
+					\end{center}
+
+					\subsubsection{Accuracy}
+					Accuracy represents the proportion of correctly classified instances over the total number of instances:
+
+					\begin{equation}
+					\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+					\end{equation}
+
+					\subsubsection{Sensitivity / Recall}
+					Sensitivity, also known as recall or true positive rate, measures the proportion of actual positives correctly identified:
+
+					\begin{equation}
+					\text{Sensitivity} = \frac{TP}{TP + FN}
+					\end{equation}
+
+					\subsubsection{Specificity}
+					Specificity, also known as true negative rate, measures the proportion of actual negatives correctly identified:
+
+					\begin{equation}
+					\text{Specificity} = \frac{TN}{TN + FP}
+					\end{equation}
+
+					\subsubsection{Precision}
+					Precision measures the proportion of predicted positives that are correctly identified:
+
+					\begin{equation}
+					\text{Precision} = \frac{TP}{TP + FP}
+					\end{equation}
+
+					\subsubsection{F1-Score}
+					The F1-score is the harmonic mean of precision and recall, providing a single metric that balances both:
+
+					\begin{equation}
+					\text{F1-score} = 2 \cdot \frac{\text{Precision} \cdot \text{Sensitivity}}{\text{Precision} + \text{Sensitivity}}
+					\end{equation}
+
+					The interpretation of these metrics provide an evaluation of classifier's performance. 
+
+
+
+
+					\subsection{Support Vector Machine (SVM) Classifier}
+					\label{subsec:svm}
+
+					Support Vector Machines (SVMs) belong to the so-called supervised learning models 
+					used for classification and regression purposes. 
+					The idea behind the SVM algorithm is the construction of a hyperplane or a set of hyperplanes 
+					in a high-dimensional space that can be used to separate different classes. 
+					The main objective of SVM is to find the hyperplane that maximizes the margin between different classes, 
+					which eventually results into improving the generalization ability of the classifier.
+
+					Given a training dataset $\{(x_i, y_i)\}_{i=1}^N$, 
+					where $x_i \in \mathbb{R}^d$ is a feature vector 
+					and $y_i \in \{-1, 1\}$ is the class label, 
+					SVM solves the following optimization problem:
+
+					\begin{equation}
+					\min_{w,b} \frac{1}{2} \|w\|^2 \quad \text{subject to} \quad y_i (w^\top x_i + b) \geq 1, \quad i=1,\dots,N
+					\end{equation}
+
+					where $w$ is the weight vector and $b$ is a bias term. 
+					For non-linearly separable data, kernel functions can be used to map the input features to a 
+					higher-dimensional space where a linear separation is possible.
+
+
+					\begin{table}[h!]
+						\centering
+						\caption{SVM Classification Results}
+						\begin{tabularx}{\textwidth}{l c l c c c c c c c c}
+						\hline
+						\textbf{Kernel} &
+						\textbf{C} &
+						\textbf{$\gamma$} &
+						\textbf{Mean Acc.} &
+						\textbf{Std} &
+						\textbf{Mean Sens.} &
+						\textbf{Std} &
+						\textbf{Mean Spec.} &
+						\textbf{Std} &
+						\textbf{Mean F1} &
+						\textbf{Std} \\
+						\hline
+
+						% ---- Example row (delete or keep) ----
+						linear & 0.1 & scale & 0.75 & 0.138 & 0.677 & 0.22 & 0.826 & 0.156 & 0.697 & 0.205 \\
+						linear & 1.0 & scale & 0.759 & 0.139 & 0.68 & 0.22 & 0.824 & 0.159 & 0.698 & 0.205 \\
+						linear & 10.0 & scale & 0.758 & 0.139 & 0.679 & 0.219 & 0.825 & 0.159 & 0.697 & 0.204 \\
+						rbf & 0.1 & scale & 0.821 & 0.112 & 0.764 & 0.182 & 0.867 & 0.136 & 0.782 & 0.156 \\
+						rbf & 0.1 & auto & 0.821 & 0.112 & 0.764 & 0.182 & 0.867 & 0.136 & 0.782 & 0.156 \\
+						rbf & 1.0 & scale & 0.851 & 0.09 & 0.817 & 0.138 & 0.881 & 0.134 & 0.824 & 0.125 \\
+						rbf & 1.0 & auto & 0.851 & 0.09 & 0.817 & 0.138 & 0.881 & 0.134 & 0.824 & 0.125 \\
+						rbf & 10.0 & scale & 0.881 & 0.074 & 0.879 & 0.098 & 0.889 & 0.122 & 0.863 & 0.102 \\
+						rbf & 10.0 & auto & 0.881 & 0.074 & 0.879 & 0.098 & 0.889 & 0.122 & 0.863 & 0.102 \\
+						
+						poly & 0.1 & scale & 0.764 & 0.137 & 0.564 & 0.237 & 0.946 & 0.081 & 0.658 & 0.215 \\
+						poly & 0.1 & auto & 0.764 & 0.137 & 0.564 & 0.237 & 0.946 & 0.081 & 0.658 & 0.215 \\
+						poly & 1.0 & scale & 0.786 & 0.126 & 0.635 & 0.217 & 0.929 & 0.098 & 0.712 & 0.186 \\
+						poly & 1.0 & auto & 0.786 & 0.126 & 0.635 & 0.217 & 0.929 & 0.098 & 0.712 & 0.186 \\
+						poly & 10.0 & scale & 0.809 & 0.106 & 0.703 & 0.194 & 0.907 & 0.108 & 0.757 & 0.153 \\
+						poly & 10.0 & auto & 0.809 & 0.106 & 0.703 & 0.194 & 0.907 & 0.108 & 0.757 & 0.153 \\
+
+						% --------------------------------------
+
+						\hline
+						\end{tabularx}
+					\end{table}
 
 
 
