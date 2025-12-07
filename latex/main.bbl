@@ -222,6 +222,9 @@
 		\bibitem{grobbelaar2022survey}
 		Grobbelaar, M., Phadikar, S., Ghaderpour, E., Struck, A.F., Sinha, N., Ghosh, R. and Ahmed, M.Z.~I. (2022). A survey on denoising techniques of electroencephalogram signals using wavelet transform. \emph{Signals}, \textbf{3}(3), 577--586. https://doi.org/10.3390/signals3030035
 		
+		\bibitem{svm_image}
+			Z. Weinberg and Cyc. \emph{SVM separating hyperplanes}. Wikimedia Commons, 2015. Available: https://commons.wikimedia.org/wiki/File:Svm\_separating\_hyperplanes.png. License: CC BY-SA 3.0. (Accessed: [06-12-2025]).
+
 	%%%%%%%%citations for per patient threshold tuning
 %	\bibitem{hussein}
 %	Hussein, R., Ahmed, M. O., Ward, R., Wang, Z. J., Kuhlmann, L. and Guo, Y. (2019).

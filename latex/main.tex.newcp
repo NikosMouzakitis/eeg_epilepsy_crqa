@@ -766,6 +766,30 @@
 			    \label{}
 			\end{figure}
 
+\begin{comment}
+			\begin{figure}[h]
+			    \centering
+			    \includegraphics[width=1.2\textwidth]{wav3.png}
+			    \caption{}
+			    \label{}
+			\end{figure}
+
+
+			\begin{figure}[h]
+			    \centering
+			    \includegraphics[width=1.2\textwidth]{wav4.png}
+			    \caption{}
+			    \label{}
+			\end{figure}
+
+			\begin{figure}[h]
+			    \centering
+			    \includegraphics[width=1.2\textwidth]{wav5.png}
+			    \caption{}
+			    \label{}
+			\end{figure}
+\end{comment}
+
 	\newpage
 
 		\section{Phase space reconstruction of EEG signals}
@@ -1333,10 +1357,93 @@
 				 resulting in a final matrix (\texttt{mean\_\_feature\_matrix}) of shape \([N_w, 17]\), where the last column retains the window label. 
 				 This matrix summarizes the average dynamical interactions within each window.
 
-				 It should be noted that prior to the averaging, all feature metrics that presented invalid numerical values(such as \textit{nan} or \textit{inf})
+				 It should be noted that prior to the averaging all feature metrics that presented invalid numerical values(such as \textit{nan} or \textit{inf})
 				 were set to 0. This can occur each time where
-				 the reccurence rate is 0 or it has a value very close to zero, having a consequence to propagate invalid values 
+				 the reccurence rate is 0 or a value very close to zero, having a consequence to propagate invalid values 
 				 in the set of \{Determinism, Average Diagonal Line Length, Divergence, Laminarity, Trapping Time, DET/RR and LAM/DET\} features computed by the PyRQA computation.
+
+\begin{comment}	
+			\subsection{Post-processing and Merging of CRQA Feature Segments}
+
+			After extracting all of the CRQA features for each 2-second EEG 
+			segment and the averaging across all 22~$\times$~22 electrode pairs, 
+			every segment holds a represented by a 16-dimensional feature vector plus its dedicated label. 
+			At this stage, the dataset contains a disproportionately large number of 
+			normal (non-epileptic) segments in comparisson to the epileptic ones, 
+			a fact that leads into strong class imbalance and increased variance 
+			within the normal class.
+
+			To address this issue, an additional post-processing step was applied in which consecutive normal segments were merged into fixed-size groups of \(k\) (\(k = 10\)). Each group of \(k\) normal segments 
+				\[
+				\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_k \in \mathbb{R}^{16}
+				\]
+				was replaced by a single representative feature vector obtained as their arithmetic mean:
+				\begin{equation}
+				    \bar{\mathbf{x}} = \frac{1}{k} \sum_{i=1}^{k} \mathbf{x}_i.
+				\end{equation}
+
+				Epileptic segments were \emph{not} merged. This choice is justified by the highly dynamic and non-stationary nature of seizure activity, for which temporal averaging could obscure important patterns or abrupt state transitions that are meaningful for classification.
+
+				The output of this merging procedure is a new feature matrix in which:
+				\begin{itemize}
+				    \item normal EEG activity is represented by smoothed, low-variance averaged feature vectors,
+				    \item epileptic activity is retained at its original 2-second resolution, and
+				    \item all resulting samples remain homogeneous 16-dimensional CRQA feature vectors.
+				\end{itemize}
+
+				Each merged or non-merged sample is appended with the corresponding class label \( y \in \{0,1\} \), 
+				resulting in a final dataset of the form:
+				\[
+				\mathbf{z}_j = [f_1, f_2, \ldots, f_{16}, y], \qquad j = 1, \ldots, M,
+				\]
+				where \(M\) depends on the number of merged normal blocks and retained epileptic segments.  
+				This representation improves class balance, reduces the intra-class variability among normal segments, and preserves the discriminatory structure necessary for the subsequent machine-learning-based seizure detection.
+\end{comment}
+
+
+
+\begin{comment}
+				\subsection{Synthetic Feature Engineering from Cross-Recurrence Quantification Analysis}
+				\label{subsec:synthetic_features}
+
+				In addition to the original 16 CRQA features of the \texttt{mean\_\_feature\_matrix}, that capture 
+				fundamental aspects of nonlinear coupling between EEG channels, in order to achive 
+				better discriminative power in our classification,
+				10 additional synthetic features are engineered as combinations of the original CRQA metrics per example.
+
+				The first group comprises four \textit{dynamically interpretable ratios}:
+				\begin{itemize}
+				\item \textbf{Determinism Efficiency (DET\_EFF)}: $\frac{\text{DET}}{\text{RR} + \varepsilon}$, quantifying the proportion of 
+					recurrent points that form deterministic (diagonal) structures. During seizures, RR 
+					increases due to hypersynchrony, but DET increases more selectively; this ratio captures the relative 
+					strength of deterministic coupling.
+				    \item \textbf{Diagonal Complexity Index (DIAG\_COMP)}: $\frac{\text{L\_entr}}{\log(\text{L\_max} + 1) + \varepsilon}$, a 
+					scale-invariant measure of complexity in diagonal line distributions. Seizures typically reduce dynamical 
+					complexity, lowering this index.
+				    \item \textbf{Vertical-to-Diagonal Ratio (V\_D\_RATIO)}: $\frac{\text{LAM}}{\text{DET} + \varepsilon}$, reflecting 
+					the balance between laminar (vertical) trapping and predictable (diagonal) trajectories. Elevated ratios 
+					indicate intermittent ictal states.
+				    \item \textbf{Recurrence Stability Index (REC\_STAB)}: $\frac{\text{L}}{\text{L\_max} + \varepsilon}$, measuring 
+					homogeneity of predictability duration. Values near 1 signify sustained rhythmicity, characteristic of generalized seizures.
+				\end{itemize}
+
+				The second group includes six \textit{targeted interactions and transforms}:
+				\begin{itemize}
+				\item \textbf{RR\_x\_DET} and \textbf{DET\_x\_L}: Products capturing joint recurrence-determinism and deterministic predictability strength.
+				    \item \textbf{LAM\_x\_TT}: Product of laminarity and trapping time, representing vertical structure persistence.
+				    \item \textbf{L\_entr\_div\_L}: Normalized diagonal entropy, improving robustness to scale differences.
+				    \item \textbf{log\_RR} and \textbf{log\_L\_max}: Log-transformed features to stabilize skewed distributions common in recurrence measures.
+
+				\end{itemize}
+
+				Here, $\varepsilon = 10^{-8}$ is utilized to prevent division by zero. 
+				Synthetic engineered features are dimensionless and 
+				bounded, ensuring numerical stability. 
+				This approach avoids blind polynomial expansion in 
+				favor of \textit{physiologically grounded combinations}, 
+				aligning with best practices in nonlinear EEG biomarker design \cite{faes2014information, zhang2020cross}.
+				
+\end{comment}
 
 
 				\section{Class Imbalance in RQA-EEG Data}
@@ -1376,7 +1483,7 @@
 				
 				
 				To address the higly imbalanced dataset, 
-				three main methods can be employed and are dominant in bibliography.
+				three main methods can be employed.
 
 				Regarding the data level, methods on creating more synthetic
 				samples belonging to the minority class exist, such as
@@ -1411,31 +1518,82 @@
 				aggregation strategies for its final classification decision, such as 
 				majority vote, weighted votes or stacking.
 
-				\subsubsection{Stratified Downsampling Methodology for a Balanced Dataset}
-				The dataset that has been derived by concatenating all (\texttt{mean\_\_feature\_matrices}) of every recording,
-				presents severe class imbalance as it has been presented in Table~\ref{tab:imbalance}.
-				This is a common challenge for epileptic seizure detection using long and continuous EEG recordings.
-				Initial analysis revealed a distribution of approximately 99\% normal segments versus 1\% epileptic segments 
-				across all the processed EEG recordings. 
-				This kind of extreme imbalance would lead into classifier bias on the favor of the majority class, 
-				having as a consequence high accuracy by simply predicting "normal" for all instances.
+\begin{comment}
+
+				\section{Patient-Specific EEG Classification in Epilepsy}
+				\label{sec:need-patient-specific}
+
+				The development of robust and accurate EEG-based seizure detection 
+				solutions challenging task due to the high 
+				variability in EEG signals across different patients. 
+				While a universal classifier trained on data from multiple subjects 
+				would be the desirable goal for generalization, 
+				there are evidence from studies strongly 
+				suggesting that patient-specific 
+				models offer superior performance and can better suit 
+				for real-world clinical and wearable applications.
+
+				Hussein et al.\cite{hussein} conducted a quantitative 
+				analysis of intracranial EEG (iEEG) 
+				data and concluded that statistical 
+				characteristics 
+				of both interictal and preictal EEG vary significantly between patients. 
+				For instance, researchers observed that 
+				the overall range and interquartile 
+				range of iEEG sensor readings differed not only between 
+				interictal and preictal 
+				states but also across patients. 
+				They state that \textit{“there is no typical trend in either interictal or preictal 
+				data across different epileptic patients”} and that 
+				\textit{“the iEEG data of each patient has its own characteristics 
+				and its statistical features can solely be meaningful for building a 
+				seizure prediction system for this particular patient”}. 
+				This kind of inter-patient variability can limit the
+				effectiveness of deploying a global model and underline 
+				the necessity of 
+				patient-specific approaches.
+
+				Similarly, Qiu et al.\cite{lightseizurenet} highlighted 
+				that \textit{“the features of the EEG signals 
+				vary among different patients”} and that 
+				\textit{“even for the same patient, the EEG signals could 
+				change substantially when the patient is 
+				at different modes, status (awake or asleep), or ages”}.
+				Authors introduced a lightweight 
+				deep learning model, called LightSeizureNet, 
+				which was evaluated in both patient-independent 
+				and patient-specific settings. 
+				The patient-specific model achieved higher accuracy 
+				than the patient-independent version, achieving 99.77\%. 
+				In addition, patient-specific models 
+				seem to be more computationally efficient 
+				for real-time application, such as wearable systems, because of their ability
+				to "personalize". %%maybe personalized medicine?
+				Furthermore, authors reported that their 
+				patient-specific model required only 3.7 million 
+				multiply-accumulate operations (MACs), 
+				compared to 6.2 million MACs for the patient-independent model, making it a more suitable solution for 
+				resource constrained application domains
+				such as a wearable/implantable device.
+				
+				Further supporting evidence can be found in a recent study by Vijay et al.\cite{vijay2025supervised}, 
+				in which authors perform a systematic comparisson of five supervised machine learning models
+				for both patient-specific and non-patient-specific seizure detection using the CHB-MIT scalp EEG database. 
+				Their results demonstrate a clear performance advantage when patient-specific models are used, 
+				because of their ability of understanding and learning from personalized seizure patterns. 
+	
+				\subsection{Patient specific channel rejection}
+					%%full rewrite
+				In the pursuit of efficient and robust seizure detection systems, recent advancements emphasize 
+				patient-specific EEG channel selection to mitigate noise and redundancy inherent 
+				in multi-channel recordings, particularly for wearable applications. 
+				For instance, a 2025 study by Ferrara et al\cite{channelDropFerrara},
+				introduces a PCA-based Channel Weight Coefficient (CWC) method that dynamically ranks
+				and selects just two uncorrelated bipolar channels per patient from the standard
+				21-electrode 10-20 system, leveraging temporal shifts in neural activity between inter-ictal and ictal phases.
 
 
-				In order to tackle this imbalance problem, a patient-specific stratified downsampling approach has been 
-				used for the normal segments. 
-				For each \texttt{mean\_\_feature\_matrix} corresponding to each one of the 136 recordings,
-				its normal segments have been grouped into 40 continuous splits, respecting their timing order.
-
-				The selection of $S = 40$ splits was empirically determined to achieve approximate class balance 
-				while ensuring each averaged vector represents a meaningful sample of normal brain activity. 
-
-				Patient-specific processing maintains inter-patient physiological variability and avoids the 
-				data leakage between patients, which is essential for developing classification models later.
-
-				The processed data, stored as \texttt{.npy} files in a dedicated directory, serves as the foundation for all 
-				subsequent machine learning experiments described in the following sections.
-
-
+\end{comment}
 
 				\newpage				
 
@@ -1503,6 +1661,135 @@
 					The interpretation of these metrics provide an evaluation of classifier's performance. 
 
 					
+
+					\subsection{Data Preprocessing and Class Imbalance Handling}
+					\label{subsec:data-imbalance}
+
+					The dataset that has been derived by concatenating all (\texttt{mean\_\_feature\_matrices}) of every recording,
+					presents severe class imbalance as it has been presented in Table~\ref{tab:imbalance}, 
+					a common challenge in epileptic seizure detection. Initial analysis revealed a distribution of approximately 99\% normal segments versus 1\% epileptic segments across the processed EEG recordings. Such extreme imbalance would lead to classifier bias toward the majority class, achieving misleadingly high accuracy by simply predicting "normal" for all instances.
+
+\subsubsection{Stratified Downsampling Methodology}
+
+To address this imbalance while preserving physiological information, we developed a patient-specific stratified downsampling approach. The methodology, implemented in Python, processes each of the 136 NeuroPy files containing CRQA features independently:
+
+\textbf{Algorithm 4.1: Balanced Dataset Generation}
+
+\begin{algorithmic}[1]
+\State \textbf{Input}: Raw CRQA tensor $T \in \mathbb{R}^{N \times 22 \times 22 \times 17}$
+\State \textbf{Output}: Balanced feature matrix $M \in \mathbb{R}^{K \times 16}$ with labels $L \in \{0,1\}^K$
+
+\For{each recording file $f_i, i = 1$ to $136$}
+    \State Load tensor $T$ and separate classes:
+    \State $T_{\text{normal}} = T[T[:,0,0,16] = 0]$ \Comment{Normal segments}
+    \State $T_{\text{epileptic}} = T[T[:,0,0,16] = 1]$ \Comment{Epileptic segments}
+
+    \State Compute channel-wise averages:
+    \State $F_{\text{normal}} = \text{mean}(T_{\text{normal}}, \text{axis}=(1,2))[:,:16]$ \Comment{$(M \times 16)$}
+    \State $F_{\text{epileptic}} = \text{mean}(T_{\text{epileptic}}, \text{axis}=(1,2))[:,:16]$ \Comment{$(E \times 16)$}
+
+    \If{$M > 0$}
+        \State Partition $M$ normal samples into $S = 40$ groups
+        \For{each group $g_j, j = 1$ to $40$}
+            \State $V_j = \text{mean}(F_{\text{normal}}[g_j], \text{axis}=0)$ \Comment{Averaged normal vector}
+            \State $\text{Label}(V_j) = 0$
+        \EndFor
+    \EndIf
+
+    \State Combine vectors:
+    \State $M_{\text{balanced}} = [V_1, V_2, \ldots, V_{40}, F_{\text{epileptic}}[1], \ldots, F_{\text{epileptic}}[E]]$
+    \State $L_{\text{balanced}} = [0 \times 40, 1 \times E]$
+
+    \State Save $M_{\text{balanced}}$ to reduced dataset
+\EndFor
+\end{algorithmic}
+
+\subsubsection{Mathematical Formulation}
+
+Let $\mathbf{X}^{(p)} \in \mathbb{R}^{N_p \times 22 \times 22 \times 16}$ represent the CRQA features for patient $p$, with corresponding labels $\mathbf{y}^{(p)} \in \{0,1\}^{N_p}$. The channel-averaged features are computed as:
+
+\[
+\bar{x}_i = \frac{1}{484} \sum_{c_1=1}^{22} \sum_{c_2=1}^{22} x_{i,c_1,c_2}, \quad \forall i \in \{1,\ldots,N_p\}
+\]
+
+The normal indices are partitioned into $S = 40$ approximately equal groups:
+
+\[
+\mathcal{I}_{\text{norm}}^{(p)} = \bigcup_{j=1}^{S} G_j^{(p)}, \quad |G_j^{(p)}| \approx \frac{|\mathcal{I}_{\text{norm}}^{(p)}|}{S}
+\]
+
+The averaged normal feature vector for group $j$ is:
+
+\[
+\mathbf{v}_j^{(p)} = \frac{1}{|G_j^{(p)}|} \sum_{i \in G_j^{(p)}} \bar{\mathbf{x}}_i
+\]
+
+The final balanced dataset for patient $p$ is:
+
+\[
+\mathcal{D}_{\text{balanced}}^{(p)} = \left\{ \left( \mathbf{v}_j^{(p)}, 0 \right) \right\}_{j=1}^{S} \cup \left\{ \left( \bar{\mathbf{x}}_i, 1 \right) \right\}_{i \in \mathcal{I}_{\text{epi}}^{(p)}}
+\]
+
+\subsubsection{Design Justification}
+
+The selection of $S = 40$ splits was empirically determined to achieve approximate class balance while ensuring each averaged vector represents a statistically meaningful sample of normal brain activity. This parameter represents a compromise between:
+
+\begin{itemize}
+    \item \textbf{Sufficient reduction} of majority class dominance
+    \item \textbf{Preservation} of normal brain activity variability
+    \item \textbf{Computational efficiency} for subsequent analysis
+\end{itemize}
+
+Channel averaging serves dual purposes:
+\begin{enumerate}
+    \item \textbf{Dimensionality reduction}: From 484 channel-pair values to 16 aggregated features
+    \item \textbf{Noise reduction}: Mitigation of channel-specific artifacts while preserving global recurrence patterns
+    \item \textbf{Interpretability}: Resulting features correspond to whole-brain recurrence characteristics
+\end{enumerate}
+
+Patient-specific processing maintains inter-patient physiological variability and avoids data leakage between patients, which is crucial for developing robust classification models.
+
+\subsubsection{Resulting Dataset Characteristics}
+
+Post-processing statistics for representative patient recordings:
+
+\begin{table}[h!]
+\centering
+\caption{Data compression and balancing results}
+\label{tab:balancing_results}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Metric} & \textbf{Original Data} & \textbf{Processed Data} \\
+\midrule
+Total Samples & $N$ & $40 + E$ \\
+Normal Samples & $M$ ($\approx$99\%) & 40 ($\approx$50\%) \\
+Epileptic Samples & $E$ ($\approx$1\%) & $E$ ($\approx$50\%) \\
+Dimensionality & $22 \times 22 \times 16 = 7,744$ & 16 \\
+Storage Reduction & $\sim$100 MB/recording & $\sim$1 MB/recording \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Quality Assurance}
+
+To verify the integrity of the preprocessing pipeline, comprehensive validation checks were implemented:
+
+\begin{enumerate}
+    \item \textbf{Distribution preservation}: Violin plots comparing original versus averaged normal distributions
+    \item \textbf{Feature correlation analysis}: Scatter plots of key CRQA features (RR vs DET)
+    \item \textbf{Label consistency verification}: Manual inspection of label assignments
+    \item \textbf{Numerical stability}: Detection and handling of infinite or NaN values
+\end{enumerate}
+
+The balanced dataset offers several advantages for subsequent classification tasks:
+\begin{itemize}
+    \item \textbf{Reduced bias}: Eliminates classifier preference for majority class
+    \item \textbf{Improved generalization}: Averaged normals represent characteristic brain states rather than transient fluctuations
+    \item \textbf{Computational efficiency}: Reduced dimensionality accelerates training
+    \item \textbf{Enhanced interpretability}: Sixteen-dimensional feature space facilitates model explanation
+\end{itemize}
+
+The processed data, stored as \texttt{.npy} files in a dedicated directory, serves as the foundation for all subsequent machine learning experiments described in the following sections.
 
 
 					\subsection{Support Vector Machine (SVM) Classifier}
