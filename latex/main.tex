@@ -26,8 +26,12 @@
 \date{\today} % You can use a specific date or \today for the current date
 \begin{document}
 	\maketitle
+	\newpage	
+	\tableofcontents
+	\newpage  % optional, to start the co
 
-	\section*{Introduction}
+
+	\section{Introduction}
 	Epilepsy is a neurological disorder, 
 	which generates recurrent, unprovoked seizures. 
 	Seizures are the result of abnormal neuronal brain 
@@ -562,7 +566,7 @@
 		algorithms on epileptic seizure 
 		detection and epileptic research in general.
 		
-		\section{Dataset Description}
+		\subsection{Dataset Description}
 
 		\begin{table}[h!]
 		\centering
@@ -1502,7 +1506,28 @@
 
 					The interpretation of these metrics provide an evaluation of classifier's performance. 
 
-					
+					\subsection*{Leave-One-Subject-Out (LOSO) Cross-Validation}
+
+					To obtain an unbiased estimate of the classifier's ability to generalize across different individuals, 
+					the experiments conducted utilize the Leave-One-Subject-Out (LOSO) cross-validation. 
+					In LOSO, data from one subject (patient) are held out as the test set, 
+					while data from all remaining subjects are used for training. The model is always evaluated on unpresented data to it.
+					This process is repeated iteratively until every subject has served as the test set exactly once.
+
+					The LOSO method is useful for physiological datasets, 
+					where the inter-patient variability is often observable. 
+					Training and evaluating on different subjects ensures that the classifier 
+					does not inadvertently learn subject-specific patterns that would not generalize to 
+					unseen individuals. 
+					Consequently, LOSO provides a conservative and realistic estimate of 
+					real-world performance in clinical scenarios, 
+					where new patient data must be classified without retraining the model.
+
+					For each hyperparameter configuration explored, the SVM model was trained and tested across 
+					all LOSO folds. Performance metrics (accuracy, sensitivity, specificity, and F1-score) are 
+					computed for each held-out subject and then averaged to obtain a final estimate. 
+					Using this evaluation ensures that the reported results reflect consistent behavior 
+					across subjects and are not biased by any single individual.
 
 
 					\subsection{Support Vector Machine (SVM) Classifier}
@@ -1545,6 +1570,71 @@
 
 
 					
+
+					In order to evaluate the SVM classifier, an exploration of its hyperparameters was conducted
+					to reveal their effects on the classification performance. 
+					SVMs have configurable options that can control the geometry of the decision function, 
+					the complexity of the model, the smoothness of the boundary, and the optimization procedure. 
+
+					The \textit{kernel function} defines the transformation that maps 
+					the input data into a higher-dimensional feature space, 
+					where a linear separating hyperplane may possibly exist. 
+					The following kernels were examined:
+
+					\begin{itemize}
+					    \item \textbf{Polynomial Kernel} (\texttt{poly}):
+					    \[
+						K(\mathbf{x},\mathbf{x}') = \big(\gamma\, \mathbf{x}^{\top}\mathbf{x}' + \texttt{coef0}\big)^{\texttt{degree}}
+					    \]
+					    This kernel allows highly flexible, non-linear decision boundaries whose shape is controlled by the degree of the polynomial.
+
+					    % If other kernels also used, uncomment:
+					     \item \textbf{Linear Kernel} (\texttt{linear}):
+					      Represents a standard linear classifier without non-linear mapping.
+					     \item \textbf{RBF Kernel} (\texttt{rbf}):
+					      A Gaussian kernel capable of modelling highly complex, non-linear structures.
+					    % \item \textbf{Sigmoid Kernel} (\texttt{sigmoid}):
+					    % Has a form similar to neural network activation functions.
+					\end{itemize}
+
+					The regularization parameter $C>0$ is in the control of the trade-off among two quantities. The maximization of
+					the margin and minimization of the classification error on the training data. 
+					Using a small value of $C$ produces a wider margin among classes and a more regularized model, 
+					possibly at the cost of more misclassifications. 
+					By using a larger value of $C$, model enforces more strict classification of training samples 
+					by heavily penalizing misclassified points.
+
+					The parameter $\gamma$(kernel scale) controls the influence of individual training samples 
+					when using kernels such as RBF or polynomial. In the polynomial kernel, 
+					$\gamma$ acts as a scaling factor on the dot product:
+					\[
+					    (\gamma\, \mathbf{x}^{\top}\mathbf{x}' + \texttt{coef0})^{\texttt{degree}}.
+					\]
+					A small $\gamma$ produces smoother, less complex decision boundaries, 
+					while a large $\gamma$ leads to highly localized and complex surfaces.
+
+					For the polynomial kernel, the degree determines the maximum order of interactions 
+					between features. Higher degrees have as result more complex decision boundaries, 
+					but also increase the risk of overfitting and are computational more heavy procedures.
+
+					The coefficient $\texttt{coef0}$ shifts the kernel function and 
+					influences how much the model relies on higher-order terms versus lower-order interactions. 
+					In polynomial kernels, tuning $\texttt{coef0}$ can significantly 
+					modify the boundary shape.
+
+					Shrinking is an optimization heuristic, that attempts to speed up the training procedure by temporarily 
+					ignoring variables that are unlikely to affect the solution. 
+					When \texttt{shrinking=False}, the full optimization problem is solved without heuristics. 
+					Disabling shrinking may lead to more stable behavior in some datasets, 
+					at the cost of slower training.
+
+					The parameter \texttt{tol} defines the tolerance for the stopping criterion of the optimization algorithm. 
+					Smaller values lead to more precise convergence but increase computational time, 
+					while larger values may speed up optimization at the cost of slightly 
+					less accurate solutions.
+
+					To address class imbalance, the SVM was configured with \texttt{class\_weight=``balanced''}, which automatically scales the penalty applied to each class inversely to its frequency. This ensures that minority classes contribute equally to the loss function.
+
 
 					\begin{table}[h!]
 						\centering

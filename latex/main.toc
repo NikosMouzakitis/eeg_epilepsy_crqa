@@ -1,0 +1,37 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{}%
+\contentsline {section}{\numberline {2}Related Work}{4}{}%
+\contentsline {subsection}{\numberline {2.1}RQA relevant patents utilizing EEG modality}{7}{}%
+\contentsline {section}{\numberline {3}The CHB-MIT EEG Database}{9}{}%
+\contentsline {subsection}{\numberline {3.1}Dataset Description}{9}{}%
+\contentsline {section}{\numberline {4}Filtering}{11}{}%
+\contentsline {subsection}{\numberline {4.1}Evaluation metrics for EEG denoising in the CHB-MIT dataset}{12}{}%
+\contentsline {subsection}{\numberline {4.2}Filter Selection Criteria}{12}{}%
+\contentsline {section}{\numberline {5}Phase space reconstruction of EEG signals}{16}{}%
+\contentsline {subsection}{\numberline {5.1}Determination of Embedding Parameters}{16}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}Calculation of time delay \( \tau \) utilizing mutual information}{16}{}%
+\contentsline {subsubsection}{\numberline {5.1.2}Estimating embedding dimension \( m \) using false nearest neighbors approach}{17}{}%
+\contentsline {section}{\numberline {6}Recurrence Quantification Analysis (RQA)}{20}{}%
+\contentsline {subsection}{\numberline {6.1}The Recurrence Plot (RP)}{20}{}%
+\contentsline {subsection}{\numberline {6.2}Key RQA Metrics and Their Interpretation}{20}{}%
+\contentsline {subsection}{\numberline {6.3}Cross-Recurrence Quantification Analysis (CRQA)}{22}{}%
+\contentsline {subsubsection}{\numberline {6.3.1}The Cross-Recurrence Plot (CRP)}{22}{}%
+\contentsline {subsubsection}{\numberline {6.3.2}Interpretation of CRQA Metrics}{23}{}%
+\contentsline {subsubsection}{\numberline {6.3.3}Why CRQA for Multi-Channel EEG?}{23}{}%
+\contentsline {section}{\numberline {7}Methodology}{24}{}%
+\contentsline {subsection}{\numberline {7.1}Data preprocessing and windowing}{24}{}%
+\contentsline {subsection}{\numberline {7.2}Embedding parameters selection}{24}{}%
+\contentsline {subsection}{\numberline {7.3}Threshold selection}{24}{}%
+\contentsline {subsection}{\numberline {7.4}Cross Recurrence Quantification Analysis (CRQA)}{26}{}%
+\contentsline {subsection}{\numberline {7.5}Algorithm Summary}{28}{}%
+\contentsline {subsection}{\numberline {7.6}Feature aggregation}{28}{}%
+\contentsline {section}{\numberline {8}Class Imbalance in RQA-EEG Data}{29}{}%
+\contentsline {subsubsection}{\numberline {8.0.1}Stratified Downsampling Methodology for a Balanced Dataset}{30}{}%
+\contentsline {section}{\numberline {9}Classification - Experimental}{31}{}%
+\contentsline {subsection}{\numberline {9.1}Classification Performance Metrics}{31}{}%
+\contentsline {subsubsection}{\numberline {9.1.1}Confusion Matrix}{31}{}%
+\contentsline {subsubsection}{\numberline {9.1.2}Accuracy}{31}{}%
+\contentsline {subsubsection}{\numberline {9.1.3}Sensitivity / Recall}{31}{}%
+\contentsline {subsubsection}{\numberline {9.1.4}Specificity}{31}{}%
+\contentsline {subsubsection}{\numberline {9.1.5}Precision}{31}{}%
+\contentsline {subsubsection}{\numberline {9.1.6}F1-Score}{32}{}%
+\contentsline {subsection}{\numberline {9.2}Support Vector Machine (SVM) Classifier}{32}{}%
