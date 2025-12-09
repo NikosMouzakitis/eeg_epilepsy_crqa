@@ -1295,7 +1295,7 @@
 				\subsection{Algorithm Summary}
 				\label{subsec:algorithm}
 
-				The methodology is summarized in Algorithm~\ref{alg:crqa_computation}, which outlines the CRQA computation for each window and channel pair.
+				The methodology is summarized in Algorithm~\ref{alg:crqa_computation}, which is describing the CRQA computation for each window and channel pair.
 
 				\begin{algorithm}
 				\caption{Cross Recurrence Quantification Analysis (CRQA) for EEG Windows}
@@ -1343,7 +1343,7 @@
 				 in the set of \{Determinism, Average Diagonal Line Length, Divergence, Laminarity, Trapping Time, DET/RR and LAM/DET\} features computed by the PyRQA computation.
 
 
-				\section{Class Imbalance in RQA-EEG Data}
+				\subsection{Class Imbalance in CRQA-EEG Data}
 
 				Real world EEG datasets for epileptic seizure detection are by their nature imbalanced, 
 				reflecting the transient nature of seizure's occurence in contrast to normal brain activity. 
@@ -1366,7 +1366,7 @@
 
 				\begin{table}[h]
 				\centering
-				\caption{Class distribution in the preprocessed RQA-EEG dataset, highlighting severe imbalance.}
+				\caption{Class distribution in the preprocessed CRQA-EEG dataset, highlighting severe imbalance.}
 				\label{tab:imbalance}
 				\begin{tabular}{lcc}
 				\toprule
@@ -1415,7 +1415,7 @@
 				aggregation strategies for its final classification decision, such as 
 				majority vote, weighted votes or stacking.
 
-				\subsubsection{Stratified Downsampling Methodology for a Balanced Dataset}
+				\subsection{Stratified Downsampling Methodology for a Balanced Dataset}
 				The dataset that has been derived by concatenating all (\texttt{mean\_\_feature\_matrices}) of every recording,
 				presents severe class imbalance as it has been presented in Table~\ref{tab:imbalance}.
 				This is a common challenge for epileptic seizure detection using long and continuous EEG recordings.
@@ -1437,9 +1437,23 @@
 				data leakage between patients, which is essential for developing classification models later.
 
 				The processed data, stored as \texttt{.npy} files in a dedicated directory, serves as the foundation for all 
-				subsequent machine learning experiments described in the following sections.
-
-
+				subsequent machine learning experiments described in the following sections and the class distribution can be
+				observed in the following table.
+			
+				\begin{table}[h]
+				\centering
+				\caption{Class distribution after the application of normal's segments downsampling.}
+				\label{tab:40split}
+				\begin{tabular}{lcc}
+				\toprule
+				Class & Percentage (\%) & Count \\
+				\midrule
+				Normal (0) & 49.46 & 5440\\
+				Epileptic (1) & 50.54 & 5558 \\
+				\bottomrule
+				\end{tabular}
+				\end{table}
+				
 
 				\newpage				
 
@@ -1678,9 +1692,157 @@
 						\end{tabularx}
 					\end{table}
 
+				
+
+
+				\subsection{Random Forest Classification}
+
+					Random Forest is an ensemble method of learing, which constructs a 
+					number of decision trees during training and produces the final prediction 
+					utilizing the majority voting concept (for the classification) alongside all the individual trees. 
+				%	It belongs to the family of bagging-based ensemble methods and is 
+				%	designed to reduce variance and improve generalization compared to a single decision tree. 
+					Each of the trees belonging in the forest, 
+					is trained using a bootstrapped subset 
+					of the training data, while at each split only a random subset 
+					of the available features is considered. 
+					By using this dual randomization, decorrelates the trees and significantly improves 
+					robustness against overfitting.
+
+					Let $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^{N}$ denote the training dataset, where $\mathbf{x}_i \in \mathbb{R}^{d}$ represents the feature vector and $y_i \in \{0,1\}$ the corresponding class label. Each decision tree $h_k(\mathbf{x})$ is trained on a bootstrapped subset $\mathcal{D}_k \subset \mathcal{D}$. The Random Forest prediction is then obtained as
+					\begin{equation}
+					\hat{y} = \mathrm{mode}\left( h_1(\mathbf{x}), h_2(\mathbf{x}), \dots, h_K(\mathbf{x}) \right),
+					\end{equation}
+					where $K$ is the total number of trees in the ensemble.
+
+					Random Forest classifiers have the ability of handling high-dimensional feature spaces, 
+					nonlinear decision boundaries, and noisy measurements without requiring strong assumptions about the underlying data distribution. 
+					Furthermore, they provide resistance to outliers and feature scaling, which is particularly useful in biomedical and physiological signals.
+
+					\subsubsection{Hyperparameters}
+
+					Related to the performance of a Random Forest classifier, there is a number of structural hyperparameters that
+					control and regulate model's complexity and generalization ability. 
+					In this study, the following hyperparameters were systematically explored under a Leave-One-Subject-Out (LOSO) 
+					cross-validation method:
+
+					\begin{itemize}
+					\item \textbf{Number of Trees ($n_{\text{estimators}}$):} This parameter defines the total number of decision trees in the ensemble. Larger values generally improve classification stability at the expense of increased computational cost. The tested values were
+					\[
+					n_{\text{estimators}} \in \{100,\, 300,\, 500\}.
+					\]
+
+					\item \textbf{Maximum Tree Depth ($\text{max\_depth}$):} This parameter limits the maximum depth of each tree. Constraining tree depth prevents overly complex decision boundaries and reduces overfitting. The evaluated values were
+					\[
+					\text{max\_depth} \in \{\text{None},\, 5,\, 10\}.
+					\]
+
+					\item \textbf{Minimum Samples for Node Splitting ($\text{min\_samples\_split}$):} This parameter specifies the minimum number of samples required to split an internal node. Larger values enforce smoother decision surfaces and increase regularization:
+					\[
+					\text{min\_samples\_split} \in \{2,\, 5\}.
+					\]
+
+					\item \textbf{Minimum Samples in Leaf Nodes ($\text{min\_samples\_leaf}$):} This parameter constrains the minimum number of samples that must exist in a terminal node. It directly controls the granularity of leaf-level decisions and improves generalization in small-sample regimes:
+					\[
+					\text{min\_samples\_leaf} \in \{1,\, 2\}.
+					\]
+
+					\item \textbf{Maximum Features per Split ($\text{max\_features}$):} This parameter determines the number of candidate features randomly selected at each split. It introduces additional decorrelation between trees. The evaluated strategies were
+					\[
+					\text{max\_features} \in \{\text{sqrt},\, \text{log2}\}.
+					\]
+					\end{itemize}
+
+					For each hyperparameter configuration, the classifier was evaluated using a Leave-One-Subject-Out (LOSO) protocol to ensure strict subject-independent validation. Performance was quantified using accuracy, sensitivity (recall), specificity, and F1-score. Mean and standard deviation values across all subjects were computed to assess both predictive performance and inter-subject stability.
+
+					The Random Forest classifier does not require feature normalization and is resilient to monotonic feature transformations, making it particularly suitable for heterogeneous biomedical feature sets where absolute feature scaling may vary across subjects.
+
+					
 
 
 
+					\subsection{k-Nearest Neighbors Classification}
+
+					The k-Nearest Neighbors (kNN) algorithm is a non-parametric, instance-based learning method that performs classification based on the similarity between input samples in the feature space. Unlike model-based classifiers, kNN does not explicitly construct a training model. Instead, all training samples are retained in memory, and predictions are made by identifying the $k$ closest samples to a given test instance according to a distance metric.
+
+					Let $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^{N}$ denote the training dataset, where $\mathbf{x}_i \in \mathbb{R}^{d}$ represents a feature vector and $y_i \in \{0,1\}$ the corresponding class label. For a test sample $\mathbf{x}$, the classifier computes the distance $d(\mathbf{x}, \mathbf{x}_i)$ between $\mathbf{x}$ and all training samples. The set $\mathcal{N}_k(\mathbf{x})$ containing the $k$ closest neighbors is then determined, and the predicted class label is obtained by majority voting:
+					\begin{equation}
+					\hat{y} = \mathrm{mode}\left\{ y_i \;|\; \mathbf{x}_i \in \mathcal{N}_k(\mathbf{x}) \right\}.
+					\end{equation}
+
+					Due to its simplicity and non-parametric nature, kNN is well suited for biomedical signal classification tasks where class boundaries may be highly nonlinear and difficult to model explicitly. The method adapts naturally to complex data distributions and performs particularly well when representative samples are available in the feature space. However, kNN is sensitive to feature scaling and noise, making proper preprocessing essential.
+
+					\subsubsection{Hyperparameters}
+
+					The behavior and performance of the kNN classifier are controlled by a small number of hyperparameters that regulate neighborhood size, distance computation, and voting strategy. In this study, the following hyperparameters were systematically evaluated using a grid-search framework under a Leave-One-Subject-Out (LOSO) cross-validation protocol:
+
+					\begin{itemize}
+					\item \textbf{Number of Neighbors ($k$):} This parameter specifies how many neighboring samples participate in the voting process. Small values of $k$ increase sensitivity to local variations and noise, while larger values produce smoother decision boundaries:
+					\[
+					k \in \{3,\, 5,\, 7,\, 9,\, 11\}.
+					\]
+
+					\item \textbf{Distance Metric:} This parameter determines how similarity between feature vectors is computed. The evaluated distance metrics were:
+					\[
+					\text{metric} \in \{\text{euclidean},\, \text{manhattan}\}.
+					\]
+					The Euclidean distance emphasizes geometric proximity, while the Manhattan distance is more robust to outliers in high-dimensional spaces.
+
+					\item \textbf{Voting Strategy (Weighting):} This parameter controls how votes from neighboring samples are weighted:
+					\[
+					\text{weights} \in \{\text{uniform},\, \text{distance}\}.
+					\]
+					Uniform weighting assigns equal importance to all neighbors, whereas distance-based weighting assigns higher influence to closer neighbors.
+
+					\item \textbf{Neighbor Search Algorithm:} This parameter determines the method used for neighbor retrieval:
+					\[
+					\text{algorithm} \in \{\text{auto},\, \text{ball\_tree},\, \text{kd\_tree}\}.
+					\]
+					This choice affects computational efficiency, particularly for high-dimensional feature spaces.
+					\end{itemize}
+
+					For each hyperparameter configuration, classifier performance was evaluated using a Leave-One-Subject-Out (LOSO) validation scheme to ensure strict subject-independent testing. Performance was assessed using accuracy, sensitivity, specificity, and F1-score, with mean and standard deviation computed across all subjects.
+
+					Since kNN relies directly on distance computations, all features were standardized prior to classification to ensure equal contribution of all feature dimensions. This normalization step is essential in heterogeneous biomedical feature sets, such as EEG-derived CRQA features or radiomic descriptors, where feature scales may differ significantly.
+
+			
+
+				\section{Classification Results and Comparative Analysis}
+
+					This section presents the classification performance obtained using three different machine learning models: Support Vector Machines (SVM), Random Forests (RF), and k-Nearest Neighbors (kNN). All models were evaluated under a strict Leave-One-Subject-Out (LOSO) cross-validation protocol to ensure subject-independent testing. Performance was quantified using accuracy, sensitivity, specificity, and F1-score, and results are reported as mean and standard deviation across all subjects.
+
+					\subsection{Overall Performance Comparison}
+
+					Across all experiments, the three classifiers demonstrated distinct performance characteristics. The SVM classifier exhibited strong generalization ability, achieving consistently high accuracy and F1-scores across subjects. This behavior is attributed to its ability to construct optimal separating hyperplanes in high-dimensional feature spaces, which is particularly advantageous for CRQA-based and biomedical feature representations.
+
+					The Random Forest classifier demonstrated stable and well-balanced performance across all evaluation metrics. Its ensemble-based structure allowed it to effectively capture nonlinear feature interactions while maintaining robustness against overfitting. Additionally, Random Forest achieved competitive sensitivity and specificity values, indicating reliable discrimination between the two classes.
+
+					The kNN classifier showed competitive performance in several configurations but exhibited higher variability across subjects, as reflected by increased standard deviation values. This behavior is expected, as kNN is a distance-based, instance-driven classifier that is highly sensitive to feature scaling, class distribution, and local neighborhood structure. Despite this sensitivity, kNN achieved satisfactory performance when appropriate feature normalization and neighborhood sizes were applied.
+
+					\subsection{Sensitivity--Specificity Trade-Off}
+
+					An important observation across all classifiers is the inherent trade-off between sensitivity and specificity. SVM tended to favor balanced performance, achieving comparable sensitivity and specificity values. Random Forest often demonstrated slightly higher sensitivity, suggesting improved detection of positive class instances, while kNN occasionally favored specificity depending on neighborhood size and distance metric.
+
+					This trade-off is particularly important in biomedical classification tasks, where false negatives and false positives carry different clinical implications. The ability of the Random Forest and SVM classifiers to maintain stable sensitivity under LOSO validation suggests strong potential for subject-independent deployment.
+
+					\subsection{Model Stability and Generalization}
+
+					Model stability across subjects was assessed through the standard deviation of classification metrics. Among the three classifiers, Random Forest generally exhibited the lowest performance variance, indicating superior robustness to inter-subject variability. SVM also demonstrated stable behavior, while kNN showed the highest variance, reflecting its dependence on local sample distributions.
+
+					The LOSO protocol imposes a highly challenging validation setting, as the classifier is required to generalize to completely unseen subjects. The fact that all three models achieved consistent above-chance performance under this protocol indicates that the extracted feature representations contain discriminative subject-independent information.
+
+					\subsection{Computational Considerations}
+
+					From a computational standpoint, SVM required the most careful hyperparameter tuning due to the sensitivity of its regularization and kernel parameters. Random Forest incurred higher training time due to its ensemble nature but offered faster inference. In contrast, kNN required minimal training time but significantly higher inference cost, as distance computations must be performed against the entire training dataset for each test sample.
+
+					These computational characteristics further highlight the trade-offs between the three models in terms of real-time deployment potential and scalability.
+
+					\subsection{Summary of Findings}
+
+					In summary, SVM achieved the strongest overall generalization performance, Random Forest provided the best stability and robustness across subjects, and kNN offered a simple but less consistent alternative. The complementary strengths of these classifiers validate the robustness of the proposed feature extraction and evaluation pipeline. The agreement in performance trends across multiple classifiers further supports the reliability of the reported results.
+
+
+					
 			\newpage
 
 
