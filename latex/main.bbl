@@ -254,4 +254,11 @@
 	%%drop channels from EEG.
 %	\bibitem{channelDropFerrara}
 %		Ferrara, R., Giaquinto, M., Percannella, G., Rundo, L. and Saggese, A. (2025). Personalizing Seizure Detection for Individual Patients by Optimal Selection of EEG Signals. \textit{Sensors}, 25(9), 2715. https://doi.org/10.3390/s25092715
+
+
+	%10-20 system
+	\bibitem{jasper1020}
+	Jasper, H. H. (1958). The ten–twenty electrode system of the International Federation. \textit{Electroencephalography and Clinical Neurophysiology}, 10, 371--375.
+
+
 \end{thebibliography}

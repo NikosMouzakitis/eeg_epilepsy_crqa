@@ -554,11 +554,12 @@
 
 		\section{The CHB-MIT EEG Database}
 		
-		The \textbf{CHB-MIT Scalp EEG Database}\cite{chbmitDataset} is a public collection of EEG recordings 
-		from pediatric subjects that includes intractable seizures.
-		All the recordings of the database were collected at 
-		the Children's Hospital Boston.
-		The dataset contains multiple cases (patients), each with long-term scalp 
+		The dataset used in this thesis, is the \textbf{CHB-MIT Scalp EEG Database}\cite{chbmitDataset}, which consist of a public collection of EEG recordings 
+		from pediatric subjects.
+		%includes intractable seizures.
+		All the recordings were collected at 
+		the Children's Hospital Boston, 
+		and it contains multiple cases (patients), each with long-term scalp 
 		EEG signals recorded using the international 10–20 system.
 		Table~\ref{tab:chbmit_demographics} provides a summary of the demographic information 
 		of the database's subjects.
@@ -602,8 +603,9 @@
 		\end{table}
 
 		\noindent
-		The database includes recordings from male and female patients, 
-		with their ages in the range of 1.5 to 22 years old.
+		The database includes recordings from male and female patients (24 in total), 
+		with their ages in the range of 1.5 to 22 years old. One of
+		the patients have been recorded twice with a year and half time(patient1-patient21, belong to the same physical subject).
 		Most subjects are children, a fact reflecting the pediatric nature 
 		of the dataset.
 		This demographic diversity provides a representative sample for 
@@ -618,14 +620,56 @@
 		such as ECG and EMG references. 
 		The sampling rate of the recordings is 
 		256 Hz with 16-bit resolution. 
+		
 		Seizure events are annotated by domain experts, 
 		providing a time-stamp for seizure onsets and offsets. 
+		Using those dataset's annotations for the epileptical segments,
+		the full recordings can be visualized and 
+		inspected interactively as shown in Figure~\ref{MNEvis} via the MNE library in Python.
+
+		For the analysis presented in this thesis,
+		in each recording the following EEG signals
+			\textit{'FP1-F7'}, 
+			\textit{'F7-T7'}, 
+			\textit{'T7-P7'}, 
+			\textit{ 'P7-O1'}, 
+			\textit{'FP1-F3'}, 
+			\textit{'F3-C3'}, 
+			\textit{'C3-P3'}, 
+			\textit{'P3-O1'},
+			\textit{'FP2-F4'}, 
+			\textit{'F4-C4'}, 
+			\textit{'C4-P4'}, 
+			\textit{'P4-O2'}, 
+			\textit{'FP2-F8'}, 
+			\textit{'F8-T8'}, 
+			\textit{'T8-P8'}, 
+			\textit{'P8-O2'},
+			\textit{'FZ-CZ'}, 
+			\textit{'CZ-PZ'}, 
+			\textit{'P7-T7'}, 
+			\textit{'T7-FT9'}, 
+			\textit{'FT9-FT10'}, 
+			\textit{'FT10-T8'}
+			have been extracted and processed
+			from all the recordings containing them, when they presented at least one seizure event.
+			Each extracted signal label (f.e, FP1–F7) corresponds to a bipolar EEG channel, 
+			which represents the difference of the voltage among two scalp electrodes, 
+			placed according to the International 10–20 system\cite{jasper1020}. 
+			Usage of this system for electrode's placement on the subject's scalp,
+			places electrodes in locations based on proportional distances (10\% or 20\%) 
+			between key anatomical landmarks on the head. 
+			As a consequence, the 10–20 system ensures consistent anatomical coverage across subjects and
+			enchances reproducibility and comparability in recordings of different sessions. 
+			Related to the electrode's naming, each label (f.e, F3, P7, O1) 
+			is assigned to a functionally meaningful region of the human scalp.
+
 
 			\begin{figure}[h]
 			    \centering
 			    \includegraphics[width=1.1\textwidth]{edf_rec.png}
 			    \caption{EEG recording visualized utilizing Python-MNE, for a patient of the dataset.}
-			    \label{}
+			    \label{MNEvis}
 			\end{figure}
 
 
@@ -633,7 +677,7 @@
 		\newpage
 		\section{Filtering}
 
-			Signals of electroencephalogram, in most cases 
+			Signals of electroencephalogram, in most cases,
 			carry not only the desired signal but also added noise 
 			and artifacts from physiological (eye blinks, muscle or cardiac activity) 
 			and non-physiological sources (f.e, powerline interference). 
@@ -769,10 +813,45 @@
 			    \caption{}
 			    \label{}
 			\end{figure}
+			
+
+			\subsection{EEG Preprocessing and Filtering Procedure}
+
+			In the CHM-MIT dataset, 136 recordings in total from all the subjects, were identified containing the desired 22 EEG signals
+			and containing at least one epileptic seizure.
+			Each of these recordings, was preprocessed through a multi-stage denoising and filtering pipeline as presented in Figure \ref{fig:preproc},
+			designed to suppress noise and remove artifacts. Finally standardization of amplitude was performed across channels. 
+			
+			To each EDF recording, in all of its 22 channels, 
+			initially a 0.5–60 Hz Butterworth bandpass filter (4th-order, zero-phase) was applied,
+			in order to remove DC drift, slow baseline fluctuations and high-frequency noise, but to keep the spectral components relevant to epileptical seizure activity. 
+			For each channel then, a wavelet-based denoising using a sym8 discrete wavelet transform at level 4 decomposition was applied. 
+			The detail coefficients at level 1 were discarded entirely to suppress high-frequency noise and 
+			coefficients at levels 2–4 were thresholded using median absolute deviation (MAD)–based universal thresholding with hard shrinkage. 
+			Signal was then reconstructed via inverse wavelet transform. 
+			A second 1–60 Hz bandpass filter was applied to the reconstructed waveform to eliminate 
+			low and high frequency distortions introduced by the wavelet process. 
+			Finally, each channel was Min–Max normalized to the interval [-1, 1], 
+			ensuring consistent scaling across recordings. 
+			The resulting filtered signals were saved as the new normalized EEG recordings, 
+			containing at least one seizure and the 22 EEG signals of interest.
+			
+			
+			\begin{figure}[H]
+			    \centering
+			    \includegraphics[width=0.8\textwidth]{prep2.png}
+			    \caption{Preprocessing and filtering pipeline of EEG recordings}
+			    \label{fig:preproc}
+			\end{figure}
+
+
+
+
+
 
 	\newpage
-
-		\section{Phase space reconstruction of EEG signals}
+		
+		\section{Phase space reconstruction}
 
 			In order to analyze multi-channel EEG's nonlinear dynamical system, the 
 			reconstruction of the underlying phase space is required, 
