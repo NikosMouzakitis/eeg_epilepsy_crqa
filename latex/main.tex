@@ -547,10 +547,11 @@
 			are utilized alongside other complexity 
 			and spectral features to classify sleep states and trigger appropriate stimulation responses.
 			Features are then utilized for detection of sleep stages 
-			and for emergency detection/alerts (f.e, cardiac arrest or abnormal excitation).
+			and for emergency detection/alerts (e.g, cardiac arrest or abnormal excitation).
 	%		Also the described device adjusts or turns off the stimulation based on the patient's sleep state in order to save battery life and reduce side effects.
 
-
+		
+		\newpage
 
 		\section{The CHB-MIT EEG Database}
 		
@@ -653,7 +654,7 @@
 			\textit{'FT10-T8'}
 			have been extracted and processed
 			from all the recordings containing them, when they presented at least one seizure event.
-			Each extracted signal label (f.e, FP1–F7) corresponds to a bipolar EEG channel, 
+			Each extracted signal label (e.g, FP1–F7) corresponds to a bipolar EEG channel, 
 			which represents the difference of the voltage among two scalp electrodes, 
 			placed according to the International 10–20 system\cite{jasper1020}. 
 			Usage of this system for electrode's placement on the subject's scalp,
@@ -661,7 +662,7 @@
 			between key anatomical landmarks on the head. 
 			As a consequence, the 10–20 system ensures consistent anatomical coverage across subjects and
 			enchances reproducibility and comparability in recordings of different sessions. 
-			Related to the electrode's naming, each label (f.e, F3, P7, O1) 
+			Related to the electrode's naming, each label (e.g, F3, P7, O1) 
 			is assigned to a functionally meaningful region of the human scalp.
 
 
@@ -680,7 +681,7 @@
 			Signals of electroencephalogram, in most cases,
 			carry not only the desired signal but also added noise 
 			and artifacts from physiological (eye blinks, muscle or cardiac activity) 
-			and non-physiological sources (f.e, powerline interference). 
+			and non-physiological sources (e.g, powerline interference). 
 			In general, artifacts in a recording consist of all the non-neural signals 
 			that are mixed with the pure EEG data. 
 			
@@ -696,13 +697,13 @@
 			
 			Some of the common preprocessing techniques are:  
 			\begin{itemize}  
-			    \item \textbf{Filtering} (f.e, Butterworth, Chebyshev) to remove unwanted frequency bands.  
+			    \item \textbf{Filtering} (e.g, Butterworth, Chebyshev) to remove unwanted frequency bands.  
 			    \item \textbf{Regression methods} used for removing ocular artifacts with help of reference channels.  
-			    \item \textbf{Blind Source Separation (BSS)} (f.e, ICA, CCA), decompose and isolate neural activity from artifacts.  
+			    \item \textbf{Blind Source Separation (BSS)} (e.g, ICA, CCA), decompose and isolate neural activity from artifacts.  
 			    \item \textbf{Wavelet/EMD-based methods} for non-stationary artifact removal.  
 			\end{itemize}  
 			
-			Also hybrid approaches (f.e, wavelet-ICA) exist, combining multiple techniques for 
+			Also hybrid approaches (e.g, wavelet-ICA) exist, combining multiple techniques for 
 			improved artifact rejection. 
 			The choice of method is related on 
 			computational constraints, artifact type, 
@@ -723,7 +724,7 @@
 			and detail (high-frequency) coefficients across decomposition levels. 
 			Artifacts, such as ocular blinks or EMG bursts, 
 			manifest as sparse, high-amplitude coefficients that can be selectively 
-			silenced using thresholds (f.e, hard or soft), 
+			silenced using thresholds (e.g, hard or soft), 
 			followed by reconstruction---thus removing noise while preserving neural transients like epileptic 
 			spikes \cite{grobbelaar2022survey}. 
 
@@ -818,7 +819,7 @@
 			\subsection{EEG Preprocessing and Filtering Procedure}
 
 			In the CHM-MIT dataset, 136 recordings in total from all the subjects, were identified containing the desired 22 EEG signals
-			and containing at least one epileptic seizure.
+			and presenting at least one epileptic seizure.
 			Each of these recordings, was preprocessed through a multi-stage denoising and filtering pipeline as presented in Figure \ref{fig:preproc},
 			designed to suppress noise and remove artifacts. Finally standardization of amplitude was performed across channels. 
 			
@@ -1026,7 +1027,93 @@
 	
 				By interpreting the RP, several metrics can be extracted for further analysis.
 				
-				\subsection{Key RQA Metrics and Their Interpretation}
+\subsection{Recurrence Plot Typology and Signal Characteristics}
+
+The relationship between a time series' mathematical formulation 
+and its recurrence plot structure is fundamental in order to understand 
+RQA's diagnostic power. 
+In the following figures, illustrate four canonical typologies 
+with their generating functions, 
+demonstrating how distinct dynamical regimes produce 
+different characteristic RP patterns.
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.95\textwidth]{rqa_typology_with_signals.png}
+%    \caption{Characteristic recurrence plot typologies with corresponding time series. Each row shows: \textbf{Left}: The generating function and its temporal evolution; \textbf{Right}: The corresponding recurrence plot. (A) (B) \textbf{Periodic}: Harmonic superposition $x(t) = \sin(2t) + 0.5\cos(5t)$ yields regular diagonal structures. (C) \textbf{Drift}: Logistic map with linear drift $x_{n+1} = 3.8x_n(1-x_n) + 0.01n$ shows brightening corners. (D) \textbf{Disrupted}: Brownian motion $x_n = \sum \epsilon_i$ exhibits irregular white bands. Parameters: $N$ as shown, $\varepsilon=0.2$ (A,C,D) and $0.4$ (B), $m=1$, $\tau=1$.}
+%    \label{fig:rp_typology_with_signals}
+%\end{figure}
+
+
+Each typology emerges from specific mathematical properties of the underlying system:
+
+\begin{itemize}
+    \item \textbf{Homogeneous patterns} arise from stochastic processes, where $x(t)$ values are independent and identically distributed. The absence of temporal kind of 
+	    correlations prevents 
+	    the observation of extended diagonal lines in the RP, 
+	    resulting in low value for metrics like determinism.
+    
+    \item \textbf{Periodic patterns} originate from deterministic oscillatory 
+	    functions where $x(t) = f(t)$ with $f(t+T) \approx f(t)$. RPs in this
+		case, capture phase locking through diagonal lines separated 
+		by distance $T$, yielding high values for determinism.
+    
+    \item \textbf{Drift patterns} occur in non-autonomous systems where 
+	    parameters evolve slowly: $x_{n+1} = F(x_n, \alpha_n)$ 
+	    with $\alpha_n$ varying adiabatically. 
+	    The gradual divergence of trajectories reduces 
+	    long-range recurrences, quantified by the TREND metric.
+    
+    \item \textbf{Disrupted patterns} stem from integrated noise 
+	    processes or systems with abrupt transitions. 
+	    The cumulative nature of Brownian motion $x_n = \sum \epsilon_i$ creates 
+	    persistent deviations that appear as white bands in RPs.
+\end{itemize}
+
+The visual correspondence between mathematical formulation and RP structure validates
+RQA as a principled nonlinear analysis tool. 
+By quantifying these patterns through a number of metrics, 
+RQA provides an objective framework for detecting epileptic 
+transitions that might be impossible to detect using traditional linear analyses.
+
+
+				\begin{figure}[h!]
+				    \centering
+				    \includegraphics[width=0.7\linewidth]{rp_homogeneous.png} % Assuming you make a 2-panel figure
+					\caption{\textbf{Homogeneous}: Uniform noise $x(t) \sim \mathcal{U}(-1,1)$ produces scattered recurrence points.} 
+				    \label{fig:phase_space_3d}
+				\end{figure}
+
+
+				\begin{figure}[h!]
+				    \centering
+				    \includegraphics[width=0.7\linewidth]{rp_periodic.png} % Assuming you make a 2-panel figure
+				    \caption{}
+				    \label{fig:phase_space_3d}
+				\end{figure}
+
+				\begin{figure}[h!]
+				    \centering
+				    \includegraphics[width=0.7\linewidth]{rp_drift.png} % Assuming you make a 2-panel figure
+				    \caption{}
+				    \label{fig:phase_space_3d}
+				\end{figure}
+
+				\begin{figure}[h!]
+				    \centering
+				    \includegraphics[width=0.7\linewidth]{rp_disrupted.png} % Assuming you make a 2-panel figure
+				    \caption{}
+				    \label{fig:phase_space_3d}
+				\end{figure}
+
+
+
+
+
+
+
+
+				\subsection{RQA Metrics}
 					\label{subsec:rqa_metrics}
 
 					RQA provides a set of metrics that can quantify the 
@@ -1061,7 +1148,7 @@
 					\]
 					where \( P(v) \) is the histogram of vertical line lengths \( v \), and \( v_{\text{min}} \) is the minimum line length.
 
-					\item[Ratio (\textbf{RATIO})]
+					\item[Ratio of determinism to recurrence rate (\textbf{RATIO DET/RR})]
 					The ratio is a measure of complexity, calculated as the ratio between DET and RR. It can be sensitive to transitions between order and chaos.
 					\[
 					RATIO = \frac{N^2 \sum_{l=l_{\text{min}}}^{N} l \, P(l)}{\left( \sum_{l=1}^{N} l \, P(l) \right)^2}
@@ -1110,6 +1197,33 @@
 					\]
 					where \( \tilde{N} \) is the number of diagonals parallel to the Line of Identity (LOI) that are considered, and \( RR_i \) is the recurrence rate in the \( i \)-th diagonal.
 
+					
+
+					\item[Average White Vertical Line Length (\textbf{$W_{\text{avg}}$})]
+					The average length of white vertical lines (sequences of non-recurrent points) in the recurrence plot. 
+					Shorter values indicate frequent brief departures from recurrent states.
+
+					\item[Longest White Vertical Line Length (\textbf{$W_{\text{max}}$})]
+					The maximum length of consecutive non-recurrent points along the vertical direction.
+					Longer white vertical lines indicate prolonged periods where the system does not 
+					revisit previous states.
+
+					\item[Longest White Vertical Line Divergence (\textbf{$W_{\text{max}}^{-1}$})]
+					The inverse of $W_{\text{max}}$, quantifying how frequently the system returns to previous states. Higher values indicate faster recurrence.
+
+					\item[Entropy Vertical Lines (\textbf{$H_{\text{vert}}$})]
+					Shannon entropy of the vertical line length distribution, measuring the complexity 
+					of laminar (trapped) states. Higher entropy indicates more varied laminar durations.
+
+					\item[Entropy White Vertical Lines (\textbf{$H_{\text{wvert}}$})]
+					Shannon entropy of the white vertical line length distribution, measuring the complexity 
+					of non-recurrent episodes. Higher values suggest irregular patterns of state novelty.
+
+					\item[Ratio of Laminarity to Determinism (\textbf{LAM/DET})]
+					Measures the relative prevalence of vertical structures (trapping) versus diagonal structures (determinism). 
+					Can indicate whether the system tends toward laminar pauses versus predictable evolution.
+
+
 					\end{description}
 
 					These metrics, when applied to EEG signals, allow for the characterization of
@@ -1117,6 +1231,10 @@
 					higher determinism (DET), laminarity (LAM) or recurrence rate(RR) is observed
 					compared to the more stochastic and complex inter-ictal states.
 					This fact makes RQA metrics a viable solution for identifying pathological patterns.	
+					It should be noted that althought TREND metric is described, it it not used in subsequent analysis
+					since the used Python package(PyRQA) for the analysis of RPs does not include this particular feature
+					in its implementation.
+
 
 
 				\subsection{Cross-Recurrence Quantification Analysis (CRQA)}
@@ -1141,7 +1259,7 @@
 					the CRP is generally \emph{not symmetric}. This asymmetry can reveal directional relationships 
 					or leader-follower dynamics alonside the two systems.
 
-					\subsubsection{Interpretation of CRQA Metrics}
+					\subsubsection{CRQA Metrics}
 
 					The same quantitative measures defined for RQA (Section~\ref{subsec:rqa_metrics}) can be applied to the CRP, but their interpretation shifts from describing \emph{self-similarity} to describing \emph{coupling} and \emph{interaction}:
 
@@ -1155,7 +1273,6 @@
 					    \item \textbf{Average Diagonal Line Length (L)} in the CRP estimates the mean time that the two systems remain synchronized or follow a similar trajectory.
 					\end{itemize}
 
-					\subsubsection{Why CRQA for Multi-Channel EEG?}
 
 					Applying CRQA to pairs of EEG channels is particularly well-suited for epilepsy detection for several reasons:
 
@@ -1167,8 +1284,6 @@
 					\end{itemize}
 
 					In this thesis, CRQA is employed to compute a set of features (Table~\ref{tab:pyrqa_metrics}) for all unique pairs of EEG channels. These features capture the complex synchronization patterns that distinguish pre-ictal, ictal, and inter-ictal states, forming the basis for the subsequent machine learning classification.
-
-
 
 
 
@@ -1211,7 +1326,7 @@
 				The decision to use constant values is influenced by applied precedents in the EEG literature. 
 				McSharry et al.\cite{mcsharry} have applied with success fixed embedding parameters in their multi-channel scalp EEG seizure research, 
 				arguing that nonlinear methods must justify their complexity over simpler linear benchmarks. 
-				In our case, fixed parameters ensure consistency across the large CHB-MIT dataset and help avoid overfitting to local dynamics that may not generalize.
+				In our case, fixed parameters ensure consistency across the large CHB-MIT dataset, computational efficiency and help to avoid overfitting to local dynamics that may not generalize.
 				
 				\subsection{Threshold selection}
 				Radius fraction R is utilized for determination of the percentage of mean diameter of the 
@@ -1431,13 +1546,13 @@
 				yielding a $\sim$99:1 ratio. This skew is a well known challenge in machine 
 				learning which is often reffered as the "imbalanced learning problem".
 
-				As discussed by He and Garcia\cite{he2009}, standard classifiers, (f.e, Random Forest), 
+				As discussed by He and Garcia\cite{he2009}, standard classifiers, (e.g, Random Forest), 
 				can achieve misleadingly high accuracy ($\sim$99\%) 
 				by over-predicting the majority class, resulting in poor recall for epileptic events.
 				In RQA based models, this bias can minimize the effects of discriminative patterns, 
 				such as the elevated determinism (DET) or laminarity (LAM) in epileptic signals with 
 				false negatives posing ethical risks, delaying interventions, while naive oversampling 
-				(f.e, duplication) incorporates the risk of overfitting in minority RQA features.
+				(e.g, duplication) incorporates the risk of overfitting in minority RQA features.
 
 				In order to mitigate this, data-level resampling strategies can be employed, focusing on 
 				synthetic generation to enrich the minority class without discarding information gained from
@@ -1921,7 +2036,16 @@
 					In summary, SVM achieved the strongest overall generalization performance, Random Forest provided the best stability and robustness across subjects, and kNN offered a simple but less consistent alternative. The complementary strengths of these classifiers validate the robustness of the proposed feature extraction and evaluation pipeline. The agreement in performance trends across multiple classifiers further supports the reliability of the reported results.
 
 
-					
+				
+			
+			\section{Discussion}
+			
+			\section{Limitations}
+			
+			\section{Future Work}
+
+
+
 			\newpage
 
 
