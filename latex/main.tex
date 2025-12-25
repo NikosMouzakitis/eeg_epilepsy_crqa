@@ -918,7 +918,10 @@
 			This projection can create artificial neighborhoods where points appear to be close due to 
 			geometrical constraints of the space rather than their actual dynamical similarity. 
 			These are named as \emph{false nearest neighbors}. 
-			An example of such an occurance can be observed in Figure \ref{fig:fnn_schematic}.
+			An example of such an occurance can be observed in Figure \ref{fig:fnn_schematic}, where the Mackey-Glass delay differential equation is used.
+			When signal is observed as a signle scalar measurement,
+			there exist points that look like neigbors. In reality though,
+			when the phase space is reconstructed these points are separated.
 
 				\begin{figure}[h!]
 				    \centering
@@ -930,8 +933,8 @@
 
 			\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.8\textwidth]{fnn_schematic.png}
-			\caption{Schematic illustration of false neighbors. In insufficient embedding dimension (down), points A and B appear neighbors due to projection. When proper embedding is employed(up), their true separation is revealed.}
+			\includegraphics[width=1\textwidth]{fnn_schematic.png}
+			\caption{Schematic illustration of false neighbors. In insufficient embedding dimension (left), points A and C appear neighbors due to projection. When proper embedding is employed(right), their true separation can be observed.}
 			\label{fig:fnn_schematic}
 			\end{figure}
 
@@ -1026,84 +1029,91 @@
 				\end{itemize}
 	
 				By interpreting the RP, several metrics can be extracted for further analysis.
-				
-\subsection{Recurrence Plot Typology and Signal Characteristics}
+				The relationship between a time serie's mathematical formulation 
+				and the structure of its associated recurrence plot is fundamental in order 
+				to understand RQA's diagnostic power. 
 
-The relationship between a time series' mathematical formulation 
-and its recurrence plot structure is fundamental in order to understand 
-RQA's diagnostic power. 
-In the following figures, illustrate four canonical typologies 
-with their generating functions, 
-demonstrating how distinct dynamical regimes produce 
-different characteristic RP patterns.
-%
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=0.95\textwidth]{rqa_typology_with_signals.png}
-%    \caption{Characteristic recurrence plot typologies with corresponding time series. Each row shows: \textbf{Left}: The generating function and its temporal evolution; \textbf{Right}: The corresponding recurrence plot. (A) (B) \textbf{Periodic}: Harmonic superposition $x(t) = \sin(2t) + 0.5\cos(5t)$ yields regular diagonal structures. (C) \textbf{Drift}: Logistic map with linear drift $x_{n+1} = 3.8x_n(1-x_n) + 0.01n$ shows brightening corners. (D) \textbf{Disrupted}: Brownian motion $x_n = \sum \epsilon_i$ exhibits irregular white bands. Parameters: $N$ as shown, $\varepsilon=0.2$ (A,C,D) and $0.4$ (B), $m=1$, $\tau=1$.}
-%    \label{fig:rp_typology_with_signals}
-%\end{figure}
+				In the following figures, illustrate 
+				four canonical typologies 
+				with their generating functions, 
+				in order to observe how different dynamical systems can 
+				produce different characteristic RP patterns.
+
+				%
+				%\begin{figure}[h]
+				%    \centering
+				%    \includegraphics[width=0.95\textwidth]{rqa_typology_with_signals.png}
+				%    \caption{Characteristic recurrence plot typologies with corresponding time series. Each row shows: \textbf{Left}: The generating function and its temporal evolution; \textbf{Right}: The corresponding recurrence plot. (A) (B) \textbf{Periodic}: Harmonic superposition $x(t) = \sin(2t) + 0.5\cos(5t)$ yields regular diagonal structures. (C) \textbf{Drift}: Logistic map with linear drift $x_{n+1} = 3.8x_n(1-x_n) + 0.01n$ shows brightening corners. (D) \textbf{Disrupted}: Brownian motion $x_n = \sum \epsilon_i$ exhibits irregular white bands. Parameters: $N$ as shown, $\varepsilon=0.2$ (A,C,D) and $0.4$ (B), $m=1$, $\tau=1$.}
+				%    \label{fig:rp_typology_with_signals}
+				%\end{figure}
 
 
-Each typology emerges from specific mathematical properties of the underlying system:
+				Each typology is based on certain mathematical properties describing the examined system:
 
-\begin{itemize}
-    \item \textbf{Homogeneous patterns} arise from stochastic processes, where $x(t)$ values are independent and identically distributed. The absence of temporal kind of 
-	    correlations prevents 
-	    the observation of extended diagonal lines in the RP, 
-	    resulting in low value for metrics like determinism.
-    
-    \item \textbf{Periodic patterns} originate from deterministic oscillatory 
-	    functions where $x(t) = f(t)$ with $f(t+T) \approx f(t)$. RPs in this
-		case, capture phase locking through diagonal lines separated 
-		by distance $T$, yielding high values for determinism.
-    
-    \item \textbf{Drift patterns} occur in non-autonomous systems where 
-	    parameters evolve slowly: $x_{n+1} = F(x_n, \alpha_n)$ 
-	    with $\alpha_n$ varying adiabatically. 
-	    The gradual divergence of trajectories reduces 
-	    long-range recurrences, quantified by the TREND metric.
-    
-    \item \textbf{Disrupted patterns} stem from integrated noise 
-	    processes or systems with abrupt transitions. 
-	    The cumulative nature of Brownian motion $x_n = \sum \epsilon_i$ creates 
-	    persistent deviations that appear as white bands in RPs.
-\end{itemize}
+				\begin{itemize}
+				    \item \textbf{Homogeneous patterns} can be observed in stochastic processes, 
+					    where $x(t)$ values are independent and identically distributed. 
+					    The absence of temporal kind of correlations prevents 
+					    the observation of extended diagonal lines in the RP, 
+					    resulting in low value for metrics like determinism.
+				    
+				    \item \textbf{Periodic patterns} originate from deterministic oscillatory 
+					        functions(e.g, trigonometric) where $x(t) = f(t)$ with 
+						$f(t+T) \approx f(t)$. RPs in this
+						case, are able to capture the phase locking through 
+						diagonal lines separated by distance $T$, 
+						yielding high values for determinism.
+				    
+				    \item \textbf{Drift patterns} occur when systems have 
+					    parameters that evolve slowly: $x_{n+1} = F(x_n, \alpha_n)$ 
+					    with $\alpha_n$ varying adiabatically. 
+					    The gradual divergence of trajectories reduces 
+					    long-range recurrences, which is quantified on the TREND metric.
+					    Drift is the slow, continuous movement of a system's baseline 
+					    behavior, and in this particular case, as the time evolves the signal looks 
+					    less and less like its starting point, leading into fewer long range diagonal lines on the Recurrence Plot.
+				    \item \textbf{Disrupted patterns}
+					   originate from sudden, random changes, like uncontrolled noise 
+					   (e.g., Brownian motion, where each new random step builds on the last one). 
+					   This persistent randomness causes the system's path to jump away from past paths, preventing successful long continous recurrences. 
+					   The visible effect on the Recurrence Plot is the appearance of white bands or gaps, 
+					   which indeed indicate time periods where the system completely fails to match any its previous states.
+				\end{itemize}
 
-The visual correspondence between mathematical formulation and RP structure validates
-RQA as a principled nonlinear analysis tool. 
-By quantifying these patterns through a number of metrics, 
-RQA provides an objective framework for detecting epileptic 
-transitions that might be impossible to detect using traditional linear analyses.
+				The visual correspondence between mathematical formulation and RP structure validates
+				RQA as a principled nonlinear analysis tool. 
+				By quantifying these patterns through a number of metrics, 
+				RQA provides an objective framework for detecting epileptic 
+				transitions that might be impossible to detect using traditional linear analyses.
 
 
 				\begin{figure}[h!]
 				    \centering
 				    \includegraphics[width=0.7\linewidth]{rp_homogeneous.png} % Assuming you make a 2-panel figure
 					\caption{\textbf{Homogeneous}: Uniform noise $x(t) \sim \mathcal{U}(-1,1)$ produces scattered recurrence points.} 
-				    \label{fig:phase_space_3d}
+				    \label{fig:rphom}
 				\end{figure}
 
 
 				\begin{figure}[h!]
 				    \centering
 				    \includegraphics[width=0.7\linewidth]{rp_periodic.png} % Assuming you make a 2-panel figure
-				    \caption{}
-				    \label{fig:phase_space_3d}
+					\caption{\textbf{Periodic}: }
+				    \label{fig:rpper}
 				\end{figure}
 
 				\begin{figure}[h!]
 				    \centering
 				    \includegraphics[width=0.7\linewidth]{rp_drift.png} % Assuming you make a 2-panel figure
-				    \caption{}
-				    \label{fig:phase_space_3d}
+					\caption{\textbf{Drift}: }
+				    \label{fig:rpdrift}
 				\end{figure}
 
 				\begin{figure}[h!]
 				    \centering
 				    \includegraphics[width=0.7\linewidth]{rp_disrupted.png} % Assuming you make a 2-panel figure
-				    \caption{}
-				    \label{fig:phase_space_3d}
+					\caption{\textbf{Disrupted}: }
+				    \label{fig:rpdistrupted}
 				\end{figure}
 
 
@@ -1310,6 +1320,20 @@ transitions that might be impossible to detect using traditional linear analyses
 				Then, each segment is further divided into non-overlapping time windows of fixed size (512 samples, equivalent to 2 seconds at 256 Hz). 
 				For each segment, the number of windows is calculated by performing integer division of the segment length by the window size and discarding any incomplete windows. 
 				Each window is associated with a segment index, window index within the segment, start and end sample indices, and a label (1 for epileptic, 0 for non-epileptic).
+				
+
+				\begin{figure}[h!]
+				    \centering
+				    \includegraphics[width=0.7\linewidth]{segmentation-windowing.png} % Assuming you make a 2-panel figure
+					\caption{Windowing of an EEG recording in 2s non-overlapping labeled segments.}
+				    \label{fig:segmentation-windowing}
+				\end{figure}
+
+
+
+
+
+
 
 				\subsection{Embedding parameters selection}
 				\label{subsec:embedding_parameters}
@@ -1436,7 +1460,7 @@ transitions that might be impossible to detect using traditional linear analyses
 				\end{figure}
 
 
-				\subsection{Cross Recurrence Quantification Analysis (CRQA)}
+				\subsection{Application of CRQA}
 				\label{subsec:crqa}
 
 				CRQA quantifies the recurrent patterns between pairs of EEG channels within each time window. 
@@ -1486,9 +1510,6 @@ transitions that might be impossible to detect using traditional linear analyses
 				\end{table}
 
 
-				\subsection{Algorithm Summary}
-				\label{subsec:algorithm}
-
 				The methodology is summarized in Algorithm~\ref{alg:crqa_computation}, which is describing the CRQA computation for each window and channel pair.
 
 				\begin{algorithm}
@@ -1536,13 +1557,43 @@ transitions that might be impossible to detect using traditional linear analyses
 				 the reccurence rate is 0 or it has a value very close to zero, having a consequence to propagate invalid values 
 				 in the set of \{Determinism, Average Diagonal Line Length, Divergence, Laminarity, Trapping Time, DET/RR and LAM/DET\} features computed by the PyRQA computation.
 
+				
+				In more detail for any given time window $w$ belonging to a recording, 
+				having the $N_{channels}=22$ extracted channels, 
+				this results in a feature tensor $\mathbf{F}_w$ of dimension
+				$(N_{channels} \times N_{channels} \times N_{metric})$ with its appropriate label.
 
-				\subsection{Class Imbalance in CRQA-EEG Data}
+
+				The feature aggregation is achieved by applying the mean operation across the first two axes (the channel-channel dimensions):
+
+				\begin{equation}
+				    \mathbf{v}_w[k] = \frac{1}{N_e^2} \sum_{i=1}^{N_e} \sum_{j=1}^{N_e} \mathbf{F}_w[i, j, k]
+				\end{equation}
+
+				Where:
+				\begin{itemize}
+				    \item $\mathbf{v}_w$ is the final feature vector for time window $w$.
+				    \item $\mathbf{v}_w[k]$ is the $k$-th aggregated feature (e.g., the aggregated Recurrence Rate).
+				    \item $i$ and $j$ represent the indices of the channel pair.
+				    \item $k$ represents the index of the specific RQA metric, ranging from $1$ to $16$.
+				\end{itemize}
+
+				The resulting feature vector $\mathbf{v}_w$ has a final dimension of $\mathbb{R}^{1 \times 17}$ (16 plus its label), 
+				where each element is representing the average value of a specific 
+				CRQA metric across 
+				the entire EEG montage for this window.
+
+				%\paragraph{Rationale and Trade-offs}
+				%This Mean Aggregation approach simplifies the feature space from a large tensor into a compact 16-element vector. The rationale is to extract a robust, single measure of the \emph{global} recurrence behavior of the brain, assuming that the critical diagnostic information is contained in the overall shift of dynamic properties across the neural network during an epileptic event. This approach sacrifices \emph{spatial information} (i.e., the specific location of highly recurrent or chaotic channel pairs), but in return, it achieves lower computational complexity and higher generalization capacity by focusing on the **temporal dynamics** captured by the averaged CRQA features.
+
+
+
+								\subsection{Class Imbalance in CRQA-EEG Data}
 
 				Real world EEG datasets for epileptic seizure detection are by their nature imbalanced, 
 				reflecting the transient nature of seizure's occurence in contrast to normal brain activity. 
 				In our aggregated dataset, derived from CRQA features across the multi-channel EEG recordings,
-				the distribution is stark: 98.99\% normal segments (89633 examples) against 1.01\% epileptic (901 examples), 
+				the distribution is stark: 98.34\% normal segments (328031 examples) against 1.66\% epileptic (5558 examples), 
 				yielding a $\sim$99:1 ratio. This skew is a well known challenge in machine 
 				learning which is often reffered as the "imbalanced learning problem".
 
@@ -1566,8 +1617,8 @@ transitions that might be impossible to detect using traditional linear analyses
 				\toprule
 				Class & Percentage (\%) & Count \\
 				\midrule
-				Normal (0) & 98.99 & 89,633\\
-				Epileptic (1) & 1.01 & 901 \\
+				Normal (0) & 98.34 & 328,031\\
+				Epileptic (1) & 1.66 & 5,558 \\
 				\bottomrule
 				\end{tabular}
 				\end{table}
@@ -1609,7 +1660,7 @@ transitions that might be impossible to detect using traditional linear analyses
 				aggregation strategies for its final classification decision, such as 
 				majority vote, weighted votes or stacking.
 
-				\subsection{Stratified Downsampling Methodology for a Balanced Dataset}
+				\subsection{Downsampling Methodology for a Balanced Dataset}
 				The dataset that has been derived by concatenating all (\texttt{mean\_\_feature\_matrices}) of every recording,
 				presents severe class imbalance as it has been presented in Table~\ref{tab:imbalance}.
 				This is a common challenge for epileptic seizure detection using long and continuous EEG recordings.
@@ -1619,7 +1670,7 @@ transitions that might be impossible to detect using traditional linear analyses
 				having as a consequence high accuracy by simply predicting "normal" for all instances.
 
 
-				In order to tackle this imbalance problem, a patient-specific stratified downsampling approach has been 
+				In order to tackle this imbalance problem, a patient-specific downsampling approach has been 
 				used for the normal segments. 
 				For each \texttt{mean\_\_feature\_matrix} corresponding to each one of the 136 recordings,
 				its normal segments have been grouped into 40 continuous splits, respecting their timing order.
@@ -1647,7 +1698,56 @@ transitions that might be impossible to detect using traditional linear analyses
 				\bottomrule
 				\end{tabular}
 				\end{table}
-				
+
+
+				In Figures ~\ref{gb18} and ~\ref{gb916}, the global boxplots, using all the patients values for each CRQA feature are presented 
+				for the normal and epileptic EEG segments. 
+				This kind of visualization allows 
+				a direct comparison of the median values, variability and distributional differences along the two classes.
+
+					\begin{figure}[h]
+					    \centering
+					    \includegraphics[width=0.9\textwidth]{global_box_1-8.png}
+					    \caption{CRQA features 1-8}
+					    \label{gb18}
+					\end{figure}
+
+					\begin{figure}[h]
+					    \centering
+					    \includegraphics[width=0.9\textwidth]{global_box_9-16.png}
+					    \caption{CRQA features 9-16}
+					    \label{gb916}
+					\end{figure}
+
+
+				A clear separation between normal and epileptic recordings can be observed 
+				for several RQA features. 
+				Usually the epileptic EEG segments present higher median values for Recurrence Rate (RR), Determinism (DET), Laminarity (LAM), 
+				and diagonal line–based measures, indicating a more recurrent and deterministic dynamical structure compared to normal EEG. This behavior is consistent with the increased synchronization and reduced complexity typically associated with epileptic activity.
+				Additionally in the boxplots, a systematic shift is present 
+				toward higher values in the epileptic class 
+				for RR (Normal: 0.1666 ± 0.0585, Epileptic: 0.2289 ± 0.0785) 
+				and DET (Normal: 0.7540 ± 0.1710, Epileptic: 0.8811 ± 0.1343), 
+				a clue that reveals stronger recurrence and longer diagonal structures in 
+				recurrence plots during epileptical seizures. 
+				In the same manner, on metrics related to diagonal line length (L and L\_max) 
+				present higher medians and wider distributions for epileptic recordings, 
+				confirming longer periods of predictable dynamics in those cases..
+
+				Although several features present distinct median 
+				shifts among the two classes, 
+				there is partial overlap between the interquartile ranges, especially on 
+				entropy-based measures and white vertical line statistics. 
+				This indicates that, while these features capture class-dependent dynamical differences, 
+				no single RQA feature alone is sufficient for perfect discrimination.
+
+				Divergence (DIV) metric, presents lower values in epileptic segments (Normal: 0.0488 ± 0.0241, Epileptic: 0.0377 ± 0.0234), 
+				which is consistent with longer diagonal lines and 
+				reduced sensitivity to initial conditions during epileptic activity. This behavior further supports the interpretation of epileptic EEG as a more constrained and less chaotic dynamical system.
+
+				Ratio-based features such as DET/RR and LAM/DET highlight differences in the internal structure of recurrence patterns. While DET/RR shows a large variance, its median is lower in epileptic segments, reflecting the combined effect of increased recurrence and determinism. In contrast, LAM/DET remains consistently high in both classes but exhibits reduced variability in epileptic EEG, indicating more stable laminar behavior.
+
+
 
 				\newpage				
 
@@ -1664,8 +1764,7 @@ transitions that might be impossible to detect using traditional linear analyses
 					To evaluate the performance of any classifier, several commonly applied metrics can be derived from the 
 					confusion matrix.
 
-					\subsubsection{Confusion Matrix}
-					A confusion matrix is a tabular summary of the number of correct and incorrect predictions 
+					A \textit{confusion matrix} is a tabular summary of the number of correct and incorrect predictions 
 					achieved by the classifier. For a binary classification problem, 
 					it is typically represented as follows:
 
@@ -1677,65 +1776,137 @@ transitions that might be impossible to detect using traditional linear analyses
 					\end{tabular}
 					\end{center}
 
-					\subsubsection{Accuracy}
-					Accuracy represents the proportion of correctly classified instances over the total number of instances:
+					\textit{Accuracy} represents the proportion of correctly classified instances over the total number of instances:
 
 					\begin{equation}
 					\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
 					\end{equation}
 
-					\subsubsection{Sensitivity / Recall}
-					Sensitivity, also known as recall or true positive rate, measures the proportion of actual positives correctly identified:
+					\textit{Sensitivity}, known also as recall or true positive rate, measures the proportion of actual positives correctly identified:
 
 					\begin{equation}
 					\text{Sensitivity} = \frac{TP}{TP + FN}
 					\end{equation}
 
-					\subsubsection{Specificity}
-					Specificity, also known as true negative rate, measures the proportion of actual negatives correctly identified:
+					\textit{Specificity}, also known as true negative rate, measures the proportion of actual negatives correctly identified:
 
 					\begin{equation}
 					\text{Specificity} = \frac{TN}{TN + FP}
 					\end{equation}
 
-					\subsubsection{Precision}
-					Precision measures the proportion of predicted positives that are correctly identified:
+					\textit{Precision} measures the proportion of predicted positives that are correctly identified:
 
 					\begin{equation}
 					\text{Precision} = \frac{TP}{TP + FP}
 					\end{equation}
 
-					\subsubsection{F1-Score}
-					The F1-score is the harmonic mean of precision and recall, providing a single metric that balances both:
+					The \textit{F1-score} is the harmonic mean of precision and recall, providing a single metric that balances both:
 
 					\begin{equation}
 					\text{F1-score} = 2 \cdot \frac{\text{Precision} \cdot \text{Sensitivity}}{\text{Precision} + \text{Sensitivity}}
 					\end{equation}
+					
+
+					For classification problems where classes present imbalanced distributions, the 
+					overall accuracy is provide to provide misleading estimation for the performance,
+					because of the domination of majority class.
+					To address this issue, the \emph{Unweighted Average Recall (UAR)} metric has also been employed.
+
+					For a binary classification tasks, 
+					UAR is defined as the arithmetic mean of sensitivity (recall of the positive class) and 
+					specificity (recall of the negative class). 
+					The Unweighted Average Recall is defined as
+					\begin{equation}
+					\mathrm{UAR} = \frac{1}{2} \left( \mathrm{Sensitivity} + \mathrm{Specificity} \right).
+					\end{equation}
 
 					The interpretation of these metrics provide an evaluation of classifier's performance. 
 
-					\subsection*{Leave-One-Subject-Out (LOSO) Cross-Validation}
 
-					To obtain an unbiased estimate of the classifier's ability to generalize across different individuals, 
-					the experiments conducted utilize the Leave-One-Subject-Out (LOSO) cross-validation. 
-					In LOSO, data from one subject (patient) are held out as the test set, 
-					while data from all remaining subjects are used for training. The model is always evaluated on unpresented data to it.
-					This process is repeated iteratively until every subject has served as the test set exactly once.
 
-					The LOSO method is useful for physiological datasets, 
-					where the inter-patient variability is often observable. 
-					Training and evaluating on different subjects ensures that the classifier 
-					does not inadvertently learn subject-specific patterns that would not generalize to 
-					unseen individuals. 
-					Consequently, LOSO provides a conservative and realistic estimate of 
-					real-world performance in clinical scenarios, 
-					where new patient data must be classified without retraining the model.
+					\subsection{Classification Evaluation Methods}
+					
 
-					For each hyperparameter configuration explored, the SVM model was trained and tested across 
-					all LOSO folds. Performance metrics (accuracy, sensitivity, specificity, and F1-score) are 
-					computed for each held-out subject and then averaged to obtain a final estimate. 
-					Using this evaluation ensures that the reported results reflect consistent behavior 
-					across subjects and are not biased by any single individual.
+					\subsection{Comparison of Evaluation Protocols}
+					Three complementary classification evaluation protocols were employed: 
+					(i) repeated random sample-level splitting (80\%–20\%), (ii) repeated subject-level 
+					random splitting (19 training subjects, 5 testing subjects), and 
+					(iii) Leave-One-Subject-Out (LOSO) cross-validation.
+
+					The sample-level protocol provides an optimistic upper bound on classification performance, as samples from the same subject may appear in both training and test sets. In contrast, the subject-level protocols enforce strict subject independence, thereby assessing generalization to unseen subjects.
+
+					The repeated subject-level random splitting approach reduces variance compared to LOSO by averaging performance over multiple randomly selected test subject subsets, while LOSO represents the most conservative evaluation strategy by testing on a single held-out subject in each fold.
+
+					Taken together, these evaluation protocols offer a comprehensive characterization of classifier performance, ranging from idealized conditions to strict subject-independent generalization.
+
+					\subsubsection{Leave-One-Subject-Out (LOSO) Cross-Validation}
+
+					To obtain an unbiased estimation of the ability that a classifier has on generalizing among different individuals, 
+					the experiments conducted, utilized the 
+					Leave-One-Subject-Out (LOSO) cross-validation. 
+					In LOSO, data from one subject (patient) 
+					are held out as the test set, 
+					while data from all remaining subjects are used for training. 
+					The model is always evaluated on unpresented data to it.
+					This process is repeated iteratively until every subject has 
+					served as the test set exactly one time.
+
+					Training and evaluating using different subjects for each case,
+					ensures that the classifier does not learn specific patterns presented in already seen subjects 
+					that would not generalize later on to unseen individuals. 
+					As a consequence, LOSO method is a conservative and realistic estimate of 
+					the performance in real life, where new patient data must be 
+					classified without retraining the model.
+
+					For each hyperparameter configuration explored, the models were trained and tested across 
+					all LOSO folds. Performance metrics (accuracy, sensitivity, specificity, F1-score and UAR) are 
+					computed for each held-out subject and then averaged in order to obtain the final estimate. 
+
+					\subsubsection{Repeated Random Sample-Level Evaluation}
+
+					In addition to leave-one-subject-out validation, a repeated random sub-sampling
+					evaluation strategy was employed.
+					At each repetition, the entire dataset was randomly partitioned into a training
+					set comprising 80\% of the samples and a test set comprising the remaining 20\%.
+					Class proportions were preserved using stratified sampling.
+
+					This procedure was repeated 500 times for each classifier configuration.
+					For each repetition, a model was trained from scratch on the training subset
+					and evaluated on the corresponding test subset.
+					Performance metrics, including accuracy, sensitivity, specificity, F1-score,
+					and unweighted average recall (UAR), were computed for each repetition and
+					subsequently aggregated by reporting the mean and standard deviation across
+					all repetitions.
+
+					This evaluation strategy provides an estimate of the expected performance under
+					random data partitioning, while reducing the variance associated with a single
+					train–test split.
+					However, since samples from the same subject may appear in both training and
+					test sets, this approach does not fully account for inter-subject variability
+					and therefore represents an optimistic performance estimate.
+
+					\subsubsection{Repeated Subject-Level Random Evaluation}
+
+					To assess subject-independent generalization while mitigating the high variance
+					of leave-one-subject-out validation, a repeated subject-level random evaluation
+					scheme was adopted.
+					At each repetition, 19 subjects were randomly selected for training and the
+					remaining 5 subjects were reserved exclusively for testing.
+					All samples belonging to a subject were assigned to the same subset, ensuring
+					strict subject-level separation between training and test data.
+
+					This process was repeated 500 times for each classifier configuration.
+					For each repetition, the classifier was trained using data from the training
+					subjects and evaluated on data from the held-out subjects.
+					Performance metrics (accuracy, sensitivity, specificity, F1-score, and UAR)
+					were computed and summarized using their mean and standard deviation across
+					all repetitions.
+
+					This evaluation strategy balances subject independence with statistical
+					stability and provides a more robust estimate of generalization performance
+					compared to a single subject-wise split.
+
+
 
 
 					\subsection{Support Vector Machine (SVM) Classifier}
@@ -1777,7 +1948,7 @@ transitions that might be impossible to detect using traditional linear analyses
 					\end{figure}
 
 
-					
+					\subsubsection{Hyperparameters}		
 
 					In order to evaluate the SVM classifier, an exploration of its hyperparameters was conducted
 					to reveal their effects on the classification performance. 
@@ -1844,48 +2015,79 @@ transitions that might be impossible to detect using traditional linear analyses
 					To address class imbalance, the SVM was configured with \texttt{class\_weight=``balanced''}, which automatically scales the penalty applied to each class inversely to its frequency. This ensures that minority classes contribute equally to the loss function.
 
 
-					\begin{table}[h!]
+
+						\begin{table}[H]
 						\centering
-						\caption{SVM Classification Results}
-						\begin{tabularx}{\textwidth}{l c l c c c c c c c c}
+						\caption{SVM performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}
+						\label{tab:svm_comparison}
+						\begin{tabular}{lcc}
 						\hline
-						\textbf{Kernel} &
-						\textbf{C} &
-						\textbf{$\gamma$} &
-						\textbf{Mean Acc.} &
-						\textbf{Std} &
-						\textbf{Mean Sens.} &
-						\textbf{Std} &
-						\textbf{Mean Spec.} &
-						\textbf{Std} &
-						\textbf{Mean F1} &
-						\textbf{Std} \\
+						\textbf{Metric} & \textbf{Patient-Level} & \textbf{Patient-Agnostic} \\
 						\hline
+						Accuracy (\%)      & $84.48 \pm 3.07$ & $90.89 \pm 0.57$ \\
+						Sensitivity (\%)   & $85.10 \pm 5.32$ & $87.35 \pm 0.96$ \\
+						Specificity (\%)   & $84.26 \pm 5.22$ & $94.52 \pm 0.72$ \\
+						F1-score (\%)      & $84.24 \pm 3.42$ & $90.65 \pm 0.61$ \\
+						UAR (\%)            & $84.68 \pm 2.93$ & $90.93 \pm 0.57$ \\
+						\hline
+						\end{tabular}
+						\end{table}
 
-						% ---- Example row (delete or keep) ----
-						linear & 0.1 & scale & 0.75 & 0.138 & 0.677 & 0.22 & 0.826 & 0.156 & 0.697 & 0.205 \\
-						linear & 1.0 & scale & 0.759 & 0.139 & 0.68 & 0.22 & 0.824 & 0.159 & 0.698 & 0.205 \\
-						linear & 10.0 & scale & 0.758 & 0.139 & 0.679 & 0.219 & 0.825 & 0.159 & 0.697 & 0.204 \\
-						rbf & 0.1 & scale & 0.821 & 0.112 & 0.764 & 0.182 & 0.867 & 0.136 & 0.782 & 0.156 \\
-						rbf & 0.1 & auto & 0.821 & 0.112 & 0.764 & 0.182 & 0.867 & 0.136 & 0.782 & 0.156 \\
-						rbf & 1.0 & scale & 0.851 & 0.09 & 0.817 & 0.138 & 0.881 & 0.134 & 0.824 & 0.125 \\
-						rbf & 1.0 & auto & 0.851 & 0.09 & 0.817 & 0.138 & 0.881 & 0.134 & 0.824 & 0.125 \\
-						rbf & 10.0 & scale & 0.881 & 0.074 & 0.879 & 0.098 & 0.889 & 0.122 & 0.863 & 0.102 \\
-						rbf & 10.0 & auto & 0.881 & 0.074 & 0.879 & 0.098 & 0.889 & 0.122 & 0.863 & 0.102 \\
 						
-						poly & 0.1 & scale & 0.764 & 0.137 & 0.564 & 0.237 & 0.946 & 0.081 & 0.658 & 0.215 \\
-						poly & 0.1 & auto & 0.764 & 0.137 & 0.564 & 0.237 & 0.946 & 0.081 & 0.658 & 0.215 \\
-						poly & 1.0 & scale & 0.786 & 0.126 & 0.635 & 0.217 & 0.929 & 0.098 & 0.712 & 0.186 \\
-						poly & 1.0 & auto & 0.786 & 0.126 & 0.635 & 0.217 & 0.929 & 0.098 & 0.712 & 0.186 \\
-						poly & 10.0 & scale & 0.809 & 0.106 & 0.703 & 0.194 & 0.907 & 0.108 & 0.757 & 0.153 \\
-						poly & 10.0 & auto & 0.809 & 0.106 & 0.703 & 0.194 & 0.907 & 0.108 & 0.757 & 0.153 \\
-
-						% --------------------------------------
-
+						\begin{table}[H]
+						\centering
+						\caption{Per-patient LOSO performance using SVM with RBF kernel ($C=100$, $\gamma=0.1$).}
+						\label{tab:svm_per_patient}
+						\scriptsize
+						\begin{tabular}{lccccc}
 						\hline
-						\end{tabularx}
-					\end{table}
+						\textbf{Patient} & \textbf{Acc} & \textbf{Sens} & \textbf{Spec} & \textbf{F1} & \textbf{UAR} \\
+						\hline
+						p1  & 0.941 & 0.943 & 0.939 & 0.931 & 0.941 \\
+						p2  & 0.829 & 0.988 & 0.717 & 0.828 & 0.852 \\
+						p3  & 0.937 & 0.915 & 0.954 & 0.924 & 0.934 \\
+						p4  & 0.899 & 0.851 & 0.975 & 0.912 & 0.913 \\
+						p5  & 0.929 & 0.993 & 0.840 & 0.942 & 0.916 \\
+						p6  & 0.701 & 0.947 & 0.636 & 0.573 & 0.791 \\
+						p7  & 0.982 & 0.994 & 0.967 & 0.985 & 0.980 \\
+						p8  & 0.903 & 0.883 & 0.955 & 0.929 & 0.919 \\
+						p9  & 0.865 & 0.995 & 0.650 & 0.902 & 0.822 \\
+						p10 & 0.847 & 0.969 & 0.750 & 0.849 & 0.859 \\
+						p11 & 0.973 & 0.970 & 0.983 & 0.982 & 0.977 \\
+						p12 & 0.819 & 0.815 & 0.825 & 0.832 & 0.820 \\
+						p13 & 0.857 & 0.876 & 0.843 & 0.843 & 0.860 \\
+						p14 & 0.824 & 0.845 & 0.818 & 0.689 & 0.832 \\
+						p15 & 0.833 & 0.841 & 0.818 & 0.865 & 0.830 \\
+						p16 & 0.961 & 1.000 & 0.955 & 0.880 & 0.978 \\
+						p17 & 0.959 & 0.973 & 0.942 & 0.963 & 0.957 \\
+						p18 & 0.927 & 0.899 & 0.946 & 0.907 & 0.922 \\
+						p19 & 0.945 & 0.923 & 0.967 & 0.943 & 0.945 \\
+						p20 & 0.839 & 0.957 & 0.771 & 0.815 & 0.864 \\
+						p21 & 0.903 & 0.818 & 0.956 & 0.866 & 0.887 \\
+						p22 & 0.991 & 0.980 & 1.000 & 0.990 & 0.990 \\
+						p23 & 0.955 & 0.929 & 1.000 & 0.963 & 0.964 \\
+						p24 & 0.948 & 0.920 & 0.963 & 0.924 & 0.941 \\
+						\hline
+						\end{tabular}
+						\end{table}
 
+						\begin{table}[H]
+						\centering
+						\caption{LOSO classification performance using SVM with RBF kernel ($C=100$, $\gamma=0.1$). Results are reported as mean $\pm$ standard deviation across 24 patients.}
+						\label{tab:svm_loso}
+						\begin{tabular}{lcc}
+						\hline
+						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
+						\hline
+						Accuracy        & 0.899 & 0.068 \\
+						Sensitivity     & 0.926 & 0.059 \\
+						Specificity     & 0.882 & 0.109 \\
+						F1-score        & 0.885 & 0.093 \\
+						UAR             & 0.904 & 0.059 \\
+						\hline
+						\end{tabular}
+						\end{table}
+							
 				
 
 
@@ -1917,8 +2119,8 @@ transitions that might be impossible to detect using traditional linear analyses
 
 					Related to the performance of a Random Forest classifier, there is a number of structural hyperparameters that
 					control and regulate model's complexity and generalization ability. 
-					In this study, the following hyperparameters were systematically explored under a Leave-One-Subject-Out (LOSO) 
-					cross-validation method:
+					In this study, the following hyperparameters were systematically explored under   
+					the utilized classifier's evaluation protocols:
 
 					\begin{itemize}
 					\item \textbf{Number of Trees ($n_{\text{estimators}}$):} This parameter defines the total number of decision trees in the ensemble. Larger values generally improve classification stability at the expense of increased computational cost. The tested values were
@@ -1947,11 +2149,82 @@ transitions that might be impossible to detect using traditional linear analyses
 					\]
 					\end{itemize}
 
-					For each hyperparameter configuration, the classifier was evaluated using a Leave-One-Subject-Out (LOSO) protocol to ensure strict subject-independent validation. Performance was quantified using accuracy, sensitivity (recall), specificity, and F1-score. Mean and standard deviation values across all subjects were computed to assess both predictive performance and inter-subject stability.
+				%	For each hyperparameter configuration, the classifier was evaluated using a Leave-One-Subject-Out (LOSO) protocol to ensure strict subject-independent validation. Performance was quantified using accuracy, sensitivity (recall), specificity, and F1-score. Mean and standard deviation values across all subjects were computed to assess both predictive performance and inter-subject stability.
 
 					The Random Forest classifier does not require feature normalization and is resilient to monotonic feature transformations, making it particularly suitable for heterogeneous biomedical feature sets where absolute feature scaling may vary across subjects.
 
+					\begin{table}[H]
+						\centering
+						\caption{Random Forest performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}
+						\label{tab:rf_comparison}
+						\begin{tabular}{lcc}
+						\hline
+						\textbf{Metric} & \textbf{Patient-Level} & \textbf{Patient-Agnostic} \\
+						\hline
+						Accuracy (\%)      & $84.31 \pm 3.91$ & $92.83 \pm 0.56$ \\
+						Sensitivity (\%)   & $87.76 \pm 4.85$ & $90.66 \pm 0.87$ \\
+						Specificity (\%)   & $81.37 \pm 7.04$ & $95.05 \pm 0.71$ \\
+						F1-score (\%)      & $84.41 \pm 4.09$ & $92.74 \pm 0.58$ \\
+						UAR (\%)            & $84.57 \pm 3.69$ & $92.85 \pm 0.56$ \\
+						\hline
+						\end{tabular}
+						\end{table}
+
+
+					\begin{table}[H]
+						\centering
+						\caption{Per-patient LOSO performance using Random Forest (300 trees).}
+						\label{tab:rf_per_patient}
+						\scriptsize
+						\begin{tabular}{lccccc}
+						\hline
+						\textbf{Patient} & \textbf{Acc} & \textbf{Sens} & \textbf{Spec} & \textbf{F1} & \textbf{UAR} \\
+						\hline
+						p1  & 0.926 & 0.995 & 0.875 & 0.920 & 0.935 \\
+						p2  & 0.815 & 0.976 & 0.700 & 0.814 & 0.838 \\
+						p3  & 0.919 & 0.910 & 0.925 & 0.903 & 0.917 \\
+						p4  & 0.828 & 0.729 & 0.983 & 0.838 & 0.856 \\
+						p5  & 0.900 & 1.000 & 0.760 & 0.921 & 0.880 \\
+						p6  & 0.699 & 0.920 & 0.639 & 0.563 & 0.780 \\
+						p7  & 0.979 & 0.994 & 0.958 & 0.982 & 0.976 \\
+						p8  & 0.832 & 0.813 & 0.880 & 0.874 & 0.847 \\
+						p9  & 0.746 & 0.985 & 0.350 & 0.829 & 0.667 \\
+						p10 & 0.799 & 0.973 & 0.661 & 0.811 & 0.817 \\
+						p11 & 0.969 & 0.960 & 1.000 & 0.980 & 0.980 \\
+						p12 & 0.787 & 0.846 & 0.715 & 0.813 & 0.780 \\
+						p13 & 0.813 & 0.794 & 0.829 & 0.788 & 0.811 \\
+						p14 & 0.681 & 0.798 & 0.646 & 0.536 & 0.722 \\
+						p15 & 0.802 & 0.792 & 0.820 & 0.836 & 0.806 \\
+						p16 & 0.948 & 0.848 & 0.965 & 0.824 & 0.907 \\
+						p17 & 0.925 & 0.904 & 0.950 & 0.930 & 0.927 \\
+						p18 & 0.854 & 0.759 & 0.917 & 0.805 & 0.838 \\
+						p19 & 0.937 & 0.915 & 0.958 & 0.934 & 0.936 \\
+						p20 & 0.811 & 0.971 & 0.717 & 0.791 & 0.844 \\
+						p21 & 0.846 & 0.657 & 0.963 & 0.765 & 0.810 \\
+						p22 & 0.968 & 1.000 & 0.942 & 0.967 & 0.971 \\
+						p23 & 0.848 & 0.776 & 0.975 & 0.867 & 0.876 \\
+						p24 & 0.951 & 0.896 & 0.979 & 0.926 & 0.938 \\
+						\hline
+						\end{tabular}
+						\end{table}
 					
+					\begin{table}[H]
+						\centering
+						\caption{LOSO classification performance using Random Forest (300 trees). Results are reported as mean $\pm$ standard deviation across 24 patients.}
+						\label{tab:rf_loso}
+						\begin{tabular}{lcc}
+						\hline
+						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
+						\hline
+						Accuracy        & 0.858 & 0.083 \\
+						Sensitivity     & 0.884 & 0.098 \\
+						Specificity     & 0.838 & 0.157 \\
+						F1-score        & 0.842 & 0.109 \\
+						UAR             & 0.861 & 0.079 \\
+						\hline
+						\end{tabular}
+						\end{table}
+
 
 
 
@@ -1995,11 +2268,61 @@ transitions that might be impossible to detect using traditional linear analyses
 					This choice affects computational efficiency, particularly for high-dimensional feature spaces.
 					\end{itemize}
 
-					For each hyperparameter configuration, classifier performance was evaluated using a Leave-One-Subject-Out (LOSO) validation scheme to ensure strict subject-independent testing. Performance was assessed using accuracy, sensitivity, specificity, and F1-score, with mean and standard deviation computed across all subjects.
+					
+					\begin{table}[H]
+						\centering
+						\caption{Per-patient LOSO performance using kNN ($k=11$, Euclidean distance).}
+						\label{tab:knn_per_patient}
+						\scriptsize
+						\begin{tabular}{lccccc}
+						\hline
+						\textbf{Patient} & \textbf{Acc} & \textbf{Sens} & \textbf{Spec} & \textbf{F1} & \textbf{UAR} \\
+						\hline
+						p1  & 0.937 & 0.928 & 0.943 & 0.926 & 0.936 \\
+						p2  & 0.761 & 0.824 & 0.717 & 0.741 & 0.770 \\
+						p3  & 0.889 & 0.859 & 0.911 & 0.866 & 0.885 \\
+						p4  & 0.769 & 0.644 & 0.967 & 0.773 & 0.805 \\
+						p5  & 0.960 & 0.993 & 0.915 & 0.967 & 0.954 \\
+						p6  & 0.741 & 0.787 & 0.729 & 0.562 & 0.758 \\
+						p7  & 0.950 & 0.932 & 0.975 & 0.956 & 0.954 \\
+						p8  & 0.754 & 0.687 & 0.925 & 0.800 & 0.806 \\
+						p9  & 0.803 & 0.889 & 0.658 & 0.849 & 0.774 \\
+						p10 & 0.905 & 0.906 & 0.904 & 0.894 & 0.905 \\
+						p11 & 0.910 & 0.883 & 1.000 & 0.938 & 0.942 \\
+						p12 & 0.746 & 0.654 & 0.858 & 0.739 & 0.756 \\
+						p13 & 0.841 & 0.720 & 0.936 & 0.799 & 0.828 \\
+						p14 & 0.769 & 0.738 & 0.779 & 0.596 & 0.758 \\
+						p15 & 0.695 & 0.547 & 0.955 & 0.696 & 0.751 \\
+						p16 & 0.944 & 0.697 & 0.985 & 0.780 & 0.841 \\
+						p17 & 0.846 & 0.808 & 0.892 & 0.852 & 0.850 \\
+						p18 & 0.834 & 0.646 & 0.958 & 0.756 & 0.802 \\
+						p19 & 0.882 & 0.897 & 0.867 & 0.882 & 0.882 \\
+						p20 & 0.789 & 0.829 & 0.767 & 0.744 & 0.798 \\
+						p21 & 0.795 & 0.525 & 0.963 & 0.662 & 0.744 \\
+						p22 & 0.955 & 0.971 & 0.942 & 0.952 & 0.956 \\
+						p23 & 0.806 & 0.719 & 0.958 & 0.825 & 0.839 \\
+						p24 & 0.922 & 0.825 & 0.973 & 0.879 & 0.899 \\
+						\hline
+						\end{tabular}
+						\end{table}
 
-					Since kNN relies directly on distance computations, all features were standardized prior to classification to ensure equal contribution of all feature dimensions. This normalization step is essential in heterogeneous biomedical feature sets, such as EEG-derived CRQA features or radiomic descriptors, where feature scales may differ significantly.
-
-			
+					\begin{table}[H]
+						\centering
+						\caption{LOSO classification performance using k-Nearest Neighbors ($k=11$, Euclidean distance). Results are reported as mean $\pm$ standard deviation across 24 patients.}
+						\label{tab:knn_loso}
+						\begin{tabular}{lcc}
+						\hline
+						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
+						\hline
+						Accuracy        & 0.842 & 0.079 \\
+						Sensitivity     & 0.788 & 0.127 \\
+						Specificity     & 0.895 & 0.093 \\
+						F1-score        & 0.810 & 0.108 \\
+						UAR             & 0.841 & 0.072 \\
+						\hline
+						\end{tabular}
+						\end{table}
+							
 
 				\section{Classification Results and Comparative Analysis}
 
@@ -2036,7 +2359,28 @@ transitions that might be impossible to detect using traditional linear analyses
 					In summary, SVM achieved the strongest overall generalization performance, Random Forest provided the best stability and robustness across subjects, and kNN offered a simple but less consistent alternative. The complementary strengths of these classifiers validate the robustness of the proposed feature extraction and evaluation pipeline. The agreement in performance trends across multiple classifiers further supports the reliability of the reported results.
 
 
-				
+					\subsection*{Per-Patient Feature Visualization}
+
+					For each patient in the dataset, two key RQA features are visualized and compared: 
+					\textbf{Recurrence Rate (RR)} and \textbf{Determinism (DET)}. 
+					The EEG data were labeled as \textit{normal} (label 0) or \textit{epileptic} (label 1).  
+
+					For each feature, we calculated the mean value across all EEG samples corresponding to each label 
+					and plotted the results as 2D heatmaps, where the axes represent electrode positions. 
+					Figures~\ref{fig:det_patient} show an example heatmaps for the Determinism and Recurrence Rate features, 
+					respectively, for one representative patient. 
+
+					\begin{figure}[H]
+					    \centering
+					    \includegraphics[width=0.48\textwidth]{/home/x/implementations/raw_data/per_patient_determinism/p2_determinism_mean.png}
+					    \includegraphics[width=0.48\textwidth]{/home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png}
+					    \caption{Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}
+					    \label{fig:det_patient}
+					\end{figure}
+
+					These visualizations allow for a qualitative comparison of feature distributions between 
+					normal and epileptic brain states, highlighting the spatial patterns of RQA metrics across electrodes.
+						
 			
 			\section{Discussion}
 			

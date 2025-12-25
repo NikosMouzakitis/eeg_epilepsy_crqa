@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  12 DEC 2025 23:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  25 DEC 2025 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -362,18 +362,6 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
-
-LaTeX Warning: Label `fig:phase_space_3d' multiply defined.
-
-
-LaTeX Warning: Label `fig:phase_space_3d' multiply defined.
-
-
-LaTeX Warning: Label `fig:phase_space_3d' multiply defined.
-
-
-LaTeX Warning: Label `fig:phase_space_3d' multiply defined.
-
 )
 \openout1 = `main.aux'.
 
@@ -562,13 +550,13 @@ Package pdftex.def Info: ami.png  used on input line 882.
 <fnn_estim.png, id=85, 714.7503pt x 426.393pt>
 File: fnn_estim.png Graphic file (type png)
 <use fnn_estim.png>
-Package pdftex.def Info: fnn_estim.png  used on input line 925.
+Package pdftex.def Info: fnn_estim.png  used on input line 928.
 (pdftex.def)             Requested size: 344.005pt x 205.22585pt.
-<fnn_schematic.png, id=86, 500.87125pt x 405.515pt>
+<fnn_schematic.png, id=86, 939.51pt x 629.4717pt>
 File: fnn_schematic.png Graphic file (type png)
 <use fnn_schematic.png>
-Package pdftex.def Info: fnn_schematic.png  used on input line 933.
-(pdftex.def)             Requested size: 344.005pt x 278.5248pt.
+Package pdftex.def Info: fnn_schematic.png  used on input line 936.
+(pdftex.def)             Requested size: 430.00462pt x 288.10054pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -577,24 +565,29 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <phase_space_3d.png, id=98, 469.0323pt x 475.5366pt>
 File: phase_space_3d.png Graphic file (type png)
 <use phase_space_3d.png>
-Package pdftex.def Info: phase_space_3d.png  used on input line 976.
+Package pdftex.def Info: phase_space_3d.png  used on input line 979.
 (pdftex.def)             Requested size: 301.00192pt x 305.19135pt.
  [21 <./phase_space_3d.png>]
+Overfull \hbox (3.99698pt too wide) in paragraph at lines 1060--1066
+[]\OT1/cmr/bx/n/10 Periodic pat-terns \OT1/cmr/m/n/10 orig-i-nate from de-ter-m
+in-is-tic os-cil-la-tory func-tions(e.g, trigono-met-ric) where
+ []
+
 [22]
 <rp_homogeneous.png, id=106, 932.5239pt x 390.0171pt>
 File: rp_homogeneous.png Graphic file (type png)
 <use rp_homogeneous.png>
-Package pdftex.def Info: rp_homogeneous.png  used on input line 1082.
+Package pdftex.def Info: rp_homogeneous.png  used on input line 1092.
 (pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
 <rp_periodic.png, id=107, 932.5239pt x 390.0171pt>
 File: rp_periodic.png Graphic file (type png)
 <use rp_periodic.png>
-Package pdftex.def Info: rp_periodic.png  used on input line 1090.
+Package pdftex.def Info: rp_periodic.png  used on input line 1100.
 (pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
 <rp_drift.png, id=108, 932.5239pt x 390.0171pt>
 File: rp_drift.png Graphic file (type png)
 <use rp_drift.png>
-Package pdftex.def Info: rp_drift.png  used on input line 1097.
+Package pdftex.def Info: rp_drift.png  used on input line 1107.
 (pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
 
 
@@ -603,85 +596,131 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <rp_disrupted.png, id=109, 932.5239pt x 390.0171pt>
 File: rp_disrupted.png Graphic file (type png)
 <use rp_disrupted.png>
-Package pdftex.def Info: rp_disrupted.png  used on input line 1104.
+Package pdftex.def Info: rp_disrupted.png  used on input line 1114.
 (pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [23 <./rp_homogeneous.png> <./rp_periodic.png>] [24 <./rp_drift.png> <./rp_disr
 upted.png>]
-Overfull \hbox (6.0023pt too wide) in paragraph at lines 1152--1153
+Overfull \hbox (6.0023pt too wide) in paragraph at lines 1162--1163
 []\OT1/cmr/m/n/10 The ra-tio is a mea-sure of com-
  []
 
 [25]
-Overfull \hbox (12.00787pt too wide) in paragraph at lines 1207--1210
+Overfull \hbox (12.00787pt too wide) in paragraph at lines 1217--1220
 []\OT1/cmr/m/n/10 The max-i-mum length of con-sec-u-tive non-recurrent
  []
 
 
 Package natbib Warning: Citation `marwan2007' on page 26 undefined on input lin
-e 1246.
+e 1256.
 
-[26] [27] [28] [29] [30]
-<rr_compare/r01_epil.png, id=146, 421.575pt x 424.4658pt>
+[26] [27] [28]
+<segmentation-windowing.png, id=138, 1021.8175pt x 456.70625pt>
+File: segmentation-windowing.png Graphic file (type png)
+<use segmentation-windowing.png>
+Package pdftex.def Info: segmentation-windowing.png  used on input line 1327.
+(pdftex.def)             Requested size: 301.00192pt x 134.53204pt.
+ [29 <./segmentation-windowing.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<rr_compare/r01_epil.png, id=144, 421.575pt x 424.4658pt>
 File: rr_compare/r01_epil.png Graphic file (type png)
 <use rr_compare/r01_epil.png>
-Package pdftex.def Info: rr_compare/r01_epil.png  used on input line 1406.
+Package pdftex.def Info: rr_compare/r01_epil.png  used on input line 1430.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r015_epil.png, id=147, 421.575pt x 424.4658pt>
+<rr_compare/r015_epil.png, id=145, 421.575pt x 424.4658pt>
 File: rr_compare/r015_epil.png Graphic file (type png)
 <use rr_compare/r015_epil.png>
-Package pdftex.def Info: rr_compare/r015_epil.png  used on input line 1413.
+Package pdftex.def Info: rr_compare/r015_epil.png  used on input line 1437.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r02_epil.png, id=148, 421.575pt x 424.4658pt>
+<rr_compare/r02_epil.png, id=146, 421.575pt x 424.4658pt>
 File: rr_compare/r02_epil.png Graphic file (type png)
 <use rr_compare/r02_epil.png>
-Package pdftex.def Info: rr_compare/r02_epil.png  used on input line 1422.
+Package pdftex.def Info: rr_compare/r02_epil.png  used on input line 1446.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r03_epil.png, id=149, 421.575pt x 424.4658pt>
+<rr_compare/r03_epil.png, id=147, 421.575pt x 424.4658pt>
 File: rr_compare/r03_epil.png Graphic file (type png)
 <use rr_compare/r03_epil.png>
-Package pdftex.def Info: rr_compare/r03_epil.png  used on input line 1429.
+Package pdftex.def Info: rr_compare/r03_epil.png  used on input line 1453.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-512.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
+533.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1512.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1533.
 
- [31] [32 <./rr_compare/r01_epil.png> <./rr_compare/r015_epil.png> <./rr_compar
-e/r02_epil.png> <./rr_compare/r03_epil.png>] [33] [34] [35] [36]
-<svm-margin.png, id=175, 1105.12875pt x 956.82469pt>
-File: svm-margin.png Graphic file (type png)
-<use svm-margin.png>
-Package pdftex.def Info: svm-margin.png  used on input line 1774.
-(pdftex.def)             Requested size: 171.99922pt x 148.90489pt.
+ [30] [31 <./rr_compare/r01_epil.png> <./rr_compare/r015_epil.png> <./rr_compar
+e/r02_epil.png> <./rr_compare/r03_epil.png>] [32] [33] [34] [35]
+<global_box_1-8.png, id=175, 1032.7383pt x 445.1832pt>
+File: global_box_1-8.png Graphic file (type png)
+<use global_box_1-8.png>
+Package pdftex.def Info: global_box_1-8.png  used on input line 1710.
+(pdftex.def)             Requested size: 387.00153pt x 166.82101pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[37]
-Overfull \hbox (4.48499pt too wide) in paragraph at lines 1787--1791
+<global_box_9-16.png, id=176, 1035.6291pt x 445.1832pt>
+File: global_box_9-16.png Graphic file (type png)
+<use global_box_9-16.png>
+Package pdftex.def Info: global_box_9-16.png  used on input line 1717.
+(pdftex.def)             Requested size: 387.00153pt x 166.35909pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[36] [37 <./global_box_1-8.png>] [38 <./global_box_9-16.png>]
+Overfull \hbox (3.99615pt too wide) in paragraph at lines 1831--1835
+\OT1/cmr/m/n/10 Three com-ple-men-tary clas-si-fi-ca-tion eval-u-a-tion pro-to-
+cols were em-ployed: (i) re-peated ran-dom sample-
+ []
+
+[39] [40]
+<svm-margin.png, id=195, 1105.12875pt x 956.82469pt>
+File: svm-margin.png Graphic file (type png)
+<use svm-margin.png>
+Package pdftex.def Info: svm-margin.png  used on input line 1945.
+(pdftex.def)             Requested size: 171.99922pt x 148.90489pt.
+
+Overfull \hbox (4.48499pt too wide) in paragraph at lines 1958--1962
 []\OT1/cmr/m/n/10 The \OT1/cmr/m/it/10 ker-nel func-tion \OT1/cmr/m/n/10 de-fin
 es the trans-for-ma-tion that maps the in-put data into a higher-dimensional
  []
 
-[38 <./svm-margin.png>]
-Overfull \hbox (80.91954pt too wide) in alignment at lines 1886--1886
-[][][][][][][][][][][] 
- []
-
-[39] [40] [41] [42] [43] [44] (./main.bbl
+[41 <./svm-margin.png>] [42] [43] [44] [45] [46] [47] [48]
+</home/x/implementations/raw_data/per_patient_determinism/p2_determinism_mean.p
+ng, id=223, 867.24pt x 361.35pt>
+File: /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
+ean.png Graphic file (type png)
+<use /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_me
+an.png>
+Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_determini
+sm/p2_determinism_mean.png  used on input line 2375.
+(pdftex.def)             Requested size: 206.40038pt x 85.99796pt.
+</home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png, id=224, 867.24
+pt x 361.35pt>
+File: /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png Graphic fi
+le (type png)
+<use /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>
+Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_rr/p2_rr_
+mean.png  used on input line 2376.
+(pdftex.def)             Requested size: 206.40038pt x 85.99796pt.
+ [49 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
+ean.png> </home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>] (./m
+ain.bbl
 Underfull \hbox (badness 3009) in paragraph at lines 38--39
 []\OT1/cmr/m/n/10 Mo, J., Zhang, J., Hu, W., Wang, X., Zhao, B., Zhang, K. and 
 Zhang, C.
  []
 
-[45]
+[50]
 Underfull \hbox (badness 1783) in paragraph at lines 41--45
 \OT1/cmr/m/n/10 based on re-cur-rence quan-tifi-ca-tion anal-y-sis of EEG sig-n
 al and ge-netic al-go-rithm for
@@ -706,7 +745,7 @@ Underfull \hbox (badness 2318) in paragraph at lines 47--48
  1419{1425.
  []
 
-[46]
+[51]
 Underfull \hbox (badness 2486) in paragraph at lines 106--107
 []\OT1/cmr/m/n/10 Kashyap, A. and Keil-holz, S. (2019). Dy-namic prop-er-ties o
 f sim-u-lated brain net-
@@ -742,7 +781,7 @@ Underfull \hbox (badness 1348) in paragraph at lines 153--154
 /it/10 Physics Re-ports, 438(5{6)\OT1/cmr/m/n/10 , 237{329.
  []
 
-[47]
+[52]
 Underfull \hbox (badness 3735) in paragraph at lines 182--184
 []\OT1/cmr/m/n/10 Norbert Mar-wan. \OT1/cmr/m/it/10 Re-cur-rence Plot and Cross
  Re-cur-rence Plot Quan-tifi-ca-tion \OT1/cmr/m/n/10 URL:
@@ -767,7 +806,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--196
 ). Phy-s-ioNet.
  []
 
-[48]
+[53]
 Underfull \hbox (badness 4765) in paragraph at lines 215--216
 []\OT1/cmr/m/n/10 Devinsky, O., Vez-zani, A., O'Brien, T., Jette, N., Schef-fer
 , I.E., Cur-tis, M.
@@ -783,7 +822,7 @@ ease Primers \OT1/cmr/m/n/10 4, 18024 (2018).
 
 Package natbib Warning: There were undefined citations.
 
-[49] (./main.aux)
+[54] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -794,13 +833,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10793 strings out of 476106
- 229628 string characters out of 5793932
- 1961975 words of memory out of 5000000
- 32668 multiletter control sequences out of 15000+600000
+ 10843 strings out of 476106
+ 231497 string characters out of 5793932
+ 1969975 words of memory out of 5000000
+ 32718 multiletter control sequences out of 15000+600000
  574853 words of font info for 98 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 73i,13n,80p,643b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,13n,80p,698b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/x/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/t
@@ -825,10 +864,10 @@ msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (49 pages, 3790553 bytes).
+Output written on main.pdf (54 pages, 4446372 bytes).
 PDF statistics:
- 331 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
+ 358 PDF objects out of 1000 (max. 8388607)
+ 201 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 
