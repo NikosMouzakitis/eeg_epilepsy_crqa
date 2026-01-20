@@ -19,6 +19,10 @@
 \usepackage[numbers,sort]{natbib} 
 \usepackage{multirow}       % For table multirows
 \usepackage[font=small,labelfont=bf]{caption} % For caption formatting
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning, matrix, backgrounds}
+
+
 
 % Preamble: Define title, author, date
 \title{Epilepsy Detection from Multi-Channel EEG Using Cross-Recurrence Quantification Analysis and Machine Learning}
@@ -33,28 +37,28 @@
 
 	\section{Introduction}
 	Epilepsy is a neurological disorder, 
-	which generates recurrent, unprovoked seizures. 
+	which is characterized by the generation of recurrent, unprovoked seizures. 
 	Seizures are the result of abnormal neuronal brain 
 	activity which subsequently lead into 
-	disturbances in the behavior, sensation, the consciousness and the movement 
-	of the affected subject.
+	disturbances in the behavior, sensation, consciousness and the movement 
+	of the affected subject. In general they affect severely patient's quality of life.
 	Information gathered by World Health Organization (WHO), 
 	report that epilepsy affects 
 	around 50 million people worldwide, 
 	placing it as one of the most common 
 	neurological conditions globally.
 
-	Epilepsy has its origin in diverse and various causes depending on many factors. 
+	Epilepsy has its origin in diverse and various causes 
+	depending on many factors. 
 	The generation of epileptic activity can be an impact of identifiable structural, 
 	genetic, infectious, metabolic, or immune-related abnormalities, 
 	while for almost 50\% of the cases, their trigger still remains unknown\cite{causes}. 
-	Depending on the brain regions involved, a seizure can have several classifications. 
-	It can be classified as focal (if its origin is a specific area) 
+	Depending on the brain regions involved, seizures have several classifications. 
+	They can be classified as focal (if its origin is a specific area) 
 	or a generalized one (involving both hemispheres). 
 	Clinically, seizures are characterized by high variability, 
 	from short term lapses in awareness, up to 
-	convulsive episodes, and the fact of their unpredictable occurrence 
-	has severe impact in patient’s quality of life.
+	convulsive episodes, in unpredictable times.
 
 	For the diagnosis and monitoring of epilepsy, 
 	electroencephalography (EEG) 
@@ -84,7 +88,7 @@
 	can offer new solutions for automated extraction 
 	of complex spatial and temporal 
 	features from EEG recordings. 
-	The ultimate goal of these approaches is
+	The ultimate goal of these approaches, is
 	to support clinicians by providing objective, 
 	data-driven tools for 
 	seizure detection, prediction, and classification, 
@@ -604,17 +608,21 @@
 		\end{table}
 
 		\noindent
-		The database includes recordings from male and female patients (24 in total), 
-		with their ages in the range of 1.5 to 22 years old. One of
-		the patients have been recorded twice with a year and half time(patient1-patient21, belong to the same physical subject).
+		The database includes recordings from both male and female patients (24 in total), 
+		with their ages in the range of 1.5 to 22 years old. 
+		One of
+		the patients have been recorded twice with a year and half time difference(patient1-patient21, belong to the same physical subject).
 		Most subjects are children, a fact reflecting the pediatric nature 
 		of the dataset.
-		This demographic diversity provides a representative sample for 
-		studying epileptic activity across different developmental stages.
+		This demographic diversity provides a 
+		representative sample for 
+		studying epileptic activity across 
+		different developmental stages.
 
-		The total recording duration spans approximately 982 hours, 
+		The total recording duration is approximately around 982 hours, 
 		segmented into 664 different EDF files, 
-		where each recording contains 1 hour of data (though durations vary from 1 to over 4 hours). 
+		where each recording contains 1 hour of data (though some recordings contain durations from 1 to 
+		over 4 hours). 
 		EEG signals were recorded using 23 scalp electrodes 
 		(according to the international 10--20 system), 
 		but in some files there are extra channels records, 
@@ -660,9 +668,12 @@
 			Usage of this system for electrode's placement on the subject's scalp,
 			places electrodes in locations based on proportional distances (10\% or 20\%) 
 			between key anatomical landmarks on the head. 
-			As a consequence, the 10–20 system ensures consistent anatomical coverage across subjects and
-			enchances reproducibility and comparability in recordings of different sessions. 
-			Related to the electrode's naming, each label (e.g, F3, P7, O1) 
+			As a consequence, the 10–20 system ensures consistent anatomical coverage 
+			across subjects and
+			enchances reproducibility and comparability in 
+			recordings of different sessions. 
+			Related to the electrode's naming, 
+			each label (e.g, F3, P7, O1) 
 			is assigned to a functionally meaningful region of the human scalp.
 
 
@@ -678,12 +689,13 @@
 		\newpage
 		\section{Filtering}
 
-			Signals of electroencephalogram, in most cases,
+			EEG signals in most cases,
 			carry not only the desired signal but also added noise 
 			and artifacts from physiological (eye blinks, muscle or cardiac activity) 
 			and non-physiological sources (e.g, powerline interference). 
-			In general, artifacts in a recording consist of all the non-neural signals 
-			that are mixed with the pure EEG data. 
+			In general, artifacts in a recording 
+			consist of all the non-neural signals 
+			that are mixed together with the pure EEG data of interest.
 			
 			Preprocessing is required in order to increase 
 			the quality of the signal(signal-to-noise ratio),
@@ -719,13 +731,14 @@
 			without introducing distortions.
 			Wavelet transforms on the other hand, decompose the signal 
 			into time-frequency representations using scalable, 
-			localized basis functions called wavelets, 
-			enabling the analysis: the signal is broken down into approximation (low-frequency) 
-			and detail (high-frequency) coefficients across decomposition levels. 
+			localized basis functions called \textit{wavelets}, 
+			enabling analysis of the signal. In the analysis, the signal
+			is broken down into approximation (low-frequency) 
+			and detail (high-frequency) coefficients across decomposition levels.
 			Artifacts, such as ocular blinks or EMG bursts, 
-			manifest as sparse, high-amplitude coefficients that can be selectively 
+			manifest as sparse, high amplitude coefficients that can be 
 			silenced using thresholds (e.g, hard or soft), 
-			followed by reconstruction---thus removing noise while preserving neural transients like epileptic 
+			followed by reconstruction, and by this way removing noise while preserving neural transitions like epileptic 
 			spikes \cite{grobbelaar2022survey}. 
 
 			\subsection{Evaluation metrics for EEG denoising in the CHB-MIT dataset}
@@ -818,19 +831,26 @@
 
 			\subsection{EEG Preprocessing and Filtering Procedure}
 
-			In the CHM-MIT dataset, 136 recordings in total from all the subjects, were identified containing the desired 22 EEG signals
-			and presenting at least one epileptic seizure.
-			Each of these recordings, was preprocessed through a multi-stage denoising and filtering pipeline as presented in Figure \ref{fig:preproc},
-			designed to suppress noise and remove artifacts. Finally standardization of amplitude was performed across channels. 
+			In the CHM-MIT dataset, 136 recordings in total from all the subjects, were identified 
+			containing the desired 22 EEG signals and presenting at least one epileptic seizure.
+			Each of these recordings, was preprocessed through a multi-stage denoising 
+			and filtering pipeline as presented in Figure \ref{fig:preproc},
+			designed to suppress noise and remove artifacts. 
+			Finally normalization of the amplitudes was performed across channels(channel-wise).
 			
-			To each EDF recording, in all of its 22 channels, 
-			initially a 0.5–60 Hz Butterworth bandpass filter (4th-order, zero-phase) was applied,
-			in order to remove DC drift, slow baseline fluctuations and high-frequency noise, but to keep the spectral components relevant to epileptical seizure activity. 
-			For each channel then, a wavelet-based denoising using a sym8 discrete wavelet transform at level 4 decomposition was applied. 
-			The detail coefficients at level 1 were discarded entirely to suppress high-frequency noise and 
-			coefficients at levels 2–4 were thresholded using median absolute deviation (MAD)–based universal thresholding with hard shrinkage. 
+			To each EDF recording, in all of its 22 channels, initially a 0.5–60 Hz Butterworth bandpass 
+			filter (4th-order, zero-phase) was applied,
+			in order to remove DC drift, slow baseline fluctuations and high-frequency noise, 
+			but also keeping the spectral components relevant to epileptical seizure activity. 
+			For each channel then, a wavelet-based denoising using a 
+			sym8 discrete wavelet transform at level 4 decomposition was applied. 
+			The detail coefficients at level 1 were discarded entirely to 
+			suppress high-frequency noise and 
+			coefficients at levels 2–4 were thresholded using median absolute deviation (MAD)–based 
+			universal thresholding with hard shrinkage. 
 			Signal was then reconstructed via inverse wavelet transform. 
-			A second 1–60 Hz bandpass filter was applied to the reconstructed waveform to eliminate 
+			A second 1–60 Hz bandpass filter was applied to the reconstructed waveform 
+			in order to eliminate 
 			low and high frequency distortions introduced by the wavelet process. 
 			Finally, each channel was Min–Max normalized to the interval [-1, 1], 
 			ensuring consistent scaling across recordings. 
@@ -844,11 +864,6 @@
 			    \caption{Preprocessing and filtering pipeline of EEG recordings}
 			    \label{fig:preproc}
 			\end{figure}
-
-
-
-
-
 
 	\newpage
 		
@@ -871,6 +886,7 @@
 	
 
 		\subsection{Determination of Embedding Parameters}
+
 		The reconstruction of the phase space from a single time series 
 		\( x(t) \) requires the specification of two parameters: 
 		the time delay \( \tau \) and the embedding dimension \( m \). 
@@ -906,8 +922,6 @@
 			between independence (too small \( \tau \)) and irrelevance (too large \( \tau \)) 
 			of the coordinates in the embedding vector.
 				
-
-		
 
 
 			\subsubsection{Estimating embedding dimension \( m \) using false nearest neighbors approach}
@@ -1345,12 +1359,12 @@
 				autocorrelated stochastic processes, while \cite{RhodesMorariFNN} showed that the effects of noise can actually
 				lead in overestimation of the embedding dimension. 
 				In order to mitigate these effects and keep a consist methodology across a 
-				large dataset, the presented methodology adopts fixed values for the embedding parameters rather than optimizing them
+				large dataset, the presented methodology adopts constant values for the embedding parameters rather than optimizing them
 				per recording or window.
 				The decision to use constant values is influenced by applied precedents in the EEG literature. 
 				McSharry et al.\cite{mcsharry} have applied with success fixed embedding parameters in their multi-channel scalp EEG seizure research, 
 				arguing that nonlinear methods must justify their complexity over simpler linear benchmarks. 
-				In our case, fixed parameters ensure consistency across the large CHB-MIT dataset, computational efficiency and help to avoid overfitting to local dynamics that may not generalize.
+				In our case, constant parameters ensure consistency across the large CHB-MIT dataset, computational efficiency and help to avoid overfitting to local dynamics that may not generalize.
 				
 				\subsection{Threshold selection}
 				Radius fraction R is utilized for determination of the percentage of mean diameter of the 
@@ -1524,12 +1538,12 @@
 				    \For{each channel pair \( (c_1, c_2) \in C \times C \)}
 					\State \textbf{Time Series Preparation}
 					\State Ensure the input time series \( X_{c_1,w} \) and \( X_{c_2,w} \) have the same length
-					\State \textbf{Set embedding parameters}
-					\State Set \( \tau = 1 \)
-					\State Set \( m = 3 \)
+					\State \textbf{Embedding parameters}
+					\State  \( \tau = 1 \)
+					\State  \( m = 3 \)
 					\State \textbf{CRQA Computation}
 					\State Construct cross-recurrence plot for \( (X_{c_1,w}, X_{c_2,w}) \) using \texttt{PyRQA} with:
-					\State \quad Fixed radius neighborhood \( r = 0.15 \times \text{mean diameter} \), Euclidean metric, Theiler corrector = 1
+					\State \quad Radius neighborhood \( r = 0.15 \times \text{mean diameter of each timeseries phase space diameter} \), Euclidean metric, Theiler corrector = 1
 					\State Extract 16 CRQA features: \{RR, DET, \( L_{\text{avg}} \), \( L_{\text{max}} \), DIV, \( H_{\text{diag}} \), LAM, 
 					TT, \( V_{\text{max}} \), \( W_{\text{avg}} \), \( W_{\text{max}} \), 
 					\( W_{\text{max}}^{-1} \), \( H_{\text{vert}} \), \( H_{\text{wvert}} \), DET/RR, LAM/DET\}
@@ -1579,9 +1593,19 @@
 				\end{itemize}
 
 				The resulting feature vector $\mathbf{v}_w$ has a final dimension of $\mathbb{R}^{1 \times 17}$ (16 plus its label), 
-				where each element is representing the average value of a specific 
-				CRQA metric across 
-				the entire EEG montage for this window.
+				where each element is representing the average value of a specific CRQA 
+				metric across the entire EEG montage for this window.
+				This averaging step acts also as a dimensionality reduction strategy. 
+				Without aggregation, each window would yield (22X22X16=7744 features), 
+				resulting in a high-dimensional representation. That would be prone 
+				to overfitting and poor generalization under subject-independent protocols. 
+				The mean aggregation compresses the electrode-to-electrode CRQA interactions
+				tensor into a compact vector representing the overall coupling state 
+				of the whole EEG montage. Under the hypothesis of seizure-related 
+				hypersynchronization, epileptic segments are supposed to present globally 
+				increased recurrence and determinism across multiple channel interactions, 
+				making their global averaged statistics 
+				informative.
 
 				%\paragraph{Rationale and Trade-offs}
 				%This Mean Aggregation approach simplifies the feature space from a large tensor into a compact 16-element vector. The rationale is to extract a robust, single measure of the \emph{global} recurrence behavior of the brain, assuming that the critical diagnostic information is contained in the overall shift of dynamic properties across the neural network during an epileptic event. This approach sacrifices \emph{spatial information} (i.e., the specific location of highly recurrent or chaotic channel pairs), but in return, it achieves lower computational complexity and higher generalization capacity by focusing on the **temporal dynamics** captured by the averaged CRQA features.
@@ -1761,8 +1785,9 @@
 					\subsection{Classification Performance Metrics}
 					\label{subsec:performance-metrics}
 
-					To evaluate the performance of any classifier, several commonly applied metrics can be derived from the 
-					confusion matrix.
+					To evaluate the performance of any classifier, 
+					several commonly applied metrics can be computed based on
+					the confusion matrix.
 
 					A \textit{confusion matrix} is a tabular summary of the number of correct and incorrect predictions 
 					achieved by the classifier. For a binary classification problem, 
@@ -1776,31 +1801,36 @@
 					\end{tabular}
 					\end{center}
 
-					\textit{Accuracy} represents the proportion of correctly classified instances over the total number of instances:
+					\textit{Accuracy} represents the proportion of the correct classified instances 
+					over the total number of instances:
 
 					\begin{equation}
 					\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
 					\end{equation}
 
-					\textit{Sensitivity}, known also as recall or true positive rate, measures the proportion of actual positives correctly identified:
+					\textit{Sensitivity} (recall or true positive rate), measures the proportion of 
+					actual positives correctly classified as positives:
 
 					\begin{equation}
 					\text{Sensitivity} = \frac{TP}{TP + FN}
 					\end{equation}
 
-					\textit{Specificity}, also known as true negative rate, measures the proportion of actual negatives correctly identified:
+					\textit{Specificity} (true negative rate), measures the proportion of 
+					actual negatives correctly classified as negatives:
 
 					\begin{equation}
 					\text{Specificity} = \frac{TN}{TN + FP}
 					\end{equation}
 
-					\textit{Precision} measures the proportion of predicted positives that are correctly identified:
+					\textit{Precision} measures the proportion of predicted positives 
+					that are correctly identified:
 
 					\begin{equation}
 					\text{Precision} = \frac{TP}{TP + FP}
 					\end{equation}
 
-					The \textit{F1-score} is the harmonic mean of precision and recall, providing a single metric that balances both:
+					The \textit{F1-score} consists of the harmonic mean of precision and recall, 
+					providing a single metric that offers a balance between both of these metrics:
 
 					\begin{equation}
 					\text{F1-score} = 2 \cdot \frac{\text{Precision} \cdot \text{Sensitivity}}{\text{Precision} + \text{Sensitivity}}
@@ -1808,105 +1838,101 @@
 					
 
 					For classification problems where classes present imbalanced distributions, the 
-					overall accuracy is provide to provide misleading estimation for the performance,
+					overall accuracy can provide misleading estimation for the performance,
 					because of the domination of majority class.
-					To address this issue, the \emph{Unweighted Average Recall (UAR)} metric has also been employed.
+					To address this issue, also the \emph{Unweighted Average Recall (UAR)} metric has 
+					also been computed.
 
-					For a binary classification tasks, 
-					UAR is defined as the arithmetic mean of sensitivity (recall of the positive class) and 
-					specificity (recall of the negative class). 
-					The Unweighted Average Recall is defined as
+					In the case of binary classification tasks, 
+					UAR is defined as the arithmetic mean of 
+					sensitivity and specificity. 
 					\begin{equation}
 					\mathrm{UAR} = \frac{1}{2} \left( \mathrm{Sensitivity} + \mathrm{Specificity} \right).
 					\end{equation}
+					The interpretation of these metrics are used to 
+					provide an evaluation of our classifier's performance. 
 
-					The interpretation of these metrics provide an evaluation of classifier's performance. 
 
-
-
-					\subsection{Classification Evaluation Methods}
-					
 
 					\subsection{Comparison of Evaluation Protocols}
-					Three complementary classification evaluation protocols were employed: 
-					(i) repeated random sample-level splitting (80\%–20\%), (ii) repeated subject-level 
-					random splitting (19 training subjects, 5 testing subjects), and 
+					Three complementary classification evaluation protocols were used: 
+					(i) repeated random sample-level splitting (80\%–20\%), 
+					(ii) repeated subject-level random splitting (19 training subjects, 5 testing subjects), and 
 					(iii) Leave-One-Subject-Out (LOSO) cross-validation.
 
-					The sample-level protocol provides an optimistic upper bound on classification performance, as samples from the same subject may appear in both training and test sets. In contrast, the subject-level protocols enforce strict subject independence, thereby assessing generalization to unseen subjects.
+					The sample-level protocol(\textit{patient-agnostic}),
+					provides an optimistic upper bound of the classification performance, 
+					as samples from the same subject may appear in both the training and test sets. 
+					In contrast, the other two( (ii) and (iii) ) protocols force 
+					strict subject independence in order to assess generalization on unseen subjects.
 
-					The repeated subject-level random splitting approach reduces variance compared to LOSO by averaging performance over multiple randomly selected test subject subsets, while LOSO represents the most conservative evaluation strategy by testing on a single held-out subject in each fold.
+					The repeated subject-level random splitting approach(\textit{patient-level}),
+					uses 19 patients as training subjects, and the rest 5 as testing subjects, in a 
+					equivalent 80-20\% split on the number of patients fashion. This approach
+					reduces variance when compared to LOSO by 
+					averaging performance over multiple randomly selected test subject subsets, 
+					while LOSO represents the most conservative evaluation strategy by testing 
+					on a single held-out subject in each fold.
 
-					Taken together, these evaluation protocols offer a comprehensive characterization of classifier performance, ranging from idealized conditions to strict subject-independent generalization.
+					In summary, using all three evaluation protocols, a characterization of the classifier performance
+					is obtained, ranging from more idealized conditions to strict subject-independent generalization.
 
-					\subsubsection{Leave-One-Subject-Out (LOSO) Cross-Validation}
-
-					To obtain an unbiased estimation of the ability that a classifier has on generalizing among different individuals, 
-					the experiments conducted, utilized the 
-					Leave-One-Subject-Out (LOSO) cross-validation. 
-					In LOSO, data from one subject (patient) 
-					are held out as the test set, 
-					while data from all remaining subjects are used for training. 
-					The model is always evaluated on unpresented data to it.
-					This process is repeated iteratively until every subject has 
-					served as the test set exactly one time.
-
-					Training and evaluating using different subjects for each case,
-					ensures that the classifier does not learn specific patterns presented in already seen subjects 
-					that would not generalize later on to unseen individuals. 
-					As a consequence, LOSO method is a conservative and realistic estimate of 
-					the performance in real life, where new patient data must be 
-					classified without retraining the model.
-
-					For each hyperparameter configuration explored, the models were trained and tested across 
-					all LOSO folds. Performance metrics (accuracy, sensitivity, specificity, F1-score and UAR) are 
-					computed for each held-out subject and then averaged in order to obtain the final estimate. 
-
+					
 					\subsubsection{Repeated Random Sample-Level Evaluation}
 
-					In addition to leave-one-subject-out validation, a repeated random sub-sampling
-					evaluation strategy was employed.
-					At each repetition, the entire dataset was randomly partitioned into a training
+					In this evaluation approach, on each repetition, 
+					the entire dataset was randomly partitioned into a training
 					set comprising 80\% of the samples and a test set comprising the remaining 20\%.
 					Class proportions were preserved using stratified sampling.
 
 					This procedure was repeated 500 times for each classifier configuration.
 					For each repetition, a model was trained from scratch on the training subset
 					and evaluated on the corresponding test subset.
-					Performance metrics, including accuracy, sensitivity, specificity, F1-score,
-					and unweighted average recall (UAR), were computed for each repetition and
-					subsequently aggregated by reporting the mean and standard deviation across
+					Performance metrics were computed for each repetition and then
+					aggregated by reporting the mean and standard deviation across
 					all repetitions.
-
-					This evaluation strategy provides an estimate of the expected performance under
-					random data partitioning, while reducing the variance associated with a single
-					train–test split.
-					However, since samples from the same subject may appear in both training and
-					test sets, this approach does not fully account for inter-subject variability
-					and therefore represents an optimistic performance estimate.
 
 					\subsubsection{Repeated Subject-Level Random Evaluation}
 
-					To assess subject-independent generalization while mitigating the high variance
-					of leave-one-subject-out validation, a repeated subject-level random evaluation
-					scheme was adopted.
-					At each repetition, 19 subjects were randomly selected for training and the
-					remaining 5 subjects were reserved exclusively for testing.
-					All samples belonging to a subject were assigned to the same subset, ensuring
-					strict subject-level separation between training and test data.
+					For this evaluation approach, in each repetition, 
+					19 subjects were randomly selected for training and the
+					remaining 5 subjects were kept exclusively for testing.
+					All samples belonging to a subject were assigned to the same subset, 
+					making sure that strict subject-level separation holds 
+					between training and test data.
 
 					This process was repeated 500 times for each classifier configuration.
-					For each repetition, the classifier was trained using data from the training
+					For each repetition, the classifier was trained from scratch using data from the training
 					subjects and evaluated on data from the held-out subjects.
-					Performance metrics (accuracy, sensitivity, specificity, F1-score, and UAR)
-					were computed and summarized using their mean and standard deviation across
-					all repetitions.
+					Performance metrics were computed and summarized using their 
+					mean and standard deviation across all repetitions.
 
-					This evaluation strategy balances subject independence with statistical
-					stability and provides a more robust estimate of generalization performance
-					compared to a single subject-wise split.
+					\subsubsection{Leave-One-Subject-Out (LOSO) Cross-Validation}
 
+					To obtain an unbiased estimation of the ability that a classifier 
+					has on generalizing among different individuals, 
+					also the Leave-One-Subject-Out (LOSO) cross-validation was utilized.
+					In LOSO, data from one subject (patient) are held out as the test set, 
+					while data from all remaining subjects are used for training. 
+					The model is always evaluated on unpresented data to it(the test set).
+					This process is repeated iteratively until every subject has served as the test set
+					exactly one time.
 
+					Training and evaluating using different subjects for each case,
+					ensures that the classifier does not learn specific patterns 
+					presented in already seen subjects 
+					that would not generalize later on to 
+					unseen individuals. 
+					As a consequence, using the LOSO method,
+					is a conservative and realistic estimate of 
+					the performance in real life, 
+					where new patient data must be 
+					classified without retraining the model.
+
+					For each configuration of classifiers hyperparameters explored, 
+					the models were trained and tested across all LOSO folds and ther performance metrics
+					were computed for each held-out subject and then averaged 
+					in order to obtain the final estimate. 
 
 
 					\subsection{Support Vector Machine (SVM) Classifier}
@@ -1951,13 +1977,13 @@
 					\subsubsection{Hyperparameters}		
 
 					In order to evaluate the SVM classifier, an exploration of its hyperparameters was conducted
-					to reveal their effects on the classification performance. 
+					to investigate what effects they have on the classification performance. 
 					SVMs have configurable options that can control the geometry of the decision function, 
 					the complexity of the model, the smoothness of the boundary, and the optimization procedure. 
 
-					The \textit{kernel function} defines the transformation that maps 
+					The \textit{kernel function}, defines the transformation that maps 
 					the input data into a higher-dimensional feature space, 
-					where a linear separating hyperplane may possibly exist. 
+					where a linear separating hyperplane can possibly be present. 
 					The following kernels were examined:
 
 					\begin{itemize}
@@ -1965,7 +1991,23 @@
 					    \[
 						K(\mathbf{x},\mathbf{x}') = \big(\gamma\, \mathbf{x}^{\top}\mathbf{x}' + \texttt{coef0}\big)^{\texttt{degree}}
 					    \]
-					    This kernel allows highly flexible, non-linear decision boundaries whose shape is controlled by the degree of the polynomial.
+					This kernel expands the original input space by including 
+					all monomials of the input features up to a given degree.
+					It includes representations of interactions between features, 
+					allowing the model to capture non-linear relationships present in the data.
+					As a result, a classifier that is linear in the transformed feature 
+					space corresponds to a non-linear decision boundary back 
+					in the original input space.
+
+					Degree, is in the control of the maximum order of feature interactions. 
+					Higher degrees increase model ability to capture non-linear representations
+					but it also increases the risk of overfitting.
+					Parameter \textit{$\gamma$} adjusts the influence of the inner product. 
+					Using higher values for this parameter, boosts the contribution of 
+					higher-order feature interactions.
+					The coefficient $\textit{coef0}$ shifts the kernel function and 
+					influences how much the model relies on higher-order terms versus 
+					lower-order interactions. 
 
 					    % If other kernels also used, uncomment:
 					     \item \textbf{Linear Kernel} (\texttt{linear}):
@@ -1974,43 +2016,29 @@
 					      A Gaussian kernel capable of modelling highly complex, non-linear structures.
 					    % \item \textbf{Sigmoid Kernel} (\texttt{sigmoid}):
 					    % Has a form similar to neural network activation functions.
-					\end{itemize}
 
-					The regularization parameter $C>0$ is in the control of the trade-off among two quantities. The maximization of
+					The regularization parameter $C>0$ is in the control of the 
+					trade-off among two quantities. The maximization of
 					the margin and minimization of the classification error on the training data. 
-					Using a small value of $C$ produces a wider margin among classes and a more regularized model, 
-					possibly at the cost of more misclassifications. 
-					By using a larger value of $C$, model enforces more strict classification of training samples 
-					by heavily penalizing misclassified points.
-
-					The parameter $\gamma$(kernel scale) controls the influence of individual training samples 
-					when using kernels such as RBF or polynomial. In the polynomial kernel, 
-					$\gamma$ acts as a scaling factor on the dot product:
-					\[
-					    (\gamma\, \mathbf{x}^{\top}\mathbf{x}' + \texttt{coef0})^{\texttt{degree}}.
-					\]
-					A small $\gamma$ produces smoother, less complex decision boundaries, 
-					while a large $\gamma$ leads to highly localized and complex surfaces.
-
-					For the polynomial kernel, the degree determines the maximum order of interactions 
-					between features. Higher degrees have as result more complex decision boundaries, 
-					but also increase the risk of overfitting and are computational more heavy procedures.
-
-					The coefficient $\texttt{coef0}$ shifts the kernel function and 
-					influences how much the model relies on higher-order terms versus lower-order interactions. 
-					In polynomial kernels, tuning $\texttt{coef0}$ can significantly 
-					modify the boundary shape.
-
-					Shrinking is an optimization heuristic, that attempts to speed up the training procedure by temporarily 
+					Using a small value of $C$ can produces a wider margin 
+					among classes and a more regularized model, possibly at the cost of 
+					having more misclassifications. 
+					By using a larger value of $C$, model enforces more strict 
+					classification of training samples by heavily penalizing misclassified points.
+					\textit{Shrinking} is an optimization heuristic, 
+					that attempts to speed up the training procedure by temporarily 
 					ignoring variables that are unlikely to affect the solution. 
-					When \texttt{shrinking=False}, the full optimization problem is solved without heuristics. 
-					Disabling shrinking may lead to more stable behavior in some datasets, 
-					at the cost of slower training.
+					When \texttt{shrinking=False}, the full optimization problem is 
+					solved without the use of any heuristics. 
+					Disabling shrinking may lead to more stable behavior, at the cost of slower training.
+					The parameter \texttt{tol} defines the tolerance for the 
+					stopping criterion of the optimization algorithm. 
+					Smaller values lead to more precise convergence 
+					but increase computational time, 
+					while larger values may speed up optimization with the cost of 
+					slightly less accurate solutions.
 
-					The parameter \texttt{tol} defines the tolerance for the stopping criterion of the optimization algorithm. 
-					Smaller values lead to more precise convergence but increase computational time, 
-					while larger values may speed up optimization at the cost of slightly 
-					less accurate solutions.
+					\end{itemize}
 
 					To address class imbalance, the SVM was configured with \texttt{class\_weight=``balanced''}, which automatically scales the penalty applied to each class inversely to its frequency. This ensures that minority classes contribute equally to the loss function.
 
@@ -2093,9 +2121,12 @@
 
 				\subsection{Random Forest Classification}
 
-					Random Forest is an ensemble method of learing, which constructs a 
-					number of decision trees during training and produces the final prediction 
-					utilizing the majority voting concept (for the classification) alongside all the individual trees. 
+					Random Forest is an ensemble method of learning, 
+					which constructs a 
+					number of decision trees during training and 
+					produces the final prediction 
+					utilizing the majority voting concept (for the classification) 
+					alongside all the individual trees. 
 				%	It belongs to the family of bagging-based ensemble methods and is 
 				%	designed to reduce variance and improve generalization compared to a single decision tree. 
 					Each of the trees belonging in the forest, 
@@ -2267,6 +2298,23 @@
 					\]
 					This choice affects computational efficiency, particularly for high-dimensional feature spaces.
 					\end{itemize}
+				
+						\begin{table}[H]
+						\centering
+						\caption{kNN performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}
+						\label{tab:knn_comparison}
+						\begin{tabular}{lcc}
+						\hline
+						\textbf{Metric} & \textbf{Patient-Level} & \textbf{Patient-Agnostic} \\
+						\hline
+						Accuracy (\%)      & $82.59 \pm 0.0471 $ & $88.35 \pm 0.0061$ \\
+						Sensitivity (\%)   & $77.29 \pm 0.0857$ & $81.05 \pm 0.0114$ \\
+						Specificity (\%)   & $88.54 \pm 0.0412$ & $95.82 \pm 0.0057$ \\
+						F1-score (\%)      & $81.31 \pm 0.0517$ & $87.55 \pm 0.0071$ \\
+						UAR (\%)            & $82.91 \pm 0.0425$ & $88.43 \pm 0.0064$ \\
+						\hline
+						\end{tabular}
+						\end{table}
 
 					
 					\begin{table}[H]
@@ -2323,6 +2371,10 @@
 						\end{tabular}
 						\end{table}
 							
+
+
+
+				\newpage
 
 				\section{Classification Results and Comparative Analysis}
 
@@ -2383,11 +2435,28 @@
 						
 			
 			\section{Discussion}
-			
-			\section{Limitations}
-			
-			\section{Future Work}
+The strong LOSO performance suggests that global CRQA statistics encode 
+subject-independent seizure dynamics, supporting the hypothesis 
+that seizures manifest as a macroscopic shift toward more deterministic 
+and synchronized EEG activity rather than purely localized dynamics.			
 
+			\section{Limitations}
+\subsection{Loss of spatial/topological information due to averaging}:
+The proposed feature aggregation summarizes the full 
+(22×22x16) CRQA interaction tensor into a single 16-dimensional vector 
+per window by averaging each metric across all channel pairs. 
+While this approach improves robustness and generalization by reducing dimensionality, 
+it discards spatial structure and prevents the model from exploiting 
+localized seizure propagation patterns or hemisphere-specific interactions. 
+In focal epilepsy, discriminative information may be concentrated in a subset of 
+channel pairs near the epileptogenic zone, which may be attenuated by global averaging. 
+Future work could incorporate structured aggregation strategies 
+(e.g., top-K strongest interactions, hemisphere-aware statistics, 
+or graph-based features) to retain connectivity topology while still 
+controlling dimensionality.	
+			\section{Future Work}
+			
+		        \section{Images}
 
 
 			\newpage
