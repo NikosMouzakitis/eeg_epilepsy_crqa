@@ -1,49 +1,52 @@
 \contentsline {section}{\numberline {1}Introduction}{4}{}%
 \contentsline {section}{\numberline {2}Related Work}{5}{}%
-\contentsline {subsection}{\numberline {2.1}RQA relevant patents utilizing EEG modality}{8}{}%
+\contentsline {subsection}{\numberline {2.1}RQA relevant patents utilizing EEG modality}{9}{}%
 \contentsline {section}{\numberline {3}The CHB-MIT EEG Database}{11}{}%
 \contentsline {subsection}{\numberline {3.1}Dataset Description}{11}{}%
 \contentsline {section}{\numberline {4}Filtering}{13}{}%
 \contentsline {subsection}{\numberline {4.1}Evaluation metrics for EEG denoising in the CHB-MIT dataset}{13}{}%
 \contentsline {subsection}{\numberline {4.2}Filter Selection Criteria}{14}{}%
-\contentsline {subsection}{\numberline {4.3}EEG Preprocessing and Filtering Procedure}{16}{}%
-\contentsline {section}{\numberline {5}Phase space reconstruction}{18}{}%
-\contentsline {subsection}{\numberline {5.1}Determination of Embedding Parameters}{18}{}%
-\contentsline {subsubsection}{\numberline {5.1.1}Calculation of time delay \( \tau \) utilizing mutual information}{18}{}%
-\contentsline {subsubsection}{\numberline {5.1.2}Estimating embedding dimension \( m \) using false nearest neighbors approach}{19}{}%
-\contentsline {section}{\numberline {6}Recurrence Quantification Analysis (RQA)}{22}{}%
-\contentsline {subsection}{\numberline {6.1}The Recurrence Plot (RP)}{22}{}%
-\contentsline {subsection}{\numberline {6.2}RQA Metrics}{23}{}%
-\contentsline {subsection}{\numberline {6.3}Cross-Recurrence Quantification Analysis (CRQA)}{27}{}%
-\contentsline {subsubsection}{\numberline {6.3.1}The Cross-Recurrence Plot (CRP)}{27}{}%
-\contentsline {subsubsection}{\numberline {6.3.2}CRQA Metrics}{27}{}%
-\contentsline {section}{\numberline {7}Methodology}{29}{}%
-\contentsline {subsection}{\numberline {7.1}Data preprocessing and windowing}{29}{}%
-\contentsline {subsection}{\numberline {7.2}Embedding parameters selection}{29}{}%
-\contentsline {subsection}{\numberline {7.3}Threshold selection}{30}{}%
-\contentsline {subsection}{\numberline {7.4}Application of CRQA}{30}{}%
-\contentsline {subsection}{\numberline {7.5}Feature aggregation}{32}{}%
-\contentsline {subsection}{\numberline {7.6}Class Imbalance in CRQA-EEG Data}{35}{}%
-\contentsline {subsection}{\numberline {7.7}Downsampling Methodology for a Balanced Dataset}{36}{}%
-\contentsline {section}{\numberline {8}Classification - Experimental}{38}{}%
-\contentsline {subsection}{\numberline {8.1}Classification Performance Metrics}{38}{}%
-\contentsline {subsection}{\numberline {8.2}Classification Evaluation Methods}{39}{}%
-\contentsline {subsection}{\numberline {8.3}Comparison of Evaluation Protocols}{39}{}%
-\contentsline {subsubsection}{\numberline {8.3.1}Leave-One-Subject-Out (LOSO) Cross-Validation}{39}{}%
-\contentsline {subsubsection}{\numberline {8.3.2}Repeated Random Sample-Level Evaluation}{40}{}%
-\contentsline {subsubsection}{\numberline {8.3.3}Repeated Subject-Level Random Evaluation}{40}{}%
-\contentsline {subsection}{\numberline {8.4}Support Vector Machine (SVM) Classifier}{40}{}%
-\contentsline {subsubsection}{\numberline {8.4.1}Hyperparameters}{41}{}%
-\contentsline {subsection}{\numberline {8.5}Random Forest Classification}{43}{}%
-\contentsline {subsubsection}{\numberline {8.5.1}Hyperparameters}{44}{}%
-\contentsline {subsection}{\numberline {8.6}k-Nearest Neighbors Classification}{45}{}%
-\contentsline {subsubsection}{\numberline {8.6.1}Hyperparameters}{46}{}%
-\contentsline {section}{\numberline {9}Classification Results and Comparative Analysis}{47}{}%
-\contentsline {subsection}{\numberline {9.1}Overall Performance Comparison}{47}{}%
-\contentsline {subsection}{\numberline {9.2}Sensitivity--Specificity Trade-Off}{48}{}%
-\contentsline {subsection}{\numberline {9.3}Model Stability and Generalization}{48}{}%
-\contentsline {subsection}{\numberline {9.4}Computational Considerations}{48}{}%
-\contentsline {subsection}{\numberline {9.5}Summary of Findings}{49}{}%
-\contentsline {section}{\numberline {10}Discussion}{49}{}%
-\contentsline {section}{\numberline {11}Limitations}{49}{}%
-\contentsline {section}{\numberline {12}Future Work}{49}{}%
+\contentsline {subsection}{\numberline {4.3}EEG Preprocessing and Filtering Procedure}{17}{}%
+\contentsline {section}{\numberline {5}Phase space reconstruction}{19}{}%
+\contentsline {subsection}{\numberline {5.1}Determination of Embedding Parameters}{19}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}Calculation of time delay \( \tau \) utilizing mutual information}{19}{}%
+\contentsline {subsubsection}{\numberline {5.1.2}Estimating embedding dimension \( m \) using false nearest neighbors approach}{20}{}%
+\contentsline {section}{\numberline {6}Recurrence Quantification Analysis (RQA)}{23}{}%
+\contentsline {subsection}{\numberline {6.1}The Recurrence Plot (RP)}{23}{}%
+\contentsline {subsection}{\numberline {6.2}RQA Metrics}{24}{}%
+\contentsline {subsection}{\numberline {6.3}Cross-Recurrence Quantification Analysis (CRQA)}{28}{}%
+\contentsline {subsubsection}{\numberline {6.3.1}The Cross-Recurrence Plot (CRP)}{28}{}%
+\contentsline {subsubsection}{\numberline {6.3.2}CRQA Metrics}{28}{}%
+\contentsline {section}{\numberline {7}Methodology}{30}{}%
+\contentsline {subsection}{\numberline {7.1}Data preprocessing and windowing}{30}{}%
+\contentsline {subsection}{\numberline {7.2}Embedding parameters selection}{30}{}%
+\contentsline {subsection}{\numberline {7.3}Threshold selection}{31}{}%
+\contentsline {subsection}{\numberline {7.4}Application of CRQA}{31}{}%
+\contentsline {subsection}{\numberline {7.5}Feature aggregation}{33}{}%
+\contentsline {subsection}{\numberline {7.6}Class Imbalance in CRQA-EEG Data}{36}{}%
+\contentsline {subsection}{\numberline {7.7}Downsampling Methodology for a Balanced Dataset}{37}{}%
+\contentsline {section}{\numberline {8}Classification - Experimental}{39}{}%
+\contentsline {subsection}{\numberline {8.1}Classification Performance Metrics}{39}{}%
+\contentsline {subsection}{\numberline {8.2}Comparison of Evaluation Protocols}{40}{}%
+\contentsline {subsubsection}{\numberline {8.2.1}Repeated Random Sample-Level Evaluation}{40}{}%
+\contentsline {subsubsection}{\numberline {8.2.2}Repeated Subject-Level Random Evaluation}{41}{}%
+\contentsline {subsubsection}{\numberline {8.2.3}Leave-One-Subject-Out (LOSO) Cross-Validation}{41}{}%
+\contentsline {subsection}{\numberline {8.3}Support Vector Machine (SVM) Classifier}{41}{}%
+\contentsline {subsubsection}{\numberline {8.3.1}Hyperparameters}{42}{}%
+\contentsline {subsection}{\numberline {8.4}Random Forest Classification}{44}{}%
+\contentsline {subsubsection}{\numberline {8.4.1}Hyperparameters}{44}{}%
+\contentsline {subsection}{\numberline {8.5}k-Nearest Neighbors Classification}{46}{}%
+\contentsline {subsubsection}{\numberline {8.5.1}Hyperparameters}{47}{}%
+\contentsline {section}{\numberline {9}Classification Results and Comparative Analysis}{49}{}%
+\contentsline {subsection}{\numberline {9.1}Overall Performance Comparison}{49}{}%
+\contentsline {subsection}{\numberline {9.2}Sensitivity--Specificity Trade-Off}{50}{}%
+\contentsline {subsection}{\numberline {9.3}Model Stability and Generalization}{50}{}%
+\contentsline {subsection}{\numberline {9.4}Computational Considerations}{51}{}%
+\contentsline {subsection}{\numberline {9.5}Summary of Findings}{51}{}%
+\contentsline {section}{\numberline {10}Discussion}{52}{}%
+\contentsline {section}{\numberline {11}Limitations}{52}{}%
+\contentsline {subsection}{\numberline {11.1}Loss of spatial/topological information due to averaging}{52}{}%
+\contentsline {subsection}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{53}{}%
+\contentsline {subsection}{\numberline {11.3}Fixed embedding parameters}{53}{}%
+\contentsline {subsection}{\numberline {11.4}Dataset-specific constraints}{53}{}%
+\contentsline {section}{\numberline {12}Future Work}{53}{}%

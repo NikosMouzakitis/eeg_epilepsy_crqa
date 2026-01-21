@@ -118,8 +118,6 @@
 		\bibitem{dhanaseivam2023}
 		Dhanaseivam, P. S., and Chellam, C. N. (2023). A review on preprocessing of EEG signal. In \emph{2023 9th International Conference on Biosignals, Images and Instrumentation (ICBSII 23)}. Madurai, India.
 
-		\bibitem{jiang2019}
-		Jiang, X., Bian, G.-B., and Tian, Z. (2019). Removal of artifacts from EEG signals: A review. \emph{Sensors, 19}(5), 987. https://doi.org/10.3390/s19050987
 
 		\bibitem{sen2023}
 		Sen, D., Mishra, B. B., and Pattnaik, P. K. (2023). A review of the filtering techniques used in EEG signal processing. In \emph{Proceedings of the 7th International Conference on Trends in Electronics and Informatics (ICOEI 2023)} (pp. 270–278). Bhubaneshwar, India.
@@ -259,6 +257,7 @@
 	%10-20 system
 	\bibitem{jasper1020}
 	Jasper, H. H. (1958). The ten–twenty electrode system of the International Federation. \textit{Electroencephalography and Clinical Neurophysiology}, 10, 371--375.
-
+	
+\bibitem{mostafa2025} Mostafa, M.-A. T., Awadalla, M. and Abdel-Hamid, L. (2025). Recurrence quantification analysis (RQA) features vs. traditional EEG features for Alzheimer’s disease diagnosis. Inteligencia Artificial, 28(75), 170–185. https://doi.org/10.4114/intartif.vol28iss75pp170-185
 
 \end{thebibliography}
