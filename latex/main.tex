@@ -25,11 +25,34 @@
 
 
 % Preamble: Define title, author, date
-\title{Epilepsy Detection from Multi-Channel EEG Using Cross-Recurrence Quantification Analysis and Machine Learning}
-\author{Nikolaos Mouzakitis} % Use \\ for a line break
-\date{\today} % You can use a specific date or \today for the current date
+%\title{Epilepsy Detection from Multi-Channel EEG Using Cross-Recurrence Quantification Analysis and Machine Learning}
+%\author{Nikolaos Mouzakitis} % Use \\ for a line break
+%\date{\today} % You can use a specific date or \today for the current date
+
+\def\seclogo{} 
+
+
 \begin{document}
-	\maketitle
+\makeatletter
+\begin{titlepage}
+\centering
+\vspace* {1cm}
+{ \includegraphics[width=6cm]{ELMEPA.png}}\\[1cm]
+
+{\LARGE \textbf{Epilepsy Detection from Multi-Channel EEG Using Cross-Recurrence Quantification Analysis and Machine Learning}}\\[1cm]
+Master Thesis\\[1cm]
+
+	Hellenic Mediterannean University\\[0.5cm]
+
+
+
+	\textbf{Written By:} {Nikolaos Mouzakitis MTP321}\\[1cm]
+\date{\large Date Last Edited: \today}
+{\@date\\}
+\end{titlepage}
+
+%	\maketitle
+%	\includegraphics[width=6cm]{ELMEPA.png}}\\[1cm]
 	\newpage	
 	\tableofcontents
 	\newpage  % optional, to start the co
@@ -113,7 +136,20 @@
 	studies in various conditions such as epilepsy, cognitive disorders and others.
 
 	\section{Related Work}
+
+			Existing recurrence-based approaches in EEG and related modalities 
+			can be grouped into: 
+			(i) studies that use RQA to quantify single-channel complexity, 
+			(ii) studies that use CRQA / recurrence networks to quantify inter-channel 
+			synchronization and connectivity, and 
+			(iii) hybrid frameworks that combine recurrence features with machine learning or 
+			network-level representations. 
+			In this section we review works belonging in each category, while emphasizing on 
+			epilepsy-related applications and subject-independent evaluation protocols.
+
 			%ok, eeg OK
+			A first category of works investigates the utility 
+			of recurrence analysis in describing brain dynamics and functional connectivity.
 			Frolov et al.\cite{frolov} proposed an approach to analyze frequency based multiplex brain networks
 			using recurrence quantification analysis (RQA) 
 			on EEG data, and demonstrated the way that recurrence-based 
@@ -123,23 +159,23 @@
 			Their work showed that RQA is particularly suitable for analyzing 
 			non-stationary EEG signals and revealed
 			important insights about the evolution of functional connectivity 
-			patterns during cognitive tasks. In addition the dataset
-			used in this research are openly available in a Figshare repository.
+			patterns during cognitive tasks.
 
 			%ok.   eeg,Alzheimer OK
+			Beyond cognitive paradigms, recurrence metrics have also been 
+			explored as biomarkers in neurodegeneration and cognitive impairment.
 			Núñez et al. \cite{nunez2020characterization} worked with 
 			resting-state EEG recordings from subjects with mild cognitive impairment(MCI), 
 			Alzheimer's disease(AD), and healthy ground truth controls in order to detect 
 			frequency based changes into their brain dynamics. 
 			By blending wavelet based Kullback–Leibler divergence
 			(KLD) for capturing non-stationarity,
-			and two RQA
-			metrics(\textit{entropy of the recurrence point density}
+			and two RQA metrics(\textit{entropy of the recurrence point density}
 			and the \textit{median of the recurrence point density}) insights have been
 			extracted related to neurodegeneration presence.
 			Research's findings show that MCI and AD are presenting notable changes in 
 			the recurrence structure and non-stationarity of EEG signals,
-			and more specifics on the theta and beta frequency bands.
+			and more specific on the theta and beta frequencies.
 			Therefore, recurrence based dynamics show a capability as potential 
 			biomarkers for monitoring and detecting early Alzheimer's disease and its progression.
 			
@@ -159,10 +195,9 @@
 			dynamics under subject-independent evaluation protocols.
 
 			%% EEG, RQA-CRQA, MCI, OKAY.
-			MCI has also investigated by Timothy et al.\cite{timothy2017classification}, where 
-			researchers have focused on 
-			the classification of MCI using EEG signals and 
-			combining RQA and CRQA methods. Analysis has been performed on both resting-state 
+			In the context of MCI, Timothy et al.\cite{timothy2017classification}, 
+			focused on the classification of MCI using EEG signals and 
+			combining RQA-CRQA methods. Analysis has been performed on resting-state 
 			(eyes closed) and task-based (short-term memory) EEG data, 
 			focusing on complexity (via RQA) and synchronization (via CRQA) features. 
 			Their results indicate that MCI patients exhibit lower complexity
@@ -170,30 +205,13 @@
 			particularly during memory tasks. 
 			The study also proposes a novel feature space approach using RQA and CRQA measures, 
 			achieving high classification accuracy (91.7\%) under task conditions. 
-				
-
-
-			%epilepsy-ok eeg   OK
-			Fan and Chou \cite{fan2019detecting} have also proposed 
-			an approach for real-time epileptic seizure detection
-			using as a method the analysis of temporal synchronization 
-			patterns of EEG signals with recurrence networks and spectral graph theory. 
-			Recurrence plots were used for the modeling of the EEG dynamics, 
-			extracting graph theory's features for quantifying the synchronization. 
-			Results showed high sensitivity of 98.48\% and low latency
-			(6 seconds) for detecting seizure on the CHB-MIT dataset, 
-			performing better than other RQA measures.  
 
 			%ok, EEG, RQA, ASD    OK
 			Heunis and co-authors\cite{heunis2018} have utilized resting state EEG and RQA in order to
 			distinguish individuals of ages 0-18 of two categories; ASD(autism spectrum disorder) and typically developing.
 			RQA features were extracted and tested on various linear and nonlinear classifiers achieving 92.9\% classification
 			accuracy with nonlinear SVM classifier.
-
-
-
-			% EEG, aging aisthitiriako-kinitiko systima. ok.  OK
-			Author in \cite{pitsik}, investigated changes related to aging in 
+			Similarly, Pitsik \cite{pitsik}, investigated changes related to aging in 
 			brain sensorimotor systems using 
 			RQA and theta-band functional connectivity in EEG signals. 
 			In the study a VR experimental paradigm was 
@@ -206,7 +224,10 @@
 			age related biomarkers that were not detectable using 
 			standalone signal spectral analysis.
 
+	
 			%cognitive, eeg OK.    OK
+			In addition to clinical EEG biomarkers, recurrence features have also been investigated 
+			in studies targeting cognitive workload and mental effort. 
 			Guglielmo et al. \cite{guglielmo}  
 			utilized RQA features extracted 
 			by EEG signals for the purpose of classification
@@ -221,8 +242,7 @@
 			they reached accuracy of classification above 0.85, 
 			showing the potential that RQA holds for 
 			generalizing on nonlinear dynamics.
-			
-			Mihajlović \cite{mihajlovic19} studied the discriminative effiency of traditional spectral features 
+			Mihajlović \cite{mihajlovic19} further examined the discriminative effiency of traditional spectral features 
 			in comparison to RQA-derived nonlinear metrics for the cognitive effort classification purposes. 
 			Utilizing a 4-channel wearable EEG headset, data was recorded while subjects perform tasks
 			having variable cognitive load such as relaxation, math, reading. 
@@ -231,8 +251,23 @@
 			most important features for discrimination task. A conjuction of a hybrid model using both spectral and RQA features 
 			achieved the best overall performance, showing the complementary nature of the methods in brain dynamics exploration. 
 
-
+			A second major direction of works, focuses on applying recurrence analysis to epilepsy detection, 
+			where nonlinear dynamics and abnormal synchronization are fundamental
+			characteristics of seizure events.
+			Fan and Chou \cite{fan2019detecting} have proposed 
+			an approach for real-time epileptic seizure detection
+			using as a method the analysis of temporal synchronization 
+			patterns of EEG signals with recurrence networks and spectral graph theory. 
+			Recurrence plots were used for the modeling of the EEG dynamics, 
+			extracting graph theory's features for quantifying the synchronization. 
+			Results showed high sensitivity of 98.48\% and low latency
+			(6 seconds) for detecting seizure on the CHB-MIT dataset, 
+			performing better than other RQA measures.  
+		
 			%% epilepsy, CRQA,RQA,sEEG   OK
+			Several studies further emphasize the value of CRQA 
+			and recurrence-network analysis for epilepsy and seizure dynamics, 
+			particularly when analyzing coupling across brain regions.
 			Yang and co-authors \cite{yang2019dynamical}, examined stereo electroencephalography (sEEG) 
 			recordings of 10 patients with refractory focal epilepsy for analyzing dynamical differences 
 			among discreet epileptic phases/states (inter-ictal, pre-ictal, and ictal) and regions. 
@@ -241,8 +276,6 @@
 			Their findings point out that the synchronization among the epileptogenic channels strengthened 
 			while seizures events occur, suggesting that these regions dominate the 
 			network's dynamics.
-
-
 			%epilepsy, sEEG , RQA ok
 			Lopes et al. \cite{lopes} have proposed a 
 			combinatorial framework 
@@ -262,7 +295,7 @@
 			
 			%eeg, epilepsy, RQA, OK
 			Rangaprakash~\cite{rangaprakash2014} have proposed an application of RQA for the study of
-			brain connectivity using multichannel EEG signals. In its work,
+			brain connectivity using multichannel EEG signals. In this work,
 			a new CRQA-based feature was proposed (Correlation between 
 			Probabilities of Recurrence (CPR)), a nonlinear and non-parametric 
 			phase synchronization technique. Afterwards it was utilized for the analysis 
@@ -286,36 +319,37 @@
 			to identify pathological patterns in EEG signals without the 
 			requirement of seizure events during recording which have bad impact on the subject's health.
 
-
-
-			%sEEG
-			Another study utilizing advanced nonlinear analysis techniques for neural correlation investigation to
-			cognitive functions \cite{mo} used \textit{stereoelectroencephalography (sEEG)} combined alongside RQA 
-			for the examination of the relationship of the DMN and empathy. 
+			
+			Beyond seizure diagnosis, recurrence analysis has also been utilized 
+			in studies linking neural dynamics to cognitive function.
+			In their study, Mo et al.\cite{mo} used \textit{stereoelectroencephalography (sEEG)} 
+			combined with RQA for the examination of the relationship of the DMN and empathy. 
 			Correlations have been detected relating specific RQA metrics 
 			(mean diagonal line length, entropy of diagonal line lengths, trapping time) 
 			and empathy scores, particularly within DMN subsystems. 
 
 			%epilepsy EEG
-			Regarding epilepsy diagnosis, authors in \cite{palanisamy2024} proposed a new framework 
+			Hybrid machine learning systems for epilepsy detection have also been developed,
+			as authors in \cite{palanisamy2024} proposed a new framework 
 			utilizing the combintation of RQA with genetic algorithms and Bayesian classifiers for 
 			identifying corresponding biomarkers for seizure detection. 
 			They utilized five distance norms (e.g., Euclidean, Mahalanobis) and multiple thresholds 
 			for extracting recurrence features from EEG signals, achieving 100\% classification accuracy. 
-			More specific, the \textit{transitivity} feature has shown capability of a highly discriminative biomarker, 
-			performing better compared to traditional linear methods. 
-
-			%epilepsy EEG
-			Ngamga et al.\cite{ngamga2016} studied the performance achieved of RQA and Recurrence Network (RN) measures in identifying 
+			More specific, the \textit{transitivity} feature has shown capability of a 
+			highly discriminative biomarker, performing better compared to traditional linear methods. 
+			Ngamga et al.\cite{ngamga2016} studied the performance achieved of RQA and Recurrence 
+			Network (RN) measures in identifying 
 			pre-seizure states from multi-day, multi-channel intracranial EEG (iEEG) 
 			recordings of epilepsy patients. 
-			Results highlighted the correlation among RQA measures (determinism, laminarity, and mean recurrence time) in 
-			detecting seizure precursors, while RN measures (average shortest path length and network transitivity) provided 
+			Results highlighted the correlation among RQA measures 
+			(determinism, laminarity, and mean recurrence time) in 
+			detecting seizure precursors, while RN measures 
+			(average shortest path length and network transitivity) provided 
 			complementary but not so consistent insights than using the application of RQA measures alone.
 
-			Gao et al.\cite{gao2020automatic} examined the application of RQA 
-			in the domain of automated epilepsy detection. 
-			Authors utilized a hybrid scheme combining nonlinear features(related to Approximate Entropy(ApEn) and RQA metrics) 
+			Gao et al.\cite{gao2020automatic} examined further the application of RQA 
+			in the domain of automated epilepsy detection. Researchers utilized a hybrid scheme 
+			combining nonlinear features(related to Approximate Entropy(ApEn) and RQA metrics) 
 			from the publicly available Bonn EEG dataset\cite{bonndataset} with a deep learning classifier.
 			Their key finding was that while ApEn and RQA features alone could 
 			achieve good classification accuracy, 
@@ -327,11 +361,12 @@
 
 
 
-
-
 			%%%	studies with fmri
 
 			% Alzheimer, fmri, ok   OK
+			Recurrence analysis has also been extensively applied beyond EEG 
+			in neuroimaging modalities such as fMRI, indicating the generality of 
+			recurrence-based tools for dynamical brain analysis.
 			Researchers in \cite{rezaei},
 			have applied RQA on resting-state fMRI data from 
 			TgF344-AD rats(a transgenic rat model which will eventually develop Alzheimer’s disease)
@@ -347,9 +382,6 @@
 			in predictability, suggesting some unknown yet countereacting mechanisms. 
 			This study highlights RQA's sensitivity for nonlinear dynamics 
 			in preclinical AD and the code used is also publicly available.
-
-
-			%schizophrenia, fmri, ok  OK
 			Lombardi et al.\cite{Lombardi2014} investigated the 
 			nonlinear properties in fMRI BOLD signals 
 			during a working memory task in 
@@ -363,8 +395,6 @@
 			and more specific in working memory and DMN areas. 
 			While their work have focused on fMRI, the methodology can be adapted also into
 			EEG signals, which can offer a higher resolution for capturing rapid neural dynamics.
-
-			%ok. schizophrenia, fMRI  OK
 			Kang et al. \cite{kang}, in their study explore the dynamics and functional connectivity of the 
 			Default Mode Network (DMN) in schizophrenia, applying RQA-CRQA on resting-state fMRI data. 
 			Findings include decreased \textit{determinism} between specific DMN regions 
@@ -375,7 +405,7 @@
 
 
 			%npsle
-			In their research, Pentari et al.\cite{pentari22} have applied CRQA to resting-state fMRI data 
+			Importantly, Pentari et al.\cite{pentari22} have applied CRQA to resting-state fMRI data 
 			for examining the dynamic functional connectivity on patients with neuropsychiatric systemic 
 			lupus erythematosus (NPSLE). Results contain the fact that CRQA metrics, such as determinism,
 			appear more sensitive than conventional static functional connectivity methods in order to
@@ -385,7 +415,7 @@
 			Building on these findings, Pentari et al.\cite{pentari23} subsequently expanded 
 			the investigation to whole brain network analysis in a larger cohort. 
 			In this study they demonstrate the capability of CRQA to integrate multiple recurrence metrics 
-			for revealing both hyperconnectivity in parietal regions (angular gyrus and superior parietal lobule) 
+			for revealing both hyperconnectivity in parietal regions (angular gyrus and superior parietal lobule)
 			and hypoconnectivity in medial temporal structures (hippocampus and amygdala). 
 		%	Notably, the dynamic connectivity measures showed stronger associations with cognitive 
 		%	performance than structural measures, particularly for verbal episodic memory. 
@@ -398,7 +428,8 @@
 			(to mimic better the real human brain), using coupled Rulkov maps to model bursting neurons. 
 			By applying RQA, they identified synchronized neuron groups and quantified their 
 			sizes during synchronization transitions. The study showed that RQA measures 
-			(\textit{recurrence rate, laminarity inspired}(custom feature)\textit{, and average structure size}) complement 
+			(\textit{recurrence rate, laminarity inspired}
+			(custom feature)\textit{, and average structure size}) complement 
 			traditional order parameters by revealing localized synchronization patterns, 
 			such as the formation and growth of synchronized clusters.
 			Kashyap and Keilholz\cite{Kashyap2019} conducted a comprehensive comparison 
@@ -411,11 +442,14 @@
 			(\textit{recurrence rate, entropy, and average diagonal length}) could robustly separate the empirical data from simulations. 
 		   
 			
+			Finally, recurrence-based coupling analysis has been utilized even in anesthesia monitoring contexts.
 			Shalbaf et al. \cite{shalbaf2014frontal} investigated the synchronization of EEG signals 
 			between frontal and temporal regions during propofol anesthesia 
 			using \textit{Order Patterns Cross Recurrence Analysis} (OPCR). 
-			Their study introduced a novel index, \textit{Order Pattern Laminarity} (OPL), for the quantification of
-			neuronal synchronization and compared its performance with the traditional Bispectral Index (BIS). 
+			Their study introduced a novel index, \textit{Order Pattern Laminarity} (OPL), 
+			for the quantification of
+			neuronal synchronization and compared its performance 
+			with the traditional Bispectral Index (BIS). 
 			The results demonstrated that OPL correlated more strongly with propofol concentration 
 			($P_k = 0.9$) and exhibited faster response times to transient changes in consciousness 
 			compared to BIS. Additionally, OPL showed lower variability at the point of loss of 
@@ -423,22 +457,18 @@
 			This work highlights the potential of recurrence-based methods (e.g., CRQA) 
 			for analyzing brain network dynamics under anesthesia, 
 			particularly in noisy, non-stationary EEG data.
-
+			
 
 			
-			Despite the extensive application of RQA and CRQA across EEG, sEEG, and fMRI modalities,
-			existing studies predominantly focus either on univariate recurrence properties of
-			individual channels or on localized synchronization analysis within restricted brain
-			regions. Moreover, many approaches emphasize task-specific or patient-dependent
-			settings, limiting their generalization across subjects. Although CRQA has been shown
-			to capture inter-channel synchronization, its systematic integration into a unified,
-			subject-independent seizure detection framework using multichannel scalp EEG remains
-			relatively unexplored. In particular, there is a lack of studies that combine
-			recurrence-based nonlinear dynamics with global feature aggregation strategies aimed
-			at enhancing robustness and cross-subject generalization under strict evaluation
-			protocols such as leave-one-subject-out validation.
+			Several works have demonstrated that recurrence-based and cross-recurrence measures 
+			can capture seizure-related dynamics and 
+			inter-channel coupling \cite{fan2019detecting,yang2019dynamical,rangaprakash2014}. 
+			However, relatively few studies integrate these nonlinear features into a unified 
+			scalp EEG pipeline that also utilizes global aggregation strategies 
+			and strict subject-independent evaluation protocols such as 
+			leave-one-subject-out validation \cite{mostafa2025}.
 
-
+			
 
 
 		\begin{table}[h]
@@ -447,7 +477,7 @@
 		\label{tab:comparison}
 		\begin{tabular}{@{}lcccc@{}}
 		\toprule
-		\# & Reference & Modality & Analysis Methods & Network Type \\
+		\# & Reference & Modality & Analysis Methods & Network Type/Disorder \\
 		\midrule
 
 		1  & Frolov et al. (2020) & EEG & RQA, CRQA & Multiplex functional networks \\
@@ -474,6 +504,7 @@
 		22 & Kashyap et al. (2019) & fMRI & RQA & distinguish BNMs \\
 		23 & Shalbaf et al. (2014) & EEG & CRQA(OPL) &  Anesthesia depth monitoring\\
 		24 & Mihajlović. (2019) & EEG & RQA &  cognitive tasks\\
+		25 & Gao et al. (2020)	& EEG & RQA, Approx. Entropy + CNN & epilepsy detection \\
 
 		\bottomrule
 		\end{tabular}
@@ -508,64 +539,34 @@
 			and can be utilized in clinical applications for 
 			anesthesia control during surgery or even in long term coma assessment.
 
-			Patent US20250195894A1 \cite{pat2025}, entitled 
-			``Systems and Methods for Seizure 
-			Detection and Closed-Loop Neurostimulation,'' 
-%			provides a view of the current challenges and proposes a solution for 
-%			implementing RQA in a resource-constrained environment.
-			Inventors proceed in an alternative calculation
-			of RQA measures which entirely bypass the construction 
-			of the recurrence plot matrix(RP).
-			They achieve this, by not creating the traditional RP in order 
-			to extract certain metrics from, but by
-			calculating them, \textit{on-the-fly}; dynamically accumulating 
-			the lengths of diagonal lines as each new 
-			data point is processed.
-		%	The core innovation involves a concept shift: the rows of the hypothetical 
-		%	matrix are aligned such that the main diagonal becomes vertical. 
-		%	As each new row of this ``imagined'' matrix is considered 
-		%	(f.e, as each new data point is acquired), the algorithm checks for recurrence. 
-		%	If a recurrence is found, a counter for the corresponding vertical column 
-		%	(representing a diagonal line in the original RP) is incremented. 
-		%	If a recurrence ends (f.e, a zero follows a one), the final length of the chain 
-		%	is recorded in a histogram of line lengths, and the counter is reset. 
-		%	This process directly builds the histogram of diagonal line lengths, 
-		%	from which standard RQA metrics like DET, ENTR, and L can be immediately derived, 
-		%	without ever storing the full RP matrix.
-			This method offers the following advantages:
-					\begin{enumerate}
-					    \item \textbf{Memory Efficiency:} It does not require the large $N \times N$ comparison matrix, reducing memory usage by approximately 88\%.
-					    \item \textbf{Computational Efficiency:} It avoids the expensive read/write cycles 
-						    associated with managing the large matrix, reducing processing time by approximately 30\% per channel.
-					\end{enumerate}
-	
-				
-			In addition, the patent by \cite{pat2018}, titled 
-			''An EEG signal classification model based on genetic algorithm and random forest'',
-			presents a framework for EEG signal classification. 
-			The inventors propose a hybrid model consisting of three key stages:
+			Patent US20250195894A1 \cite{pat2025}, 
+			entitled “Systems and Methods for Seizure Detection and Closed-Loop Neurostimulation,” 
+			proposed an alternative implementation of recurrence quantification metrics 
+			that bypasses explicit construction of the full \textbf{N×N}
+			recurrence plot matrix. Instead, metrics are computed on-the-fly by dynamically 
+			accumulating diagonal line statistics as new samples arrive, 
+			providing significant reduction in memory and computational requirements. 
+			Specifically, the method reports approximately 88\% reduction in memory usage and around 30\% 
+			reduction in processing time per channel, which is particularly desired 
+			in real-time and resource-constrained embedded systems.
+			
+			In addition, patent \cite{pat2018}, titled “An EEG signal classification model 
+			based on genetic algorithm and random forest”, proposed a three-stage EEG classification 
+			framework integrating recurrence-derived descriptors in a hybrid system. 
+			First, EEG features are extracted by a multi-modal strategy combining RQA measures 
+			with classical time and frequency domain features. 
+			Second, a genetic algorithm is used for feature subset optimization 
+			via binary chromosome encoding. Finally, the selected feature subset 
+			is classified using a Random Forest model. 
+			The patent claims improved classification performance and robustness 
+			through cross-validation on a public dataset, supporting the practical utility 
+			of recurrence features in industrial EEG analytics.
 
-				\begin{enumerate}
-				    \item \textbf{Feature Extraction:} The method employs a multi-modal feature extraction strategy. 
-					    Among other features, it explicitly includes \textit{RQA} metrics from the EEG signal, 
-					    alongside other traditional time-domain/frequency features.
-				    \item \textbf{Feature Optimization:} A genetic algorithm (GA) is then utilized for feature selection. 
-					    Inventors use binary encoding for representing chromosomes, where each bit corresponds to the selection (1) or rejection (0) of a specific 
-					    feature from the large extracted pool. The aim of this procedure is to optimize the feature subset in order
-					    to have maximum discriminative power.
-				    \item \textbf{Classification:} The optimized feature subset is fed into a Random Forest 
-					    classifier for a final prediction. 
-				\end{enumerate}
-
-			The patent claims that this integrated approach, 
-			validated on a public dataset, yields a superior classification 
-			accuracy compared to existing methods at the time of filing, 
-			while also demonstrating robustness through cross-validation.
-		
 				%%%% on sleep
 			Another patent\cite{pat2019} (CN106512206B) describes an 
 			implantable closed-loop deep brain stimulation (DBS) system that uses 
-			electrophysiological signals (specific deep brain local field potentials (LFPs) and ECG  signals) for monitoring 
+			electrophysiological signals (specific deep brain local field potentials (LFPs) and 
+			ECG  signals) for monitoring 
 			the states of a human sleeping and adjusting various stimulation parameters in real time.
 			A device acquires ECG and deep brain signals for feature extraction 
 			in the domains of time and frequency, while 
@@ -575,8 +576,6 @@
 			and spectral features to classify sleep states and trigger appropriate stimulation responses.
 			Features are then utilized for detection of sleep stages 
 			and for emergency detection/alerts (e.g, cardiac arrest or abnormal excitation).
-	%		Also the described device adjusts or turns off the stimulation based on the patient's sleep state in order to save battery life and reduce side effects.
-
 		
 		\newpage
 
@@ -659,6 +658,14 @@
 		the full recordings can be visualized and 
 		inspected interactively as shown in Figure~\ref{MNEvis} via the MNE library in Python.
 
+		\begin{figure}[H]
+			    \centering
+			    \includegraphics[width=1.1\textwidth]{edf_rec.png}
+			    \caption{EEG recording visualized utilizing Python-MNE, for a patient of the dataset.}
+			    \label{MNEvis}
+			\end{figure}
+
+
 		For the analysis presented in this thesis,
 		in each recording the following EEG signals
 			\textit{'FP1-F7'}, 
@@ -684,7 +691,7 @@
 			\textit{'FT9-FT10'}, 
 			\textit{'FT10-T8'}
 			have been extracted and processed
-			from all the recordings containing them, when they presented at least one seizure event.
+			from all the recordings, when they presented at least one seizure event.
 			Each extracted signal label (e.g, FP1–F7) corresponds to a bipolar EEG channel, 
 			which represents the difference of the voltage among two scalp electrodes, 
 			placed according to the International 10–20 system\cite{jasper1020}. 
@@ -697,18 +704,20 @@
 			recordings of different sessions. 
 			Related to the electrode's naming, 
 			each label (e.g, F3, P7, O1) 
-			is assigned to a functionally meaningful region of the human scalp.
+			is assigned to a functionally meaningful region of the human scalp as can be 
+			observed in Figure \ref{fig:10-20-image}.
 
 
 			\begin{figure}[h]
 			    \centering
-			    \includegraphics[width=1.1\textwidth]{edf_rec.png}
-			    \caption{EEG recording visualized utilizing Python-MNE, for a patient of the dataset.}
-			    \label{MNEvis}
+			    \includegraphics[width=1.0\textwidth]{10-20-image.png}
+			    \caption{EEG electrode position namings.\cite{10-20-image}}
+			    \label{fig:10-20-image}
 			\end{figure}
 
 
 
+		\newpage
 		\newpage
 		\section{Filtering}
 
@@ -877,7 +886,8 @@
 			containing the desired 22 EEG signals and presenting at least one epileptic seizure.
 			Each of these recordings, was preprocessed through a multi-stage denoising 
 			and filtering pipeline as presented in Figure \ref{fig:preproc},
-			designed to suppress noise and remove artifacts. 
+			designed to achieve the trade-off alongside suppressing noise/removing artifacts 
+			while preserving the original signals morphology. 
 			Finally normalization of the amplitudes was performed across channels(channel-wise).
 			
 			To each EDF recording, in all of its 22 channels, initially a 0.5–60 Hz Butterworth bandpass 
@@ -902,7 +912,7 @@
 			
 			\begin{figure}[H]
 			    \centering
-			    \includegraphics[width=0.8\textwidth]{prep2.png}
+			    \includegraphics[width=0.8\textwidth]{prep2(2).png}
 			    \caption{Preprocessing and filtering pipeline of EEG recordings}
 			    \label{fig:preproc}
 			\end{figure}
@@ -932,8 +942,8 @@
 		The reconstruction of the phase space from a single time series 
 		\( x(t) \) requires the specification of two parameters: 
 		the time delay \( \tau \) and the embedding dimension \( m \). 
-		These two parameters determine how the reconstruction will represent
-		and how close it will reveal the underlying dynamics without distortion.
+		These two parameters determine the way that the reconstruction will represent,
+		and how close it will get to the real underlying dynamics and reveal them without distortion.
 
 			\begin{figure}[H]
 				    \centering
@@ -1736,7 +1746,8 @@
 				having as a consequence high accuracy by simply predicting "normal" for all instances.
 
 
-				In order to tackle this imbalance problem, a patient-specific downsampling approach has been 
+				In order to tackle this imbalance problem, a patient-specific 
+				downsampling approach has been 
 				used for the normal segments. 
 				For each \texttt{mean\_\_feature\_matrix} corresponding to each one of the 136 recordings,
 				its normal segments have been grouped into 40 continuous splits, respecting their timing order.
@@ -1746,6 +1757,8 @@
 
 				Patient-specific processing maintains inter-patient physiological variability and avoids the 
 				data leakage between patients, which is essential for developing classification models later.
+				It also should be noted, that by using this method, we avoid completely to introduce any synthetical 
+				dynamical samples in the dataset.
 
 				The processed data, stored as \texttt{.npy} files in a dedicated directory, serves as the foundation for all 
 				subsequent machine learning experiments described in the following sections and the class distribution can be

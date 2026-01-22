@@ -4,10 +4,11 @@
 			Frolov, N., Maksimenko, V. and Hramov, A. (2020), Revealing a multiplex brain network through the analysis of recurrences \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science} 30(12), 121108.
 
 		\bibitem{kang}
-			Recurrence quantification analysis of periodic dynamics in the default mode network in first-episode drug-naïve schizophrenia. \textit{Psychiatry Research: Neuroimaging}, 329, 111583.
+			Kang, Y., Zhang, Y., Huang, K. and Wang, Z. (2023). Recurrence quantification analysis of periodic dynamics in the default mode network in first-episode drug-naïve schizophrenia. \textit{Psychiatry research. Neuroimaging}, 329, 111583. https://doi.org/10.1016/j.pscychresns.2022.111583
 
 		\bibitem{rezaei}
-			Recurrence quantification analysis of rs-fMRI data: A method to detect subtle changes in the TgF344-AD rat model. \textit{Computer Methods and Programs in Biomedicine}, 257, 108378.
+			Rezaei, A., van den Berg, M., Mirlohi, H., Verhoye, M., Amiri, M. and Keliris, G. A. (2024). Recurrence quantification analysis of rs-fMRI data: A method to detect subtle changes in the TgF344-AD rat model. \textit{Computer methods and programs in biomedicine}, 257, 108378. https://doi.org/10.1016/j.cmpb.2024.108378
+
 
 		\bibitem{lameu2018}
 		Lameu, E. L., Yanchuk, S., Macau, E. E. N., Borges, F. S., Iarosz, K. C., Caldas, I. L., Protachevicz, P. R., Borges, R. R., Viana, R. L., Szezech, J. D., Batista, A. M. and Kurths, J. (2018). Recurrence quantification analysis for the identification of burst phase synchronisation. \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science}, \textit{28}(8), 085701. https://doi.org/10.1063/1.5024324
@@ -258,6 +259,8 @@
 	\bibitem{jasper1020}
 	Jasper, H. H. (1958). The ten–twenty electrode system of the International Federation. \textit{Electroencephalography and Clinical Neurophysiology}, 10, 371--375.
 	
-\bibitem{mostafa2025} Mostafa, M.-A. T., Awadalla, M. and Abdel-Hamid, L. (2025). Recurrence quantification analysis (RQA) features vs. traditional EEG features for Alzheimer’s disease diagnosis. Inteligencia Artificial, 28(75), 170–185. https://doi.org/10.4114/intartif.vol28iss75pp170-185
+	\bibitem{mostafa2025} Mostafa, M.-A. T., Awadalla, M. and Abdel-Hamid, L. (2025). Recurrence quantification analysis (RQA) features vs. traditional EEG features for Alzheimer’s disease diagnosis. Inteligencia Artificial, 28(75), 170–185. https://doi.org/10.4114/intartif.vol28iss75pp170-185
 
+	\bibitem{10-20-image}
+	By Laurens R. Krol - Own work, CC0, https://commons.wikimedia.org/w/index.php?curid=96859272
 \end{thebibliography}

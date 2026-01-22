@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  21 JAN 2026 23:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  22 JAN 2026 02:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -714,7 +714,7 @@ File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@layerboxsaved@background=\box97
 )
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 31.
+h' as default language. on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
@@ -724,20 +724,20 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -780,7 +780,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 31.
+or `english'. on input line 35.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -806,259 +806,269 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+<ELMEPA.png, id=4, 526.8483pt x 526.8483pt>
+File: ELMEPA.png Graphic file (type png)
+<use ELMEPA.png>
+Package pdftex.def Info: ELMEPA.png  used on input line 40.
+(pdftex.def)             Requested size: 170.71652pt x 170.71721pt.
 
+[1
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./ELMEPA.png>]
+(./main.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc [2])
+) [1])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [3]
-Overfull \hbox (9.3561pt too wide) in paragraph at lines 102--114
+ [2]
+Overfull \hbox (9.3561pt too wide) in paragraph at lines 125--137
 []\OT1/cmr/m/n/10 Recurrence Quan-tifi-ca-tion Anal-y-sis (RQA) and Cross-Recur
 rence Quan-tifi-ca-tion Anal-y-sis (CRQA)
  []
 
-[4] [5] [6] [7] [8]
-Overfull \hbox (26.53784pt too wide) in paragraph at lines 448--480
+[3] [4] [5] [6] [7]
+Overfull \hbox (80.28798pt too wide) in paragraph at lines 478--511
  [][] 
  []
 
-[9]
-Overfull \hbox (2.47237pt too wide) in paragraph at lines 549--552
-[]\OT1/cmr/bx/n/10 Feature Ex-trac-tion: \OT1/cmr/m/n/10 The method em-ploys a 
-multi-modal fea-ture ex-trac-tion strat-egy. Among
- []
 
-[10] [11]
-<edf_rec.png, id=51, 1655.18375pt x 918.43124pt>
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8] [9] [10]
+<edf_rec.png, id=53, 1655.18375pt x 918.43124pt>
 File: edf_rec.png Graphic file (type png)
 <use edf_rec.png>
-Package pdftex.def Info: edf_rec.png  used on input line 705.
+Package pdftex.def Info: edf_rec.png  used on input line 663.
 (pdftex.def)             Requested size: 473.0077pt x 262.45633pt.
 
-Overfull \hbox (43.00308pt too wide) in paragraph at lines 705--706
+Overfull \hbox (43.00308pt too wide) in paragraph at lines 663--664
  [][] 
  []
 
-[12 <./edf_rec.png>] [13]
-<eeg_metrics_result.png, id=62, 1280.6244pt x 710.4141pt>
+<10-20-image.png, id=54, 1284.8pt x 856.19875pt>
+File: 10-20-image.png Graphic file (type png)
+<use 10-20-image.png>
+Package pdftex.def Info: 10-20-image.png  used on input line 713.
+(pdftex.def)             Requested size: 430.00462pt x 286.55727pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./edf_rec.png>] [12 <./10-20-image.png>] [13]
+<eeg_metrics_result.png, id=68, 1280.6244pt x 710.4141pt>
 File: eeg_metrics_result.png Graphic file (type png)
 <use eeg_metrics_result.png>
-Package pdftex.def Info: eeg_metrics_result.png  used on input line 848.
+Package pdftex.def Info: eeg_metrics_result.png  used on input line 857.
 (pdftex.def)             Requested size: 473.0077pt x 262.39381pt.
 
-Overfull \hbox (43.00308pt too wide) in paragraph at lines 848--849
+Overfull \hbox (43.00308pt too wide) in paragraph at lines 857--858
  [][] 
  []
 
 [14]
-<wav1.png, id=66, 1125.9666pt x 730.6497pt>
+<wav1.png, id=72, 1125.9666pt x 730.6497pt>
 File: wav1.png Graphic file (type png)
 <use wav1.png>
-Package pdftex.def Info: wav1.png  used on input line 860.
+Package pdftex.def Info: wav1.png  used on input line 869.
 (pdftex.def)             Requested size: 516.00423pt x 334.84312pt.
 
-Overfull \hbox (85.9996pt too wide) in paragraph at lines 860--861
+Overfull \hbox (85.9996pt too wide) in paragraph at lines 869--870
  [][] 
  []
 
 [15 <./eeg_metrics_result.png>]
-<wav2.png, id=71, 867.9627pt x 730.6497pt>
+<wav2.png, id=77, 867.9627pt x 730.6497pt>
 File: wav2.png Graphic file (type png)
 <use wav2.png>
-Package pdftex.def Info: wav2.png  used on input line 868.
+Package pdftex.def Info: wav2.png  used on input line 877.
 (pdftex.def)             Requested size: 516.00423pt x 434.37964pt.
 
-Overfull \hbox (85.9996pt too wide) in paragraph at lines 868--869
+Overfull \hbox (85.9996pt too wide) in paragraph at lines 877--878
  [][] 
  []
 
 [16 <./wav1.png>] [17 <./wav2.png>]
-<prep2.png, id=80, 963.6pt x 722.7pt>
-File: prep2.png Graphic file (type png)
-<use prep2.png>
-Package pdftex.def Info: prep2.png  used on input line 905.
+<prep2(2).png, id=86, 963.6pt x 722.7pt>
+File: prep2(2).png Graphic file (type png)
+<use prep2(2).png>
+Package pdftex.def Info: prep2(2).png  used on input line 915.
 (pdftex.def)             Requested size: 344.005pt x 257.99937pt.
- [18 <./prep2.png>]
-<ami.png, id=85, 714.7503pt x 426.393pt>
+ [18 <./prep2(2).png>]
+<ami.png, id=92, 714.7503pt x 426.393pt>
 File: ami.png Graphic file (type png)
 <use ami.png>
-Package pdftex.def Info: ami.png  used on input line 940.
+Package pdftex.def Info: ami.png  used on input line 950.
 (pdftex.def)             Requested size: 344.005pt x 205.22585pt.
  [19 <./ami.png>]
-<fnn_estim.png, id=92, 714.7503pt x 426.393pt>
+<fnn_estim.png, id=99, 714.7503pt x 426.393pt>
 File: fnn_estim.png Graphic file (type png)
 <use fnn_estim.png>
-Package pdftex.def Info: fnn_estim.png  used on input line 984.
+Package pdftex.def Info: fnn_estim.png  used on input line 994.
 (pdftex.def)             Requested size: 344.005pt x 205.22585pt.
-<fnn_schematic.png, id=93, 939.51pt x 629.4717pt>
+<fnn_schematic.png, id=100, 939.51pt x 629.4717pt>
 File: fnn_schematic.png Graphic file (type png)
 <use fnn_schematic.png>
-Package pdftex.def Info: fnn_schematic.png  used on input line 992.
+Package pdftex.def Info: fnn_schematic.png  used on input line 1002.
 (pdftex.def)             Requested size: 430.00462pt x 288.10054pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [20 <./fnn_estim.png>] [21 <./fnn_schematic.png>]
-<phase_space_3d.png, id=104, 469.0323pt x 475.5366pt>
+<phase_space_3d.png, id=111, 469.0323pt x 475.5366pt>
 File: phase_space_3d.png Graphic file (type png)
 <use phase_space_3d.png>
-Package pdftex.def Info: phase_space_3d.png  used on input line 1035.
+Package pdftex.def Info: phase_space_3d.png  used on input line 1045.
 (pdftex.def)             Requested size: 301.00192pt x 305.19135pt.
  [22 <./phase_space_3d.png>]
-Overfull \hbox (3.99698pt too wide) in paragraph at lines 1116--1122
+Overfull \hbox (3.99698pt too wide) in paragraph at lines 1126--1132
 []\OT1/cmr/bx/n/10 Periodic pat-terns \OT1/cmr/m/n/10 orig-i-nate from de-ter-m
 in-is-tic os-cil-la-tory func-tions(e.g, trigono-met-ric) where
  []
 
 [23]
-<rp_homogeneous.png, id=112, 932.5239pt x 390.0171pt>
+<rp_homogeneous.png, id=119, 932.5239pt x 390.0171pt>
 File: rp_homogeneous.png Graphic file (type png)
 <use rp_homogeneous.png>
-Package pdftex.def Info: rp_homogeneous.png  used on input line 1148.
+Package pdftex.def Info: rp_homogeneous.png  used on input line 1158.
 (pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
-<rp_periodic.png, id=113, 932.5239pt x 390.0171pt>
+<rp_periodic.png, id=120, 932.5239pt x 390.0171pt>
 File: rp_periodic.png Graphic file (type png)
 <use rp_periodic.png>
-Package pdftex.def Info: rp_periodic.png  used on input line 1156.
+Package pdftex.def Info: rp_periodic.png  used on input line 1166.
 (pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
-<rp_drift.png, id=114, 932.5239pt x 390.0171pt>
+<rp_drift.png, id=121, 932.5239pt x 390.0171pt>
 File: rp_drift.png Graphic file (type png)
 <use rp_drift.png>
-Package pdftex.def Info: rp_drift.png  used on input line 1163.
+Package pdftex.def Info: rp_drift.png  used on input line 1173.
 (pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<rp_disrupted.png, id=115, 932.5239pt x 390.0171pt>
+<rp_disrupted.png, id=122, 932.5239pt x 390.0171pt>
 File: rp_disrupted.png Graphic file (type png)
 <use rp_disrupted.png>
-Package pdftex.def Info: rp_disrupted.png  used on input line 1170.
+Package pdftex.def Info: rp_disrupted.png  used on input line 1180.
 (pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [24 <./rp_homogeneous.png> <./rp_periodic.png>] [25 <./rp_drift.png> <./rp_disr
 upted.png>]
-Overfull \hbox (6.0023pt too wide) in paragraph at lines 1218--1219
+Overfull \hbox (6.0023pt too wide) in paragraph at lines 1228--1229
 []\OT1/cmr/m/n/10 The ra-tio is a mea-sure of com-
  []
 
 [26]
-Overfull \hbox (12.00787pt too wide) in paragraph at lines 1273--1276
+Overfull \hbox (12.00787pt too wide) in paragraph at lines 1283--1286
 []\OT1/cmr/m/n/10 The max-i-mum length of con-sec-u-tive non-recurrent
  []
 
 
 Package natbib Warning: Citation `marwan2007' on page 27 undefined on input lin
-e 1312.
+e 1322.
 
 [27] [28] [29]
-<segmentation-windowing.png, id=144, 1021.8175pt x 456.70625pt>
+<segmentation-windowing.png, id=151, 1021.8175pt x 456.70625pt>
 File: segmentation-windowing.png Graphic file (type png)
 <use segmentation-windowing.png>
-Package pdftex.def Info: segmentation-windowing.png  used on input line 1383.
+Package pdftex.def Info: segmentation-windowing.png  used on input line 1393.
 (pdftex.def)             Requested size: 301.00192pt x 134.53204pt.
  [30 <./segmentation-windowing.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<rr_compare/r01_epil.png, id=150, 421.575pt x 424.4658pt>
+<rr_compare/r01_epil.png, id=158, 421.575pt x 424.4658pt>
 File: rr_compare/r01_epil.png Graphic file (type png)
 <use rr_compare/r01_epil.png>
-Package pdftex.def Info: rr_compare/r01_epil.png  used on input line 1486.
+Package pdftex.def Info: rr_compare/r01_epil.png  used on input line 1496.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r015_epil.png, id=151, 421.575pt x 424.4658pt>
+<rr_compare/r015_epil.png, id=159, 421.575pt x 424.4658pt>
 File: rr_compare/r015_epil.png Graphic file (type png)
 <use rr_compare/r015_epil.png>
-Package pdftex.def Info: rr_compare/r015_epil.png  used on input line 1493.
+Package pdftex.def Info: rr_compare/r015_epil.png  used on input line 1503.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r02_epil.png, id=152, 421.575pt x 424.4658pt>
+<rr_compare/r02_epil.png, id=160, 421.575pt x 424.4658pt>
 File: rr_compare/r02_epil.png Graphic file (type png)
 <use rr_compare/r02_epil.png>
-Package pdftex.def Info: rr_compare/r02_epil.png  used on input line 1502.
+Package pdftex.def Info: rr_compare/r02_epil.png  used on input line 1512.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r03_epil.png, id=153, 421.575pt x 424.4658pt>
+<rr_compare/r03_epil.png, id=161, 421.575pt x 424.4658pt>
 File: rr_compare/r03_epil.png Graphic file (type png)
 <use rr_compare/r03_epil.png>
-Package pdftex.def Info: rr_compare/r03_epil.png  used on input line 1509.
+Package pdftex.def Info: rr_compare/r03_epil.png  used on input line 1519.
 (pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (8.97977pt too wide) in paragraph at lines 1588--1589
+Overfull \hbox (8.97977pt too wide) in paragraph at lines 1598--1599
 []  \OT1/cmr/m/n/10 Ra-dius neigh-bor-hood $\OML/cmm/m/it/10 r \OT1/cmr/m/n/10 
 = 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 15 \OMS/cmsy/m/n/10 ^^B []$\OT1/cmr/m/n/10
  ,
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-589.
+599.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1589.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1599.
 
  [31] [32 <./rr_compare/r01_epil.png> <./rr_compare/r015_epil.png> <./rr_compar
 e/r02_epil.png> <./rr_compare/r03_epil.png>] [33] [34] [35] [36]
-<global_box_1-8.png, id=181, 1032.7383pt x 445.1832pt>
+<global_box_1-8.png, id=189, 1032.7383pt x 445.1832pt>
 File: global_box_1-8.png Graphic file (type png)
 <use global_box_1-8.png>
-Package pdftex.def Info: global_box_1-8.png  used on input line 1776.
+Package pdftex.def Info: global_box_1-8.png  used on input line 1786.
 (pdftex.def)             Requested size: 387.00153pt x 166.82101pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<global_box_9-16.png, id=182, 1035.6291pt x 445.1832pt>
+<global_box_9-16.png, id=190, 1035.6291pt x 445.1832pt>
 File: global_box_9-16.png Graphic file (type png)
 <use global_box_9-16.png>
-Package pdftex.def Info: global_box_9-16.png  used on input line 1783.
+Package pdftex.def Info: global_box_9-16.png  used on input line 1793.
 (pdftex.def)             Requested size: 387.00153pt x 166.35909pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [37] [38 <./global_box_1-8.png>] [39 <./global_box_9-16.png>] [40]
-<svm-margin.png, id=198, 1105.12875pt x 956.82469pt>
+<svm-margin.png, id=205, 1105.12875pt x 956.82469pt>
 File: svm-margin.png Graphic file (type png)
 <use svm-margin.png>
-Package pdftex.def Info: svm-margin.png  used on input line 2013.
+Package pdftex.def Info: svm-margin.png  used on input line 2023.
 (pdftex.def)             Requested size: 171.99922pt x 148.90489pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [41]
-Overfull \hbox (6.71786pt too wide) in paragraph at lines 2026--2030
+Overfull \hbox (6.71786pt too wide) in paragraph at lines 2036--2040
 []\OT1/cmr/m/n/10 The \OT1/cmr/m/it/10 ker-nel func-tion\OT1/cmr/m/n/10 , de-fi
 nes the trans-for-ma-tion that maps the in-put data into a higher-dimensional
  []
 
 [42 <./svm-margin.png>] [43] [44] [45] [46] [47] [48]
-<svm_across_pat.png, id=226, 1405.25pt x 552.0625pt>
+<svm_across_pat.png, id=234, 1405.25pt x 552.0625pt>
 File: svm_across_pat.png Graphic file (type png)
 <use svm_across_pat.png>
-Package pdftex.def Info: svm_across_pat.png  used on input line 2435.
+Package pdftex.def Info: svm_across_pat.png  used on input line 2445.
 (pdftex.def)             Requested size: 430.00462pt x 168.93057pt.
-<loso_model.png, id=227, 1451.4225pt x 870.25125pt>
+<loso_model.png, id=235, 1451.4225pt x 870.25125pt>
 File: loso_model.png Graphic file (type png)
 <use loso_model.png>
-Package pdftex.def Info: loso_model.png  used on input line 2451.
+Package pdftex.def Info: loso_model.png  used on input line 2461.
 (pdftex.def)             Requested size: 430.00462pt x 257.82405pt.
 
 
@@ -1066,126 +1076,133 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [49 <./svm_across_pat.png>] [50 <./loso_model.png>]
 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_mean.p
-ng, id=238, 867.24pt x 361.35pt>
+ng, id=245, 867.24pt x 361.35pt>
 File: /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
 ean.png Graphic file (type png)
 <use /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_me
 an.png>
 Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_determini
-sm/p2_determinism_mean.png  used on input line 2503.
+sm/p2_determinism_mean.png  used on input line 2513.
 (pdftex.def)             Requested size: 206.40038pt x 85.99796pt.
-</home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png, id=239, 867.24
+</home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png, id=246, 867.24
 pt x 361.35pt>
 File: /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png Graphic fi
 le (type png)
 <use /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>
 Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_rr/p2_rr_
-mean.png  used on input line 2504.
+mean.png  used on input line 2514.
 (pdftex.def)             Requested size: 206.40038pt x 85.99796pt.
  [51 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
 ean.png> </home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>] [52]
  [53] [54] (./main.bbl
-Underfull \hbox (badness 3009) in paragraph at lines 38--39
+[55]
+Underfull \hbox (badness 3009) in paragraph at lines 39--40
 []\OT1/cmr/m/n/10 Mo, J., Zhang, J., Hu, W., Wang, X., Zhao, B., Zhang, K. and 
 Zhang, C.
  []
 
-[55]
-Underfull \hbox (badness 1783) in paragraph at lines 41--45
+
+Underfull \hbox (badness 1783) in paragraph at lines 42--46
 \OT1/cmr/m/n/10 based on re-cur-rence quan-tifi-ca-tion anal-y-sis of EEG sig-n
 al and ge-netic al-go-rithm for
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 47--48
+Underfull \hbox (badness 2277) in paragraph at lines 48--49
 []\OT1/cmr/m/n/10 Ngamga, E. J., Bialon-ski, S., Mar-wan, N., Kurths, J., Geier
 , C. and Lehn-ertz,
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 47--48
+Underfull \hbox (badness 1755) in paragraph at lines 48--49
 \OT1/cmr/m/n/10 K. (2016). Eval-u-a-tion of se-lected re-cur-rence mea-sures in
  dis-crim-i-nat-ing pre-ictal and
  []
 
 
-Underfull \hbox (badness 2318) in paragraph at lines 47--48
+Underfull \hbox (badness 2318) in paragraph at lines 48--49
 \OT1/cmr/m/n/10 inter-ictal pe-ri-ods from epilep-tic EEG data. \OT1/cmr/m/it/1
 0 Physics Let-ters A\OT1/cmr/m/n/10 , \OT1/cmr/m/it/10 380\OT1/cmr/m/n/10 (16),
  1419{1425.
  []
 
 [56]
-Underfull \hbox (badness 2486) in paragraph at lines 106--107
+Underfull \hbox (badness 2486) in paragraph at lines 107--108
 []\OT1/cmr/m/n/10 Kashyap, A. and Keil-holz, S. (2019). Dy-namic prop-er-ties o
 f sim-u-lated brain net-
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 106--107
+Underfull \hbox (badness 2608) in paragraph at lines 107--108
 \OT1/cmr/m/n/10 work mod-els and em-pir-i-cal resting-state data. \OT1/cmr/m/it
 /10 Net-work Neu-ro-science, 3\OT1/cmr/m/n/10 (2), 405-426.
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 139--142
+Underfull \hbox (badness 5475) in paragraph at lines 140--143
 []\OT1/cmr/m/n/10 Fraser, A. M., & Swin-ney, H. L. (1986). In-de-pen-dent co-or
 -di-nates for strange
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--142
+Underfull \hbox (badness 10000) in paragraph at lines 140--143
 \OT1/cmr/m/n/10 at-trac-tors from mu-tual in-for-ma-tion. \OT1/cmr/m/it/10 Phys
 -i-cal Re-view A, 33\OT1/cmr/m/n/10 (2), 1134{1140.
  []
 
 
-Underfull \hbox (badness 6204) in paragraph at lines 151--152
+Underfull \hbox (badness 6204) in paragraph at lines 152--153
 []\OT1/cmr/m/n/10 Marwan, N., Car-men Ro-mano, M., Thiel, M., & Kurths, J. (200
 7). Re-cur-
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 151--152
+Underfull \hbox (badness 1348) in paragraph at lines 152--153
 \OT1/cmr/m/n/10 rence plots for the anal-y-sis of com-plex sys-tems. \OT1/cmr/m
 /it/10 Physics Re-ports, 438(5{6)\OT1/cmr/m/n/10 , 237{329.
  []
 
 [57]
-Underfull \hbox (badness 3735) in paragraph at lines 180--182
+Underfull \hbox (badness 3735) in paragraph at lines 181--183
 []\OT1/cmr/m/n/10 Norbert Mar-wan. \OT1/cmr/m/it/10 Re-cur-rence Plot and Cross
  Re-cur-rence Plot Quan-tifi-ca-tion \OT1/cmr/m/n/10 URL:
  []
 
 
-Underfull \hbox (badness 3646) in paragraph at lines 185--186
+Underfull \hbox (badness 3646) in paragraph at lines 186--187
 []\OT1/cmr/m/n/10 Gao, X., Yan, X., Gao, P., Gao, X., & Zhang, S. (2020). Au-to
 -matic de-tec-
  []
 
 
-Underfull \hbox (badness 1009) in paragraph at lines 185--186
+Underfull \hbox (badness 1009) in paragraph at lines 186--187
 \OT1/cmr/m/n/10 sis and con-vo-lu-tional neu-ral net-works. \OT1/cmr/m/it/10 Ar
 -ti-fi-cial In-tel-li-gence in Medicine\OT1/cmr/m/n/10 , \OT1/cmr/m/it/10 102\O
 T1/cmr/m/n/10 , 101711.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 []\OT1/cmr/m/n/10 Guttag, J. (2010). CHB-MIT Scalp EEG Database (ver-sion 1.0.0
 ). Phy-s-ioNet.
  []
 
 [58]
-Underfull \hbox (badness 4765) in paragraph at lines 213--214
+Underfull \hbox (badness 4765) in paragraph at lines 214--215
 []\OT1/cmr/m/n/10 Devinsky, O., Vez-zani, A., O'Brien, T., Jette, N., Schef-fer
 , I.E., Cur-tis, M.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
+Underfull \hbox (badness 10000) in paragraph at lines 214--215
 \OT1/cmr/m/n/10 and Pe-rucca, P. Epilepsy.\OT1/cmr/m/it/10 Nature Re-views Dis-
 ease Primers \OT1/cmr/m/n/10 4, 18024 (2018).
+ []
+
+
+Overfull \hbox (30.05194pt too wide) in paragraph at lines 265--266
+[]\OT1/cmr/m/n/10 By Lau-rens R. Krol - Own work, CC0, https://commons.wikimedi
+a.org/w/index.php?curid=96859272 
  []
 
 )
@@ -1199,41 +1216,41 @@ L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 23742 strings out of 476106
- 529106 string characters out of 5793932
+ 23746 strings out of 476106
+ 529358 string characters out of 5793932
  1969975 words of memory out of 5000000
- 45356 multiletter control sequences out of 15000+600000
- 575551 words of font info for 100 fonts, out of 8000000 for 9000
+ 45365 multiletter control sequences out of 15000+600000
+ 572479 words of font info for 88 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 84i,13n,93p,698b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/x/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
-i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (59 pages, 4548543 bytes).
+ 84i,13n,93p,698b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/x/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> 
+</home/x/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1000.600pk></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (60 pages, 5952970 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
+ 389 PDF objects out of 1000 (max. 8388607)
+ 218 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
