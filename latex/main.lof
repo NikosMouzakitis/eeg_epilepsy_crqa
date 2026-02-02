@@ -20,3 +20,4 @@
 \contentsline {figure}{\numberline {20}{\ignorespaces SVM LOSOCV results against subjects}}{53}{}%
 \contentsline {figure}{\numberline {21}{\ignorespaces LOSOCV results against utilized models}}{54}{}%
 \contentsline {figure}{\numberline {22}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{55}{}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Temporal evolution of CRQA metrics}}{56}{}%

@@ -39,14 +39,13 @@
 \contentsline {subsubsection}{\numberline {8.5.1}Hyperparameters}{51}{}%
 \contentsline {section}{\numberline {9}Classification Results and Comparative Analysis}{53}{}%
 \contentsline {subsection}{\numberline {9.1}Overall Performance Comparison}{53}{}%
-\contentsline {subsection}{\numberline {9.2}Sensitivity--Specificity Trade-Off}{54}{}%
-\contentsline {subsection}{\numberline {9.3}Model Stability and Generalization}{54}{}%
-\contentsline {subsection}{\numberline {9.4}Computational Considerations}{55}{}%
-\contentsline {subsection}{\numberline {9.5}Summary of Findings}{55}{}%
-\contentsline {section}{\numberline {10}Discussion}{56}{}%
-\contentsline {section}{\numberline {11}Limitations}{56}{}%
-\contentsline {subsection}{\numberline {11.1}Loss of spatial/topological information due to averaging}{56}{}%
-\contentsline {subsection}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{57}{}%
-\contentsline {subsection}{\numberline {11.3}Constant embedding parameters}{57}{}%
-\contentsline {subsection}{\numberline {11.4}Dataset-specific constraints}{57}{}%
-\contentsline {section}{\numberline {12}Future Work}{58}{}%
+\contentsline {subsection}{\numberline {9.2}Model Stability and Generalization}{54}{}%
+\contentsline {subsection}{\numberline {9.3}Computational Considerations}{54}{}%
+\contentsline {subsection}{\numberline {9.4}Summary of Findings}{55}{}%
+\contentsline {section}{\numberline {10}Discussion}{57}{}%
+\contentsline {section}{\numberline {11}Limitations}{58}{}%
+\contentsline {subsection}{\numberline {11.1}Loss of spatial/topological information due to averaging}{58}{}%
+\contentsline {subsection}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{58}{}%
+\contentsline {subsection}{\numberline {11.3}Constant embedding parameters}{58}{}%
+\contentsline {subsection}{\numberline {11.4}Dataset-specific constraints}{59}{}%
+\contentsline {section}{\numberline {12}Future Work}{60}{}%

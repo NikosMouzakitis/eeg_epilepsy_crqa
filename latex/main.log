@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  2 FEB 2026 03:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  2 FEB 2026 04:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1092,7 +1092,7 @@ ean.png Graphic file (type png)
 <use /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_me
 an.png>
 Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_determini
-sm/p2_determinism_mean.png  used on input line 2590.
+sm/p2_determinism_mean.png  used on input line 2589.
 (pdftex.def)             Requested size: 206.40038pt x 85.99796pt.
 </home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png, id=258, 867.24
 pt x 361.35pt>
@@ -1100,12 +1100,21 @@ File: /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png Graphic fi
 le (type png)
 <use /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>
 Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_rr/p2_rr_
-mean.png  used on input line 2591.
+mean.png  used on input line 2590.
 (pdftex.def)             Requested size: 206.40038pt x 85.99796pt.
+<p1_18.png, id=259, 5992.3875pt x 4929.41624pt>
+File: p1_18.png Graphic file (type png)
+<use p1_18.png>
+Package pdftex.def Info: p1_18.png  used on input line 2608.
+(pdftex.def)             Requested size: 258.00539pt x 212.18642pt.
+<p11_99.png, id=260, 1438.173pt x 1183.0599pt>
+File: p11_99.png Graphic file (type png)
+<use p11_99.png>
+Package pdftex.def Info: p11_99.png  used on input line 2609.
+(pdftex.def)             Requested size: 258.00539pt x 212.23756pt.
  [55 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
-ean.png> </home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>] [56]
- [57] [58] (./main.bbl
-[59]
+ean.png> </home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>] [56 
+<./p1_18.png> <./p11_99.png>] [57] [58] [59] [60] (./main.bbl [61]
 Underfull \hbox (badness 3009) in paragraph at lines 39--40
 []\OT1/cmr/m/n/10 Mo, J., Zhang, J., Hu, W., Wang, X., Zhao, B., Zhang, K. and 
 Zhang, C.
@@ -1136,7 +1145,7 @@ Underfull \hbox (badness 2318) in paragraph at lines 48--49
  1419{1425.
  []
 
-[60]
+[62]
 Underfull \hbox (badness 2486) in paragraph at lines 107--108
 []\OT1/cmr/m/n/10 Kashyap, A. and Keil-holz, S. (2019). Dy-namic prop-er-ties o
 f sim-u-lated brain net-
@@ -1172,7 +1181,7 @@ Underfull \hbox (badness 1348) in paragraph at lines 152--153
 /it/10 Physics Re-ports, 438(5{6)\OT1/cmr/m/n/10 , 237{329.
  []
 
-[61]
+[63]
 Underfull \hbox (badness 3735) in paragraph at lines 181--183
 []\OT1/cmr/m/n/10 Norbert Mar-wan. \OT1/cmr/m/it/10 Re-cur-rence Plot and Cross
  Re-cur-rence Plot Quan-tifi-ca-tion \OT1/cmr/m/n/10 URL:
@@ -1197,7 +1206,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--195
 ). Phy-s-ioNet.
  []
 
-[62]
+[64]
 Underfull \hbox (badness 4765) in paragraph at lines 219--220
 []\OT1/cmr/m/n/10 Devinsky, O., Vez-zani, A., O'Brien, T., Jette, N., Schef-fer
 , I.E., Cur-tis, M.
@@ -1209,7 +1218,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 219--220
 ease Primers \OT1/cmr/m/n/10 4, 18024 (2018).
  []
 
-[63]
+[65]
 Underfull \hbox (badness 1038) in paragraph at lines 280--281
 []\OT1/cmr/m/n/10 Shafiezadeh, S., Duma, G. M., Mento, G., Danieli, A., An-to-n
 i-azzi, L., Del Popolo
@@ -1219,17 +1228,21 @@ i-azzi, L., Del Popolo
 
 Package natbib Warning: There were undefined citations.
 
-[64] (./main.aux)
+[66] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 23778 strings out of 476106
- 529845 string characters out of 5793932
+ 23793 strings out of 476106
+ 530089 string characters out of 5793932
  1969975 words of memory out of 5000000
- 45391 multiletter control sequences out of 15000+600000
+ 45406 multiletter control sequences out of 15000+600000
  572479 words of font info for 88 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  84i,13n,93p,698b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1257,10 +1270,10 @@ onts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb>
-Output written on main.pdf (65 pages, 5803808 bytes).
+Output written on main.pdf (67 pages, 8609778 bytes).
 PDF statistics:
- 400 PDF objects out of 1000 (max. 8388607)
- 226 compressed objects within 3 object streams
+ 411 PDF objects out of 1000 (max. 8388607)
+ 231 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 

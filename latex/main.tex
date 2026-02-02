@@ -2543,19 +2543,18 @@ Master Thesis\\[1cm]
 					SVM outperforms both RandomForest and kNN models in all of the LOSOCV metrics and yields constantly superior results.
 				
 
-
-					\subsection{Sensitivity--Specificity Trade-Off}
-
-					An important observation across all classifiers is the inherent trade-off between sensitivity and specificity. 
-					SVM tended to favor balanced performance, achieving comparable sensitivity and specificity values. 
-					Random Forest often demonstrated slightly higher sensitivity, suggesting improved detection of 
-					positive class instances, while kNN occasionally favored specificity depending on 
-					neighborhood size and distance metric.
-
-					This trade-off is particularly important in biomedical classification tasks, 
-					where false negatives and false positives carry different clinical implications. 
-					The ability of the Random Forest and SVM classifiers to maintain stable sensitivity under LOSO validation 
-					suggests strong potential for subject-independent deployment.
+%					\subsection{Sensitivity--Specificity Trade-Off}
+%
+%					An important observation across all classifiers is the inherent trade-off between sensitivity and specificity. 
+%					SVM tended to favor balanced performance, achieving comparable sensitivity and specificity values. 
+%					Random Forest often demonstrated slightly higher sensitivity, suggesting improved detection of 
+%					positive class instances, while kNN occasionally favored specificity depending on 
+%					neighborhood size and distance metric.
+%
+%					This trade-off is particularly important in biomedical classification tasks, 
+%					where false negatives and false positives carry different clinical implications. 
+%					The ability of the Random Forest and SVM classifiers to maintain stable sensitivity under LOSO validation 
+%					suggests strong potential for subject-independent deployment.
 
 					\subsection{Model Stability and Generalization}
 
@@ -2582,7 +2581,7 @@ Master Thesis\\[1cm]
 
 					For each feature, we calculated the mean value across all EEG samples corresponding to each label 
 					and plotted the results as 2D heatmaps, where the axes represent electrode positions. 
-					Figures~\ref{fig:det_patient} show an example heatmaps for the Determinism and Recurrence Rate features, 
+					Figures~\ref{fig:det_patient} show an example heatmaps for the DET and RR features, 
 					respectively, for one representative patient. 
 
 					\begin{figure}[H]
@@ -2595,6 +2594,33 @@ Master Thesis\\[1cm]
 
 					These visualizations allow for a qualitative comparison of feature distributions between 
 					normal and epileptic brain states, highlighting the spatial patterns of RQA metrics across electrodes.
+					In both metrics, in the epileptic states increased values are observed alongside all the channel combinations.
+
+					\subsection*{Temporal Evolution of CRQA Features}
+
+					To better understand the behavior of the extracted nonlinear features, 
+					we also visualized the temporal evolution of the CRQA metrics across complete EEG recordings. 
+					For each recording, the mean value of every CRQA feature was computed across all channel pairs for each 2-second window. 
+					The resulting time series were plotted alongside the annotated seizure intervals.
+
+					\begin{figure}[H]
+					    \centering
+					    \includegraphics[width=0.6\textwidth]{p1_18.png}
+					    \includegraphics[width=0.6\textwidth]{p11_99.png}
+					    \caption{Temporal evolution of CRQA metrics}
+					    \label{fig:temp_evol}
+					\end{figure}
+
+
+
+					Figure \ref{fig:temp_evol} illustrates a representative example, presenting the evolution of the CRQA metrics against time samples
+					for two of the analyzed recordins. Several measures exhibit clear transitions 
+					during epileptic periods. Most notable, determinism (DET), recurrence rate (RR), and laminarity (LAM) 
+					tend to increase during seizure segments, indicating the shift toward more structured and 
+					recurrent dynamics. 
+					Simultaneously, measures like divergence tend to decrease on global minumum ranges.
+					These observations support the hypothesis that epileptic seizures are associated with increased dynamical 
+					regularity and hypersynchronization across brain regions.
 						
 			
 			\newpage
@@ -2625,7 +2651,7 @@ Master Thesis\\[1cm]
 
 			The use of CRQA allowed the proposed framework 
 			a more holistic exploration of brain dynamics by exploiting channel to channel interactions 
-			and limiting itself on results from univariate channel analysis.
+			without limiting itself on results from univariate channel analysis.
 			This is particularly relevant in epilepsy, where seizure generation 
 			and propagation are acting as network phenomena and not as 
 			isolated local events(e.g, only in one electrode).
@@ -2653,6 +2679,8 @@ Master Thesis\\[1cm]
 			This further enchances the validity of recurrence based 
 			synchronization metrics as 
 			meaningful markers of epileptic EEG dynamics.
+			
+			\newpage
 
 			\section{Limitations}
 			Although the proposed framework demonstrates encouraging performance and provides insights 
