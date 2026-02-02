@@ -1,0 +1,15 @@
+\contentsline {table}{\numberline {1}{\ignorespaces Comparison among the retrieved studies using recurrence analysis}}{12}{}%
+\contentsline {table}{\numberline {2}{\ignorespaces Demographic information for patients in the CHB-MIT Scalp EEG Database.}}{14}{}%
+\contentsline {table}{\numberline {3}{\ignorespaces Comparison of RR and DET values for different radius (R) values}}{37}{}%
+\contentsline {table}{\numberline {4}{\ignorespaces Quantitative measures computed by PyRQA}}{39}{}%
+\contentsline {table}{\numberline {5}{\ignorespaces Class distribution in the preprocessed CRQA-EEG dataset, highlighting severe imbalance.}}{40}{}%
+\contentsline {table}{\numberline {6}{\ignorespaces Class distribution after the application of normal's segments downsampling.}}{41}{}%
+\contentsline {table}{\numberline {7}{\ignorespaces SVM performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{47}{}%
+\contentsline {table}{\numberline {8}{\ignorespaces Per-patient LOSO performance using SVM with RBF kernel ($C=100$, $\gamma =0.1$).}}{47}{}%
+\contentsline {table}{\numberline {9}{\ignorespaces LOSO classification performance using SVM with RBF kernel ($C=100$, $\gamma =0.1$). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{48}{}%
+\contentsline {table}{\numberline {10}{\ignorespaces Random Forest performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{49}{}%
+\contentsline {table}{\numberline {11}{\ignorespaces Per-patient LOSO performance using Random Forest (300 trees).}}{50}{}%
+\contentsline {table}{\numberline {12}{\ignorespaces LOSO classification performance using Random Forest (300 trees). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{50}{}%
+\contentsline {table}{\numberline {13}{\ignorespaces kNN performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{51}{}%
+\contentsline {table}{\numberline {14}{\ignorespaces Per-patient LOSO performance using kNN ($k=11$, Euclidean distance).}}{52}{}%
+\contentsline {table}{\numberline {15}{\ignorespaces LOSO classification performance using k-Nearest Neighbors ($k=11$, Euclidean distance). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{52}{}%

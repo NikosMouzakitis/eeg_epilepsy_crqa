@@ -37,7 +37,7 @@
 \begin{titlepage}
 \centering
 \vspace* {1cm}
-{ \includegraphics[width=6cm]{ELMEPA.png}}\\[1cm]
+{ \includegraphics[width=8cm]{ELMEPA.png}}\\[1cm]
 
 {\LARGE \textbf{Epilepsy Detection from Multi-Channel EEG Using Cross-Recurrence Quantification Analysis and Machine Learning}}\\[1cm]
 Master Thesis\\[1cm]
@@ -47,7 +47,8 @@ Master Thesis\\[1cm]
 
 
 	\textbf{Written By:} {Nikolaos Mouzakitis MTP321}\\[1cm]
-\date{\large Date Last Edited: \today}
+\date{ Draft Last Edit: \today}
+%\date{\large Date Last Edited: \today}
 {\@date\\}
 \end{titlepage}
 
@@ -55,6 +56,10 @@ Master Thesis\\[1cm]
 %	\includegraphics[width=6cm]{ELMEPA.png}}\\[1cm]
 	\newpage	
 	\tableofcontents
+	\newpage
+	\listoffigures
+	\newpage
+	\listoftables
 	\newpage  % optional, to start the co
 
 
@@ -63,7 +68,7 @@ Master Thesis\\[1cm]
 	which is characterized by the generation of recurrent, unprovoked seizures. 
 	These seizures are the result of abnormal neuronal brain 
 	activity which subsequently lead into 
-	disturbances in the behavior, sensation, consciousness and the movement 
+	disturbances in the behavior, sensation, movement as well as in the consciousness
 	of the affected subject. In general they affect severely patient's quality of life.
 	Information gathered by World Health Organization (WHO), 
 	report that epilepsy affects 
@@ -71,8 +76,7 @@ Master Thesis\\[1cm]
 	placing it as one of the most common 
 	neurological conditions globally.
 
-	Epilepsy has its origin in diverse and various causes 
-	depending on many factors. 
+	Epilepsy has its origin in diverse and multifactor causes.
 	The generation of epileptic activity can be an impact of identifiable structural, 
 	genetic, infectious, metabolic, or immune-related abnormalities, 
 	while for almost 50\% of the cases, their trigger still remains unknown\cite{causes}. 
@@ -81,7 +85,7 @@ Master Thesis\\[1cm]
 	or a generalized one (involving both hemispheres). 
 	Clinically, seizures are characterized by high variability, 
 	from short term lapses in awareness, up to 
-	convulsive episodes, in unpredictable times.
+	convulsive episodes, occuring in unpredictable times.
 
 	For the diagnosis and monitoring of epilepsy, 
 	electroencephalography (EEG) 
@@ -92,10 +96,15 @@ Master Thesis\\[1cm]
 	information that reflects 
 	the dynamic interactions 
 	of neuronal populations. 
-	During the seizure events, 
-	the observance of characteristic patterns 
+	Epileptic seizures are not local phenomena 
+	but involve the abnormal synchronization and 
+	interaction between different "distributed" brain regions\cite{sync1}. 
+	As a result, analyzing each EEG channel independently may miss
+	important information related to the way neural populations interact 
+	during the seizure event. 
+	The observance of characteristic patterns 
 	like spikes, sharp waves, or continuous 
-	discharges often appear, 
+	discharges often appear in EEG signal, 
 	and consist the primary reason for distinguishing the epileptical
 	from the normal activity. 
 	As a result, EEG analysis holds
@@ -111,20 +120,34 @@ Master Thesis\\[1cm]
 	can offer new solutions for automated extraction 
 	of complex spatial and temporal 
 	features from EEG recordings. 
-	As ultimate goal these approaches have, the
-	support of clinicians by providing objective, 
+	As an ultimate goal, these approaches aim to
+	support clinicians by providing objective, 
 	data-driven tools for seizure detection, prediction, and classification, 
-	in order to contribute to better patient care and personal treatments.
+	contributing in enhancing patient care and personal treatments.
 
-	In summary, epilepsy represents a major public health challenge due to its prevalence, 
+	Dynamical systems or time series are 
+	considered stationary when their statistical 
+	properties remain constant over time. 
+	In more detail, in a stationary process the mean, variance, and autocorrelation 
+	structure do not change as time evolves.
+	In such systems, fluctuations occur around a stable equilibrium point and 
+	the probabilistic behavior of the signal is time-invariant.  On the other hand, non-stationary system 
+	is one with changing statistical properties change over time, due to transitions in the underlying dynamics.
+	Non-stationarity applies also to 
+	EEG, in which the brain activity continuously performs switches among different functional states.
+	This nature of EEG signal, serves as  motivation, for analyzing it utilizing recurrence-based methods
+	which do not assume stationarity and are able to detect dynamic transitions.	
+
+	Summarizing, epilepsy represents a major public health challenge due to its prevalence, 
 	variability, and social consequences. Understanding the electrophysiological mechanisms 
 	that drive seizure generation and developing reliable methods for automatic EEG analysis 
 	remains a crucial research direction in modern neuroscience and biomedical engineering.
 
+
 			%small intro and foundational works to have as introduction.test papers.
 	Recurrence Quantification Analysis (RQA) and Cross-Recurrence Quantification Analysis (CRQA) are
-	nonlinear methods for the analysis of nonstationary time series, such as EEG signals. 
-	The offer the quantification of the recurring patterns in phase space trajectories \cite{trulla1996, webber2005}. 
+	nonlinear methods for the analysis of nonstationary time series, offering the quantification of the 
+	recurring patterns in phase space trajectories \cite{trulla1996, webber2005}. 
 	Introduced by Trulla et al.\cite{trulla1996} (directly built on quantifying recurrence plots\cite{eckmann1987}) 
 	and expanded by Webber and Zbilut\cite{webber2005}, RQA measures metrics 
 	like recurrence rate, determinism, and laminarity to capture dynamic system behavior. 
@@ -134,6 +157,36 @@ Master Thesis\\[1cm]
 	emphasizing on developing a confidence measure of RQA in detecting dynamic transitions.
 	Works like these, serve as a foundation of applying RQA and CRQA on EEG 
 	studies in various conditions such as epilepsy, cognitive disorders and others.
+
+	
+	%%write about gap.
+	Although recurrence-based methods have been applied to EEG analysis, 
+	several limitations remain to be addressed in existing work. 
+	Many studies focus mostly on single-channel RQA features, 
+	emphasizing signal complexity rather than inter-regional dynamical couplings. 
+	Other works that do employ cross-recurrence or connectivity measures 
+	often rely on intracranial EEG recordings, which differ from the non-invasive case of
+	scalp EEG, in terms of spatial resolution and noise characteristics. 
+	In addition, evaluation protocols in the literature frequently mix data 
+	from the same subjects across training and testing sets, 
+	leading to optimistic performance estimations that do not reflect the real-world generalization \cite{losoImportance}. 
+
+
+	The rest of this thesis is organized as follows. 
+	Section 2 reviews related work on recurrence analysis in neuroscience, 
+	focusing mainly on EEG-based applications of recurrence
+	methods. Section 3 describes the CHB-MIT scalp EEG database used in this study. 
+	Section 4 presents the preprocessing and filtering procedures applied to the raw recordings from the used dataset. 
+	Phase-space reconstruction and embedding parameter selection are detailed in Section 5, 
+	followed by an introduction to Recurrence Quantification Analysis and Cross-Recurrence 
+	Quantification Analysis in Section 6. 
+	The full methodological pipeline, including feature extraction/aggregation, is presented in Section 7. 
+	Classification strategies and experimental protocols are described in Section 8, 
+	while Section 9 presents the obtained results and the comparative analysis. 
+	Section 10 discusses the findings, and Section 11 outlines the limitations of the study. 
+	Finally, Section 12 suggests directions for future work.
+	
+	\newpage
 
 	\section{Related Work}
 
@@ -151,8 +204,7 @@ Master Thesis\\[1cm]
 			A first category of works investigates the utility 
 			of recurrence analysis in describing brain dynamics and functional connectivity.
 			Frolov et al.\cite{frolov} proposed an approach to analyze frequency based multiplex brain networks
-			using recurrence quantification analysis (RQA) 
-			on EEG data, and demonstrated the way that recurrence-based 
+			using RQA on EEG data, and demonstrated the way that recurrence-based 
 			synchronization indices can effectively capture 
 			both within-frequency (intralayer) and cross-frequency (interlayer) 
 			functional connectivity during cognitive tasks. 
@@ -220,7 +272,7 @@ Master Thesis\\[1cm]
 			decreased EEG complexity during motor preparation stages as 
 			measured by RQA metrics (\textit{$\Delta$RR and $\Delta$RTE}), 
 			and had increased theta band functional connectivity 
-			highlighting the potential of RQA in detecting 
+			showing the potential of RQA in detecting 
 			age related biomarkers that were not detectable using 
 			standalone signal spectral analysis.
 
@@ -268,7 +320,7 @@ Master Thesis\\[1cm]
 			Several studies further emphasize the value of CRQA 
 			and recurrence-network analysis for epilepsy and seizure dynamics, 
 			particularly when analyzing coupling across brain regions.
-			Yang and co-authors \cite{yang2019dynamical}, examined stereo electroencephalography (sEEG) 
+			Yang and co-authors \cite{yang2019dynamical}, examined stereoelectroencephalography (sEEG) 
 			recordings of 10 patients with refractory focal epilepsy for analyzing dynamical differences 
 			among discreet epileptic phases/states (inter-ictal, pre-ictal, and ictal) and regions. 
 			Using recurrence plots and CRQA, they identified epileptogenic channels with longer diagonal
@@ -280,7 +332,7 @@ Master Thesis\\[1cm]
 			Lopes et al. \cite{lopes} have proposed a 
 			combinatorial framework 
 			by mixing RQA with dynamic functional network (dFN) analysis,
-			applying it to both MEG and stereo EEG data. 
+			applying it to both MEG and sEEG data. 
 			The methodology they described is split 
 			into five steps: data segmentation, 
 			functional network inference, distance computation alongside networks, 
@@ -322,7 +374,7 @@ Master Thesis\\[1cm]
 			
 			Beyond seizure diagnosis, recurrence analysis has also been utilized 
 			in studies linking neural dynamics to cognitive function.
-			In their study, Mo et al.\cite{mo} used \textit{stereoelectroencephalography (sEEG)} 
+			In their study, Mo et al.\cite{mo} used sEEG 
 			combined with RQA for the examination of the relationship of the DMN and empathy. 
 			Correlations have been detected relating specific RQA metrics 
 			(mean diagonal line length, entropy of diagonal line lengths, trapping time) 
@@ -341,7 +393,7 @@ Master Thesis\\[1cm]
 			Network (RN) measures in identifying 
 			pre-seizure states from multi-day, multi-channel intracranial EEG (iEEG) 
 			recordings of epilepsy patients. 
-			Results highlighted the correlation among RQA measures 
+			Results pointed out the correlation among RQA measures 
 			(determinism, laminarity, and mean recurrence time) in 
 			detecting seizure precursors, while RN measures 
 			(average shortest path length and network transitivity) provided 
@@ -380,7 +432,7 @@ Master Thesis\\[1cm]
 			cortices (V1, V2). Also on the study's findings include reduced predictability in 
 			WT rats with aging, while AD rats exhibited less decline
 			in predictability, suggesting some unknown yet countereacting mechanisms. 
-			This study highlights RQA's sensitivity for nonlinear dynamics 
+			This study supports RQA's sensitivity for nonlinear dynamics 
 			in preclinical AD and the code used is also publicly available.
 			Lombardi et al.\cite{Lombardi2014} investigated the 
 			nonlinear properties in fMRI BOLD signals 
@@ -454,7 +506,7 @@ Master Thesis\\[1cm]
 			($P_k = 0.9$) and exhibited faster response times to transient changes in consciousness 
 			compared to BIS. Additionally, OPL showed lower variability at the point of loss of 
 			consciousness (LOC), suggesting its robustness as a measure of anesthetic depth. 
-			This work highlights the potential of recurrence-based methods (e.g., CRQA) 
+			This work indicates the potential that recurrence-based methods (e.g., CRQA) show,
 			for analyzing brain network dynamics under anesthesia, 
 			particularly in noisy, non-stationary EEG data.
 			
@@ -467,8 +519,23 @@ Master Thesis\\[1cm]
 			scalp EEG pipeline that also utilizes global aggregation strategies 
 			and strict subject-independent evaluation protocols such as 
 			leave-one-subject-out validation \cite{mostafa2025}.
-
-			
+				
+			The applicability of recurrence based nonlinear dynamics extends 
+			beyond neurophysiology to other complex nonstationary systems. 
+			One of the most recent examples is the work by Adarsh et al. \cite{Adarsh2026},
+			where authors demonstrate the use of RQA/CRQA 
+			for the analysis of complexity and synchronization 
+			between reference evapotranspiration and meteorological variables across India, 
+			showing deterministic, chaotic, and transitional clusters depending on region and 
+			climate drivers. 
+			Such results boost further the capability of recurrence-based frameworks 
+			for quantifying coupling and predictability in noisy multivariate signals.
+			In another example Li et al.\cite{crqaAcoustic},
+			utilized CRQA for denoising electromagnetic 
+			acoustic emission signals in non-destructive material testing. 
+			In their work, researchers manage to distinguish meaningful structural components 
+			from background noise, showing the capability of this method in identification of
+			deterministic dynamics inside more complex physical signals. 
 
 
 		\begin{table}[h]
@@ -512,7 +579,7 @@ Master Thesis\\[1cm]
 	
 				
 			%% PATENTS
-			\subsection{RQA relevant patents utilizing EEG modality}
+			\subsection{RQA patents utilizing EEG modality}
 			\label{sec:rqa-patents}
 
 			The application of RQA utilizing EEG modality on the biomedical field,
@@ -541,7 +608,7 @@ Master Thesis\\[1cm]
 
 			Patent US20250195894A1 \cite{pat2025}, 
 			entitled “Systems and Methods for Seizure Detection and Closed-Loop Neurostimulation,” 
-			proposed an alternative implementation of recurrence quantification metrics 
+			proposed an alternative implementation of RQA metrics 
 			that bypasses explicit construction of the full \textbf{N×N}
 			recurrence plot matrix. Instead, metrics are computed on-the-fly by dynamically 
 			accumulating diagonal line statistics as new samples arrive, 
@@ -571,7 +638,7 @@ Master Thesis\\[1cm]
 			A device acquires ECG and deep brain signals for feature extraction 
 			in the domains of time and frequency, while 
 			calculating complexity measures. 
-			RQA metrics such recurrence rate, determinism, entropy and laminarity 
+			RQA metrics such \texttt{RR, DET, ENTR} and \texttt{LAM}
 			are utilized alongside other complexity 
 			and spectral features to classify sleep states and trigger appropriate stimulation responses.
 			Features are then utilized for detection of sleep stages 
@@ -581,7 +648,8 @@ Master Thesis\\[1cm]
 
 		\section{The CHB-MIT EEG Database}
 		
-		The dataset used in this thesis, is the \textbf{CHB-MIT Scalp EEG Database}\cite{chbmitDataset}, which consist of a public collection of EEG recordings 
+		The dataset used in this thesis, is the \textbf{CHB-MIT Scalp EEG Database}\cite{chbmitDataset}\cite{chbmitDataset2}, which 
+		consist of a public collection of EEG recordings 
 		from pediatric subjects.
 		%includes intractable seizures.
 		All the recordings were collected at 
@@ -711,7 +779,7 @@ Master Thesis\\[1cm]
 			\begin{figure}[h]
 			    \centering
 			    \includegraphics[width=1.0\textwidth]{10-20-image.png}
-			    \caption{EEG electrode position namings.\cite{10-20-image}}
+			    \caption{EEG electrode position namings.}
 			    \label{fig:10-20-image}
 			\end{figure}
 
@@ -773,7 +841,7 @@ Master Thesis\\[1cm]
 			followed by reconstruction, and by this way removing noise while preserving neural transitions like epileptic 
 			spikes \cite{grobbelaar2022survey}. 
 
-			\subsection{Evaluation metrics for EEG denoising in the CHB-MIT dataset}
+			\subsection{Evaluation metrics for EEG denoising}
 
 			In order to evaluate the performance of 
 			different wavelet-based filters for EEG denoising, 
@@ -954,7 +1022,7 @@ Master Thesis\\[1cm]
 
 
 
-		\subsubsection{Calculation of time delay \( \tau \) utilizing mutual information}
+		\subsubsection{Calculation of time delay \( \tau \)}
 			The time delay \( \tau \) can be estimated by applying the 
 			\textit{Average Mutual Information} (AMI) method, a concept which was first introduced 
 			by Fraser and Swinney~\cite{fraser1986}. 
@@ -976,7 +1044,7 @@ Master Thesis\\[1cm]
 				
 
 
-			\subsubsection{Estimating embedding dimension \( m \) using false nearest neighbors approach}
+			\subsubsection{Estimating embedding dimension \( m \)}
 
 			When the embedding dimension $m$ is too small, 
 			the phase space becomes \emph{projected} rather than 
@@ -1353,14 +1421,17 @@ Master Thesis\\[1cm]
 					Applying CRQA to pairs of EEG channels is particularly well-suited for epilepsy detection for several reasons:
 
 					\begin{itemize}
-					    \item \textbf{Synchronization Detection}: Epileptic seizures are characterized by abnormal, excessive synchronization of neuronal populations. CRQA directly quantifies this synchronization in the phase space.
-					    \item \textbf{Nonlinear and Non-stationary}: CRQA does not assume linearity or stationarity, making it robust for analyzing the complex, transient dynamics of EEG signals.
+						\item \textbf{Synchronization Detection}: Epileptic seizures are characterized by abnormal, increased (above normal) synchronization of neuronal populations. CRQA directly quantifies this synchronization in the phase space.
+					    \item \textbf{Nonlinear and Non-stationary}: CRQA does not assume linearity or stationarity, becoming an appropriate tool in
+						    the analysis of complex dynamics such those of EEG signals.
 					    \item \textbf{Directional Insights}: While not explored in all analyses, the potential asymmetry of the CRP can, in principle, help identify the propagation path of a seizure.
-					    \item \textbf{Focus on Interaction}: It moves beyond analyzing individual channels in isolation to directly measure the dynamic interplay between different brain regions, which is often where the pathology lies.
+					    \item \textbf{Focus on Interaction}: By studying coupling, research shifts beyond isolated individual channels, measuring dynamic 
+						    interplay between different brain regions, which could possibly reveal the pathology information of seizures.
 					\end{itemize}
 
-					In this thesis, CRQA is employed to compute a set of features (Table~\ref{tab:pyrqa_metrics}) for all unique pairs of EEG channels. These features capture the complex synchronization patterns that distinguish pre-ictal, ictal, and inter-ictal states, forming the basis for the subsequent machine learning classification.
-
+					In this thesis, CRQA is employed to compute a set of features (Table~\ref{tab:pyrqa_metrics}) for all unique pairs of EEG channels. 
+					These features aim to capture the complex synchronization patterns that can distinguish normal from epiletic states, 
+					constructing the base for subsequent machine learning classification.
 
 
 	\newpage
@@ -1416,7 +1487,10 @@ Master Thesis\\[1cm]
 				The decision to use constant values is influenced by applied precedents in the EEG literature. 
 				McSharry et al.\cite{mcsharry} have applied with success fixed embedding parameters in their multi-channel scalp EEG seizure research, 
 				arguing that nonlinear methods must justify their complexity over simpler linear benchmarks. 
-				In our case, constant parameters ensure consistency across the large CHB-MIT dataset, computational efficiency and help to avoid overfitting to local dynamics that may not generalize.
+				In our case, constant parameters ensure consistency across the large CHB-MIT dataset and help to avoid 
+				overfitting to local/patient specific dynamics that may not generalize. 
+				Subject-specific embedding would better reflect individual dynamics but would break feature 
+				comparability and increase computational cost.
 				
 				\subsection{Threshold selection}
 				Radius fraction R is utilized for determination of the percentage of mean diameter of the 
@@ -1620,7 +1694,7 @@ Master Thesis\\[1cm]
 
 				 It should be noted that prior to the averaging, all feature metrics that presented invalid numerical values(such as \textit{nan} or \textit{inf})
 				 were set to 0. This can occur each time where
-				 the reccurence rate is 0 or it has a value very close to zero, having a consequence to propagate invalid values 
+				 the recurrence rate is 0 or it has a value very close to zero, having a consequence to propagate invalid values 
 				 in the set of \{Determinism, Average Diagonal Line Length, Divergence, Laminarity, Trapping Time, DET/RR and LAM/DET\} features computed by the PyRQA computation.
 
 				
@@ -1917,7 +1991,7 @@ Master Thesis\\[1cm]
 
 					The sample-level protocol(\textit{patient-agnostic}),
 					provides an optimistic upper bound of the classification performance, 
-					as samples from the same subject may appear in both the training and test sets. 
+					as samples from the same subject may appear in both the training and test sets (data leakage \cite{sasseLeakage}. 
 					In contrast, the other two( (ii) and (iii) ) protocols force 
 					strict subject independence in order to assess generalization on unseen subjects.
 
@@ -2523,51 +2597,69 @@ Master Thesis\\[1cm]
 					normal and epileptic brain states, highlighting the spatial patterns of RQA metrics across electrodes.
 						
 			
+			\newpage
+
 			\section{Discussion}
 
 			The results found and presented in this thesis,
-			demonstrate that the global CRQA features extracted from multi-channel scalp EEG 
-			can represent discriminative information that separates epileptic from non-epileptic brain activity under 
-			subject-independent evaluation protocols.
+			demonstrate the ability of the global CRQA features extracted from multi channel EEG 
+			to represent discriminative information, able to separate epileptic from normal brain activity 
+			under subject-independent evaluation protocols.
 			
-			Across all tested classifiers, and particularly under the LOSO cross validation protocol, 
-			classification score remained consistently above chance, 
-			which indicates and supports the ability of the proposed features to represent subject-independent 
-			dynamical characteristics of epileptic seizures rather than subject-specific idiosyncrasies. 
-			This is a critical requirement for any clinically relevant EEG-based seizure detection system.
+			Across all the tested classifiers, and particularly under the LOSOCV protocol, 
+			classification score remained consistently above change, indicating that the features 
+			actually represent subject-independent dynamical characteristics of epileptic seizures 
+			rather than subject-specific patterns. 
+			This is a critical requirement for any clinically 
+			related EEG-based seizure detection method.
 
-			From analysing the dynamical perspective, epileptic EEG segments were characterized by increased 
-			recurrence rate, determinism, laminarity, and longer diagonal structures in their recurrence plots. 
-			These findings are consistent with the well-established interpretation of seizures as periods 
-			of higher hypersynchronization and reduced dynamical complexity. 
-			In contrast, normal EEG segments exhibited more irregular, less predictable dynamics, which is reflected by 
-			lower recurrence based metrics and higher divergence.
+			From analysing the dynamical perspective, 
+			epileptic EEG segments were characterized by increased 
+			recurrence rate, determinism, laminarity, and longer diagonal structures 
+			in their recurrence plots. 
+			These findings agree with the established interpretation 
+			of seizures, as periods of higher synchronization.
+			In contrast, normal EEG segments exhibited more irregular
+			and less predictable dynamics, which was reflected with 
+			their lower recurrence based metrics and higher divergence.
 
-			The use of CRQA allowed the proposed framework to explore in a more holistic manner, exploiting channel to channel interactions and not
-			limit on results from univariate channel analysis.
-			This is particularly relevant in epilepsy, where seizure generation and propagation are 
-			network level phenomena and not isolated local events(e.g, only in one electrode).
+			The use of CRQA allowed the proposed framework 
+			a more holistic exploration of brain dynamics by exploiting channel to channel interactions 
+			and limiting itself on results from univariate channel analysis.
+			This is particularly relevant in epilepsy, where seizure generation 
+			and propagation are acting as network phenomena and not as 
+			isolated local events(e.g, only in one electrode).
 
-			Moreover, the aggregating CRQA features across all channel pairs, produced a compact global representation 
-			of EEG coupling dynamics. While this approach sacrifices the spatial specificity of seizures, it proved effective 
-			into boosting robustness and generalization, as shown by the stable LOSO-CV performance across patients 
-			with heterogeneous seizure characteristics.
+			Moreover, the aggregating CRQA features across all channel pairs, 
+			produced a compact global representation 
+			of EEG coupling dynamics. While using this approach sacrificed 
+			the spatial specificity of seizures, 
+			it proved effective into boosting robustness and generalization, as shown by the stable LOSOCV 
+			performance across patients with heterogeneous seizure characteristics.
 
-			By comparing multiple evaluation protocols, as it was expected the patient-agnostic (sample-level) evaluation 
-			produced optimistic results, while patient-level and LOSO protocols provided more conservative and realistic assessments. 
-			The observation of strong performance score under LOSO validation 
-			boosts the confidence in the reported results and their 
+			By comparing multiple evaluation protocols, 
+			as it was expected the patient-agnostic (sample-level) evaluation 
+			produced optimistic results, while patient-level and LOSO protocols 
+			shown more conservative and realistic assessments. 
+			The observation of strong performance score 
+			under LOSOCV boosts the confidence in the 
+			reported results and their 
 			potential applicability on unseen subjects/patients.
 
 			In general, the agreement in performance trends across three fundamentally different classifiers
-			(SVM, Random Forest, and kNN) is an indicator that the observed discrimination ability is based on 
-			the extracted CRQA features rather than on classifier-specific method. 
-			This further enchances the validity of recurrence based synchronization metrics as 
+			(SVM, Random Forest, and kNN) is an indicator that the observed 
+			discrimination ability is based on 
+			the extracted CRQA features and not on a classifier-specific method. 
+			This further enchances the validity of recurrence based 
+			synchronization metrics as 
 			meaningful markers of epileptic EEG dynamics.
 
-
-
 			\section{Limitations}
+			Although the proposed framework demonstrates encouraging performance and provides insights 
+			into EEG-based seizure analysis, in this section, several limitations that are introduced by the methodology 
+			are discussed. Recognizing these limitations is essential for a correct interpretation of the 
+			findings and for creating the basis and directions for potential improvements in future research.
+
 			\subsection{Loss of spatial/topological information due to averaging}
 			The proposed feature aggregation summarizes the full 
 			(22×22x16) CRQA interaction tensor into a single 16-dimensional vector 
@@ -2585,7 +2677,8 @@ Master Thesis\\[1cm]
 
 			\subsection{Absence of artifact-free ground truth EEG for denoising evaluation}
 
-			Another limitation faced, the evaluation of the EEG denoising procedure. 
+			Another limitation faced, very early in the current approach relates to the 
+			preprocessing step, for the evaluation of the EEG denoising procedure. 
 			The CHB-MIT dataset does not include artifact free reference signals, 
 			preventing the computation of absolute denoising performance metrics. 
 			Consequently, classical metrics utilized such as SNR, RMSE, and PRD were employed 
@@ -2597,14 +2690,24 @@ Master Thesis\\[1cm]
 			Nevertheless, the selected filtering configuration was chosen to minimize signal distortion 
 			while preserving morphological characteristics relevant to seizure dynamics.
 
-			\subsection{Fixed embedding parameters}
+			\subsection{Constant embedding parameters}
 
-			The use of fixed embedding parameters (embedding dimension set to 3, embedding delay set to 1) across all recordings constitutes an additional limitation. 
-			Although this choice ensures methodological consistency and avoids instability introduced by noise sensitive parameter estimation algorithms, 
-			it may not optimally capture the local dynamics of every EEG segment or subject. 
+			The use of constant embedding parameters 
+			(dimension to 3, delay to 1) across all recordings 
+			constitutes an additional limitation, in the case where research tends to befocused on 
+			patient-specific oriented seizure detection.
+			Although the followed approach in this thesis ensures methodological consistency 
+			and avoids instability introduced by noise sensitive 
+			parameter estimation algorithms, it may not optimally capture the local 
+			dynamics of every EEG segment or subject. 
 			Adaptive embedding strategies could potentially improve representation fidelity but also
 			would significantly increase computational cost and risk overfitting.
-
+			EEG dynamics are known to vary considerably across patients and over time, 
+			and studies have shown that fixed, hand-crafted representations often fail to generalize well 
+			in seizure prediction settings\cite{hussein}. Therefore, using constant embedding parameters 
+			may limit the ability of the reconstructed phase space to accurately capture 
+			subject-specific and time-varying dynamics. 
+		
 			\subsection{Dataset-specific constraints}
 
 			Finally, the study is limited by the characteristics of the CHB-MIT dataset itself. 
@@ -2615,6 +2718,7 @@ Master Thesis\\[1cm]
 			different acquisition protocols.
 
 
+			\newpage
 
 			\section{Future Work}
 				There are several directions that can be pursued into extending the proposed framework. 
@@ -2630,7 +2734,7 @@ Master Thesis\\[1cm]
 				both global synchronization and localized network structure.
 
 				Additionally, adaptive embedding and threshold selection strategies could be investigated. 
-				While fixed parameters were chosen in this thesis to ensure stability and consistency, 
+				While constant parameters were chosen in this thesis to ensure stability and consistency, 
 				patient-specific or state-dependent tuning may further boost sensitivity, 
 				particularly for seizure onset detection.
 

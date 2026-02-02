@@ -187,11 +187,16 @@
 
 
 		\bibitem{bonndataset}
-			Andrzejak, R. G., Lehnertz, K., Mormann, F., Rieke, C., David, P., \& Elger, C. E. (2001). Indications of nonlinear deterministic and finite-dimensional structures in time series of brain electrical activity: Dependence on recording region and brain state. Physical Review E, 64(6), 061907.
+			Andrzejak, R. G., Lehnertz, K., Mormann, F., Rieke, C., David, P. and Elger, C. E. (2001). Indications of nonlinear deterministic and finite-dimensional structures in time series of brain electrical activity: Dependence on recording region and brain state. Physical Review E, 64(6), 061907.
 	
 
 		\bibitem{chbmitDataset}
 			Guttag, J. (2010). CHB-MIT Scalp EEG Database (version 1.0.0). PhysioNet. RRID:SCR\_007345. https://doi.org/10.13026/C2K01R
+
+		\bibitem{chbmitDataset2}		
+		Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., ... and Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220. RRID:SCR\_007345.
+		
+		
 
 		\bibitem{FredkinRiceFNN}
 			Fredkin, D.R and Rice, J.A \textit{Method of false nearest neighbors: A cautionary note,} Phys. Rev. E., vol. 51(4), pp. 2950–2954, 1995.
@@ -225,10 +230,10 @@
 			Z. Weinberg and Cyc. \emph{SVM separating hyperplanes}. Wikimedia Commons, 2015. Available: https://commons.wikimedia.org/wiki/File:Svm\_separating\_hyperplanes.png. License: CC BY-SA 3.0. (Accessed: [06-12-2025]).
 
 	%%%%%%%%citations for per patient threshold tuning
-%	\bibitem{hussein}
-%	Hussein, R., Ahmed, M. O., Ward, R., Wang, Z. J., Kuhlmann, L. and Guo, Y. (2019).
-%	Human intracranial EEG quantitative analysis and automatic feature learning for epileptic seizure prediction.
-%	arXiv preprint arXiv:1904.03603.
+	\bibitem{hussein}
+	Hussein, R., Ahmed, M. O., Ward, R., Wang, Z. J., Kuhlmann, L. and Guo, Y. (2019).
+	Human intracranial EEG quantitative analysis and automatic feature learning for epileptic seizure prediction.
+	arXiv preprint arXiv:1904.03603.
 
 %	\bibitem{lightseizurenet}
 %	Qiu, S., Wang, W. and Jiao, H. (2023).
@@ -243,11 +248,11 @@
 
 
 	% paper on data leakage in ML pipelines
-%	\bibitem{sasseLeakage}
-%	Sasse, L., Nicolaisen-Sobesky, E, Dukart, J., Eickhoff, S. B., G{\"o}tz, M., Hamdan, S., Komeyer, V., Kulkarni, A., Lahnakoski, J., Love, B. C., Raimondo, F. and Patil, K. R.
-%	\newblock On leakage in machine learning pipelines.
-%	\newblock \emph{CoRR}, abs/2311.04179, 2023.
-%	\newblock URL: https://doi.org/10.48550/arXiv.2311.04179.
+	\bibitem{sasseLeakage}
+	Sasse, L., Nicolaisen-Sobesky, E, Dukart, J., Eickhoff, S. B., G{\"o}tz, M., Hamdan, S., Komeyer, V., Kulkarni, A., Lahnakoski, J., Love, B. C., Raimondo, F. and Patil, K. R.
+	\newblock On leakage in machine learning pipelines.
+	\newblock \emph{CoRR}, abs/2311.04179, 2023.
+	\newblock URL: https://doi.org/10.48550/arXiv.2311.04179.
 
 	
 	%%drop channels from EEG.
@@ -261,6 +266,17 @@
 	
 	\bibitem{mostafa2025} Mostafa, M.-A. T., Awadalla, M. and Abdel-Hamid, L. (2025). Recurrence quantification analysis (RQA) features vs. traditional EEG features for Alzheimer’s disease diagnosis. Inteligencia Artificial, 28(75), 170–185. https://doi.org/10.4114/intartif.vol28iss75pp170-185
 
-	\bibitem{10-20-image}
-	By Laurens R. Krol - Own work, CC0, https://commons.wikimedia.org/w/index.php?curid=96859272
+	\bibitem{Adarsh2026}
+		Adarsh, S., Athira, M., Ahmed, A.N., El-Shafie, A. and Salman, N. Analysing the Hydro-Meteorological synchronization of reference evapotranspiration across Indian Mainland using cross recurrence approach. \textit{Theoretical and Applied Climatology} 157, 86 (2026). https://doi.org/10.1007/s00704-026-06018-z
+
+	\bibitem{crqaAcoustic}
+		Li, Q., Lai, Y. and  Cao, D. (2024). Investigating electromagnetic acoustic emission signals denoising for alloy materials non-destructive detecting: a CRQA method. \textit{Russian Journal Of Nondestructive Testing}, (2), 30-42. doi: 10.31857/S0130308224020039
+
+
+	\bibitem{sync1}
+		Lehnertz, K., Bialonski, S., Horstmann, M. T., Krug, D., Rothkegel, A., Staniek, M. and Wagner, T. (2009). Synchronization phenomena in human epileptic brain networks. \textit{Journal of neuroscience methods}, 183(1), 42–48. https://doi.org/10.1016/j.jneumeth.2009.05.015
+
+	\bibitem{losoImportance}
+		Shafiezadeh, S., Duma, G. M., Mento, G., Danieli, A., Antoniazzi, L., Del Popolo Cristaldi, F., Bonanni, P. and Testolin, A. (2024). Calibrating Deep Learning Classifiers for Patient-Independent Electroencephalogram Seizure Forecasting. \textit{Sensors}, 24(9), 2863. https://doi.org/10.3390/s24092863
+
 \end{thebibliography}
