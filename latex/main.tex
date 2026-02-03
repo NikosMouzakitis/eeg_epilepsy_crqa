@@ -1,4 +1,5 @@
-\documentclass{article}
+%\documentclass{book}
+\documentclass[11pt,a4paper]{report}
 
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
@@ -46,11 +47,45 @@ Master Thesis\\[1cm]
 
 
 
-	\textbf{Written By:} {Nikolaos Mouzakitis MTP321}\\[1cm]
+	\textbf{} {Nikolaos Mouzakitis}\\[1cm]
 \date{ Draft Last Edit: \today}
 %\date{\large Date Last Edited: \today}
 {\@date\\}
 \end{titlepage}
+
+\begin{abstract}
+	Epileptic seizures originate from abnormal, large scale 
+	synchronization of neuronal populations in the human brain, 
+	making the analysis of inter regional brain dynamics essential 
+	for reliable detection. 
+	This thesis presents a nonlinear dynamical 
+	framework for automated seizure classification 
+	utilizing multichannel scalp electroencephalography (EEG). 
+	Cross-Recurrence Quantification Analysis (CRQA) is employed 
+	to characterize the interactions between EEG channels 
+	in the reconstructed phase space, enabling the quantification of 
+	the coupling patterns related to the seizure activity.
+
+	EEG recordings are preprocessed by a denoising and normalization 
+	pipeline before being segmented into windows of fixed-length. 
+	For each window, CRQA metrics are calculated across all channel pairs and 
+	aggregated to form a compact representation of brain's dynamical 
+	interaction. These features are used to train and evaluate classical 
+	machine learning classifiers, under multiple validation schemes, 
+	emphasizing on subject-independent protocols for 
+	ensuring a realistic performance assessment.
+
+	The methodology is evaluated on a publicly available scalp EEG dataset 
+	which contains annotations of the seizure events. 
+	Results show that the recurrence-based interaction 
+	features have the ability to capture meaningful seizure related 
+	dynamics and support the discrimination among epileptic and non-epileptic 
+	EEG windows. 
+	The findings point out the value that nonlinear inter-channel analysis holds
+	as a complementary approach to traditional single-channel or spectral methods
+	in this domain for analysis.
+
+\end{abstract}
 
 %	\maketitle
 %	\includegraphics[width=6cm]{ELMEPA.png}}\\[1cm]
@@ -63,7 +98,8 @@ Master Thesis\\[1cm]
 	\newpage  % optional, to start the co
 
 
-	\section{Introduction}
+%	\section{Introduction}
+	\chapter{Introduction}
 	Epilepsy is a neurological disorder, 
 	which is characterized by the generation of recurrent, unprovoked seizures. 
 	These seizures are the result of abnormal neuronal brain 
@@ -188,7 +224,8 @@ Master Thesis\\[1cm]
 	
 	\newpage
 
-	\section{Related Work}
+	\chapter{Related Work}
+	%\section{Related Work}
 
 			Existing recurrence-based approaches in EEG and related modalities 
 			can be grouped into: 
@@ -537,49 +574,49 @@ Master Thesis\\[1cm]
 			from background noise, showing the capability of this method in identification of
 			deterministic dynamics inside more complex physical signals. 
 
+\begin{table}[H]
+\centering
+\small
+\caption{Comparison among the retrieved studies using recurrence analysis}
+\label{tab:comparison}
 
-		\begin{table}[h]
-		\centering
-		\caption{Comparison among the retrieved studies using recurrence analysis}
-		\label{tab:comparison}
-		\begin{tabular}{@{}lcccc@{}}
-		\toprule
-		\# & Reference & Modality & Analysis Methods & Network Type/Disorder \\
-		\midrule
+\begin{tabularx}{\textwidth}{@{}l l l l X@{}}
+\toprule
+\# & Reference & Modality & Analysis Methods & Network Type/Disorder \\
+\midrule
+1  & Frolov et al. (2020) & EEG & RQA, CRQA & Multiplex functional networks \\
+2  & Kang et al. (2023) & fMRI & RQA, CRQA & DMN, schizophrenia \\
+3  & Rezaei et al. (2023) & fMRI & RQA & Default model-like network, AD \\
+4  & Lameu et al. (2018) & --- & RQA & Small-world \& cluster network \\
+5  & Lombardi et al. (2014) & fMRI & RQA & Schizophrenia, working memory \\
+6  & Pitsik (2025) & EEG & RQA & Aging \\
+7  & Guglielmo et al. (2022) & EEG & RQA & Cognitive tasks \\
+8  & Lopes et al. (2020) & sEEG, MEG & RQA & Epilepsy \\
+9  & Pentari et al. (2022) & fMRI & RQA, CRQA & NPSLE \\
+10 & Pentari et al. (2023) & fMRI & CRQA & NPSLE \\
+11 & Gruszczy\'nska et al. (2019) & EEG & RQA & Epilepsy \\
+12 & Mo et al. (2022) & sEEG & RQA & DMN, epilepsy \\
+13 & Palanisamy et al. (2024) & EEG & RQA & Epilepsy \\
+14 & Ngamga et al. (2016) & EEG & RQA, RN & Epilepsy \\
+15 & Fan and Chou (2019) & EEG & RQA, RN & Epilepsy, seizure detection \\
+16 & Nunez et al. (2020) & EEG & RQA & AD \\
+17 & Mostafa et al. (2025) & EEG & RQA & AD diagnosis (LOSO) \\
+18 & Yang et al. (2019) & sEEG & RQA, CRQA & Epilepsy \\
+19 & Rangaprakash (2014) & EEG & CPR (CRQA-based) & Epilepsy \\
+20 & Heunis et al. (2018) & rsEEG & RQA & Autism spectrum disorder \\
+21 & Timothy et al. (2017) & EEG & RQA--CRQA & MCI \\
+22 & Kashyap et al. (2019) & fMRI & RQA & Distinguish BNMs \\
+23 & Shalbaf et al. (2014) & EEG & CRQA (OPL) & Anesthesia depth monitoring \\
+24 & Mihajlovi\'c (2019) & EEG & RQA & Cognitive tasks \\
+25 & Gao et al. (2020) & EEG & RQA, Approx. Entropy + CNN & Epilepsy detection \\
+\bottomrule
+\end{tabularx}
 
-		1  & Frolov et al. (2020) & EEG & RQA, CRQA & Multiplex functional networks \\
-		2  & Kang el al. (2023) & fMRI & RQA, CRQA & DMN, schizophrenia \\
-		3  & Rezaei el al. (2023) & fMRI & RQA & Default model-like network, AD \\
-		4  & Lameu et al. (2018) & --- & RQA & Small-world \& cluster network \\
-		5  & Lombardi et al. (2014) & fMRI & RQA & schizophrenia,working memory \\
-		6  & Pitsik E. (2025) & EEG & RQA & aging \\
-		7  & Guglielmo et al. (2022) & EEG & RQA & cognitive tasks \\
-		8  & Lopes et al. (2020) & sEEG, MEG & RQA & epilepsy \\
-		9  & Pentari et al. (2022) & fMRI & RQA, CRQA & NPSLE \\
-		10 & Pentari et al. (2023) & fMRI & CRQA & NPSLE  \\
-		11 & Gruszczyńska et al. (2019) & EEG & RQA & epilepsy \\
-		12 & Mo et al. (2022) & sEEG & RQA & DMN, epilepsy \\
-		13 & Palanisamy et al. (2024) & EEG & RQA & epilepsy \\
-		14 & Ngamga et al. (2016) & EEG & RQA,RN & epilepsy \\
-		15 & Fan and Chou (2019) & EEG & RQA,RN & epilepsy, seizure detection \\
-		16 & Nunez et al. (2020) & EEG & RQA & AD \\
-		17 & Mostafa et al. (2025) & EEG & RQA & AD diagnosis (LOSO) \\
-		18 & Yang et al. (2019) & sEEG & RQA,CRQA & epilepsy \\
-		19 & Rangaprakash (2014) & EEG & CPR(CRQA-based) & epilepsy \\
-		20 & Heunis et al. (2018) & rsEEG & RQA & autism spectrum disorder \\
-		21 & Timothy et al. (2017) & EEG & RQA-CRQA & MCI \\
-		22 & Kashyap et al. (2019) & fMRI & RQA & distinguish BNMs \\
-		23 & Shalbaf et al. (2014) & EEG & CRQA(OPL) &  Anesthesia depth monitoring\\
-		24 & Mihajlović. (2019) & EEG & RQA &  cognitive tasks\\
-		25 & Gao et al. (2020)	& EEG & RQA, Approx. Entropy + CNN & epilepsy detection \\
-
-		\bottomrule
-		\end{tabular}
-		\end{table}
+\end{table}
 	
 				
 			%% PATENTS
-			\subsection{RQA patents utilizing EEG modality}
+			\section{RQA patents utilizing EEG modality}
 			\label{sec:rqa-patents}
 
 			The application of RQA utilizing EEG modality on the biomedical field,
@@ -646,7 +683,8 @@ Master Thesis\\[1cm]
 		
 		\newpage
 
-		\section{The CHB-MIT EEG Database}
+		\chapter{The CHB-MIT EEG Database}
+		%\section{The CHB-MIT EEG Database}
 		
 		The dataset used in this thesis, is the \textbf{CHB-MIT Scalp EEG Database}\cite{chbmitDataset}\cite{chbmitDataset2}, which 
 		consist of a public collection of EEG recordings 
@@ -662,7 +700,7 @@ Master Thesis\\[1cm]
 		algorithms on epileptic seizure 
 		detection and epileptic research in general.
 		
-		\subsection{Dataset Description}
+		\section{Dataset Description}
 
 		\begin{table}[h!]
 		\centering
@@ -786,8 +824,8 @@ Master Thesis\\[1cm]
 
 
 		\newpage
-		\newpage
-		\section{Filtering}
+		%\section{Filtering}
+		\chapter{Filtering}
 
 			EEG signals in most cases,
 			carry not only the desired signal but also added noise 
@@ -841,7 +879,7 @@ Master Thesis\\[1cm]
 			followed by reconstruction, and by this way removing noise while preserving neural transitions like epileptic 
 			spikes \cite{grobbelaar2022survey}. 
 
-			\subsection{Evaluation metrics for EEG denoising}
+			\section{Evaluation metrics for EEG denoising}
 
 			In order to evaluate the performance of 
 			different wavelet-based filters for EEG denoising, 
@@ -875,7 +913,7 @@ Master Thesis\\[1cm]
 			all channels in order to
 			calculate their global performance score. 
 
-			\subsection{Filter Selection Criteria}
+			\section{Filter Selection Criteria}
 
 			The selection of the optimal filter was based on a multi-criteria ranking strategy, where:
 			\begin{enumerate}
@@ -934,21 +972,21 @@ Master Thesis\\[1cm]
 
 			\begin{figure}[H]
 			    \centering
-			    \includegraphics[width=1.2\textwidth]{wav1.png}
-			    \caption{}
+			    \includegraphics[width=0.6\textwidth]{wav1.png}
+				\caption{Filtered vs original recording(selected filter)}
 			    \label{fig:filt1}
 			\end{figure}
 
 
 			\begin{figure}[H]
 			    \centering
-			    \includegraphics[width=1.2\textwidth]{wav2.png}
-			    \caption{}
+			    \includegraphics[width=0.6\textwidth]{wav2.png}
+				\caption{Filtered vs original recording (DB6 wavelet)}
 			    \label{fig:filt2}
 			\end{figure}
 			
 
-			\subsection{EEG Preprocessing and Filtering Procedure}
+			\section{EEG Preprocessing and Filtering Procedure}
 
 			In the CHM-MIT dataset, 136 recordings in total from all the subjects, were identified 
 			containing the desired 22 EEG signals and presenting at least one epileptic seizure.
@@ -987,7 +1025,8 @@ Master Thesis\\[1cm]
 
 	\newpage
 		
-		\section{Phase space reconstruction}
+		\chapter{Phase space reconstruction}
+		%\section{Phase space reconstruction}
 
 			In order to analyze multi-channel EEG's nonlinear dynamical system, the 
 			reconstruction of the underlying phase space is required, 
@@ -1005,7 +1044,7 @@ Master Thesis\\[1cm]
 			the appropriate values for these parameters to faithfully reconstruct the system's dynamics without distortion.
 	
 
-		\subsection{Determination of Embedding Parameters}
+		\section{Determination of Embedding Parameters}
 
 		The reconstruction of the phase space from a single time series 
 		\( x(t) \) requires the specification of two parameters: 
@@ -1022,7 +1061,7 @@ Master Thesis\\[1cm]
 
 
 
-		\subsubsection{Calculation of time delay \( \tau \)}
+		\subsection{Calculation of time delay \( \tau \)}
 			The time delay \( \tau \) can be estimated by applying the 
 			\textit{Average Mutual Information} (AMI) method, a concept which was first introduced 
 			by Fraser and Swinney~\cite{fraser1986}. 
@@ -1044,7 +1083,7 @@ Master Thesis\\[1cm]
 				
 
 
-			\subsubsection{Estimating embedding dimension \( m \)}
+			\subsection{Estimating embedding dimension \( m \)}
 
 			When the embedding dimension $m$ is too small, 
 			the phase space becomes \emph{projected} rather than 
@@ -1129,7 +1168,8 @@ Master Thesis\\[1cm]
 					
 	\newpage
 
-				\section{Recurrence Quantification Analysis (RQA)}
+				\chapter{Recurrence Quantification Analysis (RQA)}
+				%\section{Recurrence Quantification Analysis (RQA)}
 
 				Having reconstructed the phase space trajectory of the EEG signals, 
 				the next step is to analyze its dynamical properties. 
@@ -1145,7 +1185,7 @@ Master Thesis\\[1cm]
 				However, RP enables the examination of a higher-dimensional phase space trajectory 
 				via its two-dimensional representation of its recurrences.
 
-				\subsection{The Recurrence Plot (RP)}
+				\section{The Recurrence Plot (RP)}
 
 				RP is a symmetric, two-dimensional matrix that visualizes the recurrences of states.
 				For a reconstructed trajectory \(\vec{y}(t)\) of length \(N\), 
@@ -1224,7 +1264,7 @@ Master Thesis\\[1cm]
 				\begin{figure}[h!]
 				    \centering
 				    \includegraphics[width=0.7\linewidth]{rp_homogeneous.png} % Assuming you make a 2-panel figure
-					\caption{\textbf{Homogeneous}: Uniform noise $x(t) \sim \mathcal{U}(-1,1)$ produces scattered recurrence points.} 
+					\caption{Homogeneous RP: Uniform noise produces scattered recurrence points.} 
 				    \label{fig:rphom}
 				\end{figure}
 
@@ -1232,21 +1272,21 @@ Master Thesis\\[1cm]
 				\begin{figure}[h!]
 				    \centering
 				    \includegraphics[width=0.7\linewidth]{rp_periodic.png} % Assuming you make a 2-panel figure
-					\caption{\textbf{Periodic}: }
+					\caption{Periodic RP:  produce long, evenly spaced diagonal lines.}
 				    \label{fig:rpper}
 				\end{figure}
 
 				\begin{figure}[h!]
 				    \centering
 				    \includegraphics[width=0.7\linewidth]{rp_drift.png} % Assuming you make a 2-panel figure
-					\caption{\textbf{Drift}: }
+					\caption{Drift RP: presents diagonal lines that bend, fade, or become shorter as time progresses.}
 				    \label{fig:rpdrift}
 				\end{figure}
 
 				\begin{figure}[h!]
 				    \centering
 				    \includegraphics[width=0.7\linewidth]{rp_disrupted.png} % Assuming you make a 2-panel figure
-					\caption{\textbf{Disrupted}: }
+					\caption{Disrupted RP: display gaps, white bands, or fragmented line segments.}
 				    \label{fig:rpdistrupted}
 				\end{figure}
 
@@ -1257,7 +1297,7 @@ Master Thesis\\[1cm]
 
 
 
-				\subsection{RQA Metrics}
+				\section{RQA Metrics}
 					\label{subsec:rqa_metrics}
 
 					RQA provides a set of metrics that can quantify the 
@@ -1381,7 +1421,7 @@ Master Thesis\\[1cm]
 
 
 
-				\subsection{Cross-Recurrence Quantification Analysis (CRQA)}
+				\section{Cross-Recurrence Quantification Analysis (CRQA)}
 					\label{subsec:crqa_theory}
 
 					While Recurrence Quantification Analysis (RQA) is powerful for analyzing the dynamics of a single system, 
@@ -1389,7 +1429,7 @@ Master Thesis\\[1cm]
 					Cross-Recurrence Quantification Analysis (CRQA) extends the concepts of RQA to analyze the coupling, synchronization
 					and degree of similarity that the dynamics between two different systems present\cite{marwan2007}.
 
-					\subsubsection{The Cross-Recurrence Plot (CRP)}
+					\subsection{The Cross-Recurrence Plot (CRP)}
 
 					The foundation of CRQA is the Cross-Recurrence Plot (CRP). 
 					For two reconstructed phase space trajectories \( \vec{x}(i) \) from system \( X \) and \( \vec{y}(j) \) 
@@ -1403,7 +1443,7 @@ Master Thesis\\[1cm]
 					the CRP is generally \emph{not symmetric}. This asymmetry can reveal directional relationships 
 					or leader-follower dynamics alonside the two systems.
 
-					\subsubsection{CRQA Metrics}
+					\subsection{CRQA Metrics}
 
 					The same quantitative measures defined for RQA (Section~\ref{subsec:rqa_metrics}) can be applied to the CRP, but their interpretation shifts from describing \emph{self-similarity} to describing \emph{coupling} and \emph{interaction}:
 
@@ -1437,7 +1477,8 @@ Master Thesis\\[1cm]
 	\newpage
 
 					
-				\section{Methodology}
+				%\section{Methodology}
+				\chapter{Methodology}
 				\label{sec:methodology}
 
 				In this section the methodology for processing EEG data is described in order to perform CRQA to analyze epileptic and non-epileptic brain activity. 
@@ -1445,7 +1486,7 @@ Master Thesis\\[1cm]
 				extracting non-overlapping time windows, selecting the embedding parameters and computing CRQA features for channel pairs. 
 				The methodology is implemented in Python using libraries such as \texttt{numpy}, \texttt{torch}, \texttt{pyopencl}, and \texttt{pyrqa} \cite{pyrqacitation}.
 
-				\subsection{Data preprocessing and windowing}
+				\section{Data preprocessing and windowing}
 				\label{subsec:data_preprocessing}
 
 				Prior filtererd EEG recordings are stored in NumPy array format (\texttt{.npy}), 
@@ -1472,7 +1513,7 @@ Master Thesis\\[1cm]
 
 
 
-				\subsection{Embedding parameters selection}
+				\section{Embedding parameters selection}
 				\label{subsec:embedding_parameters}
 				
 				The embedding dimension \texttt{m} and time delay $\tau$ were set to 3 and 1, respectively, 
@@ -1492,7 +1533,7 @@ Master Thesis\\[1cm]
 				Subject-specific embedding would better reflect individual dynamics but would break feature 
 				comparability and increase computational cost.
 				
-				\subsection{Threshold selection}
+				\section{Threshold selection}
 				Radius fraction R is utilized for determination of the percentage of mean diameter of the 
 				reconstructed phase space where a recurrence can occur.
 				In order to estimate and standardize R,
@@ -1600,7 +1641,7 @@ Master Thesis\\[1cm]
 				\end{figure}
 
 
-				\subsection{Application of CRQA}
+				\section{Application of CRQA}
 				\label{subsec:crqa}
 
 				CRQA quantifies the recurrent patterns between pairs of EEG channels within each time window. 
@@ -1683,7 +1724,7 @@ Master Thesis\\[1cm]
 				\end{algorithmic}
 				\end{algorithm}
 
-				 \subsection{Feature aggregation}
+				 \section{Feature aggregation}
 				 \label{subsec:feature_aggregation}
 				 The resulting RQA feature matrix has dimensions \([N_w, N_e, N_e, 17]\), where \(N_w\) is the number of windows, 
 				\(N_e\) is the number of channels, and 17 represents the 16 CRQA features plus the segment label(epileptic or normal). 
@@ -1738,7 +1779,7 @@ Master Thesis\\[1cm]
 
 
 
-								\subsection{Class Imbalance in CRQA-EEG Data}
+								\section{Class Imbalance in CRQA-EEG Data}
 
 				Real world EEG datasets for epileptic seizure detection are by their nature imbalanced, 
 				reflecting the transient nature of seizure's occurence in contrast to normal brain activity. 
@@ -1810,7 +1851,7 @@ Master Thesis\\[1cm]
 				aggregation strategies for its final classification decision, such as 
 				majority vote, weighted votes or stacking.
 
-				\subsection{Downsampling Methodology for a Balanced Dataset}
+				\section{Downsampling Methodology for a Balanced Dataset}
 				The dataset that has been derived by concatenating all (\texttt{mean\_\_feature\_matrices}) of every recording,
 				presents severe class imbalance as it has been presented in Table~\ref{tab:imbalance}.
 				This is a common challenge for epileptic seizure detection using long and continuous EEG recordings.
@@ -1904,14 +1945,15 @@ Master Thesis\\[1cm]
 
 				\newpage				
 
-				\section{Classification - Experimental}
+				\chapter{Classification - Experimental}
+				%\section{Classification - Experimental}
 					\label{sec:classification-experimental}
 
 					In this section, the classification methodology which is applied on the generated dataset is described.
 
 
 
-					\subsection{Classification Performance Metrics}
+					\section{Classification Performance Metrics}
 					\label{subsec:performance-metrics}
 
 					To evaluate the performance of any classifier, 
@@ -1983,7 +2025,7 @@ Master Thesis\\[1cm]
 
 
 
-					\subsection{Comparison of Evaluation Protocols}
+					\section{Comparison of Evaluation Protocols}
 					Three complementary classification evaluation protocols were used: 
 					(i) repeated random sample-level splitting (80\%–20\%), 
 					(ii) repeated subject-level random splitting (19 training subjects, 5 testing subjects), and 
@@ -2007,7 +2049,7 @@ Master Thesis\\[1cm]
 					is obtained, ranging from more idealized conditions to strict subject-independent generalization.
 
 					
-					\subsubsection{Repeated Random Sample-Level Evaluation}
+					\subsection{Repeated Random Sample-Level Evaluation}
 
 					In this evaluation approach, on each repetition, 
 					the entire dataset was randomly partitioned into a training
@@ -2021,7 +2063,7 @@ Master Thesis\\[1cm]
 					aggregated by reporting the mean and standard deviation across
 					all repetitions.
 
-					\subsubsection{Repeated Subject-Level Random Evaluation}
+					\subsection{Repeated Subject-Level Random Evaluation}
 
 					For this evaluation approach, in each repetition, 
 					19 subjects were randomly selected for training and the
@@ -2036,7 +2078,7 @@ Master Thesis\\[1cm]
 					Performance metrics were computed and summarized using their 
 					mean and standard deviation across all repetitions.
 
-					\subsubsection{Leave-One-Subject-Out (LOSO) Cross-Validation}
+					\subsection{Leave-One-Subject-Out (LOSO) Cross-Validation}
 
 					To obtain an unbiased estimation of the ability that a classifier 
 					has on generalizing among different individuals, 
@@ -2064,7 +2106,7 @@ Master Thesis\\[1cm]
 					in order to obtain the final estimate. 
 
 
-					\subsection{Support Vector Machine (SVM) Classifier}
+					\section{Support Vector Machine (SVM) Classifier}
 					\label{subsec:svm}
 
 					Support Vector Machines (SVMs) belong to the so-called supervised learning models 
@@ -2103,7 +2145,7 @@ Master Thesis\\[1cm]
 					\end{figure}
 
 
-					\subsubsection{Hyperparameters}		
+					\subsection{Hyperparameters}		
 
 					In order to evaluate the SVM classifier, an exploration of its hyperparameters was conducted
 					to investigate what effects they have on the classification performance. 
@@ -2248,7 +2290,7 @@ Master Thesis\\[1cm]
 				
 
 
-				\subsection{Random Forest Classification}
+				\section{Random Forest Classification}
 
 					Random Forest is an ensemble method of learning, 
 					which constructs a 
@@ -2275,7 +2317,7 @@ Master Thesis\\[1cm]
 					nonlinear decision boundaries, and noisy measurements without requiring strong assumptions about the underlying data distribution. 
 					Furthermore, they provide resistance to outliers and feature scaling, which is particularly useful in biomedical and physiological signals.
 
-					\subsubsection{Hyperparameters}
+					\subsection{Hyperparameters}
 
 					Related to the performance of a Random Forest classifier, there is a number of structural hyperparameters that
 					control and regulate model's complexity and generalization ability. 
@@ -2388,7 +2430,7 @@ Master Thesis\\[1cm]
 
 
 
-					\subsection{k-Nearest Neighbors Classification}
+					\section{k-Nearest Neighbors Classification}
 
 					The k-Nearest Neighbors (kNN) algorithm is a non-parametric, instance-based learning method that performs classification based on the similarity between input samples in the feature space. Unlike model-based classifiers, kNN does not explicitly construct a training model. Instead, all training samples are retained in memory, and predictions are made by identifying the $k$ closest samples to a given test instance according to a distance metric.
 
@@ -2399,7 +2441,7 @@ Master Thesis\\[1cm]
 
 					Due to its simplicity and non-parametric nature, kNN is well suited for biomedical signal classification tasks where class boundaries may be highly nonlinear and difficult to model explicitly. The method adapts naturally to complex data distributions and performs particularly well when representative samples are available in the feature space. However, kNN is sensitive to feature scaling and noise, making proper preprocessing essential.
 
-					\subsubsection{Hyperparameters}
+					\subsection{Hyperparameters}
 
 					The behavior and performance of the kNN classifier are controlled by a small number of hyperparameters that regulate neighborhood size, distance computation, and voting strategy. In this study, the following hyperparameters were systematically evaluated using a grid-search framework under a Leave-One-Subject-Out (LOSO) cross-validation protocol:
 
@@ -2505,11 +2547,12 @@ Master Thesis\\[1cm]
 
 				\newpage
 
-				\section{Classification Results and Comparative Analysis}
+				\chapter{Classification Results and Comparative Analysis}
+				%\section{Classification Results and Comparative Analysis}
 
 					This section presents the classification performance obtained using three different machine learning models: Support Vector Machines (SVM), Random Forests (RF), and k-Nearest Neighbors (kNN). All models were evaluated under a strict Leave-One-Subject-Out (LOSO) cross-validation protocol to ensure subject-independent testing. Performance was quantified using accuracy, sensitivity, specificity, and F1-score, and results are reported as mean and standard deviation across all subjects.
 
-					\subsection{Overall Performance Comparison}
+					\section{Overall Performance Comparison}
 
 					Across all experiments, the three classifiers demonstrated distinct performance characteristics. The SVM classifier exhibited strong generalization ability, 
 					achieving consistently high accuracy and F1/UAR scores across subjects. 
@@ -2543,7 +2586,7 @@ Master Thesis\\[1cm]
 					SVM outperforms both RandomForest and kNN models in all of the LOSOCV metrics and yields constantly superior results.
 				
 
-%					\subsection{Sensitivity--Specificity Trade-Off}
+%					\section{Sensitivity--Specificity Trade-Off}
 %
 %					An important observation across all classifiers is the inherent trade-off between sensitivity and specificity. 
 %					SVM tended to favor balanced performance, achieving comparable sensitivity and specificity values. 
@@ -2556,24 +2599,24 @@ Master Thesis\\[1cm]
 %					The ability of the Random Forest and SVM classifiers to maintain stable sensitivity under LOSO validation 
 %					suggests strong potential for subject-independent deployment.
 
-					\subsection{Model Stability and Generalization}
+					\section{Model Stability and Generalization}
 
 					Model stability across subjects was assessed through the standard deviation of classification metrics. Among the three classifiers, Random Forest generally exhibited the lowest performance variance, indicating superior robustness to inter-subject variability. SVM also demonstrated stable behavior, while kNN showed the highest variance, reflecting its dependence on local sample distributions.
 
 					The LOSO protocol imposes a highly challenging validation setting, as the classifier is required to generalize to completely unseen subjects. The fact that all three models achieved consistent above-chance performance under this protocol indicates that the extracted feature representations contain discriminative subject-independent information.
 
-					\subsection{Computational Considerations}
+					\section{Computational Considerations}
 
 					From a computational standpoint, SVM required the most careful hyperparameter tuning due to the sensitivity of its regularization and kernel parameters. Random Forest incurred higher training time due to its ensemble nature but offered faster inference. In contrast, kNN required minimal training time but significantly higher inference cost, as distance computations must be performed against the entire training dataset for each test sample.
 
 					These computational characteristics further highlight the trade-offs between the three models in terms of real-time deployment potential and scalability.
 
-					\subsection{Summary of Findings}
+					\section{Summary of Findings}
 
 					In summary, SVM achieved the strongest overall generalization performance, Random Forest provided the best stability and robustness across subjects, and kNN offered a simple but less consistent alternative. The complementary strengths of these classifiers validate the robustness of the proposed feature extraction and evaluation pipeline. The agreement in performance trends across multiple classifiers further supports the reliability of the reported results.
 
 
-					\subsection*{Per-Patient Feature Visualization}
+					\section*{Per-Patient Feature Visualization}
 
 					For each patient in the dataset, two key RQA features are visualized and compared: 
 					\textbf{Recurrence Rate (RR)} and \textbf{Determinism (DET)}. 
@@ -2596,7 +2639,7 @@ Master Thesis\\[1cm]
 					normal and epileptic brain states, highlighting the spatial patterns of RQA metrics across electrodes.
 					In both metrics, in the epileptic states increased values are observed alongside all the channel combinations.
 
-					\subsection*{Temporal Evolution of CRQA Features}
+					\section*{Temporal Evolution of CRQA Features}
 
 					To better understand the behavior of the extracted nonlinear features, 
 					we also visualized the temporal evolution of the CRQA metrics across complete EEG recordings. 
@@ -2613,19 +2656,24 @@ Master Thesis\\[1cm]
 
 
 
-					Figure \ref{fig:temp_evol} illustrates a representative example, presenting the evolution of the CRQA metrics against time samples
+					Figure \ref{fig:temp_evol} illustrates a representative example, presenting the 
+					evolution of the CRQA metrics against time samples
 					for two of the analyzed recordins. Several measures exhibit clear transitions 
-					during epileptic periods. Most notable, determinism (DET), recurrence rate (RR), and laminarity (LAM) 
-					tend to increase during seizure segments, indicating the shift toward more structured and 
+					during epileptic periods. Most notable, determinism (DET), recurrence rate (RR), 
+					and laminarity (LAM) 
+					tend to increase during seizure segments, indicating the shift toward more 
+					structured and 
 					recurrent dynamics. 
 					Simultaneously, measures like divergence tend to decrease on global minumum ranges.
-					These observations support the hypothesis that epileptic seizures are associated with increased dynamical 
+					These observations support the hypothesis that epileptic seizures are 
+					associated with increased dynamical 
 					regularity and hypersynchronization across brain regions.
 						
 			
 			\newpage
 
-			\section{Discussion}
+			\chapter{Discussion}
+			%\section{Discussion}
 
 			The results found and presented in this thesis,
 			demonstrate the ability of the global CRQA features extracted from multi channel EEG 
@@ -2682,13 +2730,14 @@ Master Thesis\\[1cm]
 			
 			\newpage
 
-			\section{Limitations}
+			\chapter{Limitations}
+			%\section{Limitations}
 			Although the proposed framework demonstrates encouraging performance and provides insights 
 			into EEG-based seizure analysis, in this section, several limitations that are introduced by the methodology 
 			are discussed. Recognizing these limitations is essential for a correct interpretation of the 
 			findings and for creating the basis and directions for potential improvements in future research.
 
-			\subsection{Loss of spatial/topological information due to averaging}
+			\section{Loss of spatial/topological information due to averaging}
 			The proposed feature aggregation summarizes the full 
 			(22×22x16) CRQA interaction tensor into a single 16-dimensional vector 
 			per window by averaging each metric across all channel pairs. 
@@ -2703,7 +2752,7 @@ Master Thesis\\[1cm]
 			controlling dimensionality.	
 			
 
-			\subsection{Absence of artifact-free ground truth EEG for denoising evaluation}
+			\section{Absence of artifact-free ground truth EEG for denoising evaluation}
 
 			Another limitation faced, very early in the current approach relates to the 
 			preprocessing step, for the evaluation of the EEG denoising procedure. 
@@ -2718,7 +2767,7 @@ Master Thesis\\[1cm]
 			Nevertheless, the selected filtering configuration was chosen to minimize signal distortion 
 			while preserving morphological characteristics relevant to seizure dynamics.
 
-			\subsection{Constant embedding parameters}
+			\section{Constant embedding parameters}
 
 			The use of constant embedding parameters 
 			(dimension to 3, delay to 1) across all recordings 
@@ -2736,7 +2785,7 @@ Master Thesis\\[1cm]
 			may limit the ability of the reconstructed phase space to accurately capture 
 			subject-specific and time-varying dynamics. 
 		
-			\subsection{Dataset-specific constraints}
+			\section{Dataset-specific constraints}
 
 			Finally, the study is limited by the characteristics of the CHB-MIT dataset itself. 
 			The dataset consists primarily of pediatric patients and exhibits strong class imbalance, reflecting the rare 
@@ -2748,34 +2797,100 @@ Master Thesis\\[1cm]
 
 			\newpage
 
-			\section{Future Work}
-				There are several directions that can be pursued into extending the proposed framework. 
-				First, future work could explore alternative feature aggregation strategies 
-				that preserve partial spatial information while maintaining robustness. 
-				For example, hemisphere specific aggregation, region based averaging, or selection of a number of the 
-				strongest CRQA interactions could retain clinically 
-				relevant topological patterns without incurring excessive dimensionality.
+			
 
-				Graph-based representations of CRQA features could also be a specific promising extension. 
-				By treating EEG channels as nodes and CRQA metrics as their weighted edges, 
-				graph neural networks or graph-theoretic descriptors could be employed to capture 
-				both global synchronization and localized network structure.
+		\chapter{Future Work}
+		%\section{Future Work}
 
-				Additionally, adaptive embedding and threshold selection strategies could be investigated. 
-				While constant parameters were chosen in this thesis to ensure stability and consistency, 
-				patient-specific or state-dependent tuning may further boost sensitivity, 
-				particularly for seizure onset detection.
+			Although the present study evaluated the ability of how the 
+			CRQA features can effectively 
+			give a characterization of the dynamics, laying in the seizure and normal segments in scalp EEG, 
+			several other research directions remain open. 
+			Future work can expand the methodological framework in
+			three main directions: graph-based connectivity modeling, adaptive patient-specific parameterization, 
+			and cross-dataset validation.
 
-				As for the preprocessing perspective, future studies could integrate more 
-				advanced artifact rejection techniques, such as ICA-based or hybrid wavelet–ICA approaches, 
-				and evaluate their impact on recurrence-based features when artifact annotations are available.
+			\section{Graph-Based Representation of Brain Connectivity}
 
-				Finally, validation on additional datasets, including adult EEG recordings 
-				and intracranial EEG (iEEG or sEEG), would be essential to assess the generalizability of the proposed method 
-				across different recording modalities and patient populations. 
-				
-				Extending the framework toward a real-time seizure detection or prediction also 
-				can be an important future step in the direction of clinical deployment domain.
+			A limitation of the current approach, is that the global averaging of CRQA metrics 
+			across all channel pairs, suppresses the spatial structure and interaction topology. 
+			As an extension, the reformulatation of the multichannel CRQA 
+			feature space as a \textbf{functional brain network} could be proposed, 
+			where EEG channels could be having the role of nodes and CRQA metrics can form their weighted edges.
+
+			By utilizing such a representation, the preservation of spatial and 
+			topological information will be possible.
+			With this, it will allow seizure dynamics to be studied not only 
+			in terms of their overall synchronization strength 
+			but also in terms of their network organization and spatial propagation patterns. 
+			Future investigations should explore the use of graph theoretic features, 
+			such as node degree, clustering coefficients,
+			characteristic path length, and modularity, in order to 
+			give supplementary quantification of 
+			seizure-related functional connectivity.
+
+			Additionally, hemisphere-specific or region-based subnetworks could 
+			be analyzed to better capture focal seizure propagation. 
+			Temporal network analysis, where CRQA-based connectivity graphs evolve over time, 
+			could further reveal informative transitions between normal and epileptic brain states. 
+			Finally, graph-based machine learning approaches, 
+			such as graph neural networks, 
+			could be employed to directly learn from connectivity structure 
+			instead of utilizing only a global aggregated feature vector. 
+			Such developments can connect nonlinear dynamics with network neuroscience 
+			and provide more physiologically meaningful representation 
+			of seizure-related interactions.
+
+			\section{Adaptive, Patient-Specific CRQA Configuration}
+
+			In this thesis, embedding parameters and recurrence thresholds were selected as constant 
+			global values for ensuring methodological consistency across subjects. 
+			However, EEG dynamics are subject-dependent, influenced by age, brain development, 
+			seizure type, and other individual neurophysiological characteristics.
+
+			Future work could investigate an \textbf{adaptive CRQA parameter selection} 
+			oriented around of individual patients. 
+			This may include patient-specific estimation 
+			of embedding parameters using AMI and FNN
+			analysis, as well as adaptive threshold selection 
+			based on signal variance or target certain recurrence rates per RP.
+
+			State-dependent parameter tuning could also be explored, 
+			where CRQA configuration can be different across different brain states in order
+			to better capture transient synchronization changes. 
+			Having such personalization would move the framework toward precision EEG analysis, 
+			potentially improving sensitivity and moving the methodology towards long-term clinical 
+			monitoring and individualized seizure detection systems.
+
+			\section{Validation on Additional Epilepsy Datasets}
+
+			The present study was conducted 
+			exclusively using the CHB-MIT pediatric scalp EEG dataset. 
+			While this database have been widely used, it represents a specific 
+			population and recording setup, 
+			which may limit the generalizability 
+			of the findings.
+
+			Future research should evaluate the proposed framework 
+			on additional epilepsy datasets, 
+			including adult scalp EEG recordings, 
+			long-term clinical monitoring data, and intracranial EEG (iEEG or sEEG) 
+			if possible. These datasets differ in 
+			spatial resolution, noise characteristics, 
+			seizure morphology, 
+			and patient demographics, and can provide a more 
+			comprehensive test of the methodology.
+
+			Cross-dataset validation could allow assessment of 
+			feature stability across different age groups 
+			and recording conditions, identification of potential dataset-specific biases, 
+			and evaluate of whether CRQA captures fundamental seizure-related 
+			dynamics rather than characteristics tied to a single database. 
+			Demonstrating consistent performance across heterogeneous 
+			datasets would increase	the clinical credibility of recurrence-based 
+			seizure detection.
+
+
 			\newpage
 
 

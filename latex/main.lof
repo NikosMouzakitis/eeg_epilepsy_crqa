@@ -1,23 +1,35 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces EEG recording visualized utilizing Python-MNE, for a patient of the dataset.}}{15}{}%
-\contentsline {figure}{\numberline {2}{\ignorespaces EEG electrode position namings.}}{16}{}%
-\contentsline {figure}{\numberline {3}{\ignorespaces The top 10 filter configurations per EEG metric. RMSE values scaled.}}{19}{}%
-\contentsline {figure}{\numberline {4}{\ignorespaces \relax }}{20}{}%
-\contentsline {figure}{\numberline {5}{\ignorespaces \relax }}{21}{}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Preprocessing and filtering pipeline of EEG recordings}}{22}{}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Calculation of $\tau $ using AMI for a sample EEG channel. The first minimum of the AMI function (green dashed line) is chosen to become the optimal $\tau $ to ensure independence between delay coordinates.}}{23}{}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Calculation of the embedding dimension using the FNN scheme.}}{24}{}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Schematic illustration of false neighbors. In insufficient embedding dimension (left), points A and C appear neighbors due to projection. When proper embedding is employed(right), their true separation can be observed.}}{25}{}%
-\contentsline {figure}{\numberline {10}{\ignorespaces 3D phase space reconstruction for a 3-second EEG segment's channel.}}{26}{}%
-\contentsline {figure}{\numberline {11}{\ignorespaces \textbf {Homogeneous}: Uniform noise $x(t) \sim \mathcal {U}(-1,1)$ produces scattered recurrence points.}}{28}{}%
-\contentsline {figure}{\numberline {12}{\ignorespaces \textbf {Periodic}: }}{28}{}%
-\contentsline {figure}{\numberline {13}{\ignorespaces \textbf {Drift}: }}{29}{}%
-\contentsline {figure}{\numberline {14}{\ignorespaces \textbf {Disrupted}: }}{29}{}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Windowing of an EEG recording in 2s non-overlapping labeled segments.}}{34}{}%
-\contentsline {figure}{\numberline {16}{\ignorespaces CRPs for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}}{36}{}%
-\contentsline {figure}{\numberline {17}{\ignorespaces CRQA features 1-8}}{42}{}%
-\contentsline {figure}{\numberline {18}{\ignorespaces CRQA features 9-16}}{43}{}%
-\contentsline {figure}{\numberline {19}{\ignorespaces SVM maximization of margin among different classes}}{46}{}%
-\contentsline {figure}{\numberline {20}{\ignorespaces SVM LOSOCV results against subjects}}{53}{}%
-\contentsline {figure}{\numberline {21}{\ignorespaces LOSOCV results against utilized models}}{54}{}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{55}{}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Temporal evolution of CRQA metrics}}{56}{}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces EEG recording visualized utilizing Python-MNE, for a patient of the dataset.}}{18}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces EEG electrode position namings.}}{19}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The top 10 filter configurations per EEG metric. RMSE values scaled.}}{22}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Filtered vs original recording(selected filter)}}{23}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Filtered vs original recording (DB6 wavelet)}}{23}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Preprocessing and filtering pipeline of EEG recordings}}{24}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Calculation of $\tau $ using AMI for a sample EEG channel. The first minimum of the AMI function (green dashed line) is chosen to become the optimal $\tau $ to ensure independence between delay coordinates.}}{26}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Calculation of the embedding dimension using the FNN scheme.}}{27}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Schematic illustration of false neighbors. In insufficient embedding dimension (left), points A and C appear neighbors due to projection. When proper embedding is employed(right), their true separation can be observed.}}{28}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 3D phase space reconstruction for a 3-second EEG segment's channel.}}{29}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Homogeneous RP: Uniform noise produces scattered recurrence points.}}{32}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Periodic RP: produce long, evenly spaced diagonal lines.}}{32}{}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Drift RP: presents diagonal lines that bend, fade, or become shorter as time progresses.}}{32}{}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Disrupted RP: display gaps, white bands, or fragmented line segments.}}{33}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Windowing of an EEG recording in 2s non-overlapping labeled segments.}}{38}{}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces CRPs for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}}{40}{}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces CRQA features 1-8}}{46}{}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces CRQA features 9-16}}{46}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces SVM maximization of margin among different classes}}{51}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces SVM LOSOCV results against subjects}}{60}{}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces LOSOCV results against utilized models}}{61}{}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{62}{}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Temporal evolution of CRQA metrics}}{63}{}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  2 FEB 2026 04:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  3 FEB 2026 01:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,19 +6,20 @@ entering extended mode
 (./main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count187
-\c@section=\count188
-\c@subsection=\count189
-\c@subsubsection=\count190
-\c@paragraph=\count191
-\c@subparagraph=\count192
-\c@figure=\count193
-\c@table=\count194
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
@@ -41,9 +42,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count195
-\Gm@cntv=\count196
-\c@Gm@tempcnt=\count197
+\Gm@cnth=\count196
+\Gm@cntv=\count197
+\c@Gm@tempcnt=\count198
 \Gm@bindingoffset=\dimen141
 \Gm@wd@mp=\dimen142
 \Gm@odd@mp=\dimen143
@@ -66,12 +67,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen156
 \cmidrulekern=\dimen157
 \defaultaddspace=\dimen158
-\@cmidla=\count198
-\@cmidlb=\count199
+\@cmidla=\count199
+\@cmidlb=\count266
 \@aboverulesep=\dimen159
 \@belowrulesep=\dimen160
-\@thisruleclass=\count266
-\@lastruleclass=\count267
+\@thisruleclass=\count267
+\@lastruleclass=\count268
 \@thisrulewidth=\dimen161
 )
 (/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
@@ -98,14 +99,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count268
+\inf@bad=\count269
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count269
-\leftroot@=\count270
+\uproot@=\count270
+\leftroot@=\count271
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count271
-\DOTSCASE@=\count272
+\classnum@=\count272
+\DOTSCASE@=\count273
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -118,20 +119,20 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen164
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count273
+\macc@depth=\count274
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count274
+\c@MaxMatrixCols=\count275
 \dotsspace@=\muskip16
-\c@parentequation=\count275
-\dspbrk@lvl=\count276
+\c@parentequation=\count276
+\dspbrk@lvl=\count277
 \tag@help=\toks22
-\row@=\count277
-\column@=\count278
-\maxfields@=\count279
+\row@=\count278
+\column@=\count279
+\maxfields@=\count280
 \andhelp@=\toks23
 \eqnshift@=\dimen165
 \alignsep@=\dimen166
@@ -173,7 +174,7 @@ nment
 
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count280
+\c@float@type=\count281
 \float@exts=\toks26
 \float@box=\box53
 \@float@everytoks=\toks27
@@ -183,7 +184,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks28
-\c@algorithm=\count281
+\c@algorithm=\count282
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
@@ -203,7 +204,7 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \TX@old@col=\dimen175
 \TX@target=\dimen176
 \TX@delta=\dimen177
-\TX@cols=\count282
+\TX@cols=\count283
 \TX@ftn=\toks30
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
@@ -213,34 +214,34 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count283
-\c@ALG@rem=\count284
-\c@ALG@nested=\count285
+\c@ALG@line=\count284
+\c@ALG@rem=\count285
+\c@ALG@nested=\count286
 \ALG@tlm=\skip55
 \ALG@thistlm=\skip56
-\c@ALG@Lnr=\count286
-\c@ALG@blocknr=\count287
-\c@ALG@storecount=\count288
-\c@ALG@tmpcounter=\count289
+\c@ALG@Lnr=\count287
+\c@ALG@blocknr=\count288
+\c@ALG@storecount=\count289
+\c@ALG@tmpcounter=\count290
 \ALG@tmplength=\skip57
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2024-01-25 v3.3.10 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count290
-\l__siunitx_number_exponent_fixed_int=\count291
-\l__siunitx_number_min_decimal_int=\count292
-\l__siunitx_number_min_integer_int=\count293
-\l__siunitx_number_round_precision_int=\count294
-\l__siunitx_number_lower_threshold_int=\count295
-\l__siunitx_number_upper_threshold_int=\count296
-\l__siunitx_number_group_first_int=\count297
-\l__siunitx_number_group_size_int=\count298
-\l__siunitx_number_group_minimum_int=\count299
+\l__siunitx_number_uncert_offset_int=\count291
+\l__siunitx_number_exponent_fixed_int=\count292
+\l__siunitx_number_min_decimal_int=\count293
+\l__siunitx_number_min_integer_int=\count294
+\l__siunitx_number_round_precision_int=\count295
+\l__siunitx_number_lower_threshold_int=\count296
+\l__siunitx_number_upper_threshold_int=\count297
+\l__siunitx_number_group_first_int=\count298
+\l__siunitx_number_group_size_int=\count299
+\l__siunitx_number_group_minimum_int=\count300
 \l__siunitx_angle_tmp_dim=\dimen178
 \l__siunitx_angle_marker_box=\box57
 \l__siunitx_angle_unit_box=\box58
-\l__siunitx_compound_count_int=\count300
+\l__siunitx_compound_count_int=\count301
 
 (/usr/share/texlive/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
@@ -248,7 +249,7 @@ Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
 
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count301
+\etb@tempcnta=\count302
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -274,9 +275,9 @@ Package pdftexcmds Info: \pdfdraftmode found.
 \l__siunitx_table_after_box=\box64
 \l__siunitx_table_before_dim=\dimen181
 \l__siunitx_table_carry_dim=\dimen182
-\l__siunitx_unit_tmp_int=\count302
-\l__siunitx_unit_position_int=\count303
-\l__siunitx_unit_total_int=\count304
+\l__siunitx_unit_tmp_int=\count303
+\l__siunitx_unit_position_int=\count304
+\l__siunitx_unit_total_int=\count305
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
@@ -293,16 +294,16 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen190
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count305
-\c@continuedfloat=\count306
+\c@caption@flags=\count306
+\c@continuedfloat=\count307
 Package caption Info: float package is loaded.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count307
+\c@subfigure=\count308
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count308
+\c@subtable=\count309
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -329,12 +330,12 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip58
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count309
+\c@NAT@ctr=\count310
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip60
-\multirow@cntb=\count310
+\multirow@cntb=\count311
 \multirow@dima=\skip61
 \bigstrutjot=\dimen193
 )
@@ -380,14 +381,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen261
 \w@pgf@writea=\write4
 \r@pgf@reada=\read2
-\c@pgf@counta=\count311
-\c@pgf@countb=\count312
-\c@pgf@countc=\count313
-\c@pgf@countd=\count314
+\c@pgf@counta=\count312
+\c@pgf@countb=\count313
+\c@pgf@countc=\count314
+\c@pgf@countd=\count315
 \t@pgf@toka=\toks35
 \t@pgf@tokb=\toks36
 \t@pgf@tokc=\toks37
-\pgf@sys@id@count=\count315
+\pgf@sys@id@count=\count316
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -402,8 +403,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count316
-\pgfsyssoftpath@bigbuffer@items=\count317
+\pgfsyssoftpath@smallbuffer@items=\count317
+\pgfsyssoftpath@bigbuffer@items=\count318
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -434,7 +435,7 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen262
-\pgfmath@count=\count318
+\pgfmath@count=\count319
 \pgfmath@box=\box66
 \pgfmath@toks=\toks38
 \pgfmath@stack@operand=\toks39
@@ -459,7 +460,7 @@ tex)
 thmetics.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count319
+\c@pgfmathroundto@lastzeros=\count320
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
@@ -498,7 +499,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box67
 \pgf@hbox=\box68
 \pgf@layerbox@main=\box69
-\pgf@picture@serial@count=\count320
+\pgf@picture@serial@count=\count321
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
@@ -531,8 +532,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen286
-\pgf@sys@shading@range@num=\count321
-\pgf@shadingcount=\count322
+\pgf@sys@shading@range@num=\count322
+\pgf@shadingcount=\count323
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -590,7 +591,7 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count323
+\pgf@plot@mark@count=\count324
 \pgfplotmarksize=\dimen291
 )
 \tikz@lastx=\dimen292
@@ -605,18 +606,18 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box73
 \tikz@tempbox=\box74
 \tikz@tempbox@bg=\box75
-\tikztreelevel=\count324
-\tikznumberofchildren=\count325
-\tikznumberofcurrentchild=\count326
-\tikz@fig@count=\count327
+\tikztreelevel=\count325
+\tikznumberofchildren=\count326
+\tikznumberofcurrentchild=\count327
+\tikz@fig@count=\count328
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count328
-\pgfmatrixcurrentcolumn=\count329
-\pgf@matrix@numberofcolumns=\count330
+\pgfmatrixcurrentrow=\count329
+\pgfmatrixcurrentcolumn=\count330
+\pgf@matrix@numberofcolumns=\count331
 )
-\tikz@expandcount=\count331
+\tikz@expandcount=\count332
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -714,56 +715,56 @@ File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@layerboxsaved@background=\box97
 )
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 35.
+h' as default language. on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count332
+\l__color_backend_stack_int=\count333
 \l__pdf_internal_box=\box98
 )
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: <default>
+* paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
-* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=430.00462pt
-* \textheight=556.47656pt
-* \oddsidemargin=19.8752pt
-* \evensidemargin=19.8752pt
-* \topmargin=-13.87262pt
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=65.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -780,22 +781,22 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 35.
+or `english'. on input line 36.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
+\scratchcounter=\count334
 \scratchdimen=\dimen301
 \scratchbox=\box99
-\nofMPsegments=\count334
-\nofMParguments=\count335
+\nofMPsegments=\count335
+\nofMParguments=\count336
 \everyMPshowfont=\toks43
-\MPscratchCnt=\count336
+\MPscratchCnt=\count337
 \MPscratchDim=\dimen302
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
 \everyMPtoPDFconversion=\toks44
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -809,12 +810,12 @@ e
 <ELMEPA.png, id=4, 526.8483pt x 526.8483pt>
 File: ELMEPA.png Graphic file (type png)
 <use ELMEPA.png>
-Package pdftex.def Info: ELMEPA.png  used on input line 40.
+Package pdftex.def Info: ELMEPA.png  used on input line 41.
 (pdftex.def)             Requested size: 227.62204pt x 227.61758pt.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./ELMEPA.png>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./ELMEPA.png>] [1]
 (./main.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -824,456 +825,666 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1])
+) [1
+
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [2] (./main.lof)
+ [2] (./main.lof [3
+
+])
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [3] (./main.lot)
+ [4] (./main.lot
+Overfull \hbox (2.42227pt too wide) in paragraph at lines 5--5
+ [][] []\OT1/cmr/m/n/10.95 Demographic in-for-ma-tion for pa-tients in the CHB-
+MIT Scalp EEG Database. [][]  
+ []
+
+
+Overfull \hbox (3.74774pt too wide) in paragraph at lines 18--18
+ [][] []\OT1/cmr/m/n/10.95 Random For-est per-for-mance com-par-i-son be-tween 
+patient-level and patient- 
+ []
+
+)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [4]
-Overfull \hbox (9.3561pt too wide) in paragraph at lines 148--160
-[]\OT1/cmr/m/n/10 Recurrence Quan-tifi-ca-tion Anal-y-sis (RQA) and Cross-Recur
-rence Quan-tifi-ca-tion Anal-y-sis (CRQA)
+ [5
+
+]
+Chapter 1.
+[6
+
+]
+Overfull \hbox (6.26813pt too wide) in paragraph at lines 184--196
+[]\OT1/cmr/m/n/10.95 Recurrence Quan-tifi-ca-tion Anal-y-sis (RQA) and Cross-Re
+currence Quan-tifi-ca-tion Anal-
  []
 
-[5] [6] [7] [8] [9] [10]
-Overfull \hbox (80.28798pt too wide) in paragraph at lines 545--578
- [][] 
+[7] [8]
+Chapter 2.
+
+Overfull \hbox (25.54005pt too wide) in paragraph at lines 254--270
+\OT1/cmr/m/n/10.95 resting-state EEG record-ings from sub-jects with mild cog-n
+i-tive im-pair-ment(MCI), Alzheimer's
+ []
+
+[9
+
+] [10] [11] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Network
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (16.98322pt too wide) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 Type/Disorder| 
+ []
 
-[11] [12] [13] [14]
-<edf_rec.png, id=67, 1655.18375pt x 918.43124pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Multiplex
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 func-tional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 DMN,
+ []
+
+
+Overfull \hbox (0.98315pt too wide) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 schizophre-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Default
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 model-like
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 net-work,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Small-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 world &
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 clus-ter
+ []
+
+
+Overfull \hbox (15.37212pt too wide) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Schizophrenia,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 work-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Cognitive
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 DMN,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Epilepsy,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 seizure
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 AD di-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 ag-no-sis
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Autism
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 spec-trum
+ []
+
+
+Overfull \hbox (1.70543pt too wide) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Distinguish
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Anesthesia
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 depth
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+\OT1/cmr/m/n/10 mon-i-tor-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Cognitive
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10 Epilepsy
+ []
+
+[14]
+Overfull \vbox (78.6698pt too high) has occurred while \output is active []
+
+
+[15] [16]
+Chapter 3.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<edf_rec.png, id=74, 1655.18375pt x 918.43124pt>
 File: edf_rec.png Graphic file (type png)
 <use edf_rec.png>
-Package pdftex.def Info: edf_rec.png  used on input line 731.
-(pdftex.def)             Requested size: 473.0077pt x 262.45633pt.
+Package pdftex.def Info: edf_rec.png  used on input line 769.
+(pdftex.def)             Requested size: 460.08159pt x 255.2811pt.
 
-Overfull \hbox (43.00308pt too wide) in paragraph at lines 731--732
+Overfull \hbox (41.82791pt too wide) in paragraph at lines 769--770
  [][] 
  []
 
-<10-20-image.png, id=68, 963.6pt x 722.7pt>
+[17
+
+]
+Overfull \vbox (60.15053pt too high) has occurred while \output is active []
+
+
+[18 <./edf_rec.png>]
+<10-20-image.png, id=83, 963.6pt x 722.7pt>
 File: 10-20-image.png Graphic file (type png)
 <use 10-20-image.png>
-Package pdftex.def Info: 10-20-image.png  used on input line 781.
-(pdftex.def)             Requested size: 430.00462pt x 322.49922pt.
+Package pdftex.def Info: 10-20-image.png  used on input line 819.
+(pdftex.def)             Requested size: 418.25368pt x 313.68825pt.
+ [19 <./10-20-image.png>]
+Chapter 4.
+[20
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+]
+Overfull \hbox (1.38486pt too wide) in paragraph at lines 921--922
+[]\OT1/cmr/m/n/10.95 Metrics where \OT1/cmr/m/it/10.95 lower \OT1/cmr/m/n/10.95
+ val-ues in-di-cate bet-ter per-for-mance (\OT1/cmr/bx/n/10.95 RMSE\OT1/cmr/m/n
+/10.95 , \OT1/cmr/bx/n/10.95 NRMSE\OT1/cmr/m/n/10.95 , \OT1/cmr/bx/n/10.95 PRD\
+OT1/cmr/m/n/10.95 )
+ []
 
-[15 <./edf_rec.png>] [16 <./10-20-image.png>] [17]
-<eeg_metrics_result.png, id=81, 1280.6244pt x 710.4141pt>
+[21]
+<eeg_metrics_result.png, id=95, 1280.6244pt x 710.4141pt>
 File: eeg_metrics_result.png Graphic file (type png)
 <use eeg_metrics_result.png>
-Package pdftex.def Info: eeg_metrics_result.png  used on input line 925.
-(pdftex.def)             Requested size: 473.0077pt x 262.39381pt.
+Package pdftex.def Info: eeg_metrics_result.png  used on input line 963.
+(pdftex.def)             Requested size: 460.08159pt x 255.22855pt.
 
-Overfull \hbox (43.00308pt too wide) in paragraph at lines 925--926
+Overfull \hbox (41.82791pt too wide) in paragraph at lines 963--964
  [][] 
  []
 
-[18]
-<wav1.png, id=86, 1125.9666pt x 730.6497pt>
+[22 <./eeg_metrics_result.png>]
+<wav1.png, id=100, 1125.9666pt x 730.6497pt>
 File: wav1.png Graphic file (type png)
 <use wav1.png>
-Package pdftex.def Info: wav1.png  used on input line 937.
-(pdftex.def)             Requested size: 516.00423pt x 334.84312pt.
-
-Overfull \hbox (85.9996pt too wide) in paragraph at lines 937--938
- [][] 
- []
-
-[19 <./eeg_metrics_result.png>]
-<wav2.png, id=91, 867.9627pt x 730.6497pt>
+Package pdftex.def Info: wav1.png  used on input line 975.
+(pdftex.def)             Requested size: 250.95476pt x 162.8394pt.
+<wav2.png, id=101, 867.9627pt x 730.6497pt>
 File: wav2.png Graphic file (type png)
 <use wav2.png>
-Package pdftex.def Info: wav2.png  used on input line 945.
-(pdftex.def)             Requested size: 516.00423pt x 434.37964pt.
-
-Overfull \hbox (85.9996pt too wide) in paragraph at lines 945--946
- [][] 
- []
-
-[20 <./wav1.png>] [21 <./wav2.png>]
-<prep2(2).png, id=100, 963.6pt x 722.7pt>
+Package pdftex.def Info: wav2.png  used on input line 983.
+(pdftex.def)             Requested size: 250.95476pt x 211.2475pt.
+ [23 <./wav1.png> <./wav2.png>]
+<prep2(2).png, id=108, 963.6pt x 722.7pt>
 File: prep2(2).png Graphic file (type png)
 <use prep2(2).png>
-Package pdftex.def Info: prep2(2).png  used on input line 983.
-(pdftex.def)             Requested size: 344.005pt x 257.99937pt.
- [22 <./prep2(2).png>]
-<ami.png, id=105, 714.7503pt x 426.393pt>
+Package pdftex.def Info: prep2(2).png  used on input line 1021.
+(pdftex.def)             Requested size: 334.60422pt x 250.9528pt.
+ [24 <./prep2(2).png>]
+Chapter 5.
+<ami.png, id=113, 714.7503pt x 426.393pt>
 File: ami.png Graphic file (type png)
 <use ami.png>
-Package pdftex.def Info: ami.png  used on input line 1018.
-(pdftex.def)             Requested size: 344.005pt x 205.22585pt.
- [23 <./ami.png>]
-<fnn_estim.png, id=111, 714.7503pt x 426.393pt>
+Package pdftex.def Info: ami.png  used on input line 1057.
+(pdftex.def)             Requested size: 334.60422pt x 199.61748pt.
+[25
+
+]
+<fnn_estim.png, id=117, 714.7503pt x 426.393pt>
 File: fnn_estim.png Graphic file (type png)
 <use fnn_estim.png>
-Package pdftex.def Info: fnn_estim.png  used on input line 1062.
-(pdftex.def)             Requested size: 344.005pt x 205.22585pt.
-<fnn_schematic.png, id=112, 939.51pt x 629.4717pt>
+Package pdftex.def Info: fnn_estim.png  used on input line 1101.
+(pdftex.def)             Requested size: 334.60422pt x 199.61748pt.
+ [26 <./ami.png>]
+<fnn_schematic.png, id=125, 939.51pt x 629.4717pt>
 File: fnn_schematic.png Graphic file (type png)
 <use fnn_schematic.png>
-Package pdftex.def Info: fnn_schematic.png  used on input line 1070.
-(pdftex.def)             Requested size: 430.00462pt x 288.10054pt.
+Package pdftex.def Info: fnn_schematic.png  used on input line 1109.
+(pdftex.def)             Requested size: 418.25368pt x 280.22447pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24 <./fnn_estim.png>] [25 <./fnn_schematic.png>]
-<phase_space_3d.png, id=124, 469.0323pt x 475.5366pt>
+[27 <./fnn_estim.png>]
+<phase_space_3d.png, id=130, 469.0323pt x 475.5366pt>
 File: phase_space_3d.png Graphic file (type png)
 <use phase_space_3d.png>
-Package pdftex.def Info: phase_space_3d.png  used on input line 1113.
-(pdftex.def)             Requested size: 301.00192pt x 305.19135pt.
- [26 <./phase_space_3d.png>]
-Overfull \hbox (3.99698pt too wide) in paragraph at lines 1194--1200
-[]\OT1/cmr/bx/n/10 Periodic pat-terns \OT1/cmr/m/n/10 orig-i-nate from de-ter-m
-in-is-tic os-cil-la-tory func-tions(e.g, trigono-met-ric) where
- []
+Package pdftex.def Info: phase_space_3d.png  used on input line 1152.
+(pdftex.def)             Requested size: 292.77629pt x 296.8541pt.
 
-[27]
-<rp_homogeneous.png, id=132, 932.5239pt x 390.0171pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[28 <./fnn_schematic.png>] [29 <./phase_space_3d.png>]
+Chapter 6.
+[30
+
+]
+<rp_homogeneous.png, id=143, 932.5239pt x 390.0171pt>
 File: rp_homogeneous.png Graphic file (type png)
 <use rp_homogeneous.png>
-Package pdftex.def Info: rp_homogeneous.png  used on input line 1226.
-(pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
-<rp_periodic.png, id=133, 932.5239pt x 390.0171pt>
+Package pdftex.def Info: rp_homogeneous.png  used on input line 1266.
+(pdftex.def)             Requested size: 292.77629pt x 122.45135pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<rp_periodic.png, id=144, 932.5239pt x 390.0171pt>
 File: rp_periodic.png Graphic file (type png)
 <use rp_periodic.png>
-Package pdftex.def Info: rp_periodic.png  used on input line 1234.
-(pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
-<rp_drift.png, id=134, 932.5239pt x 390.0171pt>
+Package pdftex.def Info: rp_periodic.png  used on input line 1274.
+(pdftex.def)             Requested size: 292.77629pt x 122.45135pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<rp_drift.png, id=145, 932.5239pt x 390.0171pt>
 File: rp_drift.png Graphic file (type png)
 <use rp_drift.png>
-Package pdftex.def Info: rp_drift.png  used on input line 1241.
-(pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
-
+Package pdftex.def Info: rp_drift.png  used on input line 1281.
+(pdftex.def)             Requested size: 292.77629pt x 122.45135pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<rp_disrupted.png, id=135, 932.5239pt x 390.0171pt>
+<rp_disrupted.png, id=146, 932.5239pt x 390.0171pt>
 File: rp_disrupted.png Graphic file (type png)
 <use rp_disrupted.png>
-Package pdftex.def Info: rp_disrupted.png  used on input line 1248.
-(pdftex.def)             Requested size: 301.00192pt x 125.89113pt.
+Package pdftex.def Info: rp_disrupted.png  used on input line 1288.
+(pdftex.def)             Requested size: 292.77629pt x 122.45135pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[28 <./rp_homogeneous.png> <./rp_periodic.png>] [29 <./rp_drift.png> <./rp_disr
-upted.png>]
-Overfull \hbox (6.0023pt too wide) in paragraph at lines 1296--1297
-[]\OT1/cmr/m/n/10 The ra-tio is a mea-sure of com-
+[31] [32 <./rp_homogeneous.png> <./rp_periodic.png> <./rp_drift.png>]
+Overfull \hbox (6.46129pt too wide) in paragraph at lines 1336--1337
+[]\OT1/cmr/m/n/10.95 The ra-tio is a mea-
  []
 
-[30]
-Overfull \hbox (12.00787pt too wide) in paragraph at lines 1351--1354
-[]\OT1/cmr/m/n/10 The max-i-mum length of con-sec-u-tive non-recurrent
- []
+[33 <./rp_disrupted.png>] [34]
 
+Package natbib Warning: Citation `marwan2007' on page 35 undefined on input lin
+e 1430.
 
-Package natbib Warning: Citation `marwan2007' on page 31 undefined on input lin
-e 1390.
-
-[31] [32] [33]
-<segmentation-windowing.png, id=163, 1021.8175pt x 456.70625pt>
+[35] [36]
+Chapter 7.
+<segmentation-windowing.png, id=173, 1021.8175pt x 456.70625pt>
 File: segmentation-windowing.png Graphic file (type png)
 <use segmentation-windowing.png>
-Package pdftex.def Info: segmentation-windowing.png  used on input line 1464.
-(pdftex.def)             Requested size: 301.00192pt x 134.53204pt.
- [34 <./segmentation-windowing.png>]
+Package pdftex.def Info: segmentation-windowing.png  used on input line 1505.
+(pdftex.def)             Requested size: 292.77629pt x 130.85254pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<rr_compare/r01_epil.png, id=169, 421.575pt x 424.4658pt>
+[37
+
+]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[38 <./segmentation-windowing.png>]
+<rr_compare/r01_epil.png, id=183, 421.575pt x 424.4658pt>
 File: rr_compare/r01_epil.png Graphic file (type png)
 <use rr_compare/r01_epil.png>
-Package pdftex.def Info: rr_compare/r01_epil.png  used on input line 1570.
-(pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r015_epil.png, id=170, 421.575pt x 424.4658pt>
+Package pdftex.def Info: rr_compare/r01_epil.png  used on input line 1611.
+(pdftex.def)             Requested size: 188.21288pt x 189.50522pt.
+<rr_compare/r015_epil.png, id=184, 421.575pt x 424.4658pt>
 File: rr_compare/r015_epil.png Graphic file (type png)
 <use rr_compare/r015_epil.png>
-Package pdftex.def Info: rr_compare/r015_epil.png  used on input line 1577.
-(pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r02_epil.png, id=171, 421.575pt x 424.4658pt>
+Package pdftex.def Info: rr_compare/r015_epil.png  used on input line 1618.
+(pdftex.def)             Requested size: 188.21288pt x 189.50522pt.
+<rr_compare/r02_epil.png, id=185, 421.575pt x 424.4658pt>
 File: rr_compare/r02_epil.png Graphic file (type png)
 <use rr_compare/r02_epil.png>
-Package pdftex.def Info: rr_compare/r02_epil.png  used on input line 1586.
-(pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-<rr_compare/r03_epil.png, id=172, 421.575pt x 424.4658pt>
+Package pdftex.def Info: rr_compare/r02_epil.png  used on input line 1627.
+(pdftex.def)             Requested size: 188.21288pt x 189.50522pt.
+<rr_compare/r03_epil.png, id=186, 421.575pt x 424.4658pt>
 File: rr_compare/r03_epil.png Graphic file (type png)
 <use rr_compare/r03_epil.png>
-Package pdftex.def Info: rr_compare/r03_epil.png  used on input line 1593.
-(pdftex.def)             Requested size: 193.50076pt x 194.82916pt.
-[35] [36 <./rr_compare/r01_epil.png> <./rr_compare/r015_epil.png> <./rr_compare
-/r02_epil.png> <./rr_compare/r03_epil.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (8.97977pt too wide) in paragraph at lines 1672--1673
-[]  \OT1/cmr/m/n/10 Ra-dius neigh-bor-hood $\OML/cmm/m/it/10 r \OT1/cmr/m/n/10 
-= 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 15 \OMS/cmsy/m/n/10 ^^B []$\OT1/cmr/m/n/10
- ,
+Package pdftex.def Info: rr_compare/r03_epil.png  used on input line 1634.
+(pdftex.def)             Requested size: 188.21288pt x 189.50522pt.
+ [39] [40 <./rr_compare/r01_epil.png> <./rr_compare/r015_epil.png> <./rr_compar
+e/r02_epil.png> <./rr_compare/r03_epil.png>]
+Overfull \hbox (62.43402pt too wide) in paragraph at lines 1713--1714
+[]  \OT1/cmr/m/n/10.95 Ra-dius neigh-bor-hood $\OML/cmm/m/it/10.95 r \OT1/cmr/m
+/n/10.95 = 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 15 \OMS/cmsy/m/n/10.95 ^^B 
+[]$\OT1/cmr/m/n/10.95 ,
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-673.
+714.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1673.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1714.
 
- [37] [38] [39]
-[40]
-<global_box_1-8.png, id=200, 1032.7383pt x 445.1832pt>
-File: global_box_1-8.png Graphic file (type png)
-<use global_box_1-8.png>
-Package pdftex.def Info: global_box_1-8.png  used on input line 1863.
-(pdftex.def)             Requested size: 387.00153pt x 166.82101pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<global_box_9-16.png, id=201, 1035.6291pt x 445.1832pt>
-File: global_box_9-16.png Graphic file (type png)
-<use global_box_9-16.png>
-Package pdftex.def Info: global_box_9-16.png  used on input line 1870.
-(pdftex.def)             Requested size: 387.00153pt x 166.35909pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[41] [42 <./global_box_1-8.png>] [43 <./global_box_9-16.png>] [44]
-<svm-margin.png, id=217, 1105.12875pt x 956.82469pt>
-File: svm-margin.png Graphic file (type png)
-<use svm-margin.png>
-Package pdftex.def Info: svm-margin.png  used on input line 2100.
-(pdftex.def)             Requested size: 171.99922pt x 148.90489pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[45]
-Overfull \hbox (6.71786pt too wide) in paragraph at lines 2113--2117
-[]\OT1/cmr/m/n/10 The \OT1/cmr/m/it/10 ker-nel func-tion\OT1/cmr/m/n/10 , de-fi
-nes the trans-for-ma-tion that maps the in-put data into a higher-dimensional
+ [41] [42] [43]
+[44]
+Overfull \hbox (0.55092pt too wide) in paragraph at lines 1873--1877
+[]\OT1/cmr/m/n/10.95 Patient-specific pro-cess-ing main-tains inter-patient phy
+s-i-o-log-i-cal vari-abil-ity and avoids
  []
 
-[46 <./svm-margin.png>] [47] [48] [49] [50] [51] [52]
-<svm_across_pat.png, id=246, 1405.25pt x 552.0625pt>
-File: svm_across_pat.png Graphic file (type png)
-<use svm_across_pat.png>
-Package pdftex.def Info: svm_across_pat.png  used on input line 2522.
-(pdftex.def)             Requested size: 430.00462pt x 168.93057pt.
-<loso_model.png, id=247, 1451.4225pt x 870.25125pt>
-File: loso_model.png Graphic file (type png)
-<use loso_model.png>
-Package pdftex.def Info: loso_model.png  used on input line 2538.
-(pdftex.def)             Requested size: 430.00462pt x 257.82405pt.
-
+<global_box_1-8.png, id=213, 1032.7383pt x 445.1832pt>
+File: global_box_1-8.png Graphic file (type png)
+<use global_box_1-8.png>
+Package pdftex.def Info: global_box_1-8.png  used on input line 1904.
+(pdftex.def)             Requested size: 376.42575pt x 162.26295pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[53 <./svm_across_pat.png>] [54 <./loso_model.png>]
+<global_box_9-16.png, id=214, 1035.6291pt x 445.1832pt>
+File: global_box_9-16.png Graphic file (type png)
+<use global_box_9-16.png>
+Package pdftex.def Info: global_box_9-16.png  used on input line 1911.
+(pdftex.def)             Requested size: 376.42575pt x 161.80782pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[45] [46 <./global_box_1-8.png> <./global_box_9-16.png>] [47]
+Chapter 8.
+[48
+
+] [49]
+Overfull \hbox (4.2618pt too wide) in paragraph at lines 2103--2107
+[]\OT1/cmr/m/n/10.95 For each con-fig-u-ra-tion of clas-si-fiers hy-per-pa-ram-
+e-ters ex-plored, the mod-els were trained
+ []
+
+[50]
+<svm-margin.png, id=237, 1105.12875pt x 956.82469pt>
+File: svm-margin.png Graphic file (type png)
+<use svm-margin.png>
+Package pdftex.def Info: svm-margin.png  used on input line 2142.
+(pdftex.def)             Requested size: 167.2989pt x 144.8461pt.
+ [51 <./svm-margin.png>]
+Overfull \hbox (14.29878pt too wide) in paragraph at lines 2214--2215
+[]\OT1/cmr/m/n/10.95 To ad-dress class im-bal-ance, the SVM was con-fig-ured wi
+th \OT1/cmtt/m/n/10.95 class[]weight=``balanced''\OT1/cmr/m/n/10.95 ,
+ []
+
+[52] [53]
+Overfull \hbox (1.98055pt too wide) in paragraph at lines 2316--2319
+[]\OT1/cmr/m/n/10.95 Random For-est clas-si-fiers have the abil-ity of han-dlin
+g high-dimensional fea-ture spaces,
+ []
+
+[54] [55] [56] [57] [58]
+Chapter 9.
+<svm_across_pat.png, id=265, 1405.25pt x 552.0625pt>
+File: svm_across_pat.png Graphic file (type png)
+<use svm_across_pat.png>
+Package pdftex.def Info: svm_across_pat.png  used on input line 2565.
+(pdftex.def)             Requested size: 418.25368pt x 164.31433pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<loso_model.png, id=266, 1451.4225pt x 870.25125pt>
+File: loso_model.png Graphic file (type png)
+<use loso_model.png>
+Package pdftex.def Info: loso_model.png  used on input line 2581.
+(pdftex.def)             Requested size: 418.25368pt x 250.77292pt.
+[59
+
+]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[60 <./svm_across_pat.png>]
 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_mean.p
-ng, id=257, 867.24pt x 361.35pt>
+ng, id=275, 867.24pt x 361.35pt>
 File: /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
 ean.png Graphic file (type png)
 <use /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_me
 an.png>
 Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_determini
-sm/p2_determinism_mean.png  used on input line 2589.
-(pdftex.def)             Requested size: 206.40038pt x 85.99796pt.
-</home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png, id=258, 867.24
+sm/p2_determinism_mean.png  used on input line 2632.
+(pdftex.def)             Requested size: 200.75996pt x 83.6491pt.
+</home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png, id=276, 867.24
 pt x 361.35pt>
 File: /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png Graphic fi
 le (type png)
 <use /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>
 Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_rr/p2_rr_
-mean.png  used on input line 2590.
-(pdftex.def)             Requested size: 206.40038pt x 85.99796pt.
-<p1_18.png, id=259, 5992.3875pt x 4929.41624pt>
+mean.png  used on input line 2633.
+(pdftex.def)             Requested size: 200.75996pt x 83.6491pt.
+ [61 <./loso_model.png>]
+<p1_18.png, id=281, 5992.3875pt x 4929.41624pt>
 File: p1_18.png Graphic file (type png)
 <use p1_18.png>
-Package pdftex.def Info: p1_18.png  used on input line 2608.
-(pdftex.def)             Requested size: 258.00539pt x 212.18642pt.
-<p11_99.png, id=260, 1438.173pt x 1183.0599pt>
+Package pdftex.def Info: p1_18.png  used on input line 2651.
+(pdftex.def)             Requested size: 250.95476pt x 206.39473pt.
+<p11_99.png, id=282, 1438.173pt x 1183.0599pt>
 File: p11_99.png Graphic file (type png)
 <use p11_99.png>
-Package pdftex.def Info: p11_99.png  used on input line 2609.
-(pdftex.def)             Requested size: 258.00539pt x 212.23756pt.
- [55 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
-ean.png> </home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>] [56 
-<./p1_18.png> <./p11_99.png>] [57] [58] [59] [60] (./main.bbl [61]
-Underfull \hbox (badness 3009) in paragraph at lines 39--40
-[]\OT1/cmr/m/n/10 Mo, J., Zhang, J., Hu, W., Wang, X., Zhao, B., Zhang, K. and 
-Zhang, C.
+Package pdftex.def Info: p11_99.png  used on input line 2652.
+(pdftex.def)             Requested size: 250.95476pt x 206.42482pt.
+ [62 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
+ean.png> </home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>] [63 
+<./p1_18.png> <./p11_99.png>]
+Chapter 10.
+[64
+
+] [65]
+Chapter 11.
+[66
+
+] [67]
+Chapter 12.
+[68
+
+]
+Overfull \hbox (12.2006pt too wide) in paragraph at lines 2874--2883
+[]\OT1/cmr/m/n/10.95 Future re-search should eval-u-ate the pro-posed frame-wor
+k on ad-di-tional epilepsy datasets,
+ []
+
+[69] (./main.bbl
+Underfull \hbox (badness 1297) in paragraph at lines 7--8
+[]\OT1/cmr/m/n/10.95 Kang, Y., Zhang, Y., Huang, K. and Wang, Z. (2023). Re-cur
+-rence quan-
+ []
+
+[70
+
+]
+Underfull \hbox (badness 1946) in paragraph at lines 59--63
+[]\OT1/cmr/m/n/10.95 Yang, C., Luan, G., Liu, Z. and Wang, Q. (2019). Dy-nam-i-
+cal anal-y-sis
  []
 
 
-Underfull \hbox (badness 1783) in paragraph at lines 42--46
-\OT1/cmr/m/n/10 based on re-cur-rence quan-tifi-ca-tion anal-y-sis of EEG sig-n
-al and ge-netic al-go-rithm for
+Underfull \hbox (badness 2617) in paragraph at lines 59--63
+\OT1/cmr/m/n/10.95 ings. \OT1/cmr/m/it/10.95 Phys-ica A: Sta-tis-ti-cal Me-chan
+-ics and its Ap-pli-ca-tions\OT1/cmr/m/n/10.95 , \OT1/cmr/m/it/10.95 523\OT1/cm
+r/m/n/10.95 , 507--515.
+ []
+
+[71]
+Underfull \hbox (badness 2189) in paragraph at lines 103--104
+\OT1/cmr/m/n/10.95 cog-ni-tive im-pair-ment EEG us-ing com-bined re-cur-rence a
+nd cross re-cur-rence
+ []
+
+[72]
+Underfull \hbox (badness 2680) in paragraph at lines 140--143
+\OT1/cmr/m/n/10.95 at-trac-tors from mu-tual in-for-ma-tion. \OT1/cmr/m/it/10.9
+5 Phys-i-cal Re-view A, 33\OT1/cmr/m/n/10.95 (2), 1134{1140.
+ []
+
+[73] [74]
+Underfull \hbox (badness 1412) in paragraph at lines 219--220
+[]\OT1/cmr/m/n/10.95 Devinsky, O., Vez-zani, A., O'Brien, T., Jette, N., Schef-
+fer, I.E., Cur-tis,
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 48--49
-[]\OT1/cmr/m/n/10 Ngamga, E. J., Bialon-ski, S., Mar-wan, N., Kurths, J., Geier
-, C. and Lehn-ertz,
+Underfull \hbox (badness 5939) in paragraph at lines 223--224
+[]\OT1/cmr/m/n/10.95 He, H. and Gar-cia, E. A. . Learn-ing from im-bal-anced da
+ta. \OT1/cmr/m/it/10.95 IEEE
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 48--49
-\OT1/cmr/m/n/10 K. (2016). Eval-u-a-tion of se-lected re-cur-rence mea-sures in
- dis-crim-i-nat-ing pre-ictal and
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
+\OT1/cmr/m/it/10.95 Trans-ac-tions on Knowl-edge and Data En-gi-neer-ing\OT1/cm
+r/m/n/10.95 , \OT1/cmr/m/it/10.95 21\OT1/cmr/m/n/10.95 (9), 1263-1284.
  []
 
 
-Underfull \hbox (badness 2318) in paragraph at lines 48--49
-\OT1/cmr/m/n/10 inter-ictal pe-ri-ods from epilep-tic EEG data. \OT1/cmr/m/it/1
-0 Physics Let-ters A\OT1/cmr/m/n/10 , \OT1/cmr/m/it/10 380\OT1/cmr/m/n/10 (16),
- 1419{1425.
- []
-
-[62]
-Underfull \hbox (badness 2486) in paragraph at lines 107--108
-[]\OT1/cmr/m/n/10 Kashyap, A. and Keil-holz, S. (2019). Dy-namic prop-er-ties o
-f sim-u-lated brain net-
+Underfull \hbox (badness 1874) in paragraph at lines 227--228
+[]\OT1/cmr/m/n/10.95 Grobbelaar, M., Phadikar, S., Ghader-pour, E., Struck, A.F
+., Sinha, N.,
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 107--108
-\OT1/cmr/m/n/10 work mod-els and em-pir-i-cal resting-state data. \OT1/cmr/m/it
-/10 Net-work Neu-ro-science, 3\OT1/cmr/m/n/10 (2), 405-426.
+Overfull \hbox (14.12595pt too wide) in paragraph at lines 230--231
+\OT1/cmr/m/n/10.95 Avail-able: https://commons.wikimedia.org/wiki/File:Svm[]sep
+arating[]hyperplanes.png.
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 140--143
-[]\OT1/cmr/m/n/10 Fraser, A. M., & Swin-ney, H. L. (1986). In-de-pen-dent co-or
--di-nates for strange
+Underfull \hbox (badness 3364) in paragraph at lines 267--268
+[]\OT1/cmr/m/n/10.95 Mostafa, M.-A. T., Awadalla, M. and Abdel-Hamid, L. (2025)
+. Re-cur-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--143
-\OT1/cmr/m/n/10 at-trac-tors from mu-tual in-for-ma-tion. \OT1/cmr/m/it/10 Phys
--i-cal Re-view A, 33\OT1/cmr/m/n/10 (2), 1134{1140.
+Underfull \hbox (badness 3690) in paragraph at lines 267--268
+\OT1/cmr/m/n/10.95 rence quan-tifi-ca-tion anal-y-sis (RQA) fea-tures vs. tra-d
+i-tional EEG fea-tures
  []
 
 
-Underfull \hbox (badness 6204) in paragraph at lines 152--153
-[]\OT1/cmr/m/n/10 Marwan, N., Car-men Ro-mano, M., Thiel, M., & Kurths, J. (200
-7). Re-cur-
+Underfull \hbox (badness 5652) in paragraph at lines 267--268
+\OT1/cmr/m/n/10.95 for Alzheimer's dis-ease di-ag-no-sis. In-teligen-cia Ar-ti-
+fi-cial, 28(75), 170{185.
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 152--153
-\OT1/cmr/m/n/10 rence plots for the anal-y-sis of com-plex sys-tems. \OT1/cmr/m
-/it/10 Physics Re-ports, 438(5{6)\OT1/cmr/m/n/10 , 237{329.
- []
-
-[63]
-Underfull \hbox (badness 3735) in paragraph at lines 181--183
-[]\OT1/cmr/m/n/10 Norbert Mar-wan. \OT1/cmr/m/it/10 Re-cur-rence Plot and Cross
- Re-cur-rence Plot Quan-tifi-ca-tion \OT1/cmr/m/n/10 URL:
+Underfull \hbox (badness 1675) in paragraph at lines 273--274
+[]\OT1/cmr/m/n/10.95 Li, Q., Lai, Y. and Cao, D. (2024). In-ves-ti-gat-ing elec
+-tro-mag-netic acous-
  []
 
 
-Underfull \hbox (badness 3646) in paragraph at lines 186--187
-[]\OT1/cmr/m/n/10 Gao, X., Yan, X., Gao, P., Gao, X., & Zhang, S. (2020). Au-to
--matic de-tec-
+Underfull \hbox (badness 1132) in paragraph at lines 273--274
+\OT1/cmr/m/n/10.95 CRQA method. \OT1/cmr/m/it/10.95 Rus-sian Jour-nal Of Non-de
+-struc-tive Test-ing\OT1/cmr/m/n/10.95 , (2), 30-42. doi:
  []
 
-
-Underfull \hbox (badness 1009) in paragraph at lines 186--187
-\OT1/cmr/m/n/10 sis and con-vo-lu-tional neu-ral net-works. \OT1/cmr/m/it/10 Ar
--ti-fi-cial In-tel-li-gence in Medicine\OT1/cmr/m/n/10 , \OT1/cmr/m/it/10 102\O
-T1/cmr/m/n/10 , 101711.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
-[]\OT1/cmr/m/n/10 Guttag, J. (2010). CHB-MIT Scalp EEG Database (ver-sion 1.0.0
-). Phy-s-ioNet.
- []
-
-[64]
-Underfull \hbox (badness 4765) in paragraph at lines 219--220
-[]\OT1/cmr/m/n/10 Devinsky, O., Vez-zani, A., O'Brien, T., Jette, N., Schef-fer
-, I.E., Cur-tis, M.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
-\OT1/cmr/m/n/10 and Pe-rucca, P. Epilepsy.\OT1/cmr/m/it/10 Nature Re-views Dis-
-ease Primers \OT1/cmr/m/n/10 4, 18024 (2018).
- []
-
-[65]
-Underfull \hbox (badness 1038) in paragraph at lines 280--281
-[]\OT1/cmr/m/n/10 Shafiezadeh, S., Duma, G. M., Mento, G., Danieli, A., An-to-n
-i-azzi, L., Del Popolo
+[75]
+Underfull \hbox (badness 3872) in paragraph at lines 277--278
+[]\OT1/cmr/m/n/10.95 Lehnertz, K., Bialon-ski, S., Horstmann, M. T., Krug, D., 
+Rothkegel,
  []
 
 )
 
 Package natbib Warning: There were undefined citations.
 
-[66] (./main.aux)
+[76] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 23793 strings out of 476106
- 530089 string characters out of 5793932
- 1969975 words of memory out of 5000000
- 45406 multiletter control sequences out of 15000+600000
- 572479 words of font info for 88 fonts, out of 8000000 for 9000
+ 23835 strings out of 476106
+ 530723 string characters out of 5793932
+ 1962975 words of memory out of 5000000
+ 45446 multiletter control sequences out of 15000+600000
+ 578034 words of font info for 108 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  84i,13n,93p,698b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/x/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> 
-</home/x/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1000.600pk></us
+ </home/x/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> 
+</home/x/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1095.600pk></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
-8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
-.pfb>
-Output written on main.pdf (67 pages, 8609778 bytes).
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (78 pages, 8574075 bytes).
 PDF statistics:
- 411 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
+ 431 PDF objects out of 1000 (max. 8388607)
+ 246 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
