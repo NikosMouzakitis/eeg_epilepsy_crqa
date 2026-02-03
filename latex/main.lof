@@ -21,8 +21,9 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Windowing of an EEG recording in 2s non-overlapping labeled segments.}}{38}{}%
 \contentsline {figure}{\numberline {7.2}{\ignorespaces CRPs for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}}{40}{}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces CRQA features 1-8}}{46}{}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces CRQA features 9-16}}{46}{}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Normal vs epileptic windows per patient.}}{44}{}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces CRQA features 1-8}}{46}{}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces CRQA features 9-16}}{47}{}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {8.1}{\ignorespaces SVM maximization of margin among different classes}}{51}{}%
 \addvspace {10\p@ }

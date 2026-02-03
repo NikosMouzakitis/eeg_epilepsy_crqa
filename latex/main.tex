@@ -1786,7 +1786,8 @@ Master Thesis\\[1cm]
 				In our aggregated dataset, derived from CRQA features across the multi-channel EEG recordings,
 				the distribution is stark: 98.34\% normal segments (328031 examples) against 1.66\% epileptic (5558 examples), 
 				yielding a $\sim$99:1 ratio. This skew is a well known challenge in machine 
-				learning which is often reffered as the "imbalanced learning problem".
+				learning which is often reffered as the "imbalanced learning problem". In Figure \ref{fig:normal-epileptic-patient}
+				we can observe the distribution of normal and epileptic windows gathered per patient.
 
 				As discussed by He and Garcia\cite{he2009}, standard classifiers, (e.g, Random Forest), 
 				can achieve misleadingly high accuracy ($\sim$99\%) 
@@ -1814,7 +1815,17 @@ Master Thesis\\[1cm]
 				\end{tabular}
 				\end{table}
 				
-				
+	
+				\begin{figure}[h!]
+				    \centering
+				    \includegraphics[width=0.9\linewidth]{normal_vs_epileptic_per_patient.png} 
+					\caption{Normal vs epileptic windows per patient.}
+				    \label{fig:normal-epileptic-patient}
+				\end{figure}
+
+			
+
+
 				To address the higly imbalanced dataset, 
 				three main methods can be employed and are dominant in bibliography.
 

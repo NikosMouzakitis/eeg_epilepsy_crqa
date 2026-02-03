@@ -10,7 +10,7 @@
 \contentsline {table}{\numberline {7.1}{\ignorespaces Comparison of RR and DET values for different radius (R) values}}{39}{}%
 \contentsline {table}{\numberline {7.2}{\ignorespaces Quantitative measures computed by PyRQA}}{41}{}%
 \contentsline {table}{\numberline {7.3}{\ignorespaces Class distribution in the preprocessed CRQA-EEG dataset, highlighting severe imbalance.}}{44}{}%
-\contentsline {table}{\numberline {7.4}{\ignorespaces Class distribution after the application of normal's segments downsampling.}}{45}{}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces Class distribution after the application of normal's segments downsampling.}}{46}{}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {8.1}{\ignorespaces SVM performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{53}{}%
 \contentsline {table}{\numberline {8.2}{\ignorespaces Per-patient LOSO performance using SVM with RBF kernel ($C=100$, $\gamma =0.1$).}}{53}{}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  3 FEB 2026 01:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.22)  3 FEB 2026 03:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1223,70 +1223,79 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1714.
 
  [41] [42] [43]
-[44]
-Overfull \hbox (0.55092pt too wide) in paragraph at lines 1873--1877
+<normal_vs_epileptic_per_patient.png, id=210, 867.24pt x 361.35pt>
+File: normal_vs_epileptic_per_patient.png Graphic file (type png)
+<use normal_vs_epileptic_per_patient.png>
+Package pdftex.def Info: normal_vs_epileptic_per_patient.png  used on input lin
+e 1821.
+(pdftex.def)             Requested size: 376.42575pt x 156.84413pt.
+
+[44 <./normal_vs_epileptic_per_patient.png>]
+Overfull \hbox (0.55092pt too wide) in paragraph at lines 1884--1888
 []\OT1/cmr/m/n/10.95 Patient-specific pro-cess-ing main-tains inter-patient phy
 s-i-o-log-i-cal vari-abil-ity and avoids
  []
 
-<global_box_1-8.png, id=213, 1032.7383pt x 445.1832pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[45]
+<global_box_1-8.png, id=218, 1032.7383pt x 445.1832pt>
 File: global_box_1-8.png Graphic file (type png)
 <use global_box_1-8.png>
-Package pdftex.def Info: global_box_1-8.png  used on input line 1904.
+Package pdftex.def Info: global_box_1-8.png  used on input line 1915.
 (pdftex.def)             Requested size: 376.42575pt x 162.26295pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<global_box_9-16.png, id=214, 1035.6291pt x 445.1832pt>
+<global_box_9-16.png, id=219, 1035.6291pt x 445.1832pt>
 File: global_box_9-16.png Graphic file (type png)
 <use global_box_9-16.png>
-Package pdftex.def Info: global_box_9-16.png  used on input line 1911.
+Package pdftex.def Info: global_box_9-16.png  used on input line 1922.
 (pdftex.def)             Requested size: 376.42575pt x 161.80782pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[45] [46 <./global_box_1-8.png> <./global_box_9-16.png>] [47]
+[46 <./global_box_1-8.png>] [47 <./global_box_9-16.png>]
 Chapter 8.
 [48
 
 ] [49]
-Overfull \hbox (4.2618pt too wide) in paragraph at lines 2103--2107
+Overfull \hbox (4.2618pt too wide) in paragraph at lines 2114--2118
 []\OT1/cmr/m/n/10.95 For each con-fig-u-ra-tion of clas-si-fiers hy-per-pa-ram-
 e-ters ex-plored, the mod-els were trained
  []
 
 [50]
-<svm-margin.png, id=237, 1105.12875pt x 956.82469pt>
+<svm-margin.png, id=239, 1105.12875pt x 956.82469pt>
 File: svm-margin.png Graphic file (type png)
 <use svm-margin.png>
-Package pdftex.def Info: svm-margin.png  used on input line 2142.
+Package pdftex.def Info: svm-margin.png  used on input line 2153.
 (pdftex.def)             Requested size: 167.2989pt x 144.8461pt.
  [51 <./svm-margin.png>]
-Overfull \hbox (14.29878pt too wide) in paragraph at lines 2214--2215
+Overfull \hbox (14.29878pt too wide) in paragraph at lines 2225--2226
 []\OT1/cmr/m/n/10.95 To ad-dress class im-bal-ance, the SVM was con-fig-ured wi
 th \OT1/cmtt/m/n/10.95 class[]weight=``balanced''\OT1/cmr/m/n/10.95 ,
  []
 
 [52] [53]
-Overfull \hbox (1.98055pt too wide) in paragraph at lines 2316--2319
+Overfull \hbox (1.98055pt too wide) in paragraph at lines 2327--2330
 []\OT1/cmr/m/n/10.95 Random For-est clas-si-fiers have the abil-ity of han-dlin
 g high-dimensional fea-ture spaces,
  []
 
 [54] [55] [56] [57] [58]
 Chapter 9.
-<svm_across_pat.png, id=265, 1405.25pt x 552.0625pt>
+<svm_across_pat.png, id=267, 1405.25pt x 552.0625pt>
 File: svm_across_pat.png Graphic file (type png)
 <use svm_across_pat.png>
-Package pdftex.def Info: svm_across_pat.png  used on input line 2565.
+Package pdftex.def Info: svm_across_pat.png  used on input line 2576.
 (pdftex.def)             Requested size: 418.25368pt x 164.31433pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<loso_model.png, id=266, 1451.4225pt x 870.25125pt>
+<loso_model.png, id=268, 1451.4225pt x 870.25125pt>
 File: loso_model.png Graphic file (type png)
 <use loso_model.png>
-Package pdftex.def Info: loso_model.png  used on input line 2581.
+Package pdftex.def Info: loso_model.png  used on input line 2592.
 (pdftex.def)             Requested size: 418.25368pt x 250.77292pt.
 [59
 
@@ -1296,32 +1305,32 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [60 <./svm_across_pat.png>]
 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_mean.p
-ng, id=275, 867.24pt x 361.35pt>
+ng, id=277, 867.24pt x 361.35pt>
 File: /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
 ean.png Graphic file (type png)
 <use /home/x/implementations/raw_data/per_patient_determinism/p2_determinism_me
 an.png>
 Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_determini
-sm/p2_determinism_mean.png  used on input line 2632.
+sm/p2_determinism_mean.png  used on input line 2643.
 (pdftex.def)             Requested size: 200.75996pt x 83.6491pt.
-</home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png, id=276, 867.24
+</home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png, id=278, 867.24
 pt x 361.35pt>
 File: /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png Graphic fi
 le (type png)
 <use /home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>
 Package pdftex.def Info: /home/x/implementations/raw_data/per_patient_rr/p2_rr_
-mean.png  used on input line 2633.
+mean.png  used on input line 2644.
 (pdftex.def)             Requested size: 200.75996pt x 83.6491pt.
  [61 <./loso_model.png>]
-<p1_18.png, id=281, 5992.3875pt x 4929.41624pt>
+<p1_18.png, id=283, 5992.3875pt x 4929.41624pt>
 File: p1_18.png Graphic file (type png)
 <use p1_18.png>
-Package pdftex.def Info: p1_18.png  used on input line 2651.
+Package pdftex.def Info: p1_18.png  used on input line 2662.
 (pdftex.def)             Requested size: 250.95476pt x 206.39473pt.
-<p11_99.png, id=282, 1438.173pt x 1183.0599pt>
+<p11_99.png, id=284, 1438.173pt x 1183.0599pt>
 File: p11_99.png Graphic file (type png)
 <use p11_99.png>
-Package pdftex.def Info: p11_99.png  used on input line 2652.
+Package pdftex.def Info: p11_99.png  used on input line 2663.
 (pdftex.def)             Requested size: 250.95476pt x 206.42482pt.
  [62 </home/x/implementations/raw_data/per_patient_determinism/p2_determinism_m
 ean.png> </home/x/implementations/raw_data/per_patient_rr/p2_rr_mean.png>] [63 
@@ -1338,7 +1347,7 @@ Chapter 12.
 [68
 
 ]
-Overfull \hbox (12.2006pt too wide) in paragraph at lines 2874--2883
+Overfull \hbox (12.2006pt too wide) in paragraph at lines 2885--2894
 []\OT1/cmr/m/n/10.95 Future re-search should eval-u-ate the pro-posed frame-wor
 k on ad-di-tional epilepsy datasets,
  []
@@ -1453,10 +1462,10 @@ L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 23835 strings out of 476106
- 530723 string characters out of 5793932
+ 23843 strings out of 476106
+ 531046 string characters out of 5793932
  1962975 words of memory out of 5000000
- 45446 multiletter control sequences out of 15000+600000
+ 45454 multiletter control sequences out of 15000+600000
  578034 words of font info for 108 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  84i,13n,93p,698b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1481,10 +1490,10 @@ fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (78 pages, 8574075 bytes).
+Output written on main.pdf (78 pages, 8615355 bytes).
 PDF statistics:
- 431 PDF objects out of 1000 (max. 8388607)
+ 433 PDF objects out of 1000 (max. 8388607)
  246 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 158 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 163 words of extra memory for PDF output out of 10000 (max. 10000000)
 
