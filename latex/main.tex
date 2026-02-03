@@ -78,10 +78,10 @@ Master Thesis\\[1cm]
 	The methodology is evaluated on a publicly available scalp EEG dataset 
 	which contains annotations of the seizure events. 
 	Results show that the recurrence-based interaction 
-	features have the ability to capture meaningful seizure related 
+	hold the ability to capture meaningful seizure related 
 	dynamics and support the discrimination among epileptic and non-epileptic 
 	EEG windows. 
-	The findings point out the value that nonlinear inter-channel analysis holds
+	The findings, also point out the value of nonlinear inter-channel analysis 
 	as a complementary approach to traditional single-channel or spectral methods
 	in this domain for analysis.
 
@@ -103,10 +103,11 @@ Master Thesis\\[1cm]
 	Epilepsy is a neurological disorder, 
 	which is characterized by the generation of recurrent, unprovoked seizures. 
 	These seizures are the result of abnormal neuronal brain 
-	activity which subsequently lead into 
-	disturbances in the behavior, sensation, movement as well as in the consciousness
-	of the affected subject. In general they affect severely patient's quality of life.
-	Information gathered by World Health Organization (WHO), 
+	activity which result into 
+	disturbances in behavior, sensation, movement and also in the consciousness
+	of the affected subject. In general they affect
+	patient's quality of life in a severe way.
+	Information by World Health Organization (WHO), 
 	report that epilepsy affects 
 	around 50 million people worldwide, 
 	placing it as one of the most common 
@@ -118,42 +119,47 @@ Master Thesis\\[1cm]
 	while for almost 50\% of the cases, their trigger still remains unknown\cite{causes}. 
 	Depending on the brain regions involved, seizures have several classifications. 
 	They can be classified as focal (if its origin is a specific area) 
-	or a generalized one (involving both hemispheres). 
+	or a generalized one (in the case where both hemispheres are involved). 
 	Clinically, seizures are characterized by high variability, 
 	from short term lapses in awareness, up to 
 	convulsive episodes, occuring in unpredictable times.
 
-	For the diagnosis and monitoring of epilepsy, 
+	For the diagnosing epilepsy and monitoring the conddition, 
 	electroencephalography (EEG) 
-	is widely utilized, as is offers a non invasive 
-	technique for recording brain’s electrical 
-	activity using surface electrodes. 
-	EEG signals contain temporal 
+	is widely used, because it offers a non invasive 
+	way for recording brain’s electrical 
+	activity. 
+	EEG signals, which are acquired by using 
+	surface electrodes on the scalp,
+	contain temporal 
 	information that reflects 
 	the dynamic interactions 
 	of neuronal populations. 
-	Epileptic seizures are not local phenomena 
-	but involve the abnormal synchronization and 
+	Epileptic seizures are not 
+	local phenomena 
+	but involve the synchronization and 
 	interaction between different "distributed" brain regions\cite{sync1}. 
-	As a result, analyzing each EEG channel independently may miss
-	important information related to the way neural populations interact 
+	As a result, analyzing each EEG channel independently can miss out
+	important information related to the way different neural 
+	populations interact 
 	during the seizure event. 
-	The observance of characteristic patterns 
+	The observation of characteristic patterns 
 	like spikes, sharp waves, or continuous 
 	discharges often appear in EEG signal, 
 	and consist the primary reason for distinguishing the epileptical
-	from the normal activity. 
+	from the normal activity\cite{AlarconClinical}. 
 	As a result, EEG analysis holds
 	a central role for both clinical diagnosis 
 	and research related on this domain.
 
-	Recent advances in signal processing combined with
-	machine learning have greatly 
+	Recent advances in signal processing in combination with
+	machine learning methods, have greatly 
 	improved the ability of the EEG data analysis. 
 	Techniques like time-frequency decomposition, 
 	nonlinear dynamics, recurrence analysis, 
 	and deep neural networks 
-	can offer new solutions for automated extraction 
+	can offer new solutions for automated 
+	extraction 
 	of complex spatial and temporal 
 	features from EEG recordings. 
 	As an ultimate goal, these approaches aim to
@@ -161,23 +167,33 @@ Master Thesis\\[1cm]
 	data-driven tools for seizure detection, prediction, and classification, 
 	contributing in enhancing patient care and personal treatments.
 
-	Dynamical systems or time series are 
+	Dynamical systems or time series(such as EEG signal) are 
 	considered stationary when their statistical 
 	properties remain constant over time. 
-	In more detail, in a stationary process the mean, variance, and autocorrelation 
+	In more detail, in a stationary process 
+	the mean, variance, and autocorrelation 
 	structure do not change as time evolves.
-	In such systems, fluctuations occur around a stable equilibrium point and 
-	the probabilistic behavior of the signal is time-invariant.  On the other hand, non-stationary system 
-	is one with changing statistical properties change over time, due to transitions in the underlying dynamics.
+	In these systems, fluctuations occur around 
+	a stable equilibrium point and 
+	the probabilistic behavior of the signal is time-invariant.  
+	On the other hand, a non-stationary system 
+	is one with changing statistical properties over time, 
+	due to transitions in the system's dynamics.
 	Non-stationarity applies also to 
-	EEG, in which the brain activity continuously performs switches among different functional states.
-	This nature of EEG signal, serves as  motivation, for analyzing it utilizing recurrence-based methods
-	which do not assume stationarity and are able to detect dynamic transitions.	
+	EEG, because brain activity continuously performs switches among 
+	different functional states.
+	This nature of EEG signal, serves as  motivation, 
+	to analyze it by using recurrence-based methods
+	which do not assume stationarity and are 
+	able to detect these transitions.	
 
-	Summarizing, epilepsy represents a major public health challenge due to its prevalence, 
-	variability, and social consequences. Understanding the electrophysiological mechanisms 
-	that drive seizure generation and developing reliable methods for automatic EEG analysis 
-	remains a crucial research direction in modern neuroscience and biomedical engineering.
+	Summarizing, epilepsy represents a 
+	major public health challenge, and understanding the 
+	electrophysiological mechanisms 
+	that drive seizure generation 
+%	and developing reliable methods for automatic EEG analysis 
+	remains an importan research direction 
+	in modern neuroscience and biomedical engineering.
 
 
 			%small intro and foundational works to have as introduction.test papers.
@@ -207,7 +223,6 @@ Master Thesis\\[1cm]
 	from the same subjects across training and testing sets, 
 	leading to optimistic performance estimations that do not reflect the real-world generalization \cite{losoImportance}. 
 
-
 	The rest of this thesis is organized as follows. 
 	Section 2 reviews related work on recurrence analysis in neuroscience, 
 	focusing mainly on EEG-based applications of recurrence
@@ -216,7 +231,7 @@ Master Thesis\\[1cm]
 	Phase-space reconstruction and embedding parameter selection are detailed in Section 5, 
 	followed by an introduction to Recurrence Quantification Analysis and Cross-Recurrence 
 	Quantification Analysis in Section 6. 
-	The full methodological pipeline, including feature extraction/aggregation, is presented in Section 7. 
+	The methodological pipeline, including feature extraction/aggregation, is presented in Section 7. 
 	Classification strategies and experimental protocols are described in Section 8, 
 	while Section 9 presents the obtained results and the comparative analysis. 
 	Section 10 discusses the findings, and Section 11 outlines the limitations of the study. 
@@ -363,7 +378,7 @@ Master Thesis\\[1cm]
 			Using recurrence plots and CRQA, they identified epileptogenic channels with longer diagonal
 			structures in RPs, which is a sign of more deterministic and recurrent dynamics. 
 			Their findings point out that the synchronization among the epileptogenic channels strengthened 
-			while seizures events occur, suggesting that these regions dominate the 
+			while seizure events took place, suggesting that these regions dominate the 
 			network's dynamics.
 			%epilepsy, sEEG , RQA ok
 			Lopes et al. \cite{lopes} have proposed a 
@@ -646,7 +661,7 @@ Master Thesis\\[1cm]
 			Patent US20250195894A1 \cite{pat2025}, 
 			entitled “Systems and Methods for Seizure Detection and Closed-Loop Neurostimulation,” 
 			proposed an alternative implementation of RQA metrics 
-			that bypasses explicit construction of the full \textbf{N×N}
+			that bypasses explicit construction of the whole \textbf{N×N}
 			recurrence plot matrix. Instead, metrics are computed on-the-fly by dynamically 
 			accumulating diagonal line statistics as new samples arrive, 
 			providing significant reduction in memory and computational requirements. 
@@ -693,7 +708,7 @@ Master Thesis\\[1cm]
 		All the recordings were collected at 
 		the Children's Hospital Boston, 
 		and it contains multiple cases (patients), each with long-term scalp 
-		EEG signals recorded using the international 10–20 system.
+		EEG signals recorded using the International 10–20 system.
 		Table~\ref{tab:chbmit_demographics} provides a summary of the demographic information 
 		of the database's subjects.
 		This particular database is used in many studies for testing 
@@ -761,7 +776,7 @@ Master Thesis\\[1cm]
 		Seizure events are annotated by domain experts, 
 		providing a time-stamp for seizure onsets and offsets. 
 		Using those dataset's annotations for the epileptical segments,
-		the full recordings can be visualized and 
+		the recordings can be visualized and 
 		inspected interactively as shown in Figure~\ref{MNEvis} via the MNE library in Python.
 
 		\begin{figure}[H]
@@ -2749,7 +2764,7 @@ Master Thesis\\[1cm]
 			findings and for creating the basis and directions for potential improvements in future research.
 
 			\section{Loss of spatial/topological information due to averaging}
-			The proposed feature aggregation summarizes the full 
+			The proposed feature aggregation summarizes the total 
 			(22×22x16) CRQA interaction tensor into a single 16-dimensional vector 
 			per window by averaging each metric across all channel pairs. 
 			While this approach improves robustness and generalization by reducing dimensionality, 

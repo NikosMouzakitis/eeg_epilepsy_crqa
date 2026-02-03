@@ -279,4 +279,10 @@
 	\bibitem{losoImportance}
 		Shafiezadeh, S., Duma, G. M., Mento, G., Danieli, A., Antoniazzi, L., Del Popolo Cristaldi, F., Bonanni, P. and Testolin, A. (2024). Calibrating Deep Learning Classifiers for Patient-Independent Electroencephalogram Seizure Forecasting. \textit{Sensors}, 24(9), 2863. https://doi.org/10.3390/s24092863
 
+
+
+	\bibitem{AlarconClinical}
+	Alarcón, G. (2012). Clinical use of EEG in epilepsy. In G. Alarcón \& A. Valentín (Eds.), \textit{Introduction to Epilepsy} (pp. 119--130). Cambridge: Cambridge University Press.
+
+
 \end{thebibliography}
