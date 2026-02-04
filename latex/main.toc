@@ -13,42 +13,44 @@
 \contentsline {subsection}{\numberline {5.1.2}Estimating embedding dimension \( m \)}{26}{}%
 \contentsline {chapter}{\numberline {6}Recurrence Quantification Analysis (RQA)}{30}{}%
 \contentsline {section}{\numberline {6.1}The Recurrence Plot (RP)}{30}{}%
-\contentsline {section}{\numberline {6.2}RQA Metrics}{31}{}%
-\contentsline {section}{\numberline {6.3}Cross-Recurrence Quantification Analysis (CRQA)}{35}{}%
-\contentsline {subsection}{\numberline {6.3.1}The Cross-Recurrence Plot (CRP)}{35}{}%
+\contentsline {section}{\numberline {6.2}RQA Metrics}{32}{}%
+\contentsline {section}{\numberline {6.3}Cross-Recurrence Quantification Analysis (CRQA)}{36}{}%
+\contentsline {subsection}{\numberline {6.3.1}The Cross-Recurrence Plot (CRP)}{36}{}%
 \contentsline {subsection}{\numberline {6.3.2}CRQA Metrics}{36}{}%
-\contentsline {chapter}{\numberline {7}Methodology}{37}{}%
-\contentsline {section}{\numberline {7.1}Data preprocessing and windowing}{37}{}%
-\contentsline {section}{\numberline {7.2}Embedding parameters selection}{37}{}%
-\contentsline {section}{\numberline {7.3}Threshold selection}{38}{}%
+\contentsline {chapter}{\numberline {7}Methodology}{39}{}%
+\contentsline {section}{\numberline {7.1}Data preprocessing and windowing}{39}{}%
+\contentsline {section}{\numberline {7.2}Embedding parameters selection}{40}{}%
+\contentsline {section}{\numberline {7.3}Threshold selection}{41}{}%
 \contentsline {section}{\numberline {7.4}Application of CRQA}{41}{}%
-\contentsline {section}{\numberline {7.5}Feature aggregation}{43}{}%
-\contentsline {section}{\numberline {7.6}Class Imbalance in CRQA-EEG Data}{44}{}%
-\contentsline {section}{\numberline {7.7}Downsampling Methodology for a Balanced Dataset}{45}{}%
-\contentsline {chapter}{\numberline {8}Classification - Experimental}{48}{}%
-\contentsline {section}{\numberline {8.1}Classification Performance Metrics}{48}{}%
-\contentsline {section}{\numberline {8.2}Comparison of Evaluation Protocols}{49}{}%
-\contentsline {subsection}{\numberline {8.2.1}Repeated Random Sample-Level Evaluation}{50}{}%
-\contentsline {subsection}{\numberline {8.2.2}Repeated Subject-Level Random Evaluation}{50}{}%
-\contentsline {subsection}{\numberline {8.2.3}Leave-One-Subject-Out (LOSO) Cross-Validation}{50}{}%
-\contentsline {section}{\numberline {8.3}Support Vector Machine (SVM) Classifier}{50}{}%
-\contentsline {subsection}{\numberline {8.3.1}Hyperparameters}{51}{}%
-\contentsline {section}{\numberline {8.4}Random Forest Classification}{54}{}%
-\contentsline {subsection}{\numberline {8.4.1}Hyperparameters}{54}{}%
-\contentsline {section}{\numberline {8.5}k-Nearest Neighbors Classification}{56}{}%
-\contentsline {subsection}{\numberline {8.5.1}Hyperparameters}{57}{}%
-\contentsline {chapter}{\numberline {9}Classification Results and Comparative Analysis}{59}{}%
-\contentsline {section}{\numberline {9.1}Overall Performance Comparison}{59}{}%
-\contentsline {section}{\numberline {9.2}Model Stability and Generalization}{60}{}%
-\contentsline {section}{\numberline {9.3}Computational Considerations}{60}{}%
-\contentsline {section}{\numberline {9.4}Summary of Findings}{61}{}%
-\contentsline {chapter}{\numberline {10}Discussion}{64}{}%
-\contentsline {chapter}{\numberline {11}Limitations}{66}{}%
-\contentsline {section}{\numberline {11.1}Loss of spatial/topological information due to averaging}{66}{}%
-\contentsline {section}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{66}{}%
-\contentsline {section}{\numberline {11.3}Constant embedding parameters}{67}{}%
-\contentsline {section}{\numberline {11.4}Dataset-specific constraints}{67}{}%
-\contentsline {chapter}{\numberline {12}Future Work}{68}{}%
-\contentsline {section}{\numberline {12.1}Graph-Based Representation of Brain Connectivity}{68}{}%
-\contentsline {section}{\numberline {12.2}Adaptive, Patient-Specific CRQA Configuration}{69}{}%
-\contentsline {section}{\numberline {12.3}Validation on Additional Epilepsy Datasets}{69}{}%
+\contentsline {section}{\numberline {7.5}Feature aggregation}{45}{}%
+\contentsline {section}{\numberline {7.6}Class Imbalance in CRQA-EEG Data}{46}{}%
+\contentsline {section}{\numberline {7.7}Downsampling Methodology for a Balanced Dataset}{48}{}%
+\contentsline {chapter}{\numberline {8}Classification - Experimental}{51}{}%
+\contentsline {section}{\numberline {8.1}Classification Performance Metrics}{51}{}%
+\contentsline {section}{\numberline {8.2}Comparison of Evaluation Protocols}{52}{}%
+\contentsline {subsection}{\numberline {8.2.1}Repeated Random Sample-Level Evaluation}{53}{}%
+\contentsline {subsection}{\numberline {8.2.2}Repeated Subject-Level Random Evaluation}{53}{}%
+\contentsline {subsection}{\numberline {8.2.3}Leave-One-Subject-Out (LOSO) Cross-Validation}{53}{}%
+\contentsline {section}{\numberline {8.3}Support Vector Machine (SVM) Classifier}{53}{}%
+\contentsline {subsection}{\numberline {8.3.1}Hyperparameters}{54}{}%
+\contentsline {paragraph}{Kernel Functions}{55}{}%
+\contentsline {paragraph}{Regularization and Optimization Parameters}{55}{}%
+\contentsline {section}{\numberline {8.4}Random Forest Classification}{57}{}%
+\contentsline {subsection}{\numberline {8.4.1}Hyperparameters}{57}{}%
+\contentsline {section}{\numberline {8.5}k-Nearest Neighbors Classification}{59}{}%
+\contentsline {subsection}{\numberline {8.5.1}Hyperparameters}{60}{}%
+\contentsline {chapter}{\numberline {9}Classification Results and Comparative Analysis}{62}{}%
+\contentsline {section}{\numberline {9.1}Overall Performance Comparison}{62}{}%
+\contentsline {section}{\numberline {9.2}Model Stability and Generalization}{63}{}%
+\contentsline {section}{\numberline {9.3}Computational Considerations}{63}{}%
+\contentsline {section}{\numberline {9.4}Summary of Findings}{64}{}%
+\contentsline {chapter}{\numberline {10}Discussion}{67}{}%
+\contentsline {chapter}{\numberline {11}Limitations}{69}{}%
+\contentsline {section}{\numberline {11.1}Loss of spatial/topological information due to averaging}{69}{}%
+\contentsline {section}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{69}{}%
+\contentsline {section}{\numberline {11.3}Constant embedding parameters}{70}{}%
+\contentsline {section}{\numberline {11.4}Dataset-specific constraints}{70}{}%
+\contentsline {chapter}{\numberline {12}Future Work}{71}{}%
+\contentsline {section}{\numberline {12.1}Graph-Based Representation of Brain Connectivity}{71}{}%
+\contentsline {section}{\numberline {12.2}Adaptive, Patient-Specific CRQA Configuration}{72}{}%
+\contentsline {section}{\numberline {12.3}Validation on Additional Epilepsy Datasets}{72}{}%
