@@ -19,21 +19,25 @@
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Drift RP: presents diagonal lines that bend, fade, or become shorter as time progresses.}}{32}{}%
 \contentsline {figure}{\numberline {6.4}{\ignorespaces Disrupted RP: display gaps, white bands, or fragmented line segments.}}{32}{}%
 \contentsline {figure}{\numberline {6.5}{\ignorespaces RP of an epileptic window.}}{36}{}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces CRP of an epileptic window.}}{38}{}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Diagonal lines on RP; a close view on the phase space trajectory.}}{36}{}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces CRP of an epileptic window.}}{38}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Windowing of an EEG recording in 2s non-overlapping labeled windows.}}{40}{}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces CRPs for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}}{42}{}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Pipeline from multi-channel EEG signal to the aggregated dynamical vector.}}{46}{}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Normal vs epileptic windows per patient.}}{47}{}%
-\contentsline {figure}{\numberline {7.5}{\ignorespaces CRQA features 1-8}}{49}{}%
-\contentsline {figure}{\numberline {7.6}{\ignorespaces CRQA features 9-16}}{50}{}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Database's annotated summary of recording.}}{40}{}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Windowing of an EEG recording in 2s non-overlapping labeled windows.}}{40}{}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces CRPs for the selected EEG channel pairs, for an epileptic window. (a) R = 0.1 (b) R = 0.15 (c) R = 0.2 (d) R = 0.3}}{42}{}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Pipeline from multi-channel EEG signal to the aggregated dynamical vector.}}{46}{}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Normal vs epileptic windows per patient.}}{48}{}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces CRQA features 1-8}}{49}{}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces CRQA features 9-16}}{50}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces SVM maximization of margin among different classes}}{55}{}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces SVM maximization of margin among different classes}}{54}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces SVM LOSOCV results against subjects}}{63}{}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces SVM LOSOCV results.}}{63}{}%
 \contentsline {figure}{\numberline {9.2}{\ignorespaces LOSOCV results against utilized models}}{64}{}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{65}{}%
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Temporal evolution of CRQA metrics}}{66}{}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{66}{}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Temporal evolution of CRQA metrics}}{67}{}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces RR vs. DET for a "good" performer.}}{68}{}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces RR vs. DET for a "bad" performer.}}{68}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -254,7 +254,32 @@ Master Thesis\\[1cm]
 	while Section 9 presents the obtained results and the comparative analysis. 
 	Section 10 discusses the findings, and Section 11 outlines the limitations of the study. 
 	Finally, Section 12 suggests directions for future work.
-	
+
+	\section{Research Objective and Question}
+
+	The main goal of this thesis is to estimate whether cross-recurrence dynamics 
+	extracted from multi-channel scalp EEG are capable to
+	provide efficient subject-independent 
+	discrimination between epileptic and non-epileptic 
+	brain activity.
+
+	Based on this, the central research question 
+	that has addressed in this thesis is:
+
+	\begin{quote}
+	\textit{Can globally aggregated multichannel Cross-Recurrence Quantification Analysis (CRQA) features, extracted from scalp EEG recordings, 
+		support reliable and statistically significant seizure detection performance 
+		under strict Leave-One-Subject-Out (LOSO) evaluation?}
+	\end{quote}
+
+	In order to answer this question, a complete nonlinear dynamical 
+	pipeline is implemented, 
+	including preprocessing, phase-space reconstruction, CRQA feature extraction for  all the EEG channel pairs, 
+	feature aggregation in a global synchrony descriptor, and machine learning classification. 
+	Performance is evaluated under multiple validation schemes, by emphasizing on 
+	subject-independent evaluation and
+	statistical comparison across classifiers.
+		
 	\newpage
 
 	\chapter{Related Work}
@@ -1062,7 +1087,8 @@ Master Thesis\\[1cm]
 
 			In order to analyze multi-channel EEG's nonlinear dynamical system, the 
 			reconstruction of the underlying phase space is required, 
-			based on the scalar measurements of each channel. 
+			based on the scalar measurements of each channel. This is a vital step,
+			because recurrences are computed using the system's phase space.
 			According to Takens' embedding theorem \cite{takens1981}, 
 			a time series $x(t)$ can be embedded 
 			in an $m$-dimensional space using time-delay coordinates:
@@ -1476,6 +1502,18 @@ Master Thesis\\[1cm]
 						\caption{RP of an epileptic window.}
 					    \label{fig:rpepileptic}
 					\end{figure}
+					
+
+					The presence of diagonal lines in a RP, means that a part of trajectory
+					of the \texttt{solid} curve, evolves in time, within the thresholded distance 
+					with the trajectory of the \texttt{dashed} line, as is visualized in Figure~\ref{fig:recurrencePS}.
+
+					\begin{figure}[h!]
+					    \centering
+					    \includegraphics[width=0.5\linewidth]{recurrence_phase_space.png}
+						\caption{Diagonal lines on RP; a close view on the phase space trajectory.}
+					    \label{fig:recurrencePS}
+					\end{figure}
 
 
 
@@ -1572,7 +1610,8 @@ Master Thesis\\[1cm]
 				For each segment, the number of windows is calculated by performing integer division of the segment length by the window size and discarding any incomplete windows. 
 				Each window is associated with a segment index, window index within the segment, start and end sample indices, and a label (1 for epileptic, 0 for non-epileptic).
 
-				In Listing {\ref{lst:segment_example}, a code snippet is presented, where the definition of the labels of a specific 
+				In Listing {\ref{lst:segment_example}, a code snippet is presented which corresponds on the processing of 
+				the 6th recording of patient 15, with summary information as in Figure~\ref{fig:patient_summary}, where the definition of the labels of a specific 
 				recording take place. Metadata path and EEG signal's path are defined, and then follows the labeling of the segments.
 				Label 0 is used for normal segments and label 1 
 				for the epileptic ones. For each segment based on the 
@@ -1580,6 +1619,18 @@ Master Thesis\\[1cm]
 				time(second) with the sampling frequency. Also in Figure \ref{fig:segmentation-windowing} the segmentation process of a recording
 				is visually presented, from the filtered multi-channel EEG signal up to the point where all labeled windows 
 				are extracted.
+
+
+				\begin{figure}[h!]
+				    \centering
+				    \includegraphics[width=0.7\linewidth]{patient_summary.png} %
+					\caption{Database's annotated summary of recording.}
+				    \label{fig:patient_summary}
+				\end{figure}
+
+
+
+
 
 \begin{lstlisting}[caption={Example structure for  annotated EEG recording with 1 epileptic segment}, label={lst:segment_example}]
  recordings = [
@@ -1631,10 +1682,10 @@ Master Thesis\\[1cm]
 				comparability and increase computational cost.
 				
 				\section{Threshold selection}
-				In order to define a recurrence, as seen in Equation 6.2, a distance threshold $ \epsilon $ is required.
+				In order to define a recurrence, as seen in Equation 6.2, a distance threshold $ \varepsilon $ is required.
 				This threshold is calculated as
 				\[
-				\epsilon = R \cdot \operatorname{mean}\bigl(\mathrm{PhaseSpaceDiameter}(\text{electrode}_1),\,
+				\varepsilon = R \cdot \operatorname{mean}\bigl(\mathrm{PhaseSpaceDiameter}(\text{electrode}_1),\,
 				\mathrm{PhaseSpaceDiameter}(\text{electrode}_2)\bigr)
 				\]
 				Radius fraction R is utilized for determination of the percentage of mean diameter of the 
@@ -1652,7 +1703,7 @@ Master Thesis\\[1cm]
 								
 				\begin{table}[h!]
 				\centering
-				\caption{Comparison of RR and DET values for different radius (R) values}
+				\caption{Comparison of RR and DET values for different radius fraction (R) values}
 				\label{tab:thresholdExplore}
 				\begin{tabular}{l S[table-format=1.2] S[table-format=2.2] S[table-format=2.2] l}
 				\toprule
@@ -2231,12 +2282,17 @@ Master Thesis\\[1cm]
 \section{Support Vector Machine (SVM) Classifier}
 \label{subsec:svm}
 
-Support Vector Machines (SVMs) are supervised learning models used for classification and regression tasks. 
-The core idea of the SVM algorithm is the construction of a hyperplane in a high-dimensional space that separates different classes. 
-The objective is to find the hyperplane that maximizes the margin between classes, which leads to improved generalization performance.
+Support Vector Machines (SVMs) are supervised learning models used widely for classification and regression tasks\cite{svmCite}. 
+The main concept of the SVM algorithm is the 
+construction of a hyperplane in a higher dimensional space 
+capable to separate different classes. 
+The ultimate goal is to define the hyperplane 
+that maximizes the margin between classes, 
+that will lead in improved generalization performance.
 
 Given a training dataset $\{(\mathbf{x}_i, y_i)\}_{i=1}^N$, where $\mathbf{x}_i \in \mathbb{R}^d$ is a feature vector 
-and $y_i \in \{-1, 1\}$ is the class label, the hard-margin SVM solves the following optimization problem:
+and $y_i \in \{-1, 1\}$ is the class label, 
+the hard-margin(classes fully separable) SVM solves the following optimization problem:
 
 \begin{equation}
 \min_{\mathbf{w},b} \frac{1}{2} \|\mathbf{w}\|^2
@@ -2246,13 +2302,9 @@ y_i (\mathbf{w}^\top \mathbf{x}_i + b) \geq 1, \quad i=1,\dots,N
 
 where $\mathbf{w}$ is the weight vector and $b$ is a bias term. 
 Maximizing the margin between classes is equivalent to minimizing $\|\mathbf{w}\|^2$. 
-For the canonical SVM scaling, the geometric margin is defined as
 
-\begin{equation}
-\rho = \frac{2}{\|\mathbf{w}\|}.
-\end{equation}
-
-For non-separable data, slack variables $\xi_i \ge 0$ are introduced, leading to the soft-margin SVM formulation:
+For non-separable data, 
+slack variables $\xi_i \ge 0$ are utilized, giving the soft-margin SVM formulation:
 
 \begin{equation}
 \min_{\mathbf{w},b,\boldsymbol{\xi}} \frac{1}{2}\|\mathbf{w}\|^2 + C \sum_{i=1}^{N} \xi_i
@@ -2265,20 +2317,15 @@ y_i (\mathbf{w}^\top \mathbf{x}_i + b) \ge 1 - \xi_i, \quad
 \xi_i \ge 0, \quad i=1,\dots,N
 \end{equation}
 
-where $\xi_i$ are slack variables that allow misclassification and $C>0$ controls the trade-off between margin maximization and training error minimization.
+where $\xi_i$ are the slack variables which allow misclassifications 
+and $C>0$ is used controls the actual trade-off between the margin maximization 
+and training error minimization.
 
-For non-linear class boundaries, kernel functions map the input features into a higher-dimensional space where linear separation becomes possible. 
-Using the kernel trick, the decision function can be expressed in dual form as
-
-\begin{equation}
-f(\mathbf{x}) = \sum_{i=1}^{N} \alpha_i y_i K(\mathbf{x}_i, \mathbf{x}) + b
-\end{equation}
-
-where $\alpha_i$ are Lagrange multipliers and $K(\mathbf{x}_i, \mathbf{x})$ is the kernel function. 
-Only training samples with $\alpha_i > 0$ contribute to the decision function and are known as support vectors.
-
-As illustrated in Figure~\ref{svmmargin}, the SVM seeks the hyperplane that maximizes the margin between classes. 
-Among the candidate separating hyperplanes, the one with the largest margin is selected, leading to better generalization performance.
+As presented in Figure~\ref{svmmargin}, SVM searches for the hyperplane 
+that will maximize the margin among the two classes. 
+From all the candidate separating hyperplanes, 
+the one with the largest margin is selected, 
+leading to better generalization performance.
 
 \begin{figure}[h]
     \centering
@@ -2289,12 +2336,17 @@ Among the candidate separating hyperplanes, the one with the largest margin is s
 
 \subsection{Hyperparameters}
 
-To evaluate the SVM classifier, an exploration of its hyperparameters was conducted to examine their influence on classification performance. 
-SVMs include configurable options that control the geometry of the decision boundary, the model complexity, and the optimization process.
+To evaluate the SVM classifier, an exploration of its 
+hyperparameters was conducted in order to examine 
+their influence on classification performance. 
+SVMs include configurable options that control the geometry 
+of the decision boundary, the complexity of the model and the optimization process.
 
 \paragraph{Kernel Functions}
 
-The kernel function defines the transformation that maps input data into a higher-dimensional space where a linear separating hyperplane may exist. 
+The kernel function defines the transformation that maps 
+input data into a higher dimensional space where a 
+linear separating hyperplane may exist. 
 The following kernels were examined:
 
 \begin{itemize}
@@ -2303,27 +2355,32 @@ The following kernels were examined:
 \[
 K(\mathbf{x},\mathbf{x}') = \big(\gamma\, \mathbf{x}^{\top}\mathbf{x}' + \texttt{coef0}\big)^{\texttt{degree}}
 \]
-This kernel incorporates polynomial combinations of the input features up to a specified degree, enabling the model to capture non-linear feature interactions. 
-Higher degrees increase the model’s capacity but also raise the risk of overfitting. 
-Parameter $\gamma$ controls the contribution of the inner product, while $\texttt{coef0}$ adjusts the influence of higher-order terms.
+		This kernel incorporates polynomial 
+		combinations of the input features up to a specified degree, 
+		enabling the model to capture non-linear feature interactions. 
+		Using higher degrees increase the model’s capacity 
+		but also raise the risk of overfitting. 
+		
+		Parameter $\gamma$ controls the contribution of the inner product, 
+		while $\texttt{coef0}$ adjusts the influence of higher-order terms.
 
 \item \textbf{Linear Kernel} (\texttt{linear}):  
-Represents a standard linear classifier without non-linear transformation.
+	Represents a standard linear classifier without non-linear transformation.
 
 \item \textbf{RBF Kernel} (\texttt{rbf}):  
-A Gaussian kernel capable of modelling highly complex non-linear structures:
-\[
-K(\mathbf{x}, \mathbf{x}') = \exp\!\left(-\gamma \|\mathbf{x}-\mathbf{x}'\|^2\right)
-\]
-where $\gamma > 0$ determines the width of the Gaussian kernel and controls how far the influence of a single training sample reaches.
+	A Gaussian kernel capable of modelling highly complex non-linear structures:
+	\[
+	K(\mathbf{x}, \mathbf{x}') = \exp\!\left(-\gamma \|\mathbf{x}-\mathbf{x}'\|^2\right)
+	\]
+	where $\gamma > 0$ determines the width of the Gaussian kernel and 
+		controls how far the influence of a 
+		single training sample reaches.
 
 \end{itemize}
 
-\paragraph{Regularization and Optimization Parameters}
+\paragraph{Other Optimization Parameters}
 
-The regularization parameter $C>0$ controls the trade-off between maximizing the margin and minimizing training classification errors. 
-Small values of $C$ produce a wider margin and a more regularized model at the cost of increased training errors. 
-Larger values enforce stricter classification of training samples by heavily penalizing misclassifications.
+In this paragraph we describe other optimization parameters utilized in the Python code while executing the experiments.
 
 \textit{Shrinking} is an optimization heuristic that accelerates training by temporarily ignoring variables unlikely to affect the final solution. 
 When \texttt{shrinking=False}, the full optimization problem is solved without heuristics, which may improve numerical stability at the expense of longer training time.
@@ -2334,6 +2391,8 @@ Smaller values result in more precise convergence but increase computational cos
 To address class imbalance, the SVM was configured with \texttt{class\_weight="balanced"}, which scales class penalties inversely proportional to class frequency, ensuring that minority classes contribute equally to the loss function.
 
 					
+					In the following Tables~\ref{tab:svm_comparison}, \ref{tab:svm_loso} and \ref{tab:svm_per_patient} the classification performance of SVM
+					is reported.
 
 						\begin{table}[H]
 						\centering
@@ -2352,6 +2411,25 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 						\end{tabular}
 						\end{table}
 
+
+
+						\begin{table}[H]
+						\centering
+						\caption{LOSO classification performance using SVM with RBF kernel ($C=100$, $\gamma=0.1$). Results are reported as mean $\pm$ standard deviation across 24 patients.}
+						\label{tab:svm_loso}
+						\begin{tabular}{lcc}
+						\hline
+						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
+						\hline
+						Accuracy        & 0.899 & 0.068 \\
+						Sensitivity     & 0.926 & 0.059 \\
+						Specificity     & 0.882 & 0.109 \\
+						F1-score        & 0.885 & 0.093 \\
+						UAR             & 0.904 & 0.059 \\
+						\hline
+						\end{tabular}
+						\end{table}
+	
 						
 						\begin{table}[H]
 						\centering
@@ -2390,23 +2468,7 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 						\end{tabular}
 						\end{table}
 
-						\begin{table}[H]
-						\centering
-						\caption{LOSO classification performance using SVM with RBF kernel ($C=100$, $\gamma=0.1$). Results are reported as mean $\pm$ standard deviation across 24 patients.}
-						\label{tab:svm_loso}
-						\begin{tabular}{lcc}
-						\hline
-						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
-						\hline
-						Accuracy        & 0.899 & 0.068 \\
-						Sensitivity     & 0.926 & 0.059 \\
-						Specificity     & 0.882 & 0.109 \\
-						F1-score        & 0.885 & 0.093 \\
-						UAR             & 0.904 & 0.059 \\
-						\hline
-						\end{tabular}
-						\end{table}
-							
+						
 				
 
 
@@ -2424,7 +2486,7 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 					is trained using a bootstrapped subset 
 					of the training data, while at each split only a random subset 
 					of the available features is considered. 
-					By using this dual randomization, decorrelates the trees and significantly improves 
+					By using this dual randomization, this method decorrelates the trees and significantly improves 
 					robustness against overfitting.
 
 					Let $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^{N}$ denote the training dataset, where $\mathbf{x}_i \in \mathbb{R}^{d}$ represents the feature vector and $y_i \in \{0,1\}$ the corresponding class label. Each decision tree $h_k(\mathbf{x})$ is trained on a bootstrapped subset $\mathcal{D}_k \subset \mathcal{D}$. The Random Forest prediction is then obtained as
@@ -2475,6 +2537,10 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 
 					The Random Forest classifier does not require feature normalization and is resilient to monotonic feature transformations, making it particularly suitable for heterogeneous biomedical feature sets where absolute feature scaling may vary across subjects.
 
+					In the following Tables~\ref{tab:rf_comparison}, \ref{tab:rf_loso} and \ref{tab:rf_per_patient} the classification performance of Random Forest 
+					is reported.
+
+
 					\begin{table}[H]
 						\centering
 						\caption{Random Forest performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}
@@ -2491,6 +2557,26 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 						\hline
 						\end{tabular}
 						\end{table}
+
+
+					\begin{table}[H]
+						\centering
+						\caption{LOSO classification performance using Random Forest (300 trees). Results are reported as mean $\pm$ standard deviation across 24 patients.}
+						\label{tab:rf_loso}
+						\begin{tabular}{lcc}
+						\hline
+						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
+						\hline
+						Accuracy        & 0.858 & 0.083 \\
+						Sensitivity     & 0.884 & 0.098 \\
+						Specificity     & 0.838 & 0.157 \\
+						F1-score        & 0.842 & 0.109 \\
+						UAR             & 0.861 & 0.079 \\
+						\hline
+						\end{tabular}
+						\end{table}
+
+
 
 
 					\begin{table}[H]
@@ -2530,23 +2616,6 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 						\end{tabular}
 						\end{table}
 					
-					\begin{table}[H]
-						\centering
-						\caption{LOSO classification performance using Random Forest (300 trees). Results are reported as mean $\pm$ standard deviation across 24 patients.}
-						\label{tab:rf_loso}
-						\begin{tabular}{lcc}
-						\hline
-						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
-						\hline
-						Accuracy        & 0.858 & 0.083 \\
-						Sensitivity     & 0.884 & 0.098 \\
-						Specificity     & 0.838 & 0.157 \\
-						F1-score        & 0.842 & 0.109 \\
-						UAR             & 0.861 & 0.079 \\
-						\hline
-						\end{tabular}
-						\end{table}
-
 
 
 
@@ -2559,7 +2628,10 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 					\hat{y} = \mathrm{mode}\left\{ y_i \;|\; \mathbf{x}_i \in \mathcal{N}_k(\mathbf{x}) \right\}.
 					\end{equation}
 
-					Due to its simplicity and non-parametric nature, kNN is well suited for biomedical signal classification tasks where class boundaries may be highly nonlinear and difficult to model explicitly. The method adapts naturally to complex data distributions and performs particularly well when representative samples are available in the feature space. However, kNN is sensitive to feature scaling and noise, making proper preprocessing essential.
+					kNN can adapt naturally on complex data distributions and performs well when 
+					representative samples are available in the feature space. 
+					However, kNN is sensitive to feature scaling and noise, 
+					making proper preprocessing essential.
 
 					\subsection{Hyperparameters}
 
@@ -2587,7 +2659,9 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 					\[
 					\text{algorithm} \in \{\text{auto},\, \text{ball\_tree},\, \text{kd\_tree}\}.
 					\]
-					This choice affects computational efficiency, particularly for high-dimensional feature spaces.
+					This choice affects computational efficiency, particularly for high-dimensional feature spaces. In the following Tables~\ref{tab:knn_comparison}, \ref{tab:knn_loso} and \ref{tab:knn_per_patient} the classification performance of kNN is reported.
+
+
 					\end{itemize}
 				
 						\begin{table}[H]
@@ -2607,7 +2681,24 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 						\end{tabular}
 						\end{table}
 
-					
+					\begin{table}[H]
+						\centering
+						\caption{LOSO classification performance using k-Nearest Neighbors ($k=11$, Euclidean distance). Results are reported as mean $\pm$ standard deviation across 24 patients.}
+						\label{tab:knn_loso}
+						\begin{tabular}{lcc}
+						\hline
+						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
+						\hline
+						Accuracy        & 0.842 & 0.079 \\
+						Sensitivity     & 0.788 & 0.127 \\
+						Specificity     & 0.895 & 0.093 \\
+						F1-score        & 0.810 & 0.108 \\
+						UAR             & 0.841 & 0.072 \\
+						\hline
+						\end{tabular}
+						\end{table}
+							
+	
 					\begin{table}[H]
 						\centering
 						\caption{Per-patient LOSO performance using kNN ($k=11$, Euclidean distance).}
@@ -2645,23 +2736,6 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 						\end{tabular}
 						\end{table}
 
-					\begin{table}[H]
-						\centering
-						\caption{LOSO classification performance using k-Nearest Neighbors ($k=11$, Euclidean distance). Results are reported as mean $\pm$ standard deviation across 24 patients.}
-						\label{tab:knn_loso}
-						\begin{tabular}{lcc}
-						\hline
-						\textbf{Metric} & \textbf{Mean} & \textbf{Std} \\
-						\hline
-						Accuracy        & 0.842 & 0.079 \\
-						Sensitivity     & 0.788 & 0.127 \\
-						Specificity     & 0.895 & 0.093 \\
-						F1-score        & 0.810 & 0.108 \\
-						UAR             & 0.841 & 0.072 \\
-						\hline
-						\end{tabular}
-						\end{table}
-							
 
 
 
@@ -2670,32 +2744,72 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 				\chapter{Classification Results and Comparative Analysis}
 				%\section{Classification Results and Comparative Analysis}
 
-					This section presents the classification performance obtained using three different machine learning models: Support Vector Machines (SVM), Random Forests (RF), and k-Nearest Neighbors (kNN). All models were evaluated under a strict Leave-One-Subject-Out (LOSO) cross-validation protocol to ensure subject-independent testing. Performance was quantified using accuracy, sensitivity, specificity, and F1-score, and results are reported as mean and standard deviation across all subjects.
+					This section presents the classification performance obtained using three different machine learning models: SVM, RF and kNN. 
+					All models were evaluated under a strict Leave-One-Subject-Out (LOSO) 
+					cross-validation protocol to ensure subject-independent testing. 
+					Performance was quantified using accuracy, sensitivity, specificity, F1-score, 
+					and UAR and results are reported as mean and
+					standard deviation across all subjects.
 
-					\section{Overall Performance Comparison}
 
-					Across all experiments, the three classifiers demonstrated distinct performance characteristics. The SVM classifier exhibited strong generalization ability, 
-					achieving consistently high accuracy and F1/UAR scores across subjects. 
-					This behavior is attributed to its ability to construct optimal separating hyperplanes in high-dimensional feature spaces, 
-					which is particularly advantageous for CRQA-based and biomedical feature representations.
-					We can observe in Figure \ref{fig:svm_across_pat} the LOSOCV results that SVM classifier achieves.
+					\section{Comparison of Classifiers under Subject-Independent Evaluation}
+
+The three classifiers --- k-Nearest Neighbors (kNN), Random Forest (RF), and Support Vector Machine (SVM) with RBF kernel --- were evaluated using a strict Leave-One-Subject-Out (LOSO) cross-validation protocol. This setup ensures realistic estimation of generalization performance to completely unseen patients, which is critical in biomedical and physiological signal classification tasks.
+
+Table~\ref{tab:loso_comparison} presents the mean and standard deviation of the main performance metrics across the 24 patients in LOSO evaluation.
+
+\begin{table}[ht]
+\centering
+\small
+\caption{Leave-One-Subject-Out (LOSO) classification performance comparison across the three classifiers. Results are reported as mean $\pm$ standard deviation over 24 patients.}
+\label{tab:loso_comparison}
+\begin{tabular}{lccccc}
+\hline
+	\textbf{Classifier} & \textbf{Accuracy(\%)} & \textbf{Sensitivity(\%)} & \textbf{Specificity(\%)} & \textbf{F1-score(\%)} & \textbf{UAR(\%)} \\
+\hline
+SVM		& $89.9 \pm 6.8$ & $92.6 \pm 5.9$ & $88.2 \pm 10.9$ & $88.5 \pm 9.3$ & $90.4 \pm 5.9$ \\
+Random Forest   & $85.8 \pm 8.3$ & $88.4 \pm 9.8$ & $83.8 \pm 15.7$ & $84.2 \pm 10.9$ & $86.1 \pm 7.9$ \\
+kNN		& $84.2 \pm 7.9$ & $78.8 \pm 12.7$ & $89.5 \pm 9.3$ & $81.0 \pm 10.8$ & $84.1 \pm 7.2$ \\
+\hline
+\end{tabular}
+\end{table}
+
+In all the evaluated methods, SVM consistently achieves the best subject-independent performance. 
+It shows the highest mean accuracy (+5.7\% over kNN and +4.1\% over RF), 
+the highest sensitivity, the best balanced score (UAR), and importantly 
+the lowest inter-patient variability 
+(lowest standard deviation on accuracy). 
+
+Random Forest shows advantage in 
+sensitivity compared to kNN (+9.6\%), 
+which may be preferable in applications where missing positive 
+cases is particularly costly. But as we can observe, 
+this comes with a payoff to lower specificity. 
+
+kNN exhibits the weakest overall discriminative 
+power in the LOSO setting, with the lowest sensitivity and 
+highest variance in several metrics.
+
+These results highlight that:
+\begin{itemize}
+    \item Strict subject-independent protocols (such as LOSO) should be regarded as the primary evaluation criterion.
+    \item Patient-agnostic / random-split evaluation protocols overestimate performance by 6--8.5 percentage points across all models due to data leakage from the same subjects appearing in both training and test sets.
+    \item For this particular classification task, SVM provides the most robust and reliable generalization to unseen patients.
+\end{itemize}
+
+			We can observe in Figure \ref{fig:svm_across_pat} the LOSOCV results that SVM classifier achieves for
+			each patient examined.
 					
 					\begin{figure}[h]
 					    \centering
 					    \includegraphics[width=1.0\textwidth]{svm_across_pat.png}
-					    \caption{SVM LOSOCV results against subjects}
+					    \caption{SVM LOSOCV results.}
 					    \label{fig:svm_across_pat}
 					\end{figure}
 
 
-
-
-					The Random Forest classifier demonstrated stable and well-balanced performance across all evaluation metrics. Its ensemble-based structure allowed it to effectively capture nonlinear feature interactions while maintaining robustness against overfitting. Additionally, Random Forest achieved competitive sensitivity and specificity values, indicating reliable discrimination between the two classes.
-
-					The kNN classifier showed competitive performance in several configurations but exhibited higher variability across subjects, as reflected by increased standard deviation values. This behavior is expected, as kNN is a distance-based, instance-driven classifier that is highly sensitive to feature scaling, class distribution, and local neighborhood structure. Despite this sensitivity, kNN achieved satisfactory performance when appropriate feature normalization and neighborhood sizes were applied.
-
-					
-					In Figure \ref{fig:loso_model}, we can observe the overall metrics comparison between the different tested classifier's models. 
+					In Figure \ref{fig:loso_model}, we can observe the overall metrics 
+					comparison between the different tested classifier's models. 
 					\begin{figure}[h]
 					    \centering
 					    \includegraphics[width=1.0\textwidth]{loso_model.png}
@@ -2703,8 +2817,41 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 					    \label{fig:loso_model}
 					\end{figure}
 					
-					SVM outperforms both RandomForest and kNN models in all of the LOSOCV metrics and yields constantly superior results.
-				
+In order to determine whether the observed differences in classification performance were consistent across subjects and not due to random variation, a statistical comparison between classifiers was conducted. Since the Leave-One-Subject-Out (LOSO) protocol produces one performance score per patient for each model, paired statistical testing was applied across the 24 subjects.
+
+The UAR was selected as the main evaluation metric, because of the robustness it has under class imbalance. 
+Pairwise comparisons between classifiers were performed using 
+the nonparametric Wilcoxon signed-rank test.
+For controlling multiple comparisons across the three classifier pairs, 
+Holm–Bonferroni correction was applied. 
+Effect sizes were quantified using Cliff’s delta, 
+and practical relevance was further assessed via 
+the median paired performance difference.
+
+The statistical results are summarized in Table~\ref{tab:stat_tests_loso}.
+
+\begin{table}[H]
+\centering
+\caption{Pairwise statistical comparison of classifiers using per-patient LOSO UAR scores (n=24). Holm-corrected p-values are reported.}
+\label{tab:stat_tests_loso}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Comparison} & \textbf{Median $\Delta$UAR} & \textbf{Cliff’s $\delta$} & \textbf{$p$ (Holm)} & \textbf{Interpretation} \\
+\hline
+SVM vs RF   & +0.032  & 0.83 & $2 \times 10^{-6}$ & Large effect \\
+SVM vs kNN  & +0.072  & 0.83 & $1.9 \times 10^{-4}$ & Large effect \\
+RF vs kNN   & +0.034  & 0.42 & 0.076 & Not significant \\
+\hline
+\end{tabular}
+\end{table}
+
+The results indicate that the SVM classifier significantly outperforms both Random Forest and kNN under strict subject-independent evaluation. The improvements are not only statistically significant but also practically meaningful, with large effect sizes (Cliff’s $\delta = 0.83$) in both comparisons. This demonstrates that SVM provides consistently superior generalization performance across unseen patients.
+
+Although Random Forest shows a tendency to outperform kNN, the difference does not reach statistical significance after correction for multiple testing. Therefore, no definitive performance ordering can be established between these two models.
+
+These findings reinforce the conclusion that SVM constitutes the most reliable classifier among those evaluated for recurrence-based seizure detection in a subject-independent setting.
+
+			
 
 %					\section{Sensitivity--Specificity Trade-Off}
 %
@@ -2720,10 +2867,12 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 %					suggests strong potential for subject-independent deployment.
 
 					\section{Model Stability and Generalization}
+					
 
-					Model stability across subjects was assessed through the standard deviation of classification metrics. Among the three classifiers, Random Forest generally exhibited the lowest performance variance, indicating superior robustness to inter-subject variability. SVM also demonstrated stable behavior, while kNN showed the highest variance, reflecting its dependence on local sample distributions.
+Model stability across subjects was assessed through the standard deviation of classification metrics in the Leave-One-Subject-Out (LOSO) evaluation. Among the three classifiers, \textbf{SVM with RBF kernel} exhibited the lowest variance on most performance metrics -- particularly accuracy ($\pm 0.068$), UAR ($\pm 0.059$), and sensitivity ($\pm 0.059$) -- indicating superior robustness to inter-subject variability. Random Forest showed moderate to high variance (accuracy $\pm 0.083$, specificity $\pm 0.157$), while kNN displayed the highest instability in sensitivity ($\pm 0.127$) and considerable variation overall, reflecting its strong dependence on local sample distributions.
 
-					The LOSO protocol imposes a highly challenging validation setting, as the classifier is required to generalize to completely unseen subjects. The fact that all three models achieved consistent above-chance performance under this protocol indicates that the extracted feature representations contain discriminative subject-independent information.
+The LOSO protocol represents a highly challenging validation setting, as the classifier must generalize to completely unseen subjects. The fact that all three models achieved consistent above-chance performance under this strict subject-independent protocol demonstrates that the extracted feature representations contain substantial discriminative, subject-independent information.
+
 
 					\section{Computational Considerations}
 
@@ -2750,12 +2899,12 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 					\section*{Per-Patient Feature Visualization}
 
 					For each patient in the dataset, two key RQA features are visualized and compared: 
-					\textbf{Recurrence Rate (RR)} and \textbf{Determinism (DET)}. 
+					Recurrence Rate (RR) and Determinism (DET). 
 					The EEG data were labeled as \textit{normal} (label 0) or \textit{epileptic} (label 1).  
 
 					For each feature, we calculated the mean value across all EEG samples corresponding to each label 
 					and plotted the results as 2D heatmaps, where the axes represent electrode positions. 
-					Figures~\ref{fig:det_patient} show an example heatmaps for the DET and RR features, 
+					Figure~\ref{fig:det_patient} show an example heatmaps for the DET and RR features, 
 					respectively, for one representative patient. 
 
 					\begin{figure}[H]
@@ -2801,8 +2950,54 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 					    \label{fig:temp_evol}
 					\end{figure}
 
+					
+					\section*{Recurrence Quantification Analysis and Patient Difficulty}
 
-						
+To gain deeper insight into the inter-subject variability 
+observed in the LOSOCV results, 
+RQA metrics are visualized using the scatter plot of recurrence rate (RR) against determinism (DET).
+Plots reveal a separation between "good" and "bad" patients (Figures~\ref{fig:rqa-scatter1}, \ref{fig:rqa-scatter2}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{rdetscatter2.png}
+\caption{RR vs. DET for a "good" performer.}
+\label{fig:rqa-scatter1}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{rdetscatter1.png}
+\caption{RR vs. DET for a "bad" performer.}
+\label{fig:rqa-scatter2}
+\end{figure}
+
+
+Patients classified as "good" (e.g., p22) consistently present 
+distinct separation between the two classes, with epileptic segments
+having higher recurrence rate and higher determinism than the normal ones.
+This pattern translates in more clear discrimination 
+even under 
+strict subject-independent validation.
+
+In contrast, "bad" or difficult patients 
+(e.g., p6) appear having both classes mixed sharing a large number of common values 
+for both RR and DET. 
+This non-separation leads into poorer generalization 
+when the model has never seen data from that subject before.
+
+A representative example is patient \textbf{p6}, who exhibits some of the lowest 
+LOSOCV performances across all of the classifiers:
+\begin{itemize}
+    \item SVM: Accuracy 0.701, Sensitivity 0.947, F1 0.573, UAR 0.791
+    \item Random Forest: Accuracy 0.699, Sensitivity 0.920, F1 0.563, UAR 0.780
+    \item kNN: Accuracy 0.741, Sensitivity 0.787, F1 0.562, UAR 0.758
+\end{itemize}
+
+This behavior aligns with p6's visualization  on its scatter plot.
+
+
+
 			
 			\newpage
 
@@ -2871,7 +3066,7 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 			into EEG-based seizure analysis, in this section, several limitations that are introduced by the methodology 
 			are discussed. Recognizing these limitations is essential for a correct interpretation of the 
 			findings and for creating the basis and directions for potential improvements in future research.
-
+		
 			\section{Loss of spatial/topological information due to averaging}
 			The proposed feature aggregation summarizes the total 
 			(22×22x16) CRQA interaction tensor into a single 16-dimensional vector 
@@ -2928,6 +3123,25 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 			Although patient-specific downsampling was applied to mitigate this imbalance, 
 			results may not directly generalize to adult populations or to EEG recorded under 
 			different acquisition protocols.
+
+			\section{Recording Session Variability}
+
+			While subject-independent generalization was addressed using a Leave-One-Subject-Out (LOSO) 
+			evaluation protocol, another source of variability in EEG analysis arises 
+			from differences between recording sessions. 
+			Even for the same subject, EEG signals can vary across sessions due to changes in electrode placement, 
+			impedance and contact quality, 
+			reference configuration, hardware characteristics, 
+			and the patient’s physiological or behavioral state \cite{Huang2023,Apicella2024}. 
+			These session-level differences can alter signal amplitude, spectral characteristics, 
+			noise profiles, and inter-channel relationships independently of the underlying neural dynamics.
+			CRQA features provide the ability to quantify dynamical coupling between channels. 
+			Such coupling metrics may be sensitive not only to seizure synchronization but 
+			also in session-dependent recording conditions. 
+			Therefore, while the LOSO protocol ensures generalization across subjects, 
+			it does not control the variability introduced by separate recording sessions. 
+			This remains an important consideration for real-world deployment in the application domain.
+
 
 
 			\newpage
