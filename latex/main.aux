@@ -85,16 +85,16 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Preprocessing and filtering pipeline of EEG recordings}}{24}{}\protected@file@percent }
 \newlabel{fig:preproc}{{4.4}{24}{}{}{}}
 \citation{takens1981}
+\citation{fraser1986}
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Phase space reconstruction}{25}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Determination of Embedding Parameters}{25}{}\protected@file@percent }
-\citation{fraser1986}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Calculation of $\tau $ using AMI for a sample EEG channel. The first minimum of the AMI function (green dashed line) is chosen to become the optimal $\tau $ to ensure independence between delay coordinates.}}{26}{}\protected@file@percent }
-\newlabel{fig:ami_plot}{{5.1}{26}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Calculation of time delay \( \tau \)}{26}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Estimating embedding dimension \( m \)}{26}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Calculation of time delay \( \tau \)}{25}{}\protected@file@percent }
 \citation{kennel1992}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Calculation of $\tau $ using AMI. The first minimum of the AMI function (green dashed line) is chosen as the optimal $\tau $.}}{26}{}\protected@file@percent }
+\newlabel{fig:ami_plot}{{5.1}{26}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Estimating embedding dimension \( m \)}{26}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Calculation of the embedding dimension using the FNN scheme.}}{27}{}\protected@file@percent }
 \newlabel{fig:fnn_plot}{{5.2}{27}{}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Schematic illustration of false neighbors. In insufficient embedding dimension (left), points A and C appear neighbors due to projection. When proper embedding is employed(right), their true separation can be observed.}}{28}{}\protected@file@percent }
@@ -199,6 +199,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.2.3}Leave-One-Subject-Out (LOSO) Cross-Validation}{53}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {8.3}Support Vector Machine (SVM) Classifier}{53}{}\protected@file@percent }
 \newlabel{subsec:svm}{{8.3}{53}{}{}{}}
+\citation{svm_image}
 \@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces SVM maximization of margin among different classes}}{54}{}\protected@file@percent }
 \newlabel{svmmargin}{{8.1}{54}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.3.1}Hyperparameters}{54}{}\protected@file@percent }
@@ -210,133 +211,132 @@
 \newlabel{tab:svm_loso}{{8.2}{56}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {8.3}{\ignorespaces Per-patient LOSO performance using SVM with RBF kernel ($C=100$, $\gamma =0.1$).}}{56}{}\protected@file@percent }
 \newlabel{tab:svm_per_patient}{{8.3}{56}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.2}Effect of subject-level window imbalance}{57}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {8.4}Random Forest Classification}{57}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.1}Hyperparameters}{57}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {8.4}{\ignorespaces Random Forest performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{58}{}\protected@file@percent }
-\newlabel{tab:rf_comparison}{{8.4}{58}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8.5}{\ignorespaces LOSO classification performance using Random Forest (300 trees). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{58}{}\protected@file@percent }
-\newlabel{tab:rf_loso}{{8.5}{58}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.1}Hyperparameters}{58}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {8.4}{\ignorespaces Random Forest performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{59}{}\protected@file@percent }
+\newlabel{tab:rf_comparison}{{8.4}{59}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8.5}{\ignorespaces LOSO classification performance using Random Forest (300 trees). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{59}{}\protected@file@percent }
+\newlabel{tab:rf_loso}{{8.5}{59}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {8.6}{\ignorespaces Per-patient LOSO performance using Random Forest (300 trees).}}{59}{}\protected@file@percent }
 \newlabel{tab:rf_per_patient}{{8.6}{59}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.5}k-Nearest Neighbors Classification}{59}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5.1}Hyperparameters}{59}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {8.7}{\ignorespaces kNN performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{60}{}\protected@file@percent }
-\newlabel{tab:knn_comparison}{{8.7}{60}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.5}k-Nearest Neighbors Classification}{60}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5.1}Hyperparameters}{60}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {8.7}{\ignorespaces kNN performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{61}{}\protected@file@percent }
+\newlabel{tab:knn_comparison}{{8.7}{61}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {8.8}{\ignorespaces LOSO classification performance using k-Nearest Neighbors ($k=11$, Euclidean distance). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{61}{}\protected@file@percent }
 \newlabel{tab:knn_loso}{{8.8}{61}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8.9}{\ignorespaces Per-patient LOSO performance using kNN ($k=11$, Euclidean distance).}}{61}{}\protected@file@percent }
-\newlabel{tab:knn_per_patient}{{8.9}{61}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Classification Results and Comparative Analysis}{62}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {8.9}{\ignorespaces Per-patient LOSO performance using kNN ($k=11$, Euclidean distance).}}{62}{}\protected@file@percent }
+\newlabel{tab:knn_per_patient}{{8.9}{62}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Classification Results and Comparative Analysis}{63}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {9.1}Comparison of Classifiers under Subject-Independent Evaluation}{62}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9.1}{\ignorespaces Leave-One-Subject-Out (LOSO) classification performance comparison across the three classifiers. Results are reported as mean $\pm $ standard deviation over 24 patients.}}{62}{}\protected@file@percent }
-\newlabel{tab:loso_comparison}{{9.1}{62}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.1}{\ignorespaces SVM LOSOCV results.}}{63}{}\protected@file@percent }
-\newlabel{fig:svm_across_pat}{{9.1}{63}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.2}{\ignorespaces LOSOCV results against utilized models}}{64}{}\protected@file@percent }
-\newlabel{fig:loso_model}{{9.2}{64}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.2}{\ignorespaces Pairwise statistical comparison of classifiers using per-patient LOSO UAR scores (n=24). Holm-corrected p-values are reported.}}{64}{}\protected@file@percent }
-\newlabel{tab:stat_tests_loso}{{9.2}{64}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.2}Model Stability and Generalization}{65}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9.3}Computational Considerations}{65}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9.4}Summary of Findings}{65}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9.3}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{66}{}\protected@file@percent }
-\newlabel{fig:det_patient}{{9.3}{66}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.4}{\ignorespaces Temporal evolution of CRQA metrics}}{67}{}\protected@file@percent }
-\newlabel{fig:temp_evol}{{9.4}{67}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.5}{\ignorespaces RR vs. DET for a "good" performer.}}{68}{}\protected@file@percent }
-\newlabel{fig:rqa-scatter1}{{9.5}{68}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.6}{\ignorespaces RR vs. DET for a "bad" performer.}}{68}{}\protected@file@percent }
-\newlabel{fig:rqa-scatter2}{{9.6}{68}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {10}Discussion}{69}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9.1}Comparison of Classifiers under Subject-Independent Evaluation}{63}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9.1}{\ignorespaces LOSOCV classification performance comparison. Results are reported as mean $\pm $ standard deviation over 24 patients.}}{63}{}\protected@file@percent }
+\newlabel{tab:loso_comparison}{{9.1}{63}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.1}{\ignorespaces SVM LOSOCV results.}}{64}{}\protected@file@percent }
+\newlabel{fig:svm_across_pat}{{9.1}{64}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.2}{\ignorespaces LOSOCV results against utilized models}}{65}{}\protected@file@percent }
+\newlabel{fig:loso_model}{{9.2}{65}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.2}{\ignorespaces Pairwise statistical comparison of classifiers using per-patient LOSO UAR scores (n=24). Holm-corrected p-values are reported.}}{65}{}\protected@file@percent }
+\newlabel{tab:stat_tests_loso}{{9.2}{65}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.2}Model Stability and Generalization}{66}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9.3}Computational Considerations}{66}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9.4}Summary of Findings}{66}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9.3}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{67}{}\protected@file@percent }
+\newlabel{fig:det_patient}{{9.3}{67}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.4}{\ignorespaces Temporal evolution of CRQA metrics}}{68}{}\protected@file@percent }
+\newlabel{fig:temp_evol}{{9.4}{68}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.5}{\ignorespaces RR vs. DET for a "good" performer.}}{69}{}\protected@file@percent }
+\newlabel{fig:rqa-scatter1}{{9.5}{69}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.6}{\ignorespaces RR vs. DET for a "bad" performer.}}{69}{}\protected@file@percent }
+\newlabel{fig:rqa-scatter2}{{9.6}{69}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {10}Discussion}{70}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {11}Limitations}{71}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {11}Limitations}{72}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {11.1}Loss of spatial/topological information due to averaging}{71}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{71}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11.1}Loss of spatial/topological information due to averaging}{72}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{72}{}\protected@file@percent }
 \citation{hussein}
 \citation{Huang2023,Apicella2024}
-\@writefile{toc}{\contentsline {section}{\numberline {11.3}Constant embedding parameters}{72}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11.4}Dataset-specific constraints}{72}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11.5}Recording Session Variability}{72}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {12}Future Work}{74}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11.3}Constant embedding parameters}{73}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11.4}Dataset-specific constraints}{73}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11.5}Recording Session Variability}{73}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {12}Future Work}{75}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {12.1}Graph-Based Representation of Brain Connectivity}{74}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {12.2}Adaptive, Patient-Specific CRQA Configuration}{75}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {12.3}Validation on Additional Epilepsy Datasets}{75}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12.1}Graph-Based Representation of Brain Connectivity}{75}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12.2}Adaptive, Patient-Specific CRQA Configuration}{76}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12.3}Validation on Additional Epilepsy Datasets}{76}{}\protected@file@percent }
 \bibstyle{plain}
 \bibdata{references}
-\bibcite{frolov}{{1}{}{{}}{{}}}
-\bibcite{kang}{{2}{}{{}}{{}}}
-\bibcite{rezaei}{{3}{}{{}}{{}}}
-\bibcite{lameu2018}{{4}{}{{}}{{}}}
-\bibcite{Lombardi2014}{{5}{}{{}}{{}}}
-\bibcite{pitsik}{{6}{}{{}}{{}}}
-\bibcite{guglielmo}{{7}{}{{}}{{}}}
-\bibcite{lopes}{{8}{}{{}}{{}}}
-\bibcite{pentari22}{{9}{}{{}}{{}}}
-\bibcite{pentari23}{{10}{}{{}}{{}}}
-\bibcite{gruszczynska2019}{{11}{}{{}}{{}}}
-\bibcite{mo}{{12}{}{{}}{{}}}
-\bibcite{palanisamy2024}{{13}{}{{}}{{}}}
-\bibcite{ngamga2016}{{14}{}{{}}{{}}}
-\bibcite{fan2019detecting}{{15}{}{{}}{{}}}
-\bibcite{nunez2020characterization}{{16}{}{{}}{{}}}
-\bibcite{yang2019dynamical}{{17}{}{{}}{{}}}
-\bibcite{rangaprakash2014}{{18}{}{{}}{{}}}
-\bibcite{trulla1996}{{19}{}{{}}{{}}}
-\bibcite{webber2005}{{20}{}{{}}{{}}}
-\bibcite{thomasson2002}{{21}{}{{}}{{}}}
-\bibcite{marwan2013}{{22}{}{{}}{{}}}
-\bibcite{heunis2018}{{23}{}{{}}{{}}}
-\bibcite{eckmann1987}{{24}{}{{}}{{}}}
-\bibcite{timothy2017classification}{{25}{}{{}}{{}}}
-\bibcite{Kashyap2019}{{26}{}{{}}{{}}}
-\bibcite{Carrubba2019}{{27}{}{{}}{{}}}
-\bibcite{shalbaf2014frontal}{{28}{}{{}}{{}}}
-\bibcite{removeArtifactsReview}{{29}{}{{}}{{}}}
-\bibcite{dhanaseivam2023}{{30}{}{{}}{{}}}
-\bibcite{sen2023}{{31}{}{{}}{{}}}
-\bibcite{mihajlovic19}{{32}{}{{}}{{}}}
-\bibcite{takens1981}{{33}{}{{}}{{}}}
-\bibcite{kennel1992}{{34}{}{{}}{{}}}
-\bibcite{fraser1986}{{35}{}{{}}{{}}}
-\bibcite{theoryReviewRQA}{{36}{}{{}}{{}}}
-\bibcite{marwanPHD}{{37}{}{{}}{{}}}
-\bibcite{pat2025}{{38}{}{{}}{{}}}
-\bibcite{pat2018}{{39}{}{{}}{{}}}
-\bibcite{pat2019}{{40}{}{{}}{{}}}
-\bibcite{patcoma}{{41}{}{{}}{{}}}
-\bibcite{pyrqacitation}{{42}{}{{}}{{}}}
-\bibcite{marwanWebsite}{{43}{}{{}}{{}}}
-\bibcite{gao2020automatic}{{44}{}{{}}{{}}}
-\bibcite{bonndataset}{{45}{}{{}}{{}}}
-\bibcite{chbmitDataset}{{46}{}{{}}{{}}}
-\bibcite{chbmitDataset2}{{47}{}{{}}{{}}}
-\bibcite{FredkinRiceFNN}{{48}{}{{}}{{}}}
-\bibcite{RhodesMorariFNN}{{49}{}{{}}{{}}}
-\bibcite{mcsharry}{{50}{}{{}}{{}}}
-\bibcite{SMOTEref}{{51}{}{{}}{{}}}
-\bibcite{ADASYNref}{{52}{}{{}}{{}}}
-\bibcite{causes}{{53}{}{{}}{{}}}
-\bibcite{he2009}{{54}{}{{}}{{}}}
-\bibcite{grobbelaar2022survey}{{55}{}{{}}{{}}}
-\bibcite{svm_image}{{56}{}{{}}{{}}}
-\bibcite{hussein}{{57}{}{{}}{{}}}
-\bibcite{sasseLeakage}{{58}{}{{}}{{}}}
-\bibcite{jasper1020}{{59}{}{{}}{{}}}
-\bibcite{mostafa2025}{{60}{}{{}}{{}}}
-\bibcite{Adarsh2026}{{61}{}{{}}{{}}}
-\bibcite{crqaAcoustic}{{62}{}{{}}{{}}}
-\bibcite{sync1}{{63}{}{{}}{{}}}
-\bibcite{losoImportance}{{64}{}{{}}{{}}}
-\bibcite{AlarconClinical}{{65}{}{{}}{{}}}
-\bibcite{svmCite}{{66}{}{{}}{{}}}
-\bibcite{Huang2023}{{67}{}{{}}{{}}}
-\bibcite{Apicella2024}{{68}{}{{}}{{}}}
+\bibcite{causes}{{1}{}{{}}{{}}}
+\bibcite{sync1}{{2}{}{{}}{{}}}
+\bibcite{AlarconClinical}{{3}{}{{}}{{}}}
+\bibcite{webber2005}{{4}{}{{}}{{}}}
+\bibcite{trulla1996}{{5}{}{{}}{{}}}
+\bibcite{eckmann1987}{{6}{}{{}}{{}}}
+\bibcite{thomasson2002}{{7}{}{{}}{{}}}
+\bibcite{marwan2013}{{8}{}{{}}{{}}}
+\bibcite{losoImportance}{{9}{}{{}}{{}}}
+\bibcite{frolov}{{10}{}{{}}{{}}}
+\bibcite{nunez2020characterization}{{11}{}{{}}{{}}}
+\bibcite{mostafa2025}{{12}{}{{}}{{}}}
+\bibcite{timothy2017classification}{{13}{}{{}}{{}}}
+\bibcite{heunis2018}{{14}{}{{}}{{}}}
+\bibcite{pitsik}{{15}{}{{}}{{}}}
+\bibcite{guglielmo}{{16}{}{{}}{{}}}
+\bibcite{mihajlovic19}{{17}{}{{}}{{}}}
+\bibcite{mo}{{18}{}{{}}{{}}}
+\bibcite{fan2019detecting}{{19}{}{{}}{{}}}
+\bibcite{yang2019dynamical}{{20}{}{{}}{{}}}
+\bibcite{lopes}{{21}{}{{}}{{}}}
+\bibcite{rangaprakash2014}{{22}{}{{}}{{}}}
+\bibcite{gruszczynska2019}{{23}{}{{}}{{}}}
+\bibcite{palanisamy2024}{{24}{}{{}}{{}}}
+\bibcite{ngamga2016}{{25}{}{{}}{{}}}
+\bibcite{gao2020automatic}{{26}{}{{}}{{}}}
+\bibcite{bonndataset}{{27}{}{{}}{{}}}
+\bibcite{rezaei}{{28}{}{{}}{{}}}
+\bibcite{Lombardi2014}{{29}{}{{}}{{}}}
+\bibcite{kang}{{30}{}{{}}{{}}}
+\bibcite{pentari22}{{31}{}{{}}{{}}}
+\bibcite{pentari23}{{32}{}{{}}{{}}}
+\bibcite{lameu2018}{{33}{}{{}}{{}}}
+\bibcite{Kashyap2019}{{34}{}{{}}{{}}}
+\bibcite{shalbaf2014frontal}{{35}{}{{}}{{}}}
+\bibcite{Adarsh2026}{{36}{}{{}}{{}}}
+\bibcite{crqaAcoustic}{{37}{}{{}}{{}}}
+\bibcite{patcoma}{{38}{}{{}}{{}}}
+\bibcite{pat2025}{{39}{}{{}}{{}}}
+\bibcite{pat2018}{{40}{}{{}}{{}}}
+\bibcite{pat2019}{{41}{}{{}}{{}}}
+\bibcite{chbmitDataset}{{42}{}{{}}{{}}}
+\bibcite{chbmitDataset2}{{43}{}{{}}{{}}}
+\bibcite{jasper1020}{{44}{}{{}}{{}}}
+\bibcite{removeArtifactsReview}{{45}{}{{}}{{}}}
+\bibcite{dhanaseivam2023}{{46}{}{{}}{{}}}
+\bibcite{sen2023}{{47}{}{{}}{{}}}
+\bibcite{grobbelaar2022survey}{{48}{}{{}}{{}}}
+\bibcite{takens1981}{{49}{}{{}}{{}}}
+\bibcite{fraser1986}{{50}{}{{}}{{}}}
+\bibcite{kennel1992}{{51}{}{{}}{{}}}
+\bibcite{theoryReviewRQA}{{52}{}{{}}{{}}}
+\bibcite{marwanWebsite}{{53}{}{{}}{{}}}
+\bibcite{pyrqacitation}{{54}{}{{}}{{}}}
+\bibcite{FredkinRiceFNN}{{55}{}{{}}{{}}}
+\bibcite{RhodesMorariFNN}{{56}{}{{}}{{}}}
+\bibcite{mcsharry}{{57}{}{{}}{{}}}
+\bibcite{he2009}{{58}{}{{}}{{}}}
+\bibcite{SMOTEref}{{59}{}{{}}{{}}}
+\bibcite{sasseLeakage}{{60}{}{{}}{{}}}
+\bibcite{svmCite}{{61}{}{{}}{{}}}
+\bibcite{hussein}{{62}{}{{}}{{}}}
+\bibcite{Huang2023}{{63}{}{{}}{{}}}
+\bibcite{Apicella2024}{{64}{}{{}}{{}}}
+\bibcite{svm_image}{{65}{}{{}}{{}}}
+\bibcite{marwanPHD}{{66}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\gdef \@abspage@last{83}
+\gdef \@abspage@last{84}

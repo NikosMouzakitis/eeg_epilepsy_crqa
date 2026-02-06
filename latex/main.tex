@@ -96,7 +96,7 @@ Master Thesis\\[1cm]
 	The methodology is evaluated on a publicly available scalp EEG dataset 
 	which contains annotations of the seizure events. 
 	Results show that the recurrence-based interaction 
-	hold the ability to capture meaningful seizure related 
+	hold the ability to capture informative seizure related 
 	dynamics and support the discrimination among epileptic and non-epileptic 
 	EEG windows. 
 	The findings, also point out the value of nonlinear inter-channel analysis 
@@ -210,7 +210,7 @@ Master Thesis\\[1cm]
 	electrophysiological mechanisms 
 	that drive seizure generation 
 %	and developing reliable methods for automatic EEG analysis 
-	remains an importan research direction 
+	remains an important research direction 
 	in modern neuroscience and biomedical engineering.
 
 
@@ -264,7 +264,7 @@ Master Thesis\\[1cm]
 	brain activity.
 
 	Based on this, the central research question 
-	that has addressed in this thesis is:
+	that has been studied in this thesis is:
 
 	\begin{quote}
 	\textit{Can globally aggregated multichannel Cross-Recurrence Quantification Analysis (CRQA) features, extracted from scalp EEG recordings, 
@@ -641,7 +641,7 @@ Master Thesis\\[1cm]
 \toprule
 \# & Reference & Modality & Analysis Methods & Network Type/Disorder \\
 \midrule
-1  & Frolov et al. (2020) & EEG & RQA, CRQA & Multiplex functional networks \\
+1  & Frolov et al. (2020) & EEG & RQA, CRQA & Functional networks \\
 2  & Kang et al. (2023) & fMRI & RQA, CRQA & DMN, schizophrenia \\
 3  & Rezaei et al. (2023) & fMRI & RQA & DMLN, AD \\
 4  & Lameu et al. (2018) & --- & RQA & Small-world \& cluster network \\
@@ -655,17 +655,17 @@ Master Thesis\\[1cm]
 12 & Mo et al. (2022) & sEEG & RQA & DMN, epilepsy \\
 13 & Palanisamy et al. (2024) & EEG & RQA & Epilepsy \\
 14 & Ngamga et al. (2016) & EEG & RQA, RN & Epilepsy \\
-15 & Fan and Chou (2019) & EEG & RQA, RN & Epilepsy, seizure detection \\
+15 & Fan and Chou (2019) & EEG & RQA, RN & Epilepsy \\
 16 & Nunez et al. (2020) & EEG & RQA & AD \\
 17 & Mostafa et al. (2025) & EEG & RQA & AD diagnosis (LOSO) \\
 18 & Yang et al. (2019) & sEEG & RQA, CRQA & Epilepsy \\
 19 & Rangaprakash (2014) & EEG & CPR (CRQA-based) & Epilepsy \\
-20 & Heunis et al. (2018) & rsEEG & RQA & Autism spectrum disorder \\
+20 & Heunis et al. (2018) & rsEEG & RQA & Autism Spectrum Disorder \\
 21 & Timothy et al. (2017) & EEG & RQA--CRQA & MCI \\
 22 & Kashyap et al. (2019) & fMRI & RQA & Distinguish BNMs \\
-23 & Shalbaf et al. (2014) & EEG & CRQA (OPL) & Anesthesia depth monitoring \\
+23 & Shalbaf et al. (2014) & EEG & CRQA (OPL) & Anesthesia monitoring \\
 24 & Mihajlovi\'c (2019) & EEG & RQA & Cognitive tasks \\
-25 & Gao et al. (2020) & EEG & RQA, Approx. Entropy + CNN & Epilepsy detection \\
+25 & Gao et al. (2020) & EEG & RQA, Approx. Entropy + CNN & Epilepsy \\
 \bottomrule
 \end{tabularx}
 
@@ -1045,8 +1045,8 @@ Master Thesis\\[1cm]
 
 			\section{EEG Preprocessing and Filtering Procedure}
 
-			In the CHM-MIT dataset, 136 recordings in total from all the subjects, were identified 
-			containing the desired 22 EEG signals and presenting at least one epileptic seizure.
+			In the CHM-MIT dataset, \textbf{136 recordings} in total from all the subjects, were identified 
+			\textbf{containing} the desired 22 EEG signals and presenting \textbf{at least one epileptic seizure}.
 			Each of these recordings, was preprocessed through a multi-stage denoising 
 			and filtering pipeline as presented in Figure \ref{fig:preproc},
 			designed to achieve the trade-off alongside suppressing noise/removing artifacts 
@@ -1110,14 +1110,6 @@ Master Thesis\\[1cm]
 		These two parameters determine the way that the reconstruction will represent,
 		and how close it will get to the real underlying dynamics and reveal them without distortion.
 
-			\begin{figure}[H]
-				    \centering
-				    \includegraphics[width=0.8\linewidth]{ami.png}
-				    \caption{Calculation of $\tau$ using AMI for a sample EEG channel. The first minimum of the AMI function (green dashed line) is chosen to become the optimal $\tau$ to ensure independence between delay coordinates.}
-				    \label{fig:ami_plot}
-			\end{figure}
-
-
 
 		\subsection{Calculation of time delay \( \tau \)}
 			The time delay \( \tau \) can be estimated by applying the 
@@ -1138,7 +1130,16 @@ Master Thesis\\[1cm]
 			This value indicates a good compromise 
 			between independence (too small \( \tau \)) and irrelevance (too large \( \tau \)) 
 			of the coordinates in the embedding vector.
-				
+	
+			\begin{figure}[H]
+				    \centering
+				    \includegraphics[width=0.6\linewidth]{ami.png}
+				    \caption{Calculation of $\tau$ using AMI. The first minimum of the AMI function 
+				    (green dashed line) is chosen as the optimal $\tau$.}
+				    \label{fig:ami_plot}
+			\end{figure}
+
+			
 
 
 			\subsection{Estimating embedding dimension \( m \)}
@@ -1572,9 +1573,14 @@ Master Thesis\\[1cm]
 					These features aim to capture the complex synchronization patterns that can distinguish normal from epiletic states, 
 					constructing the base for subsequent machine learning classification.
 
-					In Figure \ref{fig:crpepileptic} an CRP of an epileptic window is presented and we can observe longer diagonal structures which
-					indicate increased synchronization between the two examined EEG channels.
-
+					In Figure \ref{fig:crpepileptic} an CRP of an epileptic window is presented.
+					As can be observed, the presence of long and recurrent diagonal line segments 
+					suggest extended periods during which both channels follow 
+					similar trajectories in the phase space, reflecting coordinated dynamics. 
+					The curvature and 
+					fragmentation of these diagonals suggest that this synchronization 
+					is nonstationary, but has evolving phase relationships over time. 
+					
 					\begin{figure}[h!]
 					    \centering
 					    \includegraphics[width=0.5\linewidth]{crp_epileptic.png} % Assuming you make a 2-panel figure
@@ -1758,6 +1764,10 @@ Master Thesis\\[1cm]
 				having a moderate radius fraction (e.g., $R = 0.15$--$0.20$) could provide a 
 				better balance between sensitivity and specificity in CRP analysis for the determinism metric.
 
+				In all subsequent analysis the radius fraction value, was set to 0.15, in order to 
+				achieve clear separation by preserving the contrast between recurrent and non-recurrent regions
+				in the CRPs, and for avoiding the DET saturation effect.
+
 
 				\begin{figure}[htbp]
 				    \centering
@@ -1931,7 +1941,7 @@ Master Thesis\\[1cm]
 				to overfitting and poor generalization under subject-independent protocols. 
 				The mean aggregation compresses the electrode-to-electrode CRQA interactions
 				tensor into a compact vector representing the overall coupling state 
-				of the whole EEG montage. Under the hypothesis of seizure-related 
+				of the whole EEG montage (a global synchrony descriptor). Under the hypothesis of seizure-related 
 				hypersynchronization, epileptic segments are supposed to present globally 
 				increased recurrence and determinism across multiple channel interactions, 
 				making their global averaged statistics carrying this
@@ -2214,7 +2224,7 @@ Master Thesis\\[1cm]
 					The repeated subject-level random splitting approach(\textit{patient-level}),
 					uses 19 patients as training subjects, and the rest 5 as testing subjects, in a 
 					equivalent 80-20\% split on the number of patients fashion. This approach
-					reduces variance when compared to LOSO by 
+					reduces variance when compared to LOSOCV by 
 					averaging performance over multiple randomly selected test subject subsets, 
 					while LOSO represents the most conservative evaluation strategy by testing 
 					on a single held-out subject in each fold.
@@ -2321,7 +2331,7 @@ where $\xi_i$ are the slack variables which allow misclassifications
 and $C>0$ is used controls the actual trade-off between the margin maximization 
 and training error minimization.
 
-As presented in Figure~\ref{svmmargin}, SVM searches for the hyperplane 
+As presented in Figure~\ref{svmmargin}\cite{svm_image}, SVM searches for the hyperplane 
 that will maximize the margin among the two classes. 
 From all the candidate separating hyperplanes, 
 the one with the largest margin is selected, 
@@ -2468,7 +2478,33 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 						\end{tabular}
 						\end{table}
 
-						
+				\subsection{Effect of subject-level window imbalance}
+
+			An osbervation on the window-based EEG classification performed, is the 
+			not equal number of extracted windows per subject (Figure~\ref{fig:normal-epileptic-patient}).
+			In the present dataset, this resulted in variability in the number of windows per patient, 
+			with certain subjects (p6) contributing much more samples than others. 
+			Although LOSOCV evaluation protocol was employed to 
+			ensure subject-independent testing, 
+			such window-level imbalance may still influence the training process, 
+			as classifiers are optimized over individual windows and not on subjects.
+
+			For assessing the impact of this effect, an additional analysis was conducted by 
+			repeating the LOSO evaluation with excluding the most heavily represented subject (p6), 
+			who also presented lower per-patient classification performance comparing to the other patients. 
+			When this subject was removed, the mean classification accuracy increased 
+			from $0.899 \pm 0.068$ to $0.905 \pm 0.062$, while the mean F1-score 
+			improved from $0.885 \pm 0.093$ to $0.896 \pm 0.076$. 
+			In the same manner UAR remained stable, 
+			with slight increase from $0.904 \pm 0.059$ to $0.906 \pm 0.061$. 
+			Sensitivity and specificity showed only negligible changes.
+
+			These results indicate that, despite the imbalance in window counts across subjects, 
+			the overall classification performance is not dominated by any single patient. 
+			The limited performance gain observed after exclusion suggests 
+			that the lower per-patient scores primarily reflect subject-specific signal characteristics and 
+			not a systematic bias in the learning process. 
+					
 				
 
 
@@ -2754,14 +2790,18 @@ To address class imbalance, the SVM was configured with \texttt{class\_weight="b
 
 					\section{Comparison of Classifiers under Subject-Independent Evaluation}
 
-The three classifiers --- k-Nearest Neighbors (kNN), Random Forest (RF), and Support Vector Machine (SVM) with RBF kernel --- were evaluated using a strict Leave-One-Subject-Out (LOSO) cross-validation protocol. This setup ensures realistic estimation of generalization performance to completely unseen patients, which is critical in biomedical and physiological signal classification tasks.
+The three classifiers, were evaluated using LOSOCV protocol. 
+This setup ensures realistic estimation of generalization performance on 
+unseen patients, which is critical in biomedical and 
+physiological signal classification tasks.
 
-Table~\ref{tab:loso_comparison} presents the mean and standard deviation of the main performance metrics across the 24 patients in LOSO evaluation.
+Table~\ref{tab:loso_comparison} presents the mean and standard deviation of the main performance metrics 
+across the 24 patients in LOSO evaluation.
 
 \begin{table}[ht]
 \centering
 \small
-\caption{Leave-One-Subject-Out (LOSO) classification performance comparison across the three classifiers. Results are reported as mean $\pm$ standard deviation over 24 patients.}
+\caption{LOSOCV classification performance comparison. Results are reported as mean $\pm$ standard deviation over 24 patients.}
 \label{tab:loso_comparison}
 \begin{tabular}{lccccc}
 \hline
@@ -2817,7 +2857,7 @@ These results highlight that:
 					    \label{fig:loso_model}
 					\end{figure}
 					
-In order to determine whether the observed differences in classification performance were consistent across subjects and not due to random variation, a statistical comparison between classifiers was conducted. Since the Leave-One-Subject-Out (LOSO) protocol produces one performance score per patient for each model, paired statistical testing was applied across the 24 subjects.
+In order to determine whether the observed differences in classification performance were consistent across subjects and not due to random variation, a statistical comparison between classifiers was conducted. Since the LOSOCV protocol produces one performance score per patient for each model, paired statistical testing was applied across the 24 subjects.
 
 The UAR was selected as the main evaluation metric, because of the robustness it has under class imbalance. 
 Pairwise comparisons between classifiers were performed using 
@@ -2869,7 +2909,7 @@ These findings reinforce the conclusion that SVM constitutes the most reliable c
 					\section{Model Stability and Generalization}
 					
 
-Model stability across subjects was assessed through the standard deviation of classification metrics in the Leave-One-Subject-Out (LOSO) evaluation. Among the three classifiers, \textbf{SVM with RBF kernel} exhibited the lowest variance on most performance metrics -- particularly accuracy ($\pm 0.068$), UAR ($\pm 0.059$), and sensitivity ($\pm 0.059$) -- indicating superior robustness to inter-subject variability. Random Forest showed moderate to high variance (accuracy $\pm 0.083$, specificity $\pm 0.157$), while kNN displayed the highest instability in sensitivity ($\pm 0.127$) and considerable variation overall, reflecting its strong dependence on local sample distributions.
+Model stability across subjects was assessed through the standard deviation of classification metrics in the Leave-One-Subject-Out (LOSO) evaluation. Among the three classifiers, SVM exhibited the lowest variance on most performance metrics -- particularly accuracy ($\pm 0.068$), UAR ($\pm 0.059$), and sensitivity ($\pm 0.059$) -- indicating superior robustness to inter-subject variability. Random Forest showed moderate to high variance (accuracy $\pm 0.083$, specificity $\pm 0.157$), while kNN displayed the highest instability in sensitivity ($\pm 0.127$) and considerable variation overall, reflecting its strong dependence on local sample distributions.
 
 The LOSO protocol represents a highly challenging validation setting, as the classifier must generalize to completely unseen subjects. The fact that all three models achieved consistent above-chance performance under this strict subject-independent protocol demonstrates that the extracted feature representations contain substantial discriminative, subject-independent information.
 
@@ -3127,21 +3167,24 @@ This behavior aligns with p6's visualization  on its scatter plot.
 			\section{Recording Session Variability}
 
 			While subject-independent generalization was addressed using a Leave-One-Subject-Out (LOSO) 
-			evaluation protocol, another source of variability in EEG analysis arises 
-			from differences between recording sessions. 
-			Even for the same subject, EEG signals can vary across sessions due to changes in electrode placement, 
-			impedance and contact quality, 
+			evaluation protocol, another source of variability in EEG analysis has its origins
+			on the differences between recording sessions. 
+			Even for the same subject, EEG signals can vary across sessions, because of changes in the placement
+			of electrodes,
+			impedance and quality of electrode contact, 
 			reference configuration, hardware characteristics, 
-			and the patient’s physiological or behavioral state \cite{Huang2023,Apicella2024}. 
-			These session-level differences can alter signal amplitude, spectral characteristics, 
-			noise profiles, and inter-channel relationships independently of the underlying neural dynamics.
-			CRQA features provide the ability to quantify dynamical coupling between channels. 
-			Such coupling metrics may be sensitive not only to seizure synchronization but 
-			also in session-dependent recording conditions. 
-			Therefore, while the LOSO protocol ensures generalization across subjects, 
-			it does not control the variability introduced by separate recording sessions. 
+			and subject’s physiological or behavioral state \cite{Huang2023,Apicella2024}. 
+			These session-level differences can alter signal amplitude, 
+			spectral characteristics, 
+			noise profiles, and inter-channel relationships in a manner non-dependent on the 
+			underlying brain dynamics.
+			CRQA features provided the ability to quantify dynamical 
+			coupling between channels with a global synchrony descriptor, but
+			metrics may be sensitive also in session-dependent recording conditions. 
+			Therefore, while the LOSO protocol, 
+			ensures generalization across subjects, 
+			it does not posses any control on the variability introduced by different recording sessions. 
 			This remains an important consideration for real-world deployment in the application domain.
-
 
 
 			\newpage
@@ -3151,7 +3194,7 @@ This behavior aligns with p6's visualization  on its scatter plot.
 		\chapter{Future Work}
 		%\section{Future Work}
 
-			Although the present study evaluated the ability of how the 
+			Although the present thesis evaluated the ability of how the 
 			CRQA features can effectively 
 			give a characterization of the dynamics, laying in the seizure and normal segments in scalp EEG, 
 			several other research directions remain open. 

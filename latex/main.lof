@@ -9,7 +9,7 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Filtered vs original recording (DB6 wavelet)}}{23}{}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Preprocessing and filtering pipeline of EEG recordings}}{24}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Calculation of $\tau $ using AMI for a sample EEG channel. The first minimum of the AMI function (green dashed line) is chosen to become the optimal $\tau $ to ensure independence between delay coordinates.}}{26}{}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Calculation of $\tau $ using AMI. The first minimum of the AMI function (green dashed line) is chosen as the optimal $\tau $.}}{26}{}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Calculation of the embedding dimension using the FNN scheme.}}{27}{}%
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Schematic illustration of false neighbors. In insufficient embedding dimension (left), points A and C appear neighbors due to projection. When proper embedding is employed(right), their true separation can be observed.}}{28}{}%
 \contentsline {figure}{\numberline {5.4}{\ignorespaces 3D phase space reconstruction for a 3-second EEG segment's channel.}}{29}{}%
@@ -32,12 +32,12 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {8.1}{\ignorespaces SVM maximization of margin among different classes}}{54}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces SVM LOSOCV results.}}{63}{}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces LOSOCV results against utilized models}}{64}{}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{66}{}%
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Temporal evolution of CRQA metrics}}{67}{}%
-\contentsline {figure}{\numberline {9.5}{\ignorespaces RR vs. DET for a "good" performer.}}{68}{}%
-\contentsline {figure}{\numberline {9.6}{\ignorespaces RR vs. DET for a "bad" performer.}}{68}{}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces SVM LOSOCV results.}}{64}{}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces LOSOCV results against utilized models}}{65}{}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Per-patient heatmaps for RQA features. Left: normal/epileptic EEG segments presenting mean RR. Right: normal/epileptic EEG segments presenting mean DET}}{67}{}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Temporal evolution of CRQA metrics}}{68}{}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces RR vs. DET for a "good" performer.}}{69}{}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces RR vs. DET for a "bad" performer.}}{69}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

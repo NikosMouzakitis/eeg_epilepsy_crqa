@@ -10,7 +10,7 @@
 \contentsline {section}{\numberline {4.3}EEG Preprocessing and Filtering Procedure}{23}{}%
 \contentsline {chapter}{\numberline {5}Phase space reconstruction}{25}{}%
 \contentsline {section}{\numberline {5.1}Determination of Embedding Parameters}{25}{}%
-\contentsline {subsection}{\numberline {5.1.1}Calculation of time delay \( \tau \)}{26}{}%
+\contentsline {subsection}{\numberline {5.1.1}Calculation of time delay \( \tau \)}{25}{}%
 \contentsline {subsection}{\numberline {5.1.2}Estimating embedding dimension \( m \)}{26}{}%
 \contentsline {chapter}{\numberline {6}Recurrence Quantification Analysis (RQA)}{30}{}%
 \contentsline {section}{\numberline {6.1}The Recurrence Plot (RP)}{30}{}%
@@ -36,23 +36,24 @@
 \contentsline {subsection}{\numberline {8.3.1}Hyperparameters}{54}{}%
 \contentsline {paragraph}{Kernel Functions}{55}{}%
 \contentsline {paragraph}{Other Optimization Parameters}{55}{}%
+\contentsline {subsection}{\numberline {8.3.2}Effect of subject-level window imbalance}{57}{}%
 \contentsline {section}{\numberline {8.4}Random Forest Classification}{57}{}%
-\contentsline {subsection}{\numberline {8.4.1}Hyperparameters}{57}{}%
-\contentsline {section}{\numberline {8.5}k-Nearest Neighbors Classification}{59}{}%
-\contentsline {subsection}{\numberline {8.5.1}Hyperparameters}{59}{}%
-\contentsline {chapter}{\numberline {9}Classification Results and Comparative Analysis}{62}{}%
-\contentsline {section}{\numberline {9.1}Comparison of Classifiers under Subject-Independent Evaluation}{62}{}%
-\contentsline {section}{\numberline {9.2}Model Stability and Generalization}{65}{}%
-\contentsline {section}{\numberline {9.3}Computational Considerations}{65}{}%
-\contentsline {section}{\numberline {9.4}Summary of Findings}{65}{}%
-\contentsline {chapter}{\numberline {10}Discussion}{69}{}%
-\contentsline {chapter}{\numberline {11}Limitations}{71}{}%
-\contentsline {section}{\numberline {11.1}Loss of spatial/topological information due to averaging}{71}{}%
-\contentsline {section}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{71}{}%
-\contentsline {section}{\numberline {11.3}Constant embedding parameters}{72}{}%
-\contentsline {section}{\numberline {11.4}Dataset-specific constraints}{72}{}%
-\contentsline {section}{\numberline {11.5}Recording Session Variability}{72}{}%
-\contentsline {chapter}{\numberline {12}Future Work}{74}{}%
-\contentsline {section}{\numberline {12.1}Graph-Based Representation of Brain Connectivity}{74}{}%
-\contentsline {section}{\numberline {12.2}Adaptive, Patient-Specific CRQA Configuration}{75}{}%
-\contentsline {section}{\numberline {12.3}Validation on Additional Epilepsy Datasets}{75}{}%
+\contentsline {subsection}{\numberline {8.4.1}Hyperparameters}{58}{}%
+\contentsline {section}{\numberline {8.5}k-Nearest Neighbors Classification}{60}{}%
+\contentsline {subsection}{\numberline {8.5.1}Hyperparameters}{60}{}%
+\contentsline {chapter}{\numberline {9}Classification Results and Comparative Analysis}{63}{}%
+\contentsline {section}{\numberline {9.1}Comparison of Classifiers under Subject-Independent Evaluation}{63}{}%
+\contentsline {section}{\numberline {9.2}Model Stability and Generalization}{66}{}%
+\contentsline {section}{\numberline {9.3}Computational Considerations}{66}{}%
+\contentsline {section}{\numberline {9.4}Summary of Findings}{66}{}%
+\contentsline {chapter}{\numberline {10}Discussion}{70}{}%
+\contentsline {chapter}{\numberline {11}Limitations}{72}{}%
+\contentsline {section}{\numberline {11.1}Loss of spatial/topological information due to averaging}{72}{}%
+\contentsline {section}{\numberline {11.2}Absence of artifact-free ground truth EEG for denoising evaluation}{72}{}%
+\contentsline {section}{\numberline {11.3}Constant embedding parameters}{73}{}%
+\contentsline {section}{\numberline {11.4}Dataset-specific constraints}{73}{}%
+\contentsline {section}{\numberline {11.5}Recording Session Variability}{73}{}%
+\contentsline {chapter}{\numberline {12}Future Work}{75}{}%
+\contentsline {section}{\numberline {12.1}Graph-Based Representation of Brain Connectivity}{75}{}%
+\contentsline {section}{\numberline {12.2}Adaptive, Patient-Specific CRQA Configuration}{76}{}%
+\contentsline {section}{\numberline {12.3}Validation on Additional Epilepsy Datasets}{76}{}%

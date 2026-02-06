@@ -15,15 +15,15 @@
 \contentsline {table}{\numberline {8.1}{\ignorespaces SVM performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{56}{}%
 \contentsline {table}{\numberline {8.2}{\ignorespaces LOSO classification performance using SVM with RBF kernel ($C=100$, $\gamma =0.1$). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{56}{}%
 \contentsline {table}{\numberline {8.3}{\ignorespaces Per-patient LOSO performance using SVM with RBF kernel ($C=100$, $\gamma =0.1$).}}{56}{}%
-\contentsline {table}{\numberline {8.4}{\ignorespaces Random Forest performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{58}{}%
-\contentsline {table}{\numberline {8.5}{\ignorespaces LOSO classification performance using Random Forest (300 trees). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{58}{}%
+\contentsline {table}{\numberline {8.4}{\ignorespaces Random Forest performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{59}{}%
+\contentsline {table}{\numberline {8.5}{\ignorespaces LOSO classification performance using Random Forest (300 trees). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{59}{}%
 \contentsline {table}{\numberline {8.6}{\ignorespaces Per-patient LOSO performance using Random Forest (300 trees).}}{59}{}%
-\contentsline {table}{\numberline {8.7}{\ignorespaces kNN performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{60}{}%
+\contentsline {table}{\numberline {8.7}{\ignorespaces kNN performance comparison between patient-level and patient-agnostic evaluation protocols (500 Monte Carlo iterations).}}{61}{}%
 \contentsline {table}{\numberline {8.8}{\ignorespaces LOSO classification performance using k-Nearest Neighbors ($k=11$, Euclidean distance). Results are reported as mean $\pm $ standard deviation across 24 patients.}}{61}{}%
-\contentsline {table}{\numberline {8.9}{\ignorespaces Per-patient LOSO performance using kNN ($k=11$, Euclidean distance).}}{61}{}%
+\contentsline {table}{\numberline {8.9}{\ignorespaces Per-patient LOSO performance using kNN ($k=11$, Euclidean distance).}}{62}{}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {9.1}{\ignorespaces Leave-One-Subject-Out (LOSO) classification performance comparison across the three classifiers. Results are reported as mean $\pm $ standard deviation over 24 patients.}}{62}{}%
-\contentsline {table}{\numberline {9.2}{\ignorespaces Pairwise statistical comparison of classifiers using per-patient LOSO UAR scores (n=24). Holm-corrected p-values are reported.}}{64}{}%
+\contentsline {table}{\numberline {9.1}{\ignorespaces LOSOCV classification performance comparison. Results are reported as mean $\pm $ standard deviation over 24 patients.}}{63}{}%
+\contentsline {table}{\numberline {9.2}{\ignorespaces Pairwise statistical comparison of classifiers using per-patient LOSO UAR scores (n=24). Holm-corrected p-values are reported.}}{65}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
